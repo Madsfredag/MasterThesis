@@ -1,0 +1,61 @@
+\newgeometry{
+    left=28mm,
+    right=28mm,
+    top=25mm,
+    bottom=25mm,
+    ignoreheadfoot
+}
+
+\begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+    \normalfont\rmfamily
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{0pt}
+
+    \includegraphics[width=28mm]{gfx/au-logo.pdf}\par
+
+    \vspace{10mm}
+    {\large\myUni\par}
+
+    \vspace{4mm}
+    {\small\scshape\myDegree\par}
+
+    \vspace{20mm}
+    {\fontsize{23}{29}\selectfont\bfseries\color{aublue}
+        \myTitle\par}
+
+    \vspace{9mm}
+    {\fontsize{14}{19}\selectfont
+        \mySubtitle\par}
+
+    \vfill
+
+    \foreach \studentname/\studentnumber in \authors {
+        {\large\bfseries\studentname\par}
+        \vspace{2mm}
+        {\normalsize Student number: \studentnumber\par}
+    }
+
+    \vspace{10mm}
+    {\normalsize AU supervisor: \myProf, \mySupervisor}
+
+    \vspace{2mm}
+    {\normalsize\myGroup\par}
+
+    \vfill
+
+    {\small
+        \myDepartment\par
+        \myFaculty\par}
+
+    \vspace{5mm}
+    {\normalsize\myTime\par}
+    \includegraphics[
+    trim=0 0 135bp 0,
+    clip,
+    width=90mm
+]{gfx/logo.pdf}\par
+\end{titlepage}
+
+\restoregeometry

@@ -1,0 +1,79 @@
+\chapter{Background}
+\label{cha:background}
+
+\section{Observability and Operational Telemetry}
+\label{sec:background:observability}
+
+Observability concerns the extent to which a system's internal behaviour can
+be understood through the information it exposes. In distributed software,
+this information includes operational telemetry such as logs, metrics and
+traces. Monitoring uses such information to track selected aspects of system
+behaviour, while observability supports investigation of the conditions
+behind that behaviour \parencite{usman2022observability}. These activities
+are closely related. For example, an alert about an increased error rate
+identifies a condition requiring attention; explaining the increase requires
+evidence about the affected requests and components.
+
+\emph{Logs} record individual events emitted by an application or another
+system component. They commonly include timestamps and messages describing
+what occurred. A log entry can provide details about a failed operation, but
+it is not necessarily associated with a particular user request. Additional
+context is needed to connect that event to activity elsewhere in the system
+\parencite{opentelemetry2026observability}. This distinction matters when
+several requests are processed concurrently: observing an error during an
+incident does not, by itself, establish which request it concerns.
+
+\emph{Metrics} express numerical properties of a system over time, such as
+resource utilisation, request rates and response times. They support
+identification of changes in behaviour and the definition of alert conditions
+\parencite{usman2022observability}. Metrics can summarise many observations;
+for example, an error rate describes the proportion of unsuccessful requests
+over a time interval. That summary can indicate the scale of a problem, while
+further information is needed to explain an individual failure.
+
+\emph{Distributed traces} describe the execution of a request across
+participating components. A trace consists of \emph{spans}, each representing
+an operation with timing information and associated attributes
+\parencite{opentelemetry2026observability}. Relationships between spans make
+it possible to follow the operations triggered by a request and investigate
+where time was spent \parencite{ashok2024traceweaver}. The W3C Trace Context
+standard defines a common format for propagating identifiers between
+participating systems, supporting the association of observations with the
+same distributed trace \parencite{w3c2021tracecontext}.
+
+Trace coverage depends on the available instrumentation and propagation of
+context. Research on trace reconstruction highlights that components which
+cannot be instrumented can leave gaps in request traces
+\parencite{ashok2024traceweaver}. Consequently, a recorded trace should not
+automatically be treated as a complete account of every component involved.
+For example, an absent span alone cannot establish that a request never
+reached the corresponding component.
+
+The complementary roles of these signals can be illustrated by a hypothetical
+application failure. A metric might show an increase in unsuccessful
+requests during a particular interval. A trace of one failed request might
+identify an unsuccessful database operation, while a log associated with
+that operation might record an authentication rejection. The metric
+describes a broader change in service behaviour; the linked trace and log
+provide evidence about an individual failure. This evidence supports
+investigating the authentication rejection, but further information is
+needed to explain why it occurred. The rejection alone does not establish
+malicious activity or show that other failed requests have the same cause.
+
+Interpreting these observations also requires attention to dependencies.
+Research on microservice diagnosis shows how performance problems can
+propagate between dependent components, so the location where a symptom is
+observed may differ from the origin of the problem
+\parencite{gan2021sage}. Correlation helps establish which observations
+belong to the same activity, while diagnosis requires assessing what those
+observations imply about the failure.
+
+Telemetry can also provide the basis for derived features used in analysis.
+In the hypothetical example, a count of recorded authentication rejections
+for a service within a defined interval could be calculated from its logs.
+This summary describes a pattern across events whose relevance depends on
+the problem being investigated. Research on machine learning in security
+shows how models can exploit incidental patterns unrelated to their
+intended task \parencite{arp2022dosdonts}. This motivates examining the
+meaning and diagnostic relevance of telemetry and derived features alongside
+their availability and correlation across systems.

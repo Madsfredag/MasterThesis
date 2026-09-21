@@ -1,0 +1,126 @@
+\chapter{Introduction}
+\label{cha:introduction}
+
+\section{Context and Motivation}
+\label{sec:introduction:context}
+
+A failure in a distributed application can become visible in a component
+other than the one in which it originates. Research on microservice
+performance debugging shows how problems propagate through dependencies,
+complicating the identification of their source \parencite{gan2021sage}.
+Diagnosing such failures therefore requires relating observations across
+components and understanding how their interactions contribute to the
+observed behaviour.
+
+This challenge provides the operational context for the present thesis,
+conducted in collaboration with Norlys. The company's \emph{Operations with
+AI Agents} specification describes an application request path through
+Cloudflare, Azure Firewall, Azure infrastructure and the application itself.
+According to the specification, investigating a failing endpoint involves
+consulting these systems separately and manually correlating timestamps and
+request identifiers \parencite[Background]{norlys_operations_agents}.
+The task is to assemble this distributed information into an explanation of
+the failure that can support an appropriate corrective action.
+
+Correlation provides a basis for connecting these observations. The W3C Trace
+Context standard, for example, defines identifiers that can be propagated
+between participating systems to associate their activity with a common
+distributed trace \parencite{w3c2021tracecontext}. The interpretation of the
+resulting evidence also depends on which information is relevant to the
+problem being investigated. Research on machine learning in security shows that models can rely on patterns unrelated to the underlying security problem, leading to misleading assessments of their capabilities.
+\parencite{arp2022dosdonts}. For the present project, this motivates examining
+both the available telemetry and the features derived from it as potential
+evidence for security-related diagnosis.
+
+Large language model (LLM) agents offer a possible approach to coordinating
+the investigation across these sources. ReAct combines model reasoning with
+actions that retrieve observations from external environments
+\parencite{yao2023react}, while AutoGen supports interaction between agents
+with different roles, tools and levels of human participation
+\parencite{wu2023autogen}. These approaches motivate investigating whether
+specialised agents can gather and interpret telemetry from different layers
+of the request path and combine their findings into a supported diagnosis.
+The Norlys specification requires conclusions to be accompanied by evidence
+and allows an inconclusive outcome when the available information is
+insufficient \parencite[AC-4]{norlys_operations_agents}.
+
+Extending this process to remediation introduces a further requirement:
+changes must be controlled and their effects assessed. The NIST AI Risk
+Management Framework emphasises testing in the intended context, monitoring
+and human intervention \parencite[pp.~14--15]{tabassi2023airmf}. For this
+project, Norlys specifies an action allowlist, dry-run validation, human
+approval, recovery verification and rollback
+\parencite[AC-5]{norlys_operations_agents}. Whether these controls
+enable effective remediation while preventing unintended changes forms part
+of the investigation.
+
+The objective of this thesis is to design and evaluate a multi-agent proof
+of concept using real operational telemetry from the selected
+Cloudflare-to-Azure request path. The investigation brings together telemetry
+correlation, the identification of security-relevant data and derived
+features, evidence-based diagnosis and human-approved remediation. A
+systematic literature review will provide the research basis for the work.
+
+\section{Problem Statement and Research Questions}
+\label{sec:introduction:research-questions}
+
+This thesis addresses the following problem statement:
+
+\begin{quote}
+How can a multi-agent AI system be designed and evaluated to correlate
+telemetry from multiple operational systems and support evidence-based
+diagnosis and safe, human-approved remediation of controlled failures in a
+non-production Cloudflare-to-Azure application request path?
+\end{quote}
+
+The investigation is structured around four research questions:
+
+\begin{description}
+    \item[RQ1:] How can a multi-agent system access and correlate telemetry
+    from Cloudflare, Azure Firewall, Azure infrastructure, and applications
+    to reconstruct the path of a failing endpoint request?
+
+    \item[RQ2:] Which telemetry data and derived features are relevant for
+    diagnosing security-related problems along the Cloudflare-to-Azure
+    application request path?
+
+    \item[RQ3:] How accurately and consistently can the system identify the
+    faulty layer/component and support its diagnosis with relevant evidence
+    across different scenarios?
+
+    \item[RQ4:] How safely and effectively can the system plan and execute
+    allow-listed remediations under human approval, including dry-run
+    validation, recovery verification and rollback?
+\end{description}
+
+\section{Scope and Delimitations}
+\label{sec:introduction:scope}
+
+Norlys' wider \emph{Centralized Observability Platform Story} specifies a
+platform for telemetry ingestion, normalisation, protection of sensitive data,
+analysis and remediation. It explicitly states:
+\enquote{This is a large cross-cutting story and should be decomposed into
+smaller tasks and delivery milestones.}
+\parencite[Description]{norlys_observability_spec}
+The thesis addresses the focused \emph{Operations with AI Agents} proof of
+concept within this wider initiative. Its scope covers investigation across
+the four specified telemetry sources and human-approved remediation within
+a designated test path. Platform-wide ingestion, normalisation, data
+obfuscation and retention remain responsibilities of the parent initiative
+\parencite[Scope]{norlys_operations_agents}.
+
+The security-related investigation concerns telemetry and derived features
+associated with the same request path. The findings will be interpreted in
+relation to the available data, the selected environment and the scenarios
+examined. These boundaries also frame the assessment of diagnostic
+effectiveness and remediation safety.
+
+\section{Main Contributions}
+\label{sec:introduction:contributions}
+
+% TODO: Complete after implementation and evaluation.
+
+\section{Outline of the Thesis}
+\label{sec:introduction:outline}
+
+% TODO: Complete when the chapter structure is stable.
