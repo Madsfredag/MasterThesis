@@ -113,3 +113,65 @@
   url       = {https://www.usenix.org/conference/usenixsecurity22/presentation/arp},
   urldate   = {2026-09-18}
 }
+
+% Background section 2.2. Sources checked on 22 September 2026.
+% Years below refer to the documentation's stated last-update year.
+% These sources describe product capabilities, not the confirmed Norlys setup.
+
+% Proxy status: overview and Benefits.
+% Supports the proxied-request path, origin-server meaning, filtering and caching.
+@online{cloudflare2026proxy,
+  author  = {{Cloudflare}},
+  title   = {Proxy status},
+  year    = {2026},
+  url     = {https://developers.cloudflare.com/dns/proxy-status/},
+  urldate = {2026-09-22},
+  note    = {Documentation last updated 21 April 2026}
+}
+
+% WAF overview and Security Events.
+% Supports inspection of request properties and visibility of rule matches.
+% Does not establish that all requests or every field are available to the PoC.
+@online{cloudflare2026waf,
+  author  = {{Cloudflare}},
+  title   = {{Cloudflare} Web Application Firewall},
+  year    = {2026},
+  url     = {https://developers.cloudflare.com/waf/},
+  urldate = {2026-09-22},
+  note    = {Documentation last updated 19 August 2026}
+}
+
+% Outbound connectivity and Inbound connectivity.
+% Application-rule behaviour must not be generalised to every inbound request.
+@online{microsoft2026firewallrules,
+  author  = {{Microsoft}},
+  title   = {Configure {Azure Firewall} rules},
+  year    = {2026},
+  url     = {https://learn.microsoft.com/en-us/azure/firewall/rule-processing},
+  urldate = {2026-09-22},
+  note    = {Documentation last updated 2 April 2026}
+}
+
+% Introduction and Structured Azure Firewall logs.
+% Supports traffic fields and allow/deny observations.
+% Actual collection, tables and field availability still require inspection.
+@online{microsoft2026firewallmonitor,
+  author  = {{Microsoft}},
+  title   = {Monitor {Azure Firewall}},
+  year    = {2026},
+  url     = {https://learn.microsoft.com/en-us/azure/firewall/monitor-firewall},
+  urldate = {2026-09-22},
+  note    = {Documentation last updated 19 August 2026}
+}
+
+% Azure resources and Apps and workloads / Application data.
+% Supports activity logs, platform metrics, resource logs and app telemetry.
+% Application Insights capabilities are described without claiming it is enabled.
+@online{microsoft2026monitordata,
+  author  = {{Microsoft}},
+  title   = {{Azure Monitor} data sources and data collection methods},
+  year    = {2026},
+  url     = {https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/data-sources},
+  urldate = {2026-09-22},
+  note    = {Documentation last updated 7 August 2026}
+}

@@ -79,3 +79,68 @@ shows how models can exploit incidental patterns unrelated to their
 intended task \parencite{arp2022dosdonts}. This motivates examining the
 meaning and diagnostic relevance of telemetry and derived features alongside
 their availability and correlation across systems.
+
+
+\section{The Cloudflare-to-Azure Request Path}
+\label{sec:background:request-path}
+
+The Norlys use case describes a request path through Cloudflare, Azure
+Firewall, Azure infrastructure and the application
+\parencite[Background]{norlys_operations_agents}. These layers perform
+different tasks and provide different views of a failure. The path is a
+conceptual overview. The exact resources and network routes depend on the
+selected deployment.
+
+\noindent\textbf{Cloudflare.} For a hostname with proxying enabled,
+Cloudflare receives web traffic on behalf of the \emph{origin server},
+which hosts the website or application. This allows Cloudflare to apply
+services such as security filtering and caching
+\parencite{cloudflare2026proxy}. Its web application firewall (WAF) checks
+incoming web and API requests against rules. These rules can use request
+properties such as the URL path, headers and body content. Cloudflare
+Security Events provides information about requests that matched security
+rules \parencite{cloudflare2026waf}. This evidence can help an investigation
+determine whether a security rule affected a request before it reached
+the application.
+
+\noindent\textbf{Azure Firewall.} Azure Firewall controls traffic through
+configured rules. The rules it evaluates depend on their type and the
+direction of the connection. For example, application rules are used for
+supported outbound traffic and are not applied to inbound connections
+\parencite{microsoft2026firewallrules}. Its logs can record source and
+destination addresses, port numbers, protocols and whether traffic was
+allowed or denied. These fields help describe the connection and the
+firewall's decision \parencite{microsoft2026firewallmonitor}. A denied
+connection shows that traffic was blocked. Further evidence is needed to
+decide whether the block was intended or caused by a configuration error.
+
+\noindent\textbf{Azure infrastructure.} Here, infrastructure refers to the
+resources that host the application and route traffic to it. Azure exposes
+several types of telemetry about these resources. Platform metrics describe
+resource behaviour over time, while resource logs describe operations
+within a resource. The Azure activity log records subscription-level
+events, including configuration changes
+\parencite{microsoft2026monitordata}. These sources help distinguish a
+problem with the hosting environment from an error recorded by the
+application. The available metrics and logs depend on the resource type
+and its monitoring configuration.
+
+\noindent\textbf{The application.} Application telemetry provides evidence
+about the processing of a request. When enabled, Application Insights can
+collect information about application requests, exceptions and calls to
+dependencies \parencite{microsoft2026monitordata}. A dependency is another
+component that the application uses, such as a database or an external
+service. This information can help explain why a request failed after it
+reached the application.
+
+The difference between these views can be illustrated by a hypothetical
+request that reaches the application but fails while waiting for a database
+response. A firewall log might show an allowed connection, while application
+telemetry records the database timeout. Allowing the connection does not
+mean that the application completed the request successfully. The records
+must also be linked to the same activity before they can support a common
+explanation. This is consistent with research showing that problems can
+affect several dependent components
+\parencite{gan2021sage}. The purpose of examining the request path is to
+connect these observations and identify where further investigation is
+needed.
