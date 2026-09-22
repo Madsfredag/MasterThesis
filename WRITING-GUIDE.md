@@ -40,7 +40,9 @@ For example:
 
 Use British spelling consistently. Introduce abbreviations on first use.
 Explain technical terms before relying on them. Do not use complicated
-language merely to sound academic.
+language merely to sound academic. Avoid semicolons in thesis prose.
+Use full stops or rewrite the sentence instead. Explain abstract concepts
+with a short concrete example where it helps the reader.
 
 Use numbered sections for substantial topics. Use occasional bold paragraph
 lead-ins to distinguish closely related concepts within a section, such as
@@ -51,7 +53,7 @@ Logs, Metrics and Distributed traces. Do not add a heading to every paragraph.
 Prefer research papers from 2020 onwards. Use standards and official
 documentation where they are the appropriate source. Books are not the
 default source. Internal Norlys specifications support company context and
-requirements; they are not evidence that the proposed system is effective.
+requirements. They are not evidence that the proposed system is effective.
 
 Read the relevant part of a source before citing it. Match each claim to
 what the source actually establishes and retain qualifications and limits.
@@ -64,14 +66,17 @@ urldate. Keep numeric references ordered by first citation using
 sorting=none. Never invent a publication, result or visit date.
 
 A systematic literature review requires an explicit search and selection
-method; collecting sources for a draft does not by itself constitute that
-review. The review protocol still needs to be developed.
+method. Collecting sources for a draft does not by itself constitute that
+review. The review protocol still needs to be developed. Explain the systematic
+literature review method in Methodology and present its findings in State
+of the Art. The Introduction does not need a separate sentence announcing
+the review.
 
 ## Chapter roles
 
 | Chapter | Purpose |
 | --- | --- |
-| 1. Introduction | Motivate the problem; introduce the objective, problem statement, four RQs and scope. |
+| 1. Introduction | Motivate the problem and introduce the objective, problem statement, four RQs and scope. |
 | 2. Background | Explain established concepts needed to understand the thesis. |
 | 3. State of the Art | Present and compare relevant research identified through the systematic literature review. |
 | 4. Problem Analysis and Requirements | Analyse the Norlys use case, constraints, requirements and success criteria. |
@@ -99,7 +104,7 @@ introducing the questions.
 
 Use the agreed problem statement and research questions unless Mads
 explicitly changes them. The current problem statement retains
-"non-production"; the planned data is real operational telemetry, not mock
+"non-production". The planned data is real operational telemetry, not mock
 data. Do not silently reinterpret either statement.
 
 Do not present tools, experiments, comparison baselines or detailed
@@ -118,7 +123,7 @@ enough evidence and the structure is stable.
 
 Keep A4 paper and the existing oneside setting. The proposed body layout
 uses equal 28.5 mm side margins, with 25 mm at top and bottom including the
-header/footer area. The side margins approximate the friend's PDF; that PDF
+header/footer area. The side margins approximate the friend's PDF. That PDF
 uses US Letter, so page breaks and text width will not be identical.
 The title page retains its separate geometry settings.
 

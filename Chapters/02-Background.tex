@@ -11,7 +11,7 @@ traces. Monitoring uses such information to track selected aspects of system
 behaviour, while observability supports investigation of the conditions
 behind that behaviour \parencite{usman2022observability}. These activities
 are closely related. For example, an alert about an increased error rate
-identifies a condition requiring attention; explaining the increase requires
+identifies a condition requiring attention. Explaining the increase requires
 evidence about the affected requests and components.
 
 \noindent\textbf{Logs.} A log records events emitted by an application or
@@ -27,36 +27,36 @@ incident does not, by itself, establish which request it concerns.
 over time, such as resource utilisation, request rates and response times.
 They support
 identification of changes in behaviour and the definition of alert conditions
-\parencite{usman2022observability}. Metrics can summarise many observations;
-for example, an error rate describes the proportion of unsuccessful requests
+\parencite{usman2022observability}. Metrics can summarise many observations.
+For example, an error rate describes the proportion of unsuccessful requests
 over a time interval. That summary can indicate the scale of a problem, while
 further information is needed to explain an individual failure.
 
-\noindent\textbf{Distributed traces.} A distributed trace describes the
-execution of a request across participating components. It consists of
-\emph{spans}, each representing
-an operation with timing information and associated attributes
-\parencite{opentelemetry2026observability}. Relationships between spans make
-it possible to follow the operations triggered by a request and investigate
-where time was spent \parencite{ashok2024traceweaver}. The W3C Trace Context
-standard defines a common format for propagating identifiers between
-participating systems, supporting the association of observations with the
-same distributed trace \parencite{w3c2021tracecontext}.
+\noindent\textbf{Distributed traces.} A distributed trace links the recorded
+steps involved in handling a request. It is made up of \emph{spans}, each
+describing one operation and its timing. For example, a request to a web
+application may lead to a database query. That query can be recorded as a
+span within the request's trace
+\parencite{opentelemetry2026observability}. Linking these spans helps show
+which operations belong to the request and where time was spent
+\parencite{ashok2024traceweaver}.
 
-Trace coverage depends on the available instrumentation and propagation of
-context. Research on trace reconstruction highlights that components which
-cannot be instrumented can leave gaps in request traces
-\parencite{ashok2024traceweaver}. Consequently, a recorded trace should not
-automatically be treated as a complete account of every component involved.
-For example, an absent span alone cannot establish that a request never
-reached the corresponding component.
+To connect operations across services, the services need to pass tracing
+information between them. The W3C Trace Context standard defines a common
+format for this information, including an identifier for the trace
+\parencite{w3c2021tracecontext}.
+
+A trace may still have gaps. If a component is not set up to record tracing
+data, its operations may be missing from the trace
+\parencite{ashok2024traceweaver}. A missing span therefore does not prove
+that the request never reached that component.
 
 The complementary roles of these signals can be illustrated by a hypothetical
 application failure. A metric might show an increase in unsuccessful
 requests during a particular interval. A trace of one failed request might
 identify an unsuccessful database operation, while a log associated with
 that operation might record an authentication rejection. The metric
-describes a broader change in service behaviour; the linked trace and log
+describes a broader change in service behaviour. The linked trace and log
 provide evidence about an individual failure. This evidence supports
 investigating the authentication rejection, but further information is
 needed to explain why it occurred. The rejection alone does not establish
