@@ -14,25 +14,27 @@ are closely related. For example, an alert about an increased error rate
 identifies a condition requiring attention; explaining the increase requires
 evidence about the affected requests and components.
 
-\emph{Logs} record individual events emitted by an application or another
-system component. They commonly include timestamps and messages describing
-what occurred. A log entry can provide details about a failed operation, but
+\noindent\textbf{Logs.} A log records events emitted by an application or
+another system component. Log entries commonly include timestamps and
+messages describing what occurred. A log entry can provide details about a failed operation, but
 it is not necessarily associated with a particular user request. Additional
 context is needed to connect that event to activity elsewhere in the system
 \parencite{opentelemetry2026observability}. This distinction matters when
 several requests are processed concurrently: observing an error during an
 incident does not, by itself, establish which request it concerns.
 
-\emph{Metrics} express numerical properties of a system over time, such as
-resource utilisation, request rates and response times. They support
+\noindent\textbf{Metrics.} Numerical measurements describe system behaviour
+over time, such as resource utilisation, request rates and response times.
+They support
 identification of changes in behaviour and the definition of alert conditions
 \parencite{usman2022observability}. Metrics can summarise many observations;
 for example, an error rate describes the proportion of unsuccessful requests
 over a time interval. That summary can indicate the scale of a problem, while
 further information is needed to explain an individual failure.
 
-\emph{Distributed traces} describe the execution of a request across
-participating components. A trace consists of \emph{spans}, each representing
+\noindent\textbf{Distributed traces.} A distributed trace describes the
+execution of a request across participating components. It consists of
+\emph{spans}, each representing
 an operation with timing information and associated attributes
 \parencite{opentelemetry2026observability}. Relationships between spans make
 it possible to follow the operations triggered by a request and investigate
