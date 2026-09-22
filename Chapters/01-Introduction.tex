@@ -4,62 +4,55 @@
 \section{Context and Motivation}
 \label{sec:introduction:context}
 
-A failure in a distributed application can become visible in a component
-other than the one in which it originates. Research on microservice
-performance debugging shows how problems propagate through dependencies,
-complicating the identification of their source \parencite{gan2021sage}.
-Diagnosing such failures therefore requires relating observations across
-components and understanding how their interactions contribute to the
-observed behaviour.
+When an application request fails, the cause is not always in the component
+where the problem becomes visible. Research on microservice performance
+debugging shows how problems in one service can affect other services that
+depend on it \parencite{gan2021sage}. An investigation therefore needs to
+connect observations from several components to understand where a problem
+started and how it affected the request.
 
-This challenge provides the operational context for the present thesis,
-conducted in collaboration with Norlys. The company's \emph{Operations with
-AI Agents} specification describes an application request path through
-Cloudflare, Azure Firewall, Azure infrastructure and the application itself.
-According to the specification, investigating a failing endpoint involves
-consulting these systems separately and manually correlating timestamps and
-request identifiers \parencite[Background]{norlys_operations_agents}.
-The task is to assemble this distributed information into an explanation of
-the failure that can support an appropriate corrective action.
+This thesis investigates this challenge in collaboration with Norlys. The
+selected application request path involves Cloudflare, Azure Firewall,
+Azure infrastructure and the application itself. The current troubleshooting
+process described by Norlys requires operators to inspect these systems
+separately and manually connect timestamps and request identifiers
+\parencite[Background]{norlys_operations_agents}. This creates a need to
+bring the available evidence together and use it to identify the cause of
+a failure.
 
-Correlation provides a basis for connecting these observations. The W3C Trace
-Context standard, for example, defines identifiers that can be propagated
-between participating systems to associate their activity with a common
-distributed trace \parencite{w3c2021tracecontext}. The interpretation of the
-resulting evidence also depends on which information is relevant to the
-problem being investigated. Research on machine learning in security shows that models can rely on patterns unrelated to the underlying security problem, leading to misleading assessments of their capabilities.
-\parencite{arp2022dosdonts}. For the present project, this motivates examining
-both the available telemetry and the features derived from it as potential
-evidence for security-related diagnosis.
+Shared identifiers can help connect observations across systems. The W3C
+Trace Context standard defines a common format for passing trace identifiers
+between participating services \parencite{w3c2021tracecontext}. For this
+project, it is necessary to examine which identifiers are available and
+whether they can link observations along the selected request path.
 
-Large language model (LLM) agents offer a possible approach to coordinating
-the investigation across these sources. ReAct combines model reasoning with
-actions that retrieve observations from external environments
-\parencite{yao2023react}, while AutoGen supports interaction between agents
-with different roles, tools and levels of human participation
-\parencite{wu2023autogen}. These approaches motivate investigating whether
-specialised agents can gather and interpret telemetry from different layers
-of the request path and combine their findings into a supported diagnosis.
-The Norlys specification requires conclusions to be accompanied by evidence
-and allows an inconclusive outcome when the available information is
-insufficient \parencite[AC-4]{norlys_operations_agents}.
+The content of the telemetry also matters, particularly when investigating
+security-related problems. Research on machine learning in security shows
+that models can learn patterns that are unrelated to the security problem
+they are intended to detect \parencite{arp2022dosdonts}. This motivates
+examining which telemetry data and derived features provide relevant
+evidence for diagnosis in the selected environment.
 
-Extending this process to remediation introduces a further requirement:
-changes must be controlled and their effects assessed. The NIST AI Risk
-Management Framework emphasises testing in the intended context, monitoring
-and human intervention \parencite[pp.~14--15]{tabassi2023airmf}. For this
-project, Norlys specifies an action allowlist, dry-run validation, human
-approval, recovery verification and rollback
-\parencite[AC-5]{norlys_operations_agents}. Whether these controls
-enable effective remediation while preventing unintended changes forms part
-of the investigation.
+Large language model (LLM) agents offer a possible way to coordinate the
+investigation. ReAct combines model reasoning with actions that gather
+information from external sources \parencite{yao2023react}. AutoGen describes
+how agents can work together using different roles, tools and human input
+\parencite{wu2023autogen}. These studies provide a basis for investigating
+whether specialised agents can gather telemetry from different systems and
+combine it into a diagnosis supported by evidence.
 
-The objective of this thesis is to design and evaluate a multi-agent proof
-of concept using real operational telemetry from the selected
-Cloudflare-to-Azure request path. The investigation brings together telemetry
-correlation, the identification of security-relevant data and derived
-features, evidence-based diagnosis and human-approved remediation. A
-systematic literature review will provide the research basis for the work.
+Remediation adds another challenge because it involves changing the system.
+The NIST AI Risk Management Framework highlights the importance of testing,
+monitoring and human intervention \parencite[pp.~14--15]{tabassi2023airmf}.
+For this thesis, proposed changes must be checked and approved before they
+are carried out. The project will investigate whether the planned controls
+help the system resolve faults without making unintended changes.
+
+The aim is to design, implement and evaluate a multi-agent proof of concept
+using real operational telemetry. The work will examine how telemetry can
+be connected, which data is relevant to security-related diagnosis, and how
+well the system diagnoses and remediates faults. A systematic literature
+review will inform the research-related parts of the project.
 
 \section{Problem Statement and Research Questions}
 \label{sec:introduction:research-questions}
@@ -108,6 +101,10 @@ the four specified telemetry sources and human-approved remediation within
 a designated test path. Platform-wide ingestion, normalisation, data
 obfuscation and retention remain responsibilities of the parent initiative
 \parencite[Scope]{norlys_operations_agents}.
+
+Within this test path, remediation is limited to allow-listed actions.
+The planned workflow includes dry-run validation, human approval, recovery
+verification and rollback \parencite[AC-5]{norlys_operations_agents}.
 
 The security-related investigation concerns telemetry and derived features
 associated with the same request path. The findings will be interpreted in
