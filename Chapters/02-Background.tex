@@ -212,3 +212,82 @@ show why an investigation needs to consider how records were linked and
 what the sources could record. Correlation establishes a basis for
 diagnosis, but linking two observations does not by itself explain why
 the request failed.
+
+
+\section{Security Telemetry and Derived Features}
+\label{sec:background:security-telemetry}
+
+Correlation helps establish which observations belong together. Security
+analysis also requires understanding what those observations reveal about
+the activity. A recorded security event is not necessarily evidence of an
+attack. Research on security log analysis shows that the meaning of an event
+depends on the device that produced it, its logging policy and the direction
+of the traffic \parencite{lee2022sierra}.
+
+\noindent\textbf{Security-relevant observations.} The sources described in
+Section~\ref{sec:background:request-path} record different aspects of a
+request. Cloudflare Security Events provides information about requests
+that matched security rules \parencite{cloudflare2026waf}. Azure Firewall
+logs can describe the source, destination, protocol and action taken on
+traffic \parencite{microsoft2026firewallmonitor}. These observations describe
+how security controls treated the traffic. Whether that treatment was
+appropriate is a separate question. For example, a firewall might correctly
+block an unwanted connection, or a configuration mistake might prevent an
+application from reaching a required service. The recorded deny action
+alone would not distinguish between these explanations.
+
+\noindent\textbf{SIEM and NDR.} Security Information and Event Management
+(SIEM) systems collect security events from several sources to support
+analysis and investigation. These sources can include firewalls, intrusion
+detection systems and operating system audit logs
+\parencite{lee2022sierra}. Network Detection and Response (NDR) systems focus
+on identifying potential threats in network activity. Their alerts provide
+another form of evidence. For example, research using an NDR deployment
+analyses alerts containing timestamps, source addresses, destination
+addresses where available, and descriptions of the detected activity
+\parencite{homayoun2024ndrnoise}. An alert therefore contains an
+interpretation produced by a detection system, which still needs to be
+assessed during an investigation.
+
+\noindent\textbf{From observations to features.} A feature is a property
+used to describe an observation for analysis. It can be taken from a record,
+such as the protocol, or calculated from several observations.
+\emph{Feature engineering} is the process of constructing and transforming
+these properties into a useful representation. In network intrusion
+detection, a network flow groups packets belonging to a connection.
+Features calculated from a flow can include its duration, packet count
+and the time between packets \parencite{engelen2021troubleshooting}.
+Security log analysis can instead summarise events within time intervals.
+The SIERRA study uses features such as event counts and the number of
+distinct source addresses, while preserving context such as traffic
+direction \parencite{lee2022sierra}.
+
+Consider a hypothetical set of firewall records containing 100 decisions
+for traffic to one service during five minutes. If 20 records indicate a
+denial, the denial count is 20 and the proportion of recorded decisions
+that are denials is 20\%. These features describe different things.
+The count describes the number of denials, while the proportion relates
+them to the recorded traffic volume. Neither value explains why traffic
+was denied.
+
+This example also shows why a feature needs a precise definition. The
+time interval, destination and records included in the calculation determine
+what the value means. A proportion calculated from firewall decisions is
+not automatically the proportion of application requests that failed.
+The observations being counted must match the question being investigated.
+
+\noindent\textbf{Feature relevance and data quality.} A feature that
+helps a model classify examples correctly in one dataset may still be
+unrelated to the security problem. Research on machine learning in security describes how a model
+can learn a particular IP address range instead of learning behaviour
+associated with attacks \parencite{arp2022dosdonts}. This illustrates an
+important distinction: an address can help locate relevant records without
+being a reliable indicator of malicious activity.
+
+The calculation of features also needs scrutiny. A study of the CICIDS2017
+intrusion detection dataset identified problems in flow construction,
+feature extraction and labelling
+\parencite{engelen2021troubleshooting}. This shows that the meaning of a
+feature depends on how the underlying data was processed. For diagnosis,
+a useful summary therefore needs a clear connection to the original
+observations and an explanation of what it can and cannot establish.
