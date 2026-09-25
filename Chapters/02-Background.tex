@@ -147,3 +147,68 @@ affect several dependent components
 \parencite{gan2021sage}. The purpose of examining the request path is to
 connect these observations and identify where further investigation is
 needed.
+
+
+\section{Telemetry Correlation Across Systems}
+\label{sec:background:correlation}
+
+Telemetry correlation connects observations that describe the same request
+or related operations. Knowing that two services communicate is not enough
+to link their individual requests. Several requests can pass through the
+same services at the same time, making their records difficult to separate
+\parencite{ashok2024traceweaver}.
+
+\noindent\textbf{Shared identifiers.} An identifier carried between services
+provides an explicit link between their observations. The W3C
+\texttt{traceparent} header carries a trace identifier and an identifier
+for the calling operation. These fields allow participating services to
+maintain the connection between operations within a trace
+\parencite{w3c2021tracecontext}. The OpenTelemetry log data model also
+defines optional \texttt{TraceId} and \texttt{SpanId} fields. When recorded,
+they associate a log entry with a trace and a particular operation
+\parencite{opentelemetry2026logsmodel}. For example, an application error
+log containing these fields can be linked to the operation that produced it.
+
+Identifiers also need to be understood in the context of the system that
+creates them. Cloudflare assigns a Ray ID to requests and passes it to the
+origin server in the \texttt{cf-ray} header. If the origin records this
+header, it provides a way to relate its logs to Cloudflare records.
+However, Cloudflare states that Ray IDs are not guaranteed to be unique
+for every request \parencite{cloudflare2026rayid}. A matching Ray ID
+therefore needs to be considered alongside other request details.
+
+\noindent\textbf{Timestamps.} Time information helps narrow an investigation
+to a relevant interval, but the meaning of a timestamp matters.
+OpenTelemetry distinguishes \texttt{Timestamp}, the time of the event
+according to the source clock, from \texttt{ObservedTimestamp}, the time
+when the collection system observed it
+\parencite{opentelemetry2026logsmodel}. These values can differ, so comparing
+event time in one source with collection time in another can give a
+misleading view of when the events occurred.
+
+Clocks on different machines can also disagree. This is commonly called
+\emph{clock skew}. Documentation for the Jaeger tracing system describes how this can
+make an operation appear to begin before the operation that called it
+\parencite{jaeger2025clockskew}. Timestamp order alone therefore does not
+always establish the actual order of events.
+
+\noindent\textbf{Correlation without shared identifiers.} When no common
+identifier is recorded, relationships can be inferred from other evidence.
+Research on trace reconstruction combines request timings with knowledge
+of which services call one another to identify likely relationships
+\parencite{ashok2024traceweaver}. This is different from reading an explicit
+link recorded during request processing. Consider two requests reaching the
+same service within the same second. A service name and a timestamp rounded
+to that second would fit both requests. Choosing one would require more
+evidence. An inferred match should therefore be distinguished from a link
+supported by recorded identifiers.
+
+\noindent\textbf{Incomplete evidence.} Correlation also depends on which
+records are available. For example, Cloudflare Security Events can use
+sampled data, meaning that a search may not include every event
+\parencite{cloudflare2026rayid}. A missing result in such a search does not
+prove that the request never reached Cloudflare. Together, these examples
+show why an investigation needs to consider how records were linked and
+what the sources could record. Correlation establishes a basis for
+diagnosis, but linking two observations does not by itself explain why
+the request failed.

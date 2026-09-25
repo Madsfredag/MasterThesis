@@ -12,7 +12,7 @@
   title   = {Trace Context},
   date    = {2021-11-23},
   url     = {https://www.w3.org/TR/2021/REC-trace-context-1-20211123/},
-  urldate = {2026-09-22}
+  urldate = {2026-09-25}
 }
 
 @inproceedings{yao2023react,
@@ -97,7 +97,7 @@
   year      = {2024},
   doi       = {10.1145/3651890.3672254},
   url       = {https://sachin.cs.illinois.edu/papers/traceweaver-ashok-sigcomm24.pdf},
-  urldate   = {2026-09-16}
+  urldate   = {2026-09-25}
 }
 
 @inproceedings{arp2022dosdonts,
@@ -174,4 +174,47 @@
   url     = {https://learn.microsoft.com/en-us/azure/azure-monitor/fundamentals/data-sources},
   urldate = {2026-09-22},
   note    = {Documentation last updated 7 August 2026}
+}
+
+% Background section 2.3. Sources checked on 25 September 2026.
+% Reused sources:
+% w3c2021tracecontext, sections 2.3 and 3.2.2: propagated trace/caller IDs.
+% ashok2024traceweaver, sections 2.2.5, 3 and 4: concurrent requests,
+% service-call constraints and inference from span timings.
+% These support background concepts, not a selected PoC correlation algorithm.
+
+% Fields Timestamp, ObservedTimestamp, TraceId and SpanId.
+% Pinned to specification release v1.60.0, published 7 August 2026.
+% Release date verified against the official GitHub release metadata.
+@online{opentelemetry2026logsmodel,
+  author  = {{OpenTelemetry Authors}},
+  title   = {Logs Data Model},
+  date    = {2026-08-07},
+  url     = {https://github.com/open-telemetry/opentelemetry-specification/blob/v1.60.0/specification/logs/data-model.md},
+  urldate = {2026-09-25},
+  note    = {OpenTelemetry Specification, version 1.60.0}
+}
+
+% Overview, uniqueness caution, Security events and Server logs.
+% Supports propagation via cf-ray, potential ID collisions and sampled views.
+% Does not establish that the Norlys origin records this header.
+@online{cloudflare2026rayid,
+  author  = {{Cloudflare}},
+  title   = {{Cloudflare Ray ID}},
+  date    = {2026-04-20},
+  url     = {https://developers.cloudflare.com/fundamentals/reference/cloudflare-ray-id/},
+  urldate = {2026-09-25},
+  note    = {Documentation last updated 20 April 2026}
+}
+
+% Configuration / Jaeger query / Clock Skew Adjustment.
+% Supports relative clock differences and misleading span ordering.
+% Jaeger is a source for this concept, not a selected project component.
+@online{jaeger2025clockskew,
+  author  = {{Jaeger Authors}},
+  title   = {Configuration: Clock Skew Adjustment},
+  date    = {2025-11-08},
+  url     = {https://www.jaegertracing.io/docs/2.10/deployment/configuration/#clock-skew-adjustment},
+  urldate = {2026-09-25},
+  note    = {Jaeger 2.10 documentation, last modified 8 November 2025}
 }
