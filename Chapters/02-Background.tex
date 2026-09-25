@@ -87,9 +87,12 @@ their availability and correlation across systems.
 The Norlys use case describes a request path through Cloudflare, Azure
 Firewall, Azure infrastructure and the application
 \parencite[Background]{norlys_operations_agents}. These layers perform
-different tasks and provide different views of a failure. The path is a
-conceptual overview. The exact resources and network routes depend on the
-selected deployment.
+different tasks and provide different views of a failure.
+
+\thesisTODO{Confirm the Azure resources and network route used in the
+selected request path. Check this overview against the confirmed setup.
+Describe the actual topology in System Design and add a cross-reference
+here.}
 
 \noindent\textbf{Cloudflare.} For a hostname with proxying enabled,
 Cloudflare receives web traffic on behalf of the \emph{origin server},

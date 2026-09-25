@@ -1,6 +1,6 @@
 # Thesis writing guide
 
-Working conventions, updated 22 September 2026.
+Working conventions, updated 25 September 2026.
 
 ## Current report and editing workflow
 
@@ -47,6 +47,38 @@ with a short concrete example where it helps the reader.
 Use numbered sections for substantial topics. Use occasional bold paragraph
 lead-ins to distinguish closely related concepts within a section, such as
 Logs, Metrics and Distributed traces. Do not add a heading to every paragraph.
+
+## Unresolved decisions and missing text
+
+Write established background so it can remain in the finished thesis.
+Do not use vague sentences to stand in for project details that have not
+been decided or confirmed. Put detailed project configuration in System
+Design or Implementation where appropriate.
+
+Whenever drafted text depends on a later decision, confirmation or result,
+mark it visibly with the same LaTeX command:
+
+~~~latex
+\thesisTODO{Confirm the Azure resources and network route used in the
+selected request path. Check this overview against the confirmed setup.
+Describe the actual topology in System Design and add a cross-reference
+here.}
+~~~
+
+The command prints a yellow box headed "TODO: TO BE COMPLETED" in the PDF.
+Use it for missing sections and unfinished project-specific claims.
+Each note must state what is missing and what must be done to finish it.
+Keep notes short. Place a note where the text needs attention rather than
+leaving an unmarked assumption elsewhere in the paragraph.
+
+Do not turn unresolved choices into facts or promise an unagreed method.
+General scientific qualifications and open research questions are not
+unfinished text and do not need these markers.
+
+Search all project files for \thesisTODO{ to find the outstanding notes.
+After the relevant decision or result is available, write or revise the
+text and remove that note. Resolve every note before submission rather
+than hiding the boxes globally.
 
 ## Evidence and references
 

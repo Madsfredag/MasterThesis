@@ -125,6 +125,24 @@
 % \usepackage{color}
 \definecolor{aublue}{HTML}{193b77} % the dark blue colour used by AU
 
+% Visible drafting notes. Search for \thesisTODO{ to find unresolved items.
+% Keep each note short and remove it only when the text has been completed.
+\newcommand{\thesisTODO}[1]{%
+    \par\addvspace{\baselineskip}%
+    \begingroup
+    \setlength{\fboxsep}{8pt}%
+    \setlength{\fboxrule}{0.8pt}%
+    \noindent\fcolorbox{orange!80!black}{yellow!25}{%
+        \parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+            \normalfont\normalsize\color{black}\raggedright
+            \textbf{TODO: TO BE COMPLETED}\par\smallskip
+            #1\par
+        }%
+    }\par
+    \endgroup
+    \addvspace{\baselineskip}%
+}
+
 % Modify the biblabel format to use aublue for the source attribution
 \renewcommand{\mkcitation}[1]{\xspace\textcolor{aublue}{[#1]}}
 
