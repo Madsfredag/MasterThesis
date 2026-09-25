@@ -20,8 +20,8 @@ Work on one subsection at a time:
 1. Agree on the purpose of the subsection and the points it must explain.
 2. Read relevant research and identify which source supports each factual
    claim. Reuse existing references when they directly support the claim.
-3. Draft the subsection in clear English and add citations as it is written.
-4. Check the draft against the research questions, existing text and project
+3. Write the subsection in clear English and add citations as it is written.
+4. Check the text against the research questions, existing text and project
    decisions. Distinguish evidence, proposals and completed work.
 5. Review the wording, compile the report and check citation order and
    layout. Update the bibliography and push the reviewed version.
@@ -47,6 +47,19 @@ with a short concrete example where it helps the reader.
 Use numbered sections for substantial topics. Use occasional bold paragraph
 lead-ins to distinguish closely related concepts within a section, such as
 Logs, Metrics and Distributed traces. Do not add a heading to every paragraph.
+
+From Background section 2.4 onwards, choose the structure and length
+according to the topic. Do not repeat a fixed number of bold lead-ins or
+aim for similarly sized sections. Use connected prose when the explanation
+develops one argument. Add a lead-in only where a change of topic helps the
+reader. Give difficult concepts the space they need and remove repeated
+setup already covered elsewhere. Do not add or cut material merely to
+create artificial variation. Sections 2.1--2.3 retain their approved structure.
+
+Every delivered section should be polished, researched and properly
+referenced as text for the final report. Refer to completed text as a
+section, not as a rough draft. Mark unresolved project details with
+the visible TODO convention below.
 
 ## Unresolved decisions and missing text
 
