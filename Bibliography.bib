@@ -47,7 +47,9 @@
   institution = {National Institute of Standards and Technology},
   number      = {NIST AI 100-1},
   year        = {2023},
-  doi         = {10.6028/NIST.AI.100-1}
+  doi         = {10.6028/NIST.AI.100-1},
+  url         = {https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.100-1.pdf},
+  urldate     = {2026-09-29}
 }
 
 @inproceedings{chen2025aiopslab,
@@ -398,4 +400,86 @@
   doi       = {10.52202/085713-4082},
   url       = {https://proceedings.neurips.cc/paper_files/paper/2025/file/b1041e52d3be19f0a9bc491657488e4a-Paper-Datasets_and_Benchmarks_Track.pdf},
   urldate   = {2026-09-29}
+}
+
+
+% Background section 2.7. Sources checked on 29 September 2026.
+% Reused source: tabassi2023airmf, pp. 14--15 / section 3.2:
+% context-sensitive safety, testing, monitoring and human intervention.
+% Hypothetical firewall examples illustrate control boundaries and rollback.
+% What-if is an example of a preview, not a selected PoC deployment method.
+
+% AC-6: least privilege. CM-7(5): permit-by-exception.
+% CM-3: reviewing/approving changes, retaining records and monitoring activity.
+@techreport{nist2020securitycontrols,
+  author      = {{Joint Task Force}},
+  title       = {Security and Privacy Controls for Information Systems
+                 and Organizations},
+  institution = {National Institute of Standards and Technology},
+  number      = {NIST SP 800-53, Revision 5},
+  year        = {2020},
+  doi         = {10.6028/NIST.SP.800-53r5},
+  url         = {https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r5.pdf},
+  urldate     = {2026-09-29},
+  note        = {Includes updates as of 10 December 2020}
+}
+
+% Sections 3 and 4: instructions embedded in retrieved content can redirect
+% an LLM application's behaviour. The log-entry example applies this
+% mechanism hypothetically, not as an observed Norlys vulnerability.
+% Publication venue and authors checked against the CISPA publication record.
+@inproceedings{greshake2023indirect,
+  author    = {Greshake, Kai and Abdelnabi, Sahar and Mishra, Shailesh
+               and Endres, Christoph and Holz, Thorsten and Fritz, Mario},
+  title     = {Not What You've Signed Up For: Compromising Real-World
+               {LLM}-Integrated Applications with Indirect Prompt Injection},
+  booktitle = {Proceedings of the 16th ACM Workshop on Artificial
+               Intelligence and Security},
+  year      = {2023},
+  publisher = {ACM},
+  doi       = {10.1145/3605764.3623985},
+  url       = {https://arxiv.org/abs/2302.12173},
+  urldate   = {2026-09-29}
+}
+
+% Overview and See results: previews without changing target resources,
+% and false change reports when reference expressions cannot be resolved.
+% Documentation date is its stated update date, not the access date.
+@online{microsoft2026whatif,
+  author  = {{Microsoft}},
+  title   = {{ARM} template deployment what-if operation},
+  date    = {2026-06-26},
+  url     = {https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-what-if},
+  urldate = {2026-09-29}
+}
+
+% Sections 3--5: controlled food-choice task using simulated AI advice.
+% Supports the possibility of overreliance despite explanations and its
+% reduction, not elimination, by cognitive forcing interventions.
+% Does not measure approval behaviour in cloud operations or this PoC.
+@article{bucinca2021trust,
+  author       = {Bu{\c{c}}inca, Zana and Malaya, Maja Barbara
+                  and Gajos, Krzysztof Z.},
+  title        = {To Trust or to Think: Cognitive Forcing Functions Can
+                  Reduce Overreliance on {AI} in {AI}-assisted Decision-making},
+  journaltitle = {Proceedings of the ACM on Human-Computer Interaction},
+  volume       = {5},
+  number       = {CSCW1},
+  eid          = {188},
+  year         = {2021},
+  doi          = {10.1145/3449287},
+  url          = {https://www.eecs.harvard.edu/~kgajos/papers/2021/bucinca21trust.pdf},
+  urldate      = {2026-09-29}
+}
+
+% Develop robust workload health models: health and usage observations.
+% Implement failure-detection mechanisms / Establish deployment safety
+% guardrails: recovery, versioned artefacts and difficulty reversing data changes.
+% Does not imply adoption of the page's deployment strategies.
+@online{microsoft2026safedeployments,
+  author  = {{Microsoft}},
+  title   = {Architecture strategies for safe deployment practices},
+  date    = {2026-06-17},
+  url     = {https://learn.microsoft.com/en-us/azure/well-architected/operational-excellence/safe-deployments},
+  urldate = {2026-09-29}
 }

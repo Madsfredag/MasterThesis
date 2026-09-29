@@ -439,3 +439,95 @@ These limitations connect agent coordination to the diagnostic evidence
 discussed in Section~\ref{sec:background:root-cause-analysis}. Dividing the
 work can organise access to different sources, but the final explanation
 still needs to show how the observations support the proposed cause.
+
+
+\section{Human-Approved Remediation and Safety Controls}
+\label{sec:background:remediation}
+
+Remediation changes a system to address a fault or restore its operation.
+An agent that recommends a change therefore needs more than a plausible
+diagnosis. The change must also be appropriate for the affected resource,
+and its result must be checked. The NIST AI Risk Management Framework
+highlights testing, monitoring and the ability to intervene when an AI
+system behaves unexpectedly \parencite[pp.~14--15]{tabassi2023airmf}.
+For operational agents, these concerns extend from the proposed action
+to what happens after it is executed.
+
+\noindent\textbf{Restricting actions.} An \emph{allowlist} specifies which
+actions are permitted and rejects actions outside that set. NIST describes
+this permit-by-exception approach alongside \emph{least privilege}, which
+limits users and processes to the access needed for their tasks
+\parencite[AC-6 and CM-7(5)]{nist2020securitycontrols}. For example, a tool
+could permit changing one firewall rule while rejecting deletion of the
+firewall. The permitted action also needs limits on its target and parameters.
+
+These restrictions need to be enforced by the software executing the
+action. Instructions given to the model are not a reliable access-control
+mechanism. Research on \emph{indirect prompt injection} demonstrates how
+instructions embedded in retrieved content can redirect an LLM
+application's behaviour \parencite{greshake2023indirect}. A comparable
+risk could arise when a log entry contains text supplied by an external
+user. That text belongs to the evidence being examined. It should not
+be able to grant permission for an action.
+
+\noindent\textbf{Dry-run validation.} A dry run checks or previews a proposed
+change without applying it to the target system. Azure Resource Manager's
+\emph{what-if} operation is one example. It predicts changes from a
+deployment template, allowing them to be inspected before deployment
+\parencite{microsoft2026whatif}. Its output has limits. For example,
+Microsoft documents cases where the tool cannot calculate a value used
+in the template. It may then report a change even though the final value
+stays the same. A preview must therefore be interpreted according to what
+the tool can determine. It also does not demonstrate that the application
+will recover after the change. An agent's written prediction of success
+is not a substitute for this check.
+
+\noindent\textbf{Human approval.} An authorised person reviews a specific
+change before execution. NIST's configuration change control guidance
+calls for reviewing changes, considering their security impact and
+implementing approved changes \parencite[CM-3]{nist2020securitycontrols}.
+In a remediation workflow, the proposal needs to identify the target,
+the intended change and the evidence supporting it. If that proposal
+changes after review, the revised action requires a new approval.
+
+Having a person in the process does not guarantee that an error will be
+caught. In a controlled study of AI-assisted decision-making, participants
+sometimes accepted incorrect recommendations despite receiving
+explanations. Designs that encouraged closer consideration reduced this
+overreliance but did not eliminate it \parencite{bucinca2021trust}.
+This finding motivates giving the reviewer access to the underlying
+evidence and predicted changes. A convincing explanation from the agent
+is not sufficient grounds for assuming that the proposed repair is
+correct.
+
+\noindent\textbf{Recovery verification.} Completing a configuration update
+and restoring a service are different outcomes. A successful management
+operation confirms that the change was applied, but the original request
+may still fail. Verification therefore examines the resulting behaviour.
+Microsoft's deployment guidance recommends monitoring workload health
+and considering actual usage when interpreting an absence of errors
+\parencite{microsoft2026safedeployments}. For example, a quiet error log
+does not demonstrate recovery if no requests have been made. Repeating
+the affected operation can provide more direct evidence, alongside checks
+for unintended changes to other behaviour.
+
+\noindent\textbf{Rollback.} Rollback undoes a change by restoring an earlier
+configuration or version. It requires that the earlier state is available
+and that a restoration procedure exists. Microsoft recommends retaining
+versioned deployment artefacts and notes that database and other changes
+involving stored data can be difficult to reverse
+\parencite{microsoft2026safedeployments}. Simply recording an intention to
+undo a change does not establish that it can be undone.
+
+Rollback also needs verification. If a firewall rule is restored, its
+resulting configuration can be compared with the saved version. The
+application's behaviour then needs a separate check. In a failed repair
+attempt, restoring the previous configuration may also restore the
+original fault. Undoing the attempted repair and resolving the incident
+are therefore separate outcomes.
+
+Records of the proposal, approval, action and result make the process
+reviewable. NIST's change control guidance includes retaining change
+records and monitoring associated activities
+\parencite[CM-3]{nist2020securitycontrols}. These records connect the
+authorised change to what actually happened.
