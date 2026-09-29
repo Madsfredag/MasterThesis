@@ -23,19 +23,22 @@
   booktitle = {The Eleventh International Conference on Learning Representations},
   year      = {2023},
   url       = {https://arxiv.org/abs/2210.03629},
-  urldate = {2026-09-14},
+  urldate = {2026-09-29},
 }
 
-@misc{wu2023autogen,
-  author      = {Wu, Qingyun and Bansal, Gagan and Zhang, Jieyu and Wu, Yiran and Li, Beibin and Zhu, Erkang and Jiang, Li and Zhang, Xiaoyun and Zhang, Shaokun and Liu, Jiale and Awadallah, Ahmed and White, Ryen W. and Burger, Doug and Wang, Chi},
-  title       = {{AutoGen}: Enabling Next-Gen {LLM} Applications via Multi-Agent Conversation},
-  year        = {2023},
-  eprint      = {2308.08155},
-  eprinttype  = {arxiv},
-  eprintclass = {cs.AI},
-  url         = {https://arxiv.org/abs/2308.08155v2},
-  note        = {Preprint, version 2},
-  urldate = {2026-09-14},
+% Citation key retained to preserve existing citations. Metadata now refers
+% to the peer-reviewed COLM 2024 paper rather than the 2023 preprint.
+@inproceedings{wu2023autogen,
+  author    = {Wu, Qingyun and Bansal, Gagan and Zhang, Jieyu and Wu, Yiran
+               and Li, Beibin and Zhu, Erkang and Jiang, Li and Zhang, Xiaoyun
+               and Zhang, Shaokun and Liu, Jiale and Awadallah, Ahmed Hassan
+               and White, Ryen W. and Burger, Doug and Wang, Chi},
+  title     = {{AutoGen}: Enabling Next-Gen {LLM} Applications via
+               Multi-Agent Conversations},
+  booktitle = {First Conference on Language Modeling},
+  year      = {2024},
+  url       = {https://www.microsoft.com/en-us/research/wp-content/uploads/2023/08/LLM_agent.pdf},
+  urldate   = {2026-09-29}
 }
 
 @techreport{tabassi2023airmf,
@@ -328,5 +331,71 @@
   publisher = {ACM},
   doi       = {10.1145/3627703.3629553},
   url       = {https://yinfangchen.github.io/assets/pdf/rcacopilot_paper.pdf},
+  urldate   = {2026-09-29}
+}
+
+
+% Background section 2.6. Sources checked on 29 September 2026.
+% Reused sources:
+% yao2023react, section 2: actions, observations and iterative reasoning.
+% Section 3 / Table 2: hallucination, retrieval errors, reasoning errors
+% and repetitive actions. These results do not establish universal reliability.
+% wu2023autogen, sections 2.1--2.2: roles, capabilities, message histories,
+% conversation patterns, programmed termination and human input.
+% Examples of log queries, retained records and agent handovers are hypothetical.
+% No model, framework or agent topology is selected by this background section.
+
+% Section 2: instructions and examples supplied in context without
+% updating model weights, distinguished from fine-tuning.
+% Cited as foundational research, not as a proposed model for the PoC.
+@inproceedings{brown2020fewshot,
+  author    = {Brown, Tom and Mann, Benjamin and Ryder, Nick and Subbiah, Melanie
+               and Kaplan, Jared D. and Dhariwal, Prafulla and Neelakantan, Arvind
+               and Shyam, Pranav and Sastry, Girish and Askell, Amanda
+               and Agarwal, Sandhini and Herbert-Voss, Ariel and Krueger, Gretchen
+               and Henighan, Tom and Child, Rewon and Ramesh, Aditya
+               and Ziegler, Daniel and Wu, Jeffrey and Winter, Clemens
+               and Hesse, Chris and Chen, Mark and Sigler, Eric and Litwin, Mateusz
+               and Gray, Scott and Chess, Benjamin and Clark, Jack
+               and Berner, Christopher and McCandlish, Sam and Radford, Alec
+               and Sutskever, Ilya and Amodei, Dario},
+  title     = {Language Models are Few-Shot Learners},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {33},
+  year      = {2020},
+  url       = {https://papers.nips.cc/paper_files/paper/2020/file/1457c0d6bfcb4967418bfb8ac142f64a-Paper.pdf},
+  urldate   = {2026-09-29}
+}
+
+% Figures 1 and 3, sections 3, 4.1 and 4.2: model versus agent,
+% interpreting model output as actions, executing external operations,
+% retaining state and retrieving information into working memory.
+% Publication year confirmed on the paper's first page (TMLR, February 2024).
+@article{sumers2024coala,
+  author       = {Sumers, Theodore R. and Yao, Shunyu and Narasimhan, Karthik
+                  and Griffiths, Thomas L.},
+  title        = {Cognitive Architectures for Language Agents},
+  journaltitle = {Transactions on Machine Learning Research},
+  year         = {2024},
+  url          = {https://arxiv.org/pdf/2309.02427v3},
+  urldate      = {2026-09-29}
+}
+
+% Section 4 and Appendix A.2--A.3: missing information sharing, ignored
+% agent input, premature termination, and incomplete/incorrect verification.
+% Used to explain possible failure mechanisms, not to predict the PoC's
+% failure rate or establish that all multi-agent systems underperform.
+@inproceedings{cemri2025mast,
+  author    = {Cemri, Mert and Pan, Melissa Z. and Yang, Shuyi
+               and Agrawal, Lakshya A. and Chopra, Bhavya and Tiwari, Rishabh
+               and Keutzer, Kurt and Parameswaran, Aditya and Klein, Dan
+               and Ramchandran, Kannan and Zaharia, Matei A.
+               and Gonzalez, Joseph E. and Stoica, Ion},
+  title     = {Why Do Multi-Agent {LLM} Systems Fail?},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {38},
+  year      = {2025},
+  doi       = {10.52202/085713-4082},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2025/file/b1041e52d3be19f0a9bc491657488e4a-Paper-Datasets_and_Benchmarks_Track.pdf},
   urldate   = {2026-09-29}
 }

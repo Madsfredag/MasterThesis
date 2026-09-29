@@ -337,3 +337,105 @@ supports reporting that the connection was blocked. It does not yet
 justify deciding which configuration should change. A useful diagnosis
 can therefore state what is known, which explanations remain possible
 and what information is needed to distinguish them.
+
+
+\section{AI Agents and Multi-Agent Systems}
+\label{sec:background:agents}
+
+A large language model (LLM) generates text in response to an input,
+commonly called a \emph{prompt}. Instructions and examples in that input
+can guide how the model approaches a task. Research on GPT-3 demonstrated
+that a model could perform different language tasks from instructions or
+examples without being retrained for each task
+\parencite{brown2020fewshot}. This distinction is useful when interpreting
+operational telemetry. Giving a model log entries to analyse supplies
+information for its current response. It does not, by itself, train the
+model or give it ongoing access to the system that produced the logs.
+
+An LLM-based \emph{agent} places the model within software that can retain
+information, select actions and interact with an environment. The CoALA
+framework describes these elements through memory, available actions and
+a process for choosing what to do next
+\parencite{sumers2024coala}. The model is therefore one component of the
+agent.
+
+\noindent\textbf{Using tools and observations.} A tool is a function the
+agent can use to perform a particular operation, such as retrieving log
+entries. The model can select a tool and supply its inputs, while the
+surrounding software executes the function and returns the result
+\parencite{sumers2024coala}. ReAct describes an approach in which reasoning
+and actions alternate. New observations can guide the next action instead
+of requiring every step to be decided in advance
+\parencite{yao2023react}.
+
+For example, an agent investigating a failed request could first retrieve
+application logs for the relevant period. A connection error might lead it
+to request firewall records for the affected destination. It could then
+compare the returned records or seek more information. This hypothetical
+sequence illustrates how tool use supports an investigation. Writing that
+a query should be run is different from running it and receiving its
+result.
+
+The agent also needs to carry information between these steps. Its
+\emph{state} is the information retained during the task, such as the
+request being investigated, previous tool results and unresolved questions.
+CoALA distinguishes information used in the current decision from
+information stored for later retrieval
+\parencite{sumers2024coala}. For a telemetry investigation, this distinction
+can be illustrated by keeping a short description of the current findings
+while retaining the original records separately. A later step could then
+inspect a record again instead of relying only on the summary.
+
+\noindent\textbf{Dividing and coordinating the work.} A multi-agent system
+allows several agents to contribute to a task. AutoGen describes agents
+with different roles and capabilities that exchange messages
+\parencite{wu2023autogen}. The agents can use the same underlying language
+model while receiving different instructions, tools and conversation
+histories. A specialised role therefore does not necessarily require a
+separately trained model. It can be established by configuring which part
+of the task an agent handles and which tools it can use.
+
+The way this work is organised is called \emph{orchestration}. It
+determines which agent acts next, what information it receives and when
+the interaction ends. AutoGen supports both predefined interaction
+patterns and conversations that change as the task progresses
+\parencite{wu2023autogen}. For example, a workflow could pass results
+through a fixed sequence of agents. Alternatively, a coordinating agent
+could select another agent based on the information still needed.
+Programmed conditions can also limit the conversation or request human
+input.
+
+In a hypothetical telemetry investigation, one agent could inspect
+application errors while another examines firewall events. Their findings
+would need to be brought together to explain the same failure. If the
+first agent reports a database connection error, the second needs enough
+detail to investigate that connection. A message such as \enquote{the
+database is unreachable} omits the destination and the time of the failed
+attempt. Sharing those details together with the supporting records would
+make the handover more useful. This illustrates why assigning separate
+roles also creates a need for clear communication.
+
+\noindent\textbf{Limits of agent reasoning.} An LLM can produce a plausible
+explanation containing invented or incorrect facts, often called
+\emph{hallucination}. Access to external information can reduce this
+problem, but it does not ensure a correct answer. The ReAct study reports
+failures involving unhelpful search results, incorrect reasoning and
+repeated actions \parencite{yao2023react}. In an operational investigation,
+a query can execute successfully without providing enough information to
+explain a failure. The agent's interpretation of the result still needs
+to be checked against the records.
+
+Collaboration introduces further failure possibilities. A study of
+multi-agent LLM systems identifies cases where agents fail to share
+important information, ignore another agent's input or end a task before
+it has been checked properly \parencite{cemri2025mast}. These findings
+show why adding agents does not guarantee a better result. For example,
+if several agents repeat an incorrect summary from one earlier step,
+their agreement supplies no additional evidence for that summary.
+Reviewing a diagnosis is useful only if the review can question its
+assumptions and examine the evidence behind it.
+
+These limitations connect agent coordination to the diagnostic evidence
+discussed in Section~\ref{sec:background:root-cause-analysis}. Dividing the
+work can organise access to different sources, but the final explanation
+still needs to show how the observations support the proposed cause.
