@@ -4,7 +4,9 @@
   booktitle = {Proceedings of the 26th ACM International Conference on Architectural Support for Programming Languages and Operating Systems},
   year      = {2021},
   publisher = {ACM},
-  doi       = {10.1145/3445814.3446700}
+  doi       = {10.1145/3445814.3446700},
+  url       = {https://people.csail.mit.edu/delimitrou/papers/2021.asplos.sage.pdf},
+  urldate   = {2026-09-29}
 }
 
 @online{w3c2021tracecontext,
@@ -160,7 +162,7 @@
   title   = {Monitor {Azure Firewall}},
   year    = {2026},
   url     = {https://learn.microsoft.com/en-us/azure/firewall/monitor-firewall},
-  urldate = {2026-09-25},
+  urldate = {2026-09-29},
   note    = {Documentation last updated 19 August 2026}
 }
 
@@ -277,4 +279,54 @@
   doi       = {10.1109/SPW53761.2021.00009},
   url       = {https://intrusion-detection.distrinet-research.be/WTMC2021/Resources/wtmc2021_Engelen_Troubleshooting.pdf},
   urldate   = {2026-09-25}
+}
+
+
+% Background section 2.5. Sources checked on 29 September 2026.
+% Reused sources:
+% gan2021sage, sections 2.3 and 3.2: dependency-driven latency propagation
+% and the limits of interpreting correlation as causation.
+% microsoft2026firewallmonitor, Structured Azure Firewall logs:
+% addresses, ports, protocol and firewall action.
+% The database-connection example is hypothetical. Its comparison of a
+% firewall rule with the intended application configuration illustrates
+% diagnostic reasoning, not a confirmed topology, fault or PoC procedure.
+
+% Section 1: failure/fault distinction and root-cause analysis.
+% Section 5.2.3: in the simulation, root-cause metrics can be less abnormal
+% than affected metrics. Used to explain why anomaly size is not causation.
+% The thesis does not adopt CIRCA or its causal assumptions as its method.
+@inproceedings{li2022circa,
+  author    = {Li, Mingjie and Li, Zeyan and Yin, Kanglin and Nie, Xiaohui
+               and Zhang, Wenchi and Sui, Kaixin and Pei, Dan},
+  title     = {Causal Inference-Based Root Cause Analysis for Online
+               Service Systems with Intervention Recognition},
+  booktitle = {Proceedings of the 28th ACM SIGKDD Conference on
+               Knowledge Discovery and Data Mining},
+  year      = {2022},
+  publisher = {ACM},
+  doi       = {10.1145/3534678.3539041},
+  url       = {https://netman.aiops.org/wp-content/uploads/2022/08/KDD22-CIRCA.pdf},
+  urldate   = {2026-09-29}
+}
+
+% Introduction and section 4.1: similar alert symptoms can have different
+% causes, multiple diagnostic sources, and noisy/incomplete/inconsistent data.
+% Used for background concepts, not as an adopted implementation or
+% evidence that a generated explanation is necessarily correct.
+@inproceedings{chen2024rcacopilot,
+  author    = {Chen, Yinfang and Xie, Huaibing and Ma, Minghua and Kang, Yu
+               and Gao, Xin and Shi, Liu and Cao, Yunjie and Gao, Xuedong
+               and Fan, Hao and Wen, Ming and Zeng, Jun and Ghosh, Supriyo
+               and Zhang, Xuchao and Zhang, Chaoyun and Lin, Qingwei
+               and Rajmohan, Saravan and Zhang, Dongmei and Xu, Tianyin},
+  title     = {Automatic Root Cause Analysis via Large Language Models
+               for Cloud Incidents},
+  booktitle = {Proceedings of the Nineteenth European Conference on
+               Computer Systems},
+  year      = {2024},
+  publisher = {ACM},
+  doi       = {10.1145/3627703.3629553},
+  url       = {https://yinfangchen.github.io/assets/pdf/rcacopilot_paper.pdf},
+  urldate   = {2026-09-29}
 }

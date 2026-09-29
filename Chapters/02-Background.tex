@@ -267,3 +267,73 @@ construction, feature extraction and labelling
 \parencite{engelen2021troubleshooting}. Assessing a feature therefore
 requires checking both its relevance to the problem and how it was
 calculated from the original observations.
+
+
+\section{Root-Cause Analysis and Diagnostic Evidence}
+\label{sec:background:root-cause-analysis}
+
+A failed request tells an investigator that something went wrong, but it
+does not necessarily explain why. A \emph{symptom} is an observable sign
+of a problem, such as a timeout or an increased error rate. A \emph{fault}
+is the underlying problem that causes a service to fail.
+Root-cause analysis (RCA) aims to work back from the observed failure
+towards its cause \parencite{li2022circa}. Finding an error message is
+therefore a starting point for diagnosis. The next question is what
+caused the operation to fail.
+
+Dependencies make this distinction important. If one service waits for
+another service to respond, a delay in the second service can also make
+the first service appear slow. Research on microservice performance
+debugging describes how such delays spread through a request path
+\parencite{gan2021sage}. Both services may show a change at the same time,
+but this does not mean that both are faulty. Nor is the largest change
+necessarily closest to the cause. In its simulation study, CIRCA shows that a
+metric associated with the underlying fault can change less noticeably
+than metrics affected by that fault \parencite{li2022circa}. An investigation
+therefore needs to consider how components affect one another, rather
+than simply choosing the most unusual measurement.
+
+An alert can also have more than one possible explanation. Research on
+cloud incident diagnosis reports that incidents with the same alert type
+can have different causes. The RCACopilot study uses additional diagnostic
+information from several sources to investigate those causes
+\parencite{chen2024rcacopilot}. This illustrates the role of
+\emph{diagnostic evidence}: observations that help assess a particular
+explanation for the failure.
+
+\noindent\textbf{Connecting evidence to an explanation.} Consider a
+hypothetical application that times out while trying to connect to a
+database. The timeout alone does not show whether the database is
+unavailable, the application is using the wrong destination, or a firewall
+is blocking the connection. Suppose a firewall log can be linked to that
+connection and records a denial. Azure Firewall logs can provide the
+addresses, ports, protocol and action needed to examine such an event
+\parencite{microsoft2026firewallmonitor}. In this example, the denial helps
+explain why the connection failed, but further evidence is needed to
+understand why the traffic was blocked.
+
+The firewall rule and the application's configuration help distinguish
+the remaining explanations. If the application is using the intended
+destination and the firewall rule blocks a connection that should be
+allowed, the evidence points towards the rule. If the application instead
+uses an incorrect destination port, the firewall may be enforcing the
+intended policy correctly. The application configuration would then need
+attention. These possibilities show why identifying where traffic was
+blocked is different from identifying which configuration is wrong.
+
+A clear diagnosis connects the conclusion to these observations. In the
+example, it should identify the failed connection, the record showing the
+denial and the configuration detail that explains it. This allows another
+person to check how the conclusion was reached. It also separates what
+was directly observed from what was inferred. The denial is recorded
+evidence. Whether it resulted from an incorrect firewall rule remains
+an explanation to be assessed against the intended configuration.
+
+The available information may not settle that question. Research on
+cloud incident diagnosis describes missing, incomplete and inconsistent
+data as practical obstacles to RCA \parencite{chen2024rcacopilot}.
+If the intended configuration is unknown in the example, the evidence
+supports reporting that the connection was blocked. It does not yet
+justify deciding which configuration should change. A useful diagnosis
+can therefore state what is known, which explanations remain possible
+and what information is needed to distinguish them.
