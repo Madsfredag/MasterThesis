@@ -1,6 +1,6 @@
 # Thesis writing guide
 
-Working conventions, updated 25 September 2026.
+Working conventions, updated 29 September 2026.
 
 ## Current report and editing workflow
 
@@ -43,6 +43,12 @@ Explain technical terms before relying on them. Do not use complicated
 language merely to sound academic. Avoid semicolons in thesis prose.
 Use full stops or rewrite the sentence instead. Explain abstract concepts
 with a short concrete example where it helps the reader.
+
+Explain what a concept means in ordinary language before adding technical
+detail. Use concrete phrases such as "different source IP addresses" and
+"five minutes" where they make the example easier to follow. Include a
+calculation only when it helps explain the concept, and state why the
+result is useful. Keep qualifications close to the claim they clarify.
 
 Use numbered sections for substantial topics. Use occasional bold paragraph
 lead-ins to distinguish closely related concepts within a section, such as

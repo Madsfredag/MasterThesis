@@ -242,20 +242,16 @@ packets belonging to a connection. Features calculated from it can include
 the duration, packet count and time between packets
 \parencite{engelen2021troubleshooting}.
 
-Features can also summarise security logs over time. The SIERRA study uses
-event counts and the number of distinct source addresses within defined
-intervals, while preserving context such as traffic direction
-\parencite{lee2022sierra}. A simple hypothetical example illustrates this
-approach. Suppose firewall logs contain 100 decisions for traffic to one
-service during five minutes, of which 20 are denials. The denial count is
-20, while the proportion of recorded decisions that are denials is 20\%.
-The count describes how many denials were recorded. The proportion relates
-that count to the total number of recorded decisions.
+Several log entries can be combined into a simple summary. For example,
+we could count how many log entries show that a firewall blocked traffic
+during five minutes. That count is a \emph{derived feature}. We could also
+count how many different source IP addresses appear in those entries.
+SIERRA uses counts of events and source addresses over set periods to
+analyse security logs \parencite{lee2022sierra}.
 
-The interval and the records included in the calculation are part of the
-feature's meaning. In this example, 20\% refers to recorded firewall
-decisions. It does not establish that 20\% of application requests failed,
-or explain why the firewall denied the traffic.
+The summary helps show how often traffic was blocked. To understand why,
+an investigator needs to examine the individual log entries and the
+firewall rules.
 
 \noindent\textbf{Interpreting features.} A feature can help a model classify
 examples correctly in one dataset while being unrelated to the security
