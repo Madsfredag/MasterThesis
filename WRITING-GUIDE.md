@@ -118,10 +118,20 @@ sorting=none. Never invent a publication, result or visit date.
 
 A systematic literature review requires an explicit search and selection
 method. Collecting sources for a draft does not by itself constitute that
-review. The review protocol still needs to be developed. Explain the systematic
-literature review method in Methodology and present its findings in State
-of the Art. The Introduction does not need a separate sentence announcing
-the review.
+review. Develop and agree on the protocol before formal screening. Keep BOTH
+the systematic literature review method and its findings in Chapter 3,
+State of the Art. This supersedes the earlier placement of the review method
+in Chapter 5. Chapter 5 explains how the PoC is designed, built and evaluated,
+referring back to Chapter 3 where relevant. The Introduction does not need a
+separate sentence announcing the review.
+
+The proposed protocol is in Chapters/03-State-of-the-Art.tex, section 3.1.
+Detailed search plans and empty record templates are in Review/. No formal
+technical-study search or selection has been conducted at this stage.
+Treat Background papers as candidate starting points, not automatically
+included studies. Record actual searches, exclusions, extraction evidence
+and protocol amendments as they occur. Do not invent search counts or infer
+a research gap before comparing the evidence.
 
 ## Chapter roles
 
@@ -129,14 +139,26 @@ the review.
 | --- | --- |
 | 1. Introduction | Motivate the problem and introduce the objective, problem statement, four RQs and scope. |
 | 2. Background | Explain established concepts needed to understand the thesis. |
-| 3. State of the Art | Present and compare relevant research identified through the systematic literature review. |
+| 3. State of the Art | Explain the systematic review method, present and compare its findings, and identify evidence-supported research gaps. |
 | 4. Problem Analysis and Requirements | Analyse the Norlys use case, constraints, requirements and success criteria. |
-| 5. Research Methodology and Evaluation Design | Explain the review method and how the RQs will be investigated and assessed. |
+| 5. Research Methodology and Evaluation Design | Explain the approach to designing, building and evaluating the PoC and how the RQs will be assessed. Refer back to the literature review where relevant. |
 | 6. System Design | Explain and justify the proposed architecture and design choices. |
 | 7. Implementation | Describe what was built and any deviations from the design. |
 | 8. Evaluation and Results | Present the collected evidence and results. |
 | 9. Discussion | Interpret the results, answer the RQs and discuss limitations. |
 | 10. Conclusion and Future Work | Summarise supported conclusions and identify further work. |
+
+The working Chapter 3 structure is:
+
+- 3.1 Systematic Literature Review Method
+- 3.2 Telemetry Correlation and Root-Cause Analysis
+- 3.3 Security Telemetry and Feature Selection
+- 3.4 LLM Agents for Operational Diagnosis
+- 3.5 Automated Remediation and Human Oversight
+- 3.6 Comparison and Research Gap
+
+Refine topic headings based on the review findings. The method and findings
+remain together in Chapter 3.
 
 Keep Background before State of the Art. Put detailed review records and
 supporting experimental material in appendices where appropriate. These
