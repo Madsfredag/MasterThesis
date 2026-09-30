@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "phase": "pilot",
+    "protocol_version": "0.2",
+    "executed_at": "2026-09-30",
+    "executor": "AI assistant via native IEEE Xplore web interface",
+    "database": "IEEE Xplore",
+    "platform": "IEEE Xplore",
+    "query_family": "S3",
+    "exported_records": 0,
+    "export_file": null,
+    "search_id": "P-IEEE-20260930-01",
+    "exact_query": "(\"All Metadata\":(\"large language model\" OR \"All Metadata\":LLM OR \"All Metadata\":\"LLM agent\" OR \"All Metadata\":\"multi-agent\")) AND (\"All Metadata\":(cloud OR \"All Metadata\":microservice OR \"All Metadata\":microservices OR \"All Metadata\":AIOps OR \"All Metadata\":\"distributed system\" OR \"All Metadata\":\"distributed systems\")) AND (\"All Metadata\":(diagnosis OR \"All Metadata\":diagnostic OR \"All Metadata\":troubleshooting OR \"All Metadata\":\"root cause\" OR \"All Metadata\":\"incident management\"))",
+    "fields": [
+      "All Metadata"
+    ],
+    "filters": {
+      "publication_year_from": 2020,
+      "publication_year_to": 2026
+    },
+    "date_from": "2020-01-01",
+    "date_to": "2026-12-31",
+    "reported_hits": 0,
+    "status": "unvalidated_syntax",
+    "coverage_limitations": "Structured search produced a nested field expression. The displayed zero is not evidence that the conceptual query has no eligible literature. Year-only filtering also does not enforce a 30 September publication-date cutoff.",
+    "notes": "Submitted three parenthesised term groups in Advanced Search. The page displayed No results found. No records were exported or screened. Validate command syntax before formal searching."
+  },
+  {
+    "phase": "pilot",
+    "protocol_version": "0.2",
+    "executed_at": "2026-09-30",
+    "executor": "AI assistant via native IEEE Xplore web interface",
+    "database": "IEEE Xplore",
+    "platform": "IEEE Xplore",
+    "query_family": "S3",
+    "exported_records": 0,
+    "export_file": null,
+    "search_id": "P-IEEE-20260930-02",
+    "exact_query": "\"large language model\" AND \"root cause\"",
+    "fields": [
+      "Global search defaults, not yet validated for formal search"
+    ],
+    "filters": {},
+    "date_from": null,
+    "date_to": null,
+    "reported_hits": 94,
+    "status": "exploratory_results_not_exported",
+    "coverage_limitations": "No date or domain filter was applied. Only the first 25 result titles were displayed. This is a query-access check, not the S3 search or an included-study set.",
+    "notes": "The native search page displayed Showing 1-25 of 94 results. No full texts were assessed and no records were exported. Query URL: https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=%22large%20language%20model%22%20AND%20%22root%20cause%22"
+  }
+]

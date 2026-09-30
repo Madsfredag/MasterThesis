@@ -1,21 +1,34 @@
 # Literature review records
 
-Protocol version: 0.1, proposed on 29 September 2026.
+Protocol version: 0.2, revised on 30 September 2026.
 
-The report text is in `Chapters/03-State-of-the-Art.tex`, section 3.1.
-This directory holds the detailed search plan and the records needed to
-report what was actually done. The protocol has not been agreed or piloted.
-No technical-study database searches or screening have been performed.
-Empty record arrays mean **not yet recorded**, not zero search results.
+The full review belongs in `Appendices/A-Systematic-Literature-Review.tex`.
+Chapter 3 summarises its coverage, compares the findings and explains
+their implications. This directory holds the operational search and study
+records supporting that appendix.
 
-## Next decisions
+IEEE Xplore and ACM Digital Library are the two main search sources,
+selected by Mads on 30 September 2026. No formal corpus has been exported,
+screened or assessed. IEEE pilot queries and database-access checks are
+recorded separately. Empty selection and extraction arrays mean **not yet
+recorded**, not zero eligible studies.
 
-1. Confirm access and export options for IEEE Xplore, ACM Digital Library
-   and Scopus through AU. Do not silently substitute web search results.
-2. Agree on the proposed eligibility, preprint and single-reviewer procedures.
-3. Pilot the four search families and revise them with a recorded rationale.
-4. Fix a protocol version before formal screening. Record later amendments
-   with their date, reason and effect on earlier decisions.
+## Next steps
+
+1. Resolve ACM access or obtain complete exports made in its native
+   interface. Do not replace a database search with web-search results.
+2. Pilot and validate the four search families in both databases. Record
+   the exact fields and the collection searched in ACM Digital Library.
+3. Export all results for each final query. Deduplicate, screen and assess
+   them under the recorded criteria.
+4. Populate the appendix with actual records and detailed findings, then
+   write the evidence-based synthesis in Chapter 3.
+
+On 30 September, the first IEEE structured-query trial displayed no
+results with an unvalidated nested field expression. A simpler native
+search returned 94 results, but had no publication-date filter and no
+retained export. Neither query is a completed formal search. ACM remained
+on a bot-verification page, so no query or result count was obtained there.
 
 The initial publication window is 1 January 2020 to the date of the final
 search. Record each actual search date. Rerun earlier source searches at
@@ -75,9 +88,10 @@ AND (agent OR automation OR autonomous OR "human oversight"
 
 Do not require safety terms in every S4 result. A study without an approval
 mechanism can still be an informative comparator. Do not require a specific
-cloud vendor. The proposed main search is all four families in all three
-databases. The proposed arXiv supplement uses S3 and S4, adapted to its
-interface, and is reported separately. Its narrower coverage is a limitation.
+cloud vendor. The main search is all four families in both selected databases. Scopus
+and an independent arXiv search are not part of version 0.2. Author copies
+may be retrieved from repositories, including arXiv, without treating
+that retrieval as a separate systematic search.
 
 ## Pilot and workload
 
@@ -91,11 +105,11 @@ and examine whether the cause is vocabulary, fields or source coverage.
 Use the pilot to estimate workload. If it is unmanageable, revise the scope
 or queries before formal screening and document the change. Do not take
 only the first page of results or stop at a desired number of included papers.
-The first reference/citation round is bounded to eligible main-search
-studies and relevant Background seeds. Record every seed, direction, index,
+One round of reference-list checking is bounded to eligible main-search
+studies and relevant Background seeds. Record each seed, reference list,
 date and candidate. New candidates do not trigger further rounds without a
-documented amendment. Use Scopus for forward citations if access permits.
-If another index is needed, agree and record that change before using it.
+documented amendment. A separate forward-citation search is not included
+in version 0.2. This limits coverage and must be reported.
 
 ## Eligibility decisions
 
@@ -123,11 +137,13 @@ resolved. Apply the same rules regardless of positive or negative results.
 
 ## Record files
 
-`search-log.json` contains one object per actual search. Required fields:
+`access-log.json` records interface-access checks without claiming that a
+query was executed. `search-log.json` contains one object per actual query
+attempt, including failed or unvalidated pilots. Required fields:
 `search_id`, `phase` (pilot/formal/update/snowball), `protocol_version`,
 `executed_at`, `executor`, `database`, `platform`, `query_family`,
 `exact_query`, `fields`, `filters`, `date_from`, `date_to`, `reported_hits`,
-`exported_records`, `export_file`, `coverage_limitations` and `notes`.
+`exported_records`, `export_file`, `status`, `coverage_limitations` and `notes`.
 Citation searches also record `seed_id` and `direction`. Use null for an
 unknown count with an explanation. Zero means a verified zero.
 

@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "date": "2026-09-30",
+    "from_version": "0.1",
+    "to_version": "0.2",
+    "change": "Move the full SLR documentation to Appendix A. Keep the thematic synthesis in Chapter 3. Use IEEE Xplore and ACM Digital Library as the two main databases. Remove Scopus, independent arXiv searches and the Scopus-dependent forward-citation plan. Retain one round of reference-list checking and lawful full-text retrieval.",
+    "reason": "Mads requested the full SLR in the appendix and IEEE Xplore and ACM Digital Library as search sources. Supplementary procedures were aligned with the two-source plan.",
+    "agreed_by": "Mads (appendix placement and two main databases). Reference-list-only supplementary route is an implementation adjustment documented here.",
+    "affected_searches_or_decisions": "No formal searches, screening decisions or extractions existed before the change.",
+    "required_rework": "Pilot and validate the revised database queries. Preserve pilot failures separately. Report two-database and supplementary-search coverage limits."
+  }
+]

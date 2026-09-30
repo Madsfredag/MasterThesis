@@ -48,3 +48,13 @@ approved wording. The non-production problem statement and real operational
 telemetry are preserved. The full specification also contains implementation
 requirements, such as Azure AI Foundry, which are not replaced by the review.
 Uploaded source documents have not been republished to GitHub.
+
+## Follow-up on 30 September 2026
+
+Reopened Kitchenham and Charters and PRISMA-S using the same URLs above
+when moving the protocol to Appendix A. These remain methodological
+sources, not included technical studies. The source-selection and appendix
+placement changes are recorded in `protocol-amendments.json`.
+Native database-access observations are in `access-log.json`. IEEE pilot
+query attempts are in `search-log.json`. They do not establish review
+findings or a formally selected corpus.

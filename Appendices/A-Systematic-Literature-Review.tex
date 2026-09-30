@@ -1,0 +1,293 @@
+\chapter{Systematic Literature Review}
+\label{app:systematic-literature-review}
+
+This appendix documents the systematic literature review supporting
+Chapter~\ref{cha:state-of-the-art}. It contains the review protocol and
+provides the location for the search records, selection decisions,
+quality assessments and detailed findings. Chapter~\ref{cha:state-of-the-art}
+presents the comparison needed to understand the thesis and its design
+and evaluation choices.
+
+\thesisTODO{Complete the searches in IEEE Xplore and ACM Digital Library,
+screen the results and assess the full texts. The material below is a
+review protocol, not a completed SLR. Replace planned procedures with an
+account of the work actually performed and populate the results sections.
+Database access checks and IEEE pilot queries on 30 September 2026 do not
+constitute the formal search.}
+
+A systematic literature review uses an explicit procedure to find, select
+and assess research. Defining that procedure before selecting studies
+helps reduce the risk of choosing only evidence that supports an expected
+conclusion. Kitchenham and Charters describe a review protocol covering
+the questions, search strategy, selection criteria, quality assessment,
+data extraction and synthesis
+\parencite[Section~5.4]{kitchenham2007guidelines}.
+
+Protocol version 0.2 records the choice of IEEE Xplore and ACM Digital
+Library as the two main search sources. The search expressions and
+screening procedure will be piloted before formal screening. The papers
+cited in Background provide possible starting points. They have not yet
+been selected through this review procedure.
+
+\section{Review Questions}
+
+The review questions concern evidence from existing studies. They support
+the four research questions in
+Section~\ref{sec:introduction:research-questions}, which concern the system
+developed and evaluated in this thesis.
+
+\begin{description}
+    \item[LQ1:] How do existing approaches connect telemetry across
+    components to reconstruct failing requests and identify faults,
+    including when shared identifiers or records are missing?
+    This question supports RQ1.
+
+    \item[LQ2:] Which security-related telemetry fields and derived features
+    have been used for diagnosis, and how has their relevance been assessed?
+    This question supports RQ2.
+
+    \item[LQ3:] How do LLM-based agents investigate operational failures,
+    and how are diagnostic accuracy, consistency and supporting evidence
+    evaluated? This question supports RQ3 and the agent coordination
+    aspect of RQ1.
+
+    \item[LQ4:] How do operational remediation approaches restrict and
+    approve changes, and what evidence is reported about validation,
+    recovery and rollback? This question supports RQ4.
+\end{description}
+
+The review will consider studies of cloud services, distributed
+applications and the network or security controls supporting them. A
+study need not use Cloudflare or Azure to be relevant. Its assumptions
+and evaluation setting must, however, be examined before applying its
+findings to the selected request path. Non-agent approaches will also be
+considered where they address correlation, diagnosis or remediation.
+Requiring every paper to use multiple agents would prevent a useful
+comparison with alternative approaches.
+
+\section{Information Sources and Search Strategy}
+
+The two main search sources are IEEE Xplore and ACM Digital Library.
+All four search families will be run in both databases. The collection
+searched within ACM Digital Library will be recorded explicitly, including
+whether it covers ACM publications or the wider bibliographic collection.
+The planned publication period starts on 1 January 2020
+and ends on the recorded final search date. This boundary focuses the
+review on recent technical work. Earlier methodological sources, such as
+the software engineering review guidelines, are used to design the
+review and are outside the set of technical studies being compared.
+
+Four search families will address the review questions separately.
+Each will combine a setting, such as cloud services or network security,
+with the relevant task, such as correlation, diagnosis or remediation.
+The initial search expressions are listed below. These express the intended
+Boolean logic. They are not a record of successful database searches.
+The exact commands used in each interface will be retained with their
+results.
+They will be adapted to each database's search syntax, using titles,
+abstracts and keywords where supported. Search fields and any differences
+between interfaces will be recorded explicitly. A pilot will check the
+volume and relevance of results and whether known, relevant papers can
+be retrieved. Finding those papers is a useful check, but does not
+demonstrate that a search is complete.
+
+One supplementary round will inspect the reference lists of eligible
+database studies and relevant Background papers. Newly found papers will
+be screened using the same criteria. Their reference lists will not be
+followed recursively unless a protocol amendment is recorded. Eligible
+preprints found through this route will be identified separately from
+peer-reviewed studies. Surveys can help locate primary studies, but their
+summaries will not be counted as independent evidence of a system's
+effectiveness. Author copies, including versions on arXiv, may be used to
+retrieve full texts. They are not an additional independent database
+search. Scopus and a separate arXiv search are outside this version of the
+search plan.
+
+For every search, the record will contain the source, exact query, search
+fields, filters, date, returned count and retained export. PRISMA-S provides
+reporting guidance for documenting these details and the removal of
+duplicate records \parencite{rethlefsen2021prismas}. It is used here to
+support transparent reporting, rather than as a claim that the review has
+already met a reporting checklist. A general web search will not be
+reported as a search performed inside a named academic database.
+
+\subsection{S1: Correlation and Root-Cause Analysis}
+\begin{quote}
+\small\raggedright
+(cloud OR microservice OR microservices OR \enquote{distributed system}
+ OR \enquote{distributed systems})
+AND (telemetry OR log OR logs OR trace OR traces OR metric OR metrics)
+AND (correlation OR \enquote{trace reconstruction} OR \enquote{request tracing}
+ OR \enquote{root cause} OR \enquote{fault localisation} OR \enquote{fault localization})
+\end{quote}
+
+\subsection{S2: Security Telemetry and Features}
+\begin{quote}
+\small\raggedright
+(firewall OR WAF OR \enquote{network security} OR \enquote{application security}
+ OR \enquote{intrusion detection} OR SIEM)
+AND (telemetry OR log OR logs OR event OR events OR \enquote{network flow})
+AND (\enquote{feature selection} OR \enquote{feature extraction} OR \enquote{feature engineering}
+ OR \enquote{derived features} OR diagnosis OR investigation OR correlation)
+\end{quote}
+
+\subsection{S3: LLM Agents for Operational Diagnosis}
+\begin{quote}
+\small\raggedright
+(\enquote{large language model} OR LLM OR \enquote{LLM agent} OR \enquote{multi-agent})
+AND (cloud OR microservice OR microservices OR AIOps
+ OR \enquote{distributed system} OR \enquote{distributed systems})
+AND (diagnosis OR diagnostic OR troubleshooting OR \enquote{root cause}
+ OR \enquote{incident management})
+\end{quote}
+
+\subsection{S4: Remediation and Human Oversight}
+\begin{quote}
+\small\raggedright
+(cloud OR microservice OR microservices OR AIOps OR \enquote{network management}
+ OR \enquote{distributed system} OR \enquote{distributed systems})
+AND (remediation OR \enquote{self-healing} OR \enquote{automated repair}
+ OR \enquote{incident response} OR \enquote{fault recovery})
+AND (agent OR automation OR autonomous OR \enquote{human oversight}
+ OR \enquote{human-in-the-loop} OR approval OR rollback OR \enquote{dry run})
+\end{quote}
+
+\section{Eligibility and Study Selection}
+
+The proposed review includes English-language primary studies within the
+date range that address at least one review question. A study must
+describe an approach and provide an empirical evaluation relevant to
+operational investigation, diagnostic data or remediation. Evaluations
+may use operational records, controlled experiments or testbeds. The
+setting and its limitations will be recorded.
+
+Studies will be excluded from the main comparison if they address an
+unrelated domain, describe only an unevaluated proposal, or concern
+telemetry storage and collection without a relevant diagnostic task.
+Intrusion-detection studies will qualify only when they examine telemetry
+or features relevant to understanding network or application security
+events. A classifier benchmark without such analysis will not qualify
+solely because it uses security data. Studies of general agent frameworks
+or human decision-making outside operations may still support Background,
+but will not be presented as operational evaluations. Product documentation,
+standards and the Norlys specifications remain contextual sources.
+
+Records will first be checked for duplicates using their DOI, title,
+authors and publication details. Different reports of the same study,
+including preprint and published versions, will be linked under one study
+identifier. The published version will normally provide the main account.
+Additional results in a related report can be retained without counting
+the underlying study twice.
+
+Screening will then proceed from titles and abstracts to full texts.
+Uncertain cases will move to full-text assessment. Each full-text
+exclusion will have a recorded reason. If a full text cannot be obtained
+through AU access or a lawful author copy, it will be recorded as not
+retrieved rather than rejected for its findings. The review will report
+separate counts for retrieved records, duplicates, screened records,
+unavailable reports and included studies.
+
+The proposed procedure uses the thesis author as the reviewer. Before
+formal screening, up to five records from each search family and one
+available full text per family will be used to test the criteria and
+extraction form. These are calibration exercises, not a limit on the
+number of included papers. After screening, a random ten per cent of
+decisions, with at least ten where available, will be reassessed without
+displaying the original decisions. This check will also be applied to
+extraction records. Differences and their resolution will be retained.
+It does not replace independent review by a second person. Any AI
+assistance will be documented, and proposed decisions and extracted
+claims will require the author's verification against the papers.
+
+\section{Quality Assessment and Information Extraction}
+\label{sec:slr:quality}
+
+Each included study will be assessed against six questions developed for
+this review:
+
+\begin{enumerate}
+    \item Are the problem, system and relevant assumptions described?
+    \item Are the data sources, scenarios and reference answers explained?
+    \item Are the evaluation procedure and outcome measures clear?
+    \item Do the comparisons support the claimed improvement, where an
+    improvement is claimed?
+    \item Are repeated trials, variation and possible sources of bias
+    addressed where relevant?
+    \item Is enough information available to inspect the method and
+    understand its limitations?
+\end{enumerate}
+
+Each judgement will be recorded as supported, partly supported, not
+supported, not reported or not applicable, with a source reference and a short
+reason. The judgements will remain separate rather than being combined
+into a single score. Missing reporting will not be treated as proof that
+a procedure was absent. Quality concerns will qualify the conclusions
+drawn from a study rather than silently removing unfavourable results.
+
+The extraction form will record the study's setting, telemetry sources,
+correlation method, security fields and derived features. For agent
+systems, it will also record roles, tools, coordination, model information
+and how conclusions are connected to evidence. Remediation fields will
+cover permitted actions, access restrictions, approval, dry runs, recovery
+checks, audit records and rollback. Each control will be distinguished as
+proposed, implemented, evaluated, explicitly absent or not reported.
+
+Evaluation records will retain scenario counts, ground truth, baselines,
+metric definitions, reported results, repeated runs, time and cost where
+available. Claims about diagnostic evidence and remediation success will
+be linked to the paper's actual assessment procedure. Every extracted
+finding will have a source location. Unavailable values will remain
+marked as not reported.
+
+\section{Comparison and Interpretation}
+
+The proposed synthesis will group studies by the four review topics and
+compare their approaches in a common evidence table. A study may inform
+several topics while retaining one study identifier. The discussion will
+consider which assumptions each approach requires, what was tested and
+how directly the results apply to the thesis setting.
+
+Reported percentages will not be ranked as if they measured the same
+task. For example, selecting a faulty service and explaining an incorrect
+firewall rule require different levels of diagnostic detail. The initial
+plan is therefore a structured narrative comparison rather than a pooled
+statistical estimate. The comparison will also check whether its main
+conclusions change when preprints or studies with substantial quality
+concerns are considered separately.
+
+Possible research gaps will be identified only after this comparison.
+They will be stated within the limits of the searched literature. A
+capability that is not reported is different from one that was tested
+and found ineffective. Likewise, the absence of a paper using the exact
+Norlys product combination is not, by itself, a research contribution.
+The review's limitations will include its date and language boundaries,
+coverage of the two selected databases and reliance on one reviewer.
+Relevant work published elsewhere may be missed even when reference
+checking provides additional candidates. Applying evidence from
+large or synthetic workloads to an environment with limited operational
+traffic will require particular attention.
+
+
+\section{Search Execution and Selection Results}
+\label{sec:slr:selection-results}
+
+\thesisTODO{Report each executed search with its database collection,
+exact query, fields, filters, date, result count and export. Reconcile the
+counts for duplicates, screening, full-text retrieval, exclusions and
+included studies. Report pilot queries separately. No formal search
+corpus or selection counts have been established yet.}
+
+\section{Detailed Study Findings}
+\label{sec:slr:detailed-findings}
+
+\thesisTODO{Add the included-study table, individual quality assessments
+and detailed evidence extracted for LQ1--LQ4. Link each finding to the
+paper and its page, section or table. Compare studies by task and
+evaluation setting before writing the synthesis in Chapter 3.}
+
+\section{Review Limitations}
+
+\thesisTODO{Describe the actual coverage and retrieval limitations,
+single-reviewer checks, AI assistance and any protocol changes. Explain
+how these affect the conclusions. Record unresolved access problems as
+limitations rather than treating unavailable papers as irrelevant.}

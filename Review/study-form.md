@@ -46,7 +46,7 @@ within a study separate. Do not add findings based on the abstract alone.
 
 ## Quality appraisal
 
-For Q1--Q6 in section 3.1, record `supported`, `partly_supported`,
+For Q1--Q6 in Appendix A, Quality Assessment and Information Extraction, record `supported`, `partly_supported`,
 `not_supported`, `not_reported` or `not_applicable`, the reason and source
 location. Use `not_supported` for an identifiable methodological weakness
 and `not_reported` when the paper does not provide enough information.

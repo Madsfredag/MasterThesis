@@ -1,6 +1,6 @@
 # Thesis writing guide
 
-Working conventions, updated 29 September 2026.
+Working conventions, updated 30 September 2026.
 
 ## Current report and editing workflow
 
@@ -117,21 +117,48 @@ urldate. Keep numeric references ordered by first citation using
 sorting=none. Never invent a publication, result or visit date.
 
 A systematic literature review requires an explicit search and selection
-method. Collecting sources for a draft does not by itself constitute that
-review. Develop and agree on the protocol before formal screening. Keep BOTH
-the systematic literature review method and its findings in Chapter 3,
-State of the Art. This supersedes the earlier placement of the review method
-in Chapter 5. Chapter 5 explains how the PoC is designed, built and evaluated,
-referring back to Chapter 3 where relevant. The Introduction does not need a
-separate sentence announcing the review.
+method. Collecting sources does not by itself constitute that review.
+Pilot the queries and screening rules before formal screening. Record
+later changes with their date, reason and effect on the evidence.
 
-The proposed protocol is in Chapters/03-State-of-the-Art.tex, section 3.1.
-Detailed search plans and empty record templates are in Review/. No formal
-technical-study search or selection has been conducted at this stage.
-Treat Background papers as candidate starting points, not automatically
-included studies. Record actual searches, exclusions, extraction evidence
-and protocol amendments as they occur. Do not invent search counts or infer
-a research gap before comparing the evidence.
+Decision of 30 September 2026: put the full review documentation in
+Appendix A, `Appendices/A-Systematic-Literature-Review.tex`. It contains
+the protocol and will contain search and selection records, quality
+assessments, detailed study findings and review limitations. Remove the
+old section 3.1 on the method. Chapter 3, State of the Art, presents a
+concise account of the review coverage, the thematic comparison and
+evidence-supported implications for the PoC. Include relevant negative
+and conflicting findings. It must remain understandable without the
+appendix. This supersedes the earlier decision to keep the detailed
+method in Chapter 3.
+
+IEEE Xplore and ACM Digital Library are the agreed main search sources.
+Scopus and an independent arXiv search have been removed from the plan.
+One round of reference-list checking remains supplementary. An author
+copy can provide full text without being counted as a database search.
+Record the exact ACM collection searched and the fields used in each
+database. Do not claim comprehensive coverage of all AI research.
+
+Protocol version 0.2 is in the appendix. Operational records are in
+`Review/`. On 30 September 2026, access checks and IEEE query pilots were
+attempted. ACM presented a persistent bot-verification page. No formal
+search corpus has been exported and no formal study selection or
+extraction has been completed. Pilot counts are not review-selection
+counts. Keep missing results marked with visible TODO boxes.
+
+The exact Norlys log locations and schemas do not have to be finalised
+before the review can proceed. Clarify access and inspect representative
+telemetry alongside it, then assess which literature assumptions apply.
+As reported by Mads on 30 September 2026, only the landing zone has been
+created. Telemetry sources and access are being clarified with coworkers.
+Do not infer that connectors, agents or a test path are already deployed.
+
+Chapter 5 explains how the PoC is designed, built and evaluated, referring
+back to Chapter 3 where relevant. The Introduction does not need a
+separate sentence announcing the review. Treat Background papers as
+candidates, not automatically included studies. Keep actual search,
+exclusion, extraction and amendment records. Establish research gaps
+only after comparing the evidence.
 
 ## Chapter roles
 
@@ -139,7 +166,7 @@ a research gap before comparing the evidence.
 | --- | --- |
 | 1. Introduction | Motivate the problem and introduce the objective, problem statement, four RQs and scope. |
 | 2. Background | Explain established concepts needed to understand the thesis. |
-| 3. State of the Art | Explain the systematic review method, present and compare its findings, and identify evidence-supported research gaps. |
+| 3. State of the Art | Summarise review coverage, compare the research findings and explain evidence-supported implications and gaps. Refer to Appendix A for the full review. |
 | 4. Problem Analysis and Requirements | Analyse the Norlys use case, constraints, requirements and success criteria. |
 | 5. Research Methodology and Evaluation Design | Explain the approach to designing, building and evaluating the PoC and how the RQs will be assessed. Refer back to the literature review where relevant. |
 | 6. System Design | Explain and justify the proposed architecture and design choices. |
@@ -150,15 +177,15 @@ a research gap before comparing the evidence.
 
 The working Chapter 3 structure is:
 
-- 3.1 Systematic Literature Review Method
-- 3.2 Telemetry Correlation and Root-Cause Analysis
-- 3.3 Security Telemetry and Feature Selection
-- 3.4 LLM Agents for Operational Diagnosis
-- 3.5 Automated Remediation and Human Oversight
-- 3.6 Comparison and Research Gap
+- 3.1 Telemetry Correlation and Root-Cause Analysis
+- 3.2 Security Telemetry and Feature Selection
+- 3.3 LLM Agents for Operational Diagnosis
+- 3.4 Automated Remediation and Human Oversight
+- 3.5 Comparison and Research Gap
 
-Refine topic headings based on the review findings. The method and findings
-remain together in Chapter 3.
+Refine topic headings based on the review findings. Appendix A holds the
+full review documentation. Chapter 3 contains the synthesis needed for
+the main argument.
 
 Keep Background before State of the Art. Put detailed review records and
 supporting experimental material in appendices where appropriate. These

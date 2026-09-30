@@ -1,0 +1,18 @@
+[
+  {
+    "date": "2026-09-30",
+    "source": "IEEE Xplore",
+    "url": "https://ieeexplore.ieee.org/search/advanced",
+    "status": "native_search_available",
+    "notes": "Web text retrieval returned HTTP 418. The native browser loaded Advanced Search and two pilot queries were submitted. See search-log.json. Formal query syntax and export still require validation."
+  },
+  {
+    "date": "2026-09-30",
+    "source": "ACM Digital Library",
+    "url": "https://dl.acm.org/search/advanced",
+    "status": "blocked_by_bot_verification",
+    "query_executed": false,
+    "reported_hits": null,
+    "notes": "Web text retrieval returned HTTP 403. The native browser displayed a Cloudflare bot-verification page on arrival and remained there on a later observation. No ACM search was executed and no result count was obtained. Requires restored access or native search exports supplied by the author."
+  }
+]
