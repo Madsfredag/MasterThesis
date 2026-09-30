@@ -132,16 +132,23 @@ and conflicting findings. It must remain understandable without the
 appendix. This supersedes the earlier decision to keep the detailed
 method in Chapter 3.
 
-IEEE Xplore and ACM Digital Library are the agreed main search sources.
+IEEE Xplore and OpenAlex are the current main search sources. Mads asked
+for another site after ACM access problems. The assistant selected
+OpenAlex and verified an API search and metadata export on 30 September
+2026. This replaces the earlier ACM source choice.
 Scopus and an independent arXiv search have been removed from the plan.
 One round of reference-list checking remains supplementary. An author
 copy can provide full text without being counted as a database search.
-Record the exact ACM collection searched and the fields used in each
-database. Do not claim comprehensive coverage of all AI research.
+Record the fields used in each source. OpenAlex's default search includes
+available full text in addition to titles and abstracts. Check publication
+status and link preprints to published reports. Do not describe OpenAlex
+as equivalent to ACM coverage or claim comprehensive coverage of AI research.
 
-Protocol version 0.2 is in the appendix. Operational records are in
-`Review/`. On 30 September 2026, access checks and IEEE query pilots were
-attempted. ACM presented a persistent bot-verification page. No formal
+Protocol version 0.3 is in the appendix. Operational records are in
+`Review/`. On 30 September 2026, IEEE and OpenAlex access pilots were
+performed. ACM presented a persistent bot-verification page and was
+replaced before any ACM search was executed. Five OpenAlex metadata
+records were retained as an access pilot, not as included studies. No formal
 search corpus has been exported and no formal study selection or
 extraction has been completed. Pilot counts are not review-selection
 counts. Keep missing results marked with visible TODO boxes.

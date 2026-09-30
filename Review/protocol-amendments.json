@@ -8,5 +8,15 @@
     "agreed_by": "Mads (appendix placement and two main databases). Reference-list-only supplementary route is an implementation adjustment documented here.",
     "affected_searches_or_decisions": "No formal searches, screening decisions or extractions existed before the change.",
     "required_rework": "Pilot and validate the revised database queries. Preserve pilot failures separately. Report two-database and supplementary-search coverage limits."
+  },
+  {
+    "date": "2026-09-30",
+    "from_version": "0.2",
+    "to_version": "0.3",
+    "change": "Replace the planned ACM Digital Library search with OpenAlex. Retain IEEE Xplore, all four search families, the date window, eligibility criteria and one supplementary round of reference-list checking. Record the OpenAlex default search fields and its inclusion of available full text.",
+    "reason": "ACM bot verification prevented automated search access. Mads requested selection of another site. OpenAlex documents Boolean queries, date filters and paginated metadata retrieval. An unauthenticated Works API search succeeded and five metadata records were retained.",
+    "agreed_by": "Mads authorised choosing a replacement site. The assistant selected OpenAlex under that instruction.",
+    "affected_searches_or_decisions": "No ACM query had been executed. No formal corpus, screening decisions or extractions existed before the change. Historical IEEE pilots and the failed ACM access check remain in the logs.",
+    "required_rework": "Validate all four queries in both current sources before formal screening. Check the effect of the different searchable fields, estimate workload, retain complete exports, verify publication status and deduplicate overlap. Report source coverage limits."
   }
 ]

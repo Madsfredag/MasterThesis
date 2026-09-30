@@ -14,5 +14,14 @@
     "query_executed": false,
     "reported_hits": null,
     "notes": "Web text retrieval returned HTTP 403. The native browser displayed a Cloudflare bot-verification page on arrival and remained there on a later observation. No ACM search was executed and no result count was obtained. Requires restored access or native search exports supplied by the author."
+  },
+  {
+    "date": "2026-09-30",
+    "source": "OpenAlex",
+    "url": "https://api.openalex.org/works",
+    "status": "public_api_search_and_partial_export_available",
+    "query_executed": true,
+    "reported_hits": 13277,
+    "notes": "An unauthenticated Works API request succeeded. Five records with IDs, DOIs, titles, publication dates and types were retained in pilot-openalex-20260930.json. This was a first-page access/export pilot, not a complete export or eligibility assessment. See P-OA-20260930-01 in search-log.json."
   }
 ]

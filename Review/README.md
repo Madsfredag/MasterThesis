@@ -1,24 +1,28 @@
 # Literature review records
 
-Protocol version: 0.2, revised on 30 September 2026.
+Protocol version: 0.3, revised on 30 September 2026.
 
 The full review belongs in `Appendices/A-Systematic-Literature-Review.tex`.
 Chapter 3 summarises its coverage, compares the findings and explains
 their implications. This directory holds the operational search and study
 records supporting that appendix.
 
-IEEE Xplore and ACM Digital Library are the two main search sources,
-selected by Mads on 30 September 2026. No formal corpus has been exported,
-screened or assessed. IEEE pilot queries and database-access checks are
-recorded separately. Empty selection and extraction arrays mean **not yet
-recorded**, not zero eligible studies.
+IEEE Xplore and OpenAlex are the two main search sources. Mads requested
+a replacement for ACM Digital Library on 30 September 2026. The assistant
+selected OpenAlex after checking its documented search capabilities and
+successfully retrieving records through its public Works API without signing in.
+No formal corpus has been exported, screened or assessed. Pilot queries
+and database-access checks are recorded separately. Empty selection and
+extraction arrays mean **not yet recorded**, not zero eligible studies.
 
 ## Next steps
 
-1. Resolve ACM access or obtain complete exports made in its native
-   interface. Do not replace a database search with web-search results.
-2. Pilot and validate the four search families in both databases. Record
-   the exact fields and the collection searched in ACM Digital Library.
+1. Pilot and validate all four search families in IEEE Xplore and OpenAlex.
+   Record the exact fields, date limits and platform syntax. The access
+   pilot does not validate the four final queries.
+2. Check retrieval of known relevant papers and estimate the screening
+   workload. OpenAlex's default search includes available full text as well
+   as titles and abstracts. Record any changes made after the pilot.
 3. Export all results for each final query. Deduplicate, screen and assess
    them under the recorded criteria.
 4. Populate the appendix with actual records and detailed findings, then
@@ -29,6 +33,16 @@ results with an unvalidated nested field expression. A simpler native
 search returned 94 results, but had no publication-date filter and no
 retained export. Neither query is a completed formal search. ACM remained
 on a bot-verification page, so no query or result count was obtained there.
+That planned search has now been replaced, rather than counted as a
+completed search with no results. The OpenAlex access pilot retained five
+metadata records in `pilot-openalex-20260930.json`. This is an incomplete
+sample from an exploratory query, not a shortlist of included studies.
+
+OpenAlex can index records from different publishers and repositories.
+It does not reproduce an ACM Digital Library search, and an indexed record
+does not establish peer review or guarantee access to the full paper.
+Check publication status and link preprint and published reports of the
+same study. Preserve source memberships when deduplicating overlap with IEEE.
 
 The initial publication window is 1 January 2020 to the date of the final
 search. Record each actual search date. Rerun earlier source searches at
@@ -44,6 +58,13 @@ the exact executed form in `search-log.json`. Search titles, abstracts and
 keywords where supported. Record different fields explicitly. A platform
 limit may require splitting a query into several equivalent subqueries.
 Retain all their exports and deduplicate their union.
+
+For OpenAlex, use the documented Works API Boolean `search` parameter and
+publication-date filters. It searches titles, abstracts and available full
+text. Retain the exact request parameters and raw metadata response. Use
+cursor pagination for complete exports, checking that all pages were
+retained. Do not treat the API's relevance order as a selection criterion.
+See the official documentation linked in `method-source-notes.md`.
 
 ### S1: Correlation and root-cause analysis
 
@@ -89,7 +110,7 @@ AND (agent OR automation OR autonomous OR "human oversight"
 Do not require safety terms in every S4 result. A study without an approval
 mechanism can still be an informative comparator. Do not require a specific
 cloud vendor. The main search is all four families in both selected databases. Scopus
-and an independent arXiv search are not part of version 0.2. Author copies
+and an independent arXiv search are not part of version 0.3. Author copies
 may be retrieved from repositories, including arXiv, without treating
 that retrieval as a separate systematic search.
 
@@ -109,7 +130,7 @@ One round of reference-list checking is bounded to eligible main-search
 studies and relevant Background seeds. Record each seed, reference list,
 date and candidate. New candidates do not trigger further rounds without a
 documented amendment. A separate forward-citation search is not included
-in version 0.2. This limits coverage and must be reported.
+in version 0.3. This limits coverage and must be reported.
 
 ## Eligibility decisions
 

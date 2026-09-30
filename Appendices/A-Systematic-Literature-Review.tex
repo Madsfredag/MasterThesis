@@ -8,11 +8,11 @@ quality assessments and detailed findings. Chapter~\ref{cha:state-of-the-art}
 presents the comparison needed to understand the thesis and its design
 and evaluation choices.
 
-\thesisTODO{Complete the searches in IEEE Xplore and ACM Digital Library,
+\thesisTODO{Complete the searches in IEEE Xplore and OpenAlex,
 screen the results and assess the full texts. The material below is a
 review protocol, not a completed SLR. Replace planned procedures with an
 account of the work actually performed and populate the results sections.
-Database access checks and IEEE pilot queries on 30 September 2026 do not
+Database access checks and pilot queries on 30 September 2026 do not
 constitute the formal search.}
 
 A systematic literature review uses an explicit procedure to find, select
@@ -23,8 +23,10 @@ the questions, search strategy, selection criteria, quality assessment,
 data extraction and synthesis
 \parencite[Section~5.4]{kitchenham2007guidelines}.
 
-Protocol version 0.2 records the choice of IEEE Xplore and ACM Digital
-Library as the two main search sources. The search expressions and
+Protocol version 0.3 records the choice of IEEE Xplore and OpenAlex
+as the two main search sources. OpenAlex replaces the planned ACM Digital
+Library search after access problems prevented its execution. No ACM
+results contribute to the review. The search expressions and
 screening procedure will be piloted before formal screening. The papers
 cited in Background provide possible starting points. They have not yet
 been selected through this review procedure.
@@ -67,10 +69,13 @@ comparison with alternative approaches.
 
 \section{Information Sources and Search Strategy}
 
-The two main search sources are IEEE Xplore and ACM Digital Library.
-All four search families will be run in both databases. The collection
-searched within ACM Digital Library will be recorded explicitly, including
-whether it covers ACM publications or the wider bibliographic collection.
+The two main search sources are IEEE Xplore and OpenAlex.
+All four search families will be run in both sources. The OpenAlex Works
+API supports Boolean queries and searches titles, abstracts and available
+full text \parencite{openalex2026search}. The precise fields used in each
+source will be recorded because these searches do not have identical
+coverage. OpenAlex records may include preprints, whose publication
+status will be checked during screening.
 The planned publication period starts on 1 January 2020
 and ends on the recorded final search date. This boundary focuses the
 review on recent technical work. Earlier methodological sources, such as
@@ -85,8 +90,10 @@ Boolean logic. They are not a record of successful database searches.
 The exact commands used in each interface will be retained with their
 results.
 They will be adapted to each database's search syntax, using titles,
-abstracts and keywords where supported. Search fields and any differences
-between interfaces will be recorded explicitly. A pilot will check the
+abstracts and keywords where supported. The default OpenAlex search also
+includes available full text, which can return matches outside the main
+topic of a paper. This difference will be considered during the pilot and
+recorded in the search log. A pilot will check the
 volume and relevance of results and whether known, relevant papers can
 be retrieved. Finding those papers is a useful check, but does not
 demonstrate that a search is complete.

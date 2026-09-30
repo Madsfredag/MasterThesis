@@ -58,3 +58,32 @@ placement changes are recorded in `protocol-amendments.json`.
 Native database-access observations are in `access-log.json`. IEEE pilot
 query attempts are in `search-log.json`. They do not establish review
 findings or a formally selected corpus.
+
+## OpenAlex replacement check on 30 September 2026
+
+Mads requested another site after ACM bot verification prevented searching.
+OpenAlex was selected after reading its official documentation and testing
+the public Works API. The retained response is an access pilot, not review
+evidence or a completed search. It contains an ACM-published cloud diagnosis
+paper, which demonstrates discovery of that record but not complete ACM
+coverage. The broad pilot also returns unrelated papers.
+
+Official documentation read on this date:
+
+- https://help.openalex.org/api/searching/
+  Supports uppercase Boolean operators, quoted phrases and the default
+  title, abstract and available-full-text search fields. Default relevance
+  ranking is not an eligibility criterion. The live page states that it
+  was updated on 19 September 2026.
+- https://help.openalex.org/api/authentication/
+  States that basic API queries can be made without a key. Access and
+  usage limits can change. The check succeeded without an account.
+- https://help.openalex.org/api/paging/
+  Documents cursor pagination and the supported page size of up to 100.
+  Complete exports must retain all pages. Only five records were retained
+  in this access pilot.
+
+Search parameters, result count and limitations are recorded under
+`P-OA-20260930-01` in `search-log.json`. Raw metadata is retained in
+`pilot-openalex-20260930.json`. No abstracts or full papers are republished.
+Protocol amendment 0.3 records the source change before formal screening.

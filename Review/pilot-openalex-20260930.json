@@ -1,0 +1,95 @@
+{
+  "search_id": "P-OA-20260930-01",
+  "retrieved_at": "2026-09-30T11:24:41.988579+00:00",
+  "request_url": "https://api.openalex.org/works?search=%22large+language+model%22+AND+%22root+cause%22&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-09-30&per_page=5&select=id%2Cdoi%2Ctitle%2Cpublication_year%2Cpublication_date%2Ctype&cursor=%2A",
+  "parameters": {
+    "search": "\"large language model\" AND \"root cause\"",
+    "filter": "from_publication_date:2020-01-01,to_publication_date:2026-09-30",
+    "per_page": 5,
+    "select": "id,doi,title,publication_year,publication_date,type",
+    "cursor": "*"
+  },
+  "complete_export": false,
+  "purpose": "Access and export pilot only. First five results of a broad exploratory query. No screening or full-text assessment.",
+  "response": {
+    "meta": {
+      "count": 13277,
+      "db_response_time_ms": 257,
+      "page": null,
+      "per_page": 5,
+      "next_cursor": "IlsyOTIuNjA3NTQsIDE2ODQxOTUyMDAwMDAsICdodHRwczovL29wZW5hbGV4Lm9yZy9XNDM3NzAwOTk3OCddIg==",
+      "groups_count": null,
+      "x_query": {
+        "oql": "works where date >= (2020-01-01)\n  and full text has (stemmed \"large language model\" and stemmed \"root cause\")\n  and date <= (2026-09-30)",
+        "oqo": {
+          "get_rows": "works",
+          "filter_rows": [
+            {
+              "column_id": "from_publication_date",
+              "value": "2020-01-01"
+            },
+            {
+              "column_id": "fulltext.search",
+              "value": "\"large language model\"",
+              "operator": "has"
+            },
+            {
+              "column_id": "fulltext.search",
+              "value": "\"root cause\"",
+              "operator": "has"
+            },
+            {
+              "column_id": "to_publication_date",
+              "value": "2026-09-30"
+            }
+          ]
+        },
+        "url": "/works?filter=from_publication_date:2020-01-01,fulltext.search:%22large language model%22,fulltext.search:%22root cause%22,to_publication_date:2026-09-30&per_page=5&cursor=%2A"
+      },
+      "cost_usd": 0.001
+    },
+    "results": [
+      {
+        "id": "https://openalex.org/W4393065402",
+        "doi": "https://doi.org/10.1007/s11704-024-40231-1",
+        "title": "A survey on large language model based autonomous agents",
+        "publication_year": 2024,
+        "publication_date": "2024-03-22",
+        "type": "article"
+      },
+      {
+        "id": "https://openalex.org/W4384200891",
+        "doi": "https://doi.org/10.1186/s13040-023-00339-9",
+        "title": "ChatGPT and large language models in academia: opportunities and challenges",
+        "publication_year": 2023,
+        "publication_date": "2023-07-13",
+        "type": "editorial"
+      },
+      {
+        "id": "https://openalex.org/W4394946189",
+        "doi": "https://doi.org/10.1145/3627703.3629553",
+        "title": "Automatic Root Cause Analysis via Large Language Models for Cloud Incidents",
+        "publication_year": 2024,
+        "publication_date": "2024-04-18",
+        "type": "conference-paper"
+      },
+      {
+        "id": "https://openalex.org/W4384345635",
+        "doi": "https://doi.org/10.1109/icse48619.2023.00149",
+        "title": "Recommending Root-Cause and Mitigation Steps for Cloud Incidents using Large Language Models",
+        "publication_year": 2023,
+        "publication_date": "2023-05-01",
+        "type": "conference-paper"
+      },
+      {
+        "id": "https://openalex.org/W4377009978",
+        "doi": "https://doi.org/10.48550/arxiv.2305.09617",
+        "title": "Towards Expert-Level Medical Question Answering with Large Language Models",
+        "publication_year": 2023,
+        "publication_date": "2023-05-16",
+        "type": "preprint"
+      }
+    ],
+    "group_by": []
+  }
+}

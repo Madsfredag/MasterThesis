@@ -47,5 +47,33 @@
     "status": "exploratory_results_not_exported",
     "coverage_limitations": "No date or domain filter was applied. Only the first 25 result titles were displayed. This is a query-access check, not the S3 search or an included-study set.",
     "notes": "The native search page displayed Showing 1-25 of 94 results. No full texts were assessed and no records were exported. Query URL: https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText=%22large%20language%20model%22%20AND%20%22root%20cause%22"
+  },
+  {
+    "search_id": "P-OA-20260930-01",
+    "phase": "pilot",
+    "protocol_version": "0.3",
+    "executed_at": "2026-09-30T11:24:41.988579+00:00",
+    "executor": "AI assistant via OpenAlex public Works API",
+    "database": "OpenAlex",
+    "platform": "OpenAlex Works API",
+    "query_family": "S3",
+    "exact_query": "\"large language model\" AND \"root cause\"",
+    "fields": [
+      "title",
+      "abstract",
+      "available full text"
+    ],
+    "filters": {
+      "from_publication_date": "2020-01-01",
+      "to_publication_date": "2026-09-30"
+    },
+    "date_from": "2020-01-01",
+    "date_to": "2026-09-30",
+    "reported_hits": 13277,
+    "exported_records": 5,
+    "export_file": "Review/pilot-openalex-20260930.json",
+    "status": "access_pilot_partial_export",
+    "coverage_limitations": "Simplified exploratory query, not the full S3 expression. No cloud-domain restriction. Default search includes available full text and retrieves unrelated domains. Only the first five metadata records were retained. No eligibility decisions or full-text assessments were made. The count is not comparable to the IEEE pilot because search fields and date filters differ.",
+    "notes": "The request confirmed API search and metadata retrieval without sign-in. It repeated the initial successful access check to retain the raw response. The reported count includes all matching records, not eligible studies. Request URL and parameters are retained with the response. The final search requires validated queries and complete pagination."
   }
 ]
