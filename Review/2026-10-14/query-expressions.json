@@ -1,0 +1,18 @@
+{
+  "S1": {
+    "title": "\"trace reconstruction\" OR \"request tracing\" OR \"telemetry correlation\" OR \"log correlation\" OR ((\"root cause\" OR \"fault localization\") AND (multimodal OR \"multi-modal\" OR \"causal inference\"))",
+    "abstract": "cloud OR microservices OR \"distributed systems\" OR \"online service\""
+  },
+  "S2": {
+    "title": "(firewall OR \"network security\" OR intrusion OR network OR SIEM) AND (\"feature selection\" OR \"feature extraction\" OR correlation OR ranking OR triage OR investigation OR \"noise reduction\")",
+    "abstract": "logs OR telemetry OR \"network flow\" OR \"security events\""
+  },
+  "S3": {
+    "title": "(LLM OR \"large language model\" OR agent OR agents OR copilot) AND (\"root cause\" OR diagnosis OR troubleshooting OR incident OR AIOps)",
+    "abstract": "cloud OR microservices OR \"distributed systems\" OR \"IT operations\""
+  },
+  "S4": {
+    "title": "(remediation OR \"self-healing\" OR \"incident response\" OR \"fault recovery\") AND (cloud OR microservices OR AIOps)",
+    "abstract": "agent OR automation OR autonomous OR \"human-in-the-loop\" OR approval OR rollback"
+  }
+}

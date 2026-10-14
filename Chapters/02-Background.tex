@@ -1,6 +1,17 @@
 \chapter{Background}
 \label{cha:background}
 
+
+A failed request can involve several systems before it produces a visible
+error. Understanding that failure requires both evidence about what
+happened and knowledge of how the components interact. This chapter
+introduces the concepts needed to follow that investigation. It begins with
+operational telemetry and the application request path, then explains
+correlation, security features and root-cause analysis. The later sections
+introduce language-model agents and the controls needed when a system moves
+from explaining a failure to proposing or executing a change. Chapter~\ref{cha:state-of-the-art}
+then compares research on these tasks.
+
 \section{Observability and Operational Telemetry}
 \label{sec:background:observability}
 
@@ -531,3 +542,4 @@ reviewable. NIST's change control guidance includes retaining change
 records and monitoring associated activities
 \parencite[CM-3]{nist2020securitycontrols}. These records connect the
 authorised change to what actually happened.
+

@@ -1,0 +1,142 @@
+[
+  {
+    "original_name": "S1-ieee-export.txt",
+    "bytes": 6224,
+    "sha256": "5ea9d2da03d6e69e6e2494cdaa6956492e030761e58c0c82a78b5f8446302009",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S1-ieee.bib",
+    "bytes": 24035,
+    "sha256": "c8a04998f1d7962b4fa2ac91660f215f8a26925ad5c4621891a2c00a8abac2a4",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S1-openalex-all.json",
+    "bytes": 398304,
+    "sha256": "57d9ef3b30001ba86a5507df36bee4862114db6a7376ba18decda13c96536418",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S1-openalex-page-01.json",
+    "bytes": 400999,
+    "sha256": "24c0899bf105f4b8a560612cfbefa8d483d0cd521a77192111d9797bf5d09ac8",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S2-ieee.bib",
+    "bytes": 184577,
+    "sha256": "94f247aa3382733e22d74b3677c7cc4207b2c013297f76c50b0de61b51e08497",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S2-openalex-all.json",
+    "bytes": 2594244,
+    "sha256": "8cd309e97de294c3976a055ae6289151ed77ddab94dd525efeae84b3887395d0",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S2-openalex-page-01.json",
+    "bytes": 905084,
+    "sha256": "3642a1107397bf37ef24eff4e49e628bc43ef3d0e1d760bd889e775161ddde37",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S2-openalex-page-02.json",
+    "bytes": 907265,
+    "sha256": "f388d2d8e642dd9c3298dc4daf5c41064bdfb7397d73baeaa0d5c1f25a921837",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S2-openalex-page-03.json",
+    "bytes": 813125,
+    "sha256": "37ea0284d5069bb3a5415f412876f0e80feefed6b88affd47b2911c2bb7875fa",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S3-ieee.bib",
+    "bytes": 107009,
+    "sha256": "a4293fb69479e2d905dff73170ac32d39a10b2f0c9a37e2bc9f42a742012320a",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S3-openalex-all.json",
+    "bytes": 3500010,
+    "sha256": "959e6881b5478a4a7291c78db4296a3044ffacff51ba7e456c98058e4a1ab452",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S3-openalex-page-01.json",
+    "bytes": 857776,
+    "sha256": "f46618584f32f2c56987af4cf081d79c3e15c775fcc3e13e6192a26819259472",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S3-openalex-page-02.json",
+    "bytes": 912722,
+    "sha256": "ce1684d19bffef02ff6452737eab60a256ef5e27af8c13fadbcd2448529f88c4",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S3-openalex-page-03.json",
+    "bytes": 878112,
+    "sha256": "9f83d367c1b354ab69f8de9a32f253a2c6831cd7359bbdd3a2a7f05606aabf09",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S3-openalex-page-04.json",
+    "bytes": 870350,
+    "sha256": "3a2ae221a0ed7bcc2b7b1fac0ebb29c13c471c8d606ac926771218826557f3c4",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S4-ieee-dom.tsv",
+    "bytes": 5060,
+    "sha256": "672636e915cf0985e999ffd962247a0d7d81c92e086dbbedbff35a389a9e015d",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S4-openalex-all.json",
+    "bytes": 1529886,
+    "sha256": "b470ecae7077dbb1a42c452b336451b8b98a3d13eed1da42080c11a8cdf310fb",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S4-openalex-page-01.json",
+    "bytes": 611784,
+    "sha256": "4838971f3ee5232bd7436396f0acc9039c121022f5a42d9b61b9151a2761fd12",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S4-openalex-page-02.json",
+    "bytes": 736202,
+    "sha256": "0c3adde962d8ccca063ca97c84b973b12d6e2bccbf6f5b66e073768017a7aba4",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  },
+  {
+    "original_name": "S4-openalex-page-03.json",
+    "bytes": 191456,
+    "sha256": "afa40a735f0914b82121806bb344cb51443f679ea4cef509a8dee0e9816bf149",
+    "original_retained_in_working_research_directory": true,
+    "repository_export": "bibliographic metadata only; original abstracts and full papers are not republished"
+  }
+]

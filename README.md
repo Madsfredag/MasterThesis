@@ -1,3 +1,22 @@
+# Master thesis
+
+Source of truth for the LaTeX report. Pull GitHub changes into Overleaf before
+editing there. See `WRITING-GUIDE.md` for the agreed scope and writing conventions.
+
+## Review update — 14 October 2026
+
+Chapter 3 contains a thematic comparison of thirteen assessed studies.
+Appendix A contains the method, executed-search counts, study assessments,
+quality appraisal and limitations. The broader SLR selection is **not complete**.
+See `Review/README.md` and `Review/2026-10-14/status.json` for the exact status.
+No final inclusion count, complete snowballing round or human verification is claimed.
+
+Build the report with `latexmk -pdf ClassicThesis.tex`.
+The existing template uses the BibTeX backend configured in
+`classicthesis-config.tex`.
+
+---
+
 ## A Classic Thesis Style v4.2 ##
 ### An Homage to The Elements of Typographic Style ###
 Copyright (C) 2015 André Miede http://www.miede.de
@@ -39,5 +58,6 @@ You should have received a copy of the GNU General Public License
 along with this program; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.
+
 
 

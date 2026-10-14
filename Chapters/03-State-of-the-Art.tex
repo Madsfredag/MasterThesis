@@ -1,67 +1,279 @@
 \chapter{State of the Art}
 \label{cha:state-of-the-art}
 
-This chapter examines existing research on telemetry correlation,
-security-relevant data, agent-based diagnosis and controlled remediation.
-These topics support the four research questions introduced in
-Section~\ref{sec:introduction:research-questions}. The comparison focuses
-on what the approaches require, how they have been evaluated and what
-their results support in relation to the focused Norlys proof of concept
-\parencite[Scope]{norlys_operations_agents}.
+Research on operational diagnosis addresses several different tasks. Some
+systems reconstruct the requests passing through an application. Others
+rank suspicious metrics, explain security events or use agents to investigate
+and repair a failure. These tasks are related, but success at one does not
+establish success at the others. This chapter compares their evidence and
+uses that comparison to motivate design and evaluation choices for the
+Norlys proof of concept.
 
-The review is intended to inform three parts of the project. First, it
-provides evidence for design choices, such as how agents gather and share
-diagnostic information. Second, it helps identify evaluation methods for
-assessing diagnoses and remediation outcomes. Third, it establishes which
-questions remain unresolved within the reviewed literature. The
-experiments in this thesis must then assess the implemented system in
-the selected environment.
-
-The review uses IEEE Xplore and OpenAlex as its main search
-sources. Appendix~\ref{app:systematic-literature-review} documents the
-protocol and provides the location for the detailed review records and
-study assessments. The main chapter presents the findings needed to
-understand the project's contribution, including conflicting evidence
-and limitations that affect its interpretation.
-
-\thesisTODO{Complete the review documented in Appendix A before writing
-the thematic comparisons and research gap. Summarise the actual search
-coverage and included studies here when those records exist. Database
-selection and pilot queries do not establish completed review findings.}
+The comparison draws on thirteen completed full-text assessments, covering
+ten conference papers and three explicitly identified preprints published
+between 2021 and 2026. The searches in IEEE Xplore and OpenAlex were run on
+14 October 2026. Selection from the complete search corpus remains
+unfinished. The thirteen assessments therefore form a documented evidence
+set, not the final inclusion set of a completed systematic review.
+Appendix~\ref{app:systematic-literature-review} records the searches,
+assessments and outstanding work. The conclusions below concern the
+assessed studies and do not establish that other relevant approaches are
+absent from the literature.
 
 \section{Telemetry Correlation and Root-Cause Analysis}
 \label{sec:state-of-the-art:correlation}
 
-\thesisTODO{Compare the included studies on connecting telemetry and
-locating faults. Explain their required data, treatment of missing
-identifiers, evaluation settings and relevance to RQ1 and RQ3.}
+Reconstructing a request means identifying which observations describe
+its execution. Diagnosing its failure adds a further question: which
+component or condition explains the observed outcome? TraceWeaver addresses
+the first task by matching incoming and outgoing spans using timing,
+call-graph constraints and statistical optimisation. Its evaluation uses
+microservice applications and Alibaba traces. It also demonstrates how
+approximate reconstructed traces can help locate delayed services
+\parencite[Sections~4--6]{ashok2024traceweaver}.
+
+TraceWeaver is relevant when shared identifiers are unavailable, but it
+requires more than a collection of loosely related log messages. Its
+implementation obtains request and response information and learns
+constraints from test traces. Its production-data evaluation separates call
+graphs and compresses inter-arrival times to increase concurrency. The
+results consequently support a particular reconstruction method under
+specified observations, rather than arbitrary reconstruction across
+unobserved network layers. For the PoC, an explicit identifier match should
+be distinguishable from a link inferred from time, endpoint and topology.
+The latter needs an uncertainty statement and supporting observations.
+
+Sage and CIRCA investigate causes using system dependencies. Sage combines
+an RPC graph with performance observations and counterfactual analysis.
+Its experiments include resource interference and software faults in
+microservice applications. Its incomplete-instrumentation experiment still
+retains per-tier latency and end-to-end measurements. It should therefore
+not be read as evidence that diagnosis remains reliable when those
+observations disappear entirely
+\parencite[Sections~5--6]{gan2021sage}.
+
+CIRCA ranks root-cause metrics using a structural graph and regression-based
+hypothesis testing. In its evaluation on 99 Oracle database incidents,
+AC@1 is 0.404 and AC@5 is 0.763. Here AC@k measures recovery of labelled
+root-cause metrics among the first k recommendations. These values are not
+an accuracy estimate for identifying an Azure resource or a firewall rule.
+Constructing CIRCA's structural graph also requires knowledge of the system
+architecture and the meaning of its metrics
+\parencite[Sections~5.1--5.4, Table~3]{li2022circa}.
+
+An independent empirical comparison provides a useful qualification.
+Pham, Ha and Zhang evaluate causal discovery and root-cause methods on
+synthetic data and microservice testbeds. They find difficulties in
+recovering edge directions, increasing computational cost with larger
+systems and sensitivity to the assumed failure time. In their implementation,
+CIRCA's original structural graph is replaced by a graph learned using the
+PC algorithm because the required call graph is unavailable. The comparison
+therefore also shows how changing an input assumption changes the method
+being evaluated \parencite[Sections~3--5]{pham2024howfar}.
+
+For RQ1, these studies motivate an explicit record of the relationships
+that can actually be observed. For RQ3, they motivate testing diagnosis with
+missing records, uncertain incident times and competing symptoms. They do
+not establish that a learned causal graph is necessary for the PoC. A
+simpler evidence-based baseline is needed before attributing an improvement
+to a more complex method.
 
 \section{Security Telemetry and Feature Selection}
 \label{sec:state-of-the-art:security}
 
-\thesisTODO{Compare the security fields and derived features examined in
-the included studies. Explain how their relevance was evaluated and what
-the evidence contributes to RQ2.}
+Security observations need context. A connection count has a different
+meaning when it describes blocked connections to an internal service than
+when it describes routine outgoing traffic. SIERRA makes this distinction
+explicit by grouping SIEM events by severity, network direction and action
+context. It derives counts, rates, host and port diversity, and distribution
+features, then ranks anomalous time windows for investigation. Its evaluation
+uses approximately 29.4 million events from two firewalls and an intrusion
+detection system \parencite[Sections~4--7]{lee2022sierra}.
+
+SIERRA offers a concrete basis for considering derived features in RQ2,
+but its aggregation settings should not be copied without evaluation. It
+uses ten-minute windows and rolling training periods of eight weeks. Its
+labels are assembled from analyst investigations, threat intelligence and
+additional checks, rather than exhaustive labelling of every event. A
+low-traffic PoC may provide neither a comparable history nor enough events
+for the same features to be informative. In that setting, the rule applied
+to one failed request may be more useful than a population-level anomaly
+score.
+
+Feature quality also depends on how the underlying data was produced.
+Engelen, Rimmer and Joosen reconstruct and examine CICIDS2017. They identify
+problems in flow construction, attack labelling and features that allow
+shortcut learning. Their corrected datasets change performance for specific
+attack classes while aggregate accuracy remains approximately 0.99. This is
+evidence for checking ground truth and reporting results by scenario, not
+for treating a high aggregate score as sufficient validation
+\parencite[Sections~III--IV]{engelen2021troubleshooting}.
+
+The Holmes preprint connects security telemetry to agent investigation.
+It uses counters and sampled traffic for triage, then constructs compact
+packet-evidence summaries for an LLM. Reports must refer to observations in
+those summaries. However, the representative incident table contains
+incorrect attributions with high reported confidence. Traceable evidence
+makes such errors inspectable without guaranteeing the conclusion is
+correct. Its replay-based evaluation also does not establish production
+performance or the correctness of automated mitigation
+\parencite[Sections~3--4, Table~2]{chen2026holmes}.
+
+Together, these findings suggest two separate checks for a proposed
+security feature: can it be computed reliably from the available telemetry,
+and does it help distinguish the controlled scenarios? Candidate fields
+for the Norlys path include time, source and destination, request target,
+status, policy action and rule identifier. This is a proposed requirements
+list for the PoC, not a claim that every field has been validated by the
+review or is already available from every source. Retaining the source
+records allows an investigator to check an aggregate or model-generated
+interpretation against the underlying event.
 
 \section{LLM Agents for Operational Diagnosis}
 \label{sec:state-of-the-art:agents}
 
-\thesisTODO{Compare the included single-agent and multi-agent approaches,
-their tools and coordination, supporting evidence and diagnostic results.
-Explain the limitations of the comparisons and their relevance to RQ1
-and RQ3.}
+Operational LLM systems differ in how they obtain information. RCACopilot
+uses incident handlers to gather diagnostic information and retrieve
+historical examples before predicting a root-cause category. Its evaluation
+uses 653 incidents from one Microsoft service, split into training and test
+sets. The reported GPT-4 result is a micro-F1 of 0.766 and a macro-F1 of
+0.533. The distinction matters because the categories are imbalanced. Its
+ablation also finds that adding more incident-related information does not
+necessarily improve the prediction
+\parencite[Sections~5.1--5.4]{chen2024rcacopilot}.
+
+RCAgent instead gives a controller access to tools and specialised LLM
+experts. Its evaluation uses 161 selected anomalous Flink jobs, with
+annotations reviewed by engineers. It assesses generated causes, solutions
+and evidence, as well as tool-use behaviour. An ablation using more general
+query tools produces substantially more invalid actions. This supports
+careful tool design, but does not isolate agent count as the sole reason
+for improvement. The system changes tool interfaces, output validation,
+observation handling and agent organisation together
+\parencite[Sections~4--5]{wang2024rcagent}.
+
+The two evaluations also measure different outcomes. RCACopilot's category
+F1 cannot be ranked directly against RCAgent's text-similarity measures or
+LLM-assigned scores. A plausible explanation may resemble a reference
+answer while pointing to the wrong component. Conversely, a correct answer
+may use different wording. For the PoC, correctness should be assessed
+against the injected fault and separately from the relevance and accuracy
+of the cited evidence.
+
+The TimeRAG preprint illustrates another measurement distinction. It
+combines time-series representations with retrieval and an LLM. Its
+multiple-choice diagnosis accuracy and its LLM-judged report win rate
+produce different pictures of performance. On SockShop, for example,
+TimeRAG's reported accuracy is lower than the strongest baseline in the
+same table, although its report comparisons are favourable. The work also
+notes limitations from time-series augmentation and offline evaluation
+\parencite[Sections~4--6, Tables~2--3]{park2026timerag}.
+
+Live benchmarks expose additional difficulties. AIOpsLab distinguishes
+fault detection, localisation, root-cause analysis and mitigation. Its
+experiments show that performance varies across these tasks, and that
+additional steps can increase cost without consistently improving success.
+The paper describes repeated tool calls, invalid commands and difficulty
+using large telemetry outputs
+\parencite[Sections~3.2--3.6]{chen2025aiopslab}.
+
+The SREGym preprint further separates diagnostic and mitigation outcomes
+across 90 scenarios, with three runs per agent--model configuration. Added
+background disturbances reduce diagnosis success for every evaluated
+configuration. It uses a structured diagnosis rubric and reports checks
+against a human evaluator. Its results support testing competing symptoms
+and repeated runs. They do not establish a universal ranking of agent
+architectures, since the agents also differ in models, tools and budgets
+\parencite[Sections~2.5--3]{clark2026sregym}.
+
+These studies motivate a comparison in which the multi-agent PoC and its
+baseline receive the same accessible evidence, incident description and
+time or tool budget. The particular baseline remains an evaluation-design
+decision. Useful measurements include correct faulty component, correct
+failure explanation, unsupported claims, invalid tool calls, elapsed time
+and variation across repeated attempts. Agent agreement should not be used
+as a substitute for checking the fault and its supporting evidence.
 
 \section{Automated Remediation and Human Oversight}
 \label{sec:state-of-the-art:remediation}
 
-\thesisTODO{Compare the included remediation approaches and distinguish
-proposed, implemented and evaluated controls. Examine approval, restricted
-actions, dry runs, recovery verification and rollback in relation to RQ4.}
+A remediation recommendation and an executed repair require different
+forms of validation. RCAgent evaluates proposed solutions, whereas
+AIOpsLab provides live tasks in which an agent changes the system. The
+latter makes it possible to observe recovery, but benchmark success still
+depends on what the evaluator checks
+\parencite{wang2024rcagent,chen2025aiopslab}.
+
+STRATUS provides the most direct assessed example of controlled
+multi-agent remediation. It separates detection, diagnosis, mitigation
+and undo roles. Its transactional no-regression argument relies on
+serialised writers, faithful undo and checks against a severity measure.
+The implementation records reversible changes and supports undo-and-retry.
+The paper also acknowledges that perfect undo is difficult when changes
+affect application-specific state or external systems
+\parencite[Sections~3--4]{chen2025stratus}.
+
+In the reported GPT-4o experiments, STRATUS resolves 9 of 13 AIOpsLab
+mitigation problems. Removing retry reduces success to 2 of 13, while
+retrying without undo succeeds on 3 of 13. This is evidence for evaluating
+rollback as part of the repair process. The paper nevertheless reports
+that eight ITBench successes exploit faults that stop persisting after a
+pod restart. Those outcomes cannot demonstrate repair of an equivalent
+persistent production fault
+\parencite[Section~5, Tables~2--3]{chen2025stratus}.
+
+STRATUS describes support for intercepting actions for human approval and
+using dry-run commands where applicable. Its reported results do not
+establish the effectiveness of a human approval workflow. Nor does the
+transactional argument imply that intermediate states are harmless to
+users. Its guarantee concerns the defined observable state sequence under
+the stated assumptions. Human decision quality, approval delay and
+side-effects outside the measured state require their own evaluation.
+
+The PoC should therefore make the proposed change concrete before approval.
+The operator needs its target, parameters, supporting evidence, expected
+effect and rollback plan. A separate execution boundary can enforce the
+permitted actions. Recovery verification should check both the selected
+endpoint and the relevant configuration, rather than treating command
+completion as repair. These are design implications for RQ4. Their
+implementation and effectiveness remain matters for the thesis experiments.
 
 \section{Comparison and Research Gap}
 \label{sec:state-of-the-art:gap}
 
-\thesisTODO{Bring the review findings together and identify the questions
-this PoC can investigate. Link design and evaluation implications to the
-evidence. Do not infer novelty from the Cloudflare and Azure combination
-alone or treat missing reporting as proof that a capability is absent.}
+The assessed evidence supports combining several ideas rather than
+selecting one paper as a complete solution. Request reconstruction supplies
+relationships between observations. Security-feature analysis supplies
+context for interpreting events. Agent studies address information gathering
+and diagnostic explanations. Remediation studies address state changes and
+recovery. Table~\ref{tab:sota:implications} summarises the implications.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Evidence-informed priorities for the PoC. These are evaluation
+priorities, not completed implementation results.}
+\label{tab:sota:implications}
+\begin{tabularx}{\textwidth}{@{}p{0.11\textwidth}XX@{}}
+\toprule
+Question & Design priority & Evidence to collect \\
+\midrule
+RQ1 & Preserve identifiers and distinguish inferred links. & Correct and missing path links, with source records. \\
+RQ2 & Select interpretable fields and test useful aggregates. & Availability, scenario relevance and effects of removing features. \\
+RQ3 & Use bounded tools and check explanations against the fault. & Component and cause correctness, evidence quality, cost and repeated-run variation. \\
+RQ4 & Separate approval, execution, recovery and undo. & Approved scope, actual changes, recovery tests, rejected actions and rollback outcomes. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The contribution is a controlled investigation within the selected
+operational path. Combining Cloudflare and Azure alone does not establish
+novelty. The assessed studies do not show that application tracing is
+sufficient to explain failures in a separate security or network layer,
+or that agent agreement and a successful restart establish a correct
+diagnosis and safe repair.
+
+The thesis can test these questions by making the path, injected faults,
+observations and permitted actions explicit. Its claims should remain
+bounded by the evaluated scenarios. Until review selection is complete,
+this is a justified empirical focus, not an exhaustive research-gap claim.

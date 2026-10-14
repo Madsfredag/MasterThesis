@@ -1,0 +1,172 @@
+[
+  {
+    "search_id": "OA-20261014-S1",
+    "phase": "formal",
+    "protocol_version": "0.4",
+    "executed_at": "2026-10-14T12:50:16.115539+00:00",
+    "database": "OpenAlex",
+    "platform": "Works API",
+    "executor": "OpenAI assistant",
+    "query_family": "S1",
+    "exact_query": {
+      "title": "\"trace reconstruction\" OR \"request tracing\" OR \"telemetry correlation\" OR \"log correlation\" OR ((\"root cause\" OR \"fault localization\") AND (multimodal OR \"multi-modal\" OR \"causal inference\"))",
+      "abstract": "cloud OR microservices OR \"distributed systems\" OR \"online service\""
+    },
+    "fields": [
+      "title (topic expression)",
+      "title and abstract (context expression)"
+    ],
+    "date_from": "2020-01-01",
+    "date_to": "2026-10-14",
+    "reported_hits": 47,
+    "exported_records": 47,
+    "pages": [
+      {
+        "page": 1,
+        "request_url": "https://api.openalex.org/works?search.title=%22trace+reconstruction%22+OR+%22request+tracing%22+OR+%22telemetry+correlation%22+OR+%22log+correlation%22+OR+%28%28%22root+cause%22+OR+%22fault+localization%22%29+AND+%28multimodal+OR+%22multi-modal%22+OR+%22causal+inference%22%29%29&search.title_and_abstract=cloud+OR+microservices+OR+%22distributed+systems%22+OR+%22online+service%22&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=%2A&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 47,
+        "sha256": "24c0899bf105f4b8a560612cfbefa8d483d0cd521a77192111d9797bf5d09ac8"
+      }
+    ],
+    "status": "complete_export",
+    "coverage_limitations": "Title-focused topical retrieval can miss relevant work with different titles. No claim of exhaustive coverage."
+  },
+  {
+    "search_id": "OA-20261014-S2",
+    "phase": "formal",
+    "protocol_version": "0.4",
+    "executed_at": "2026-10-14T12:50:41.401505+00:00",
+    "database": "OpenAlex",
+    "platform": "Works API",
+    "executor": "OpenAI assistant",
+    "query_family": "S2",
+    "exact_query": {
+      "title": "(firewall OR \"network security\" OR intrusion OR network OR SIEM) AND (\"feature selection\" OR \"feature extraction\" OR correlation OR ranking OR triage OR investigation OR \"noise reduction\")",
+      "abstract": "logs OR telemetry OR \"network flow\" OR \"security events\""
+    },
+    "fields": [
+      "title (topic expression)",
+      "title and abstract (context expression)"
+    ],
+    "date_from": "2020-01-01",
+    "date_to": "2026-10-14",
+    "reported_hits": 270,
+    "exported_records": 270,
+    "pages": [
+      {
+        "page": 1,
+        "request_url": "https://api.openalex.org/works?search.title=%28firewall+OR+%22network+security%22+OR+intrusion+OR+network+OR+SIEM%29+AND+%28%22feature+selection%22+OR+%22feature+extraction%22+OR+correlation+OR+ranking+OR+triage+OR+investigation+OR+%22noise+reduction%22%29&search.title_and_abstract=logs+OR+telemetry+OR+%22network+flow%22+OR+%22security+events%22&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=%2A&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 100,
+        "sha256": "3642a1107397bf37ef24eff4e49e628bc43ef3d0e1d760bd889e775161ddde37"
+      },
+      {
+        "page": 2,
+        "request_url": "https://api.openalex.org/works?search.title=%28firewall+OR+%22network+security%22+OR+intrusion+OR+network+OR+SIEM%29+AND+%28%22feature+selection%22+OR+%22feature+extraction%22+OR+correlation+OR+ranking+OR+triage+OR+investigation+OR+%22noise+reduction%22%29&search.title_and_abstract=logs+OR+telemetry+OR+%22network+flow%22+OR+%22security+events%22&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=IlsxNy44ODcwNzUsIDE2Nzk0NDMyMDAwMDAsICdodHRwczovL29wZW5hbGV4Lm9yZy9XNDM1MzExMDczMiddIg%3D%3D&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 100,
+        "sha256": "f388d2d8e642dd9c3298dc4daf5c41064bdfb7397d73baeaa0d5c1f25a921837"
+      },
+      {
+        "page": 3,
+        "request_url": "https://api.openalex.org/works?search.title=%28firewall+OR+%22network+security%22+OR+intrusion+OR+network+OR+SIEM%29+AND+%28%22feature+selection%22+OR+%22feature+extraction%22+OR+correlation+OR+ranking+OR+triage+OR+investigation+OR+%22noise+reduction%22%29&search.title_and_abstract=logs+OR+telemetry+OR+%22network+flow%22+OR+%22security+events%22&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=IlsxMC45MDg2ODYsIDE1Nzc4MzY4MDAwMDAsICdodHRwczovL29wZW5hbGV4Lm9yZy9XMzEyNDkzMzY5MCddIg%3D%3D&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 70,
+        "sha256": "37ea0284d5069bb3a5415f412876f0e80feefed6b88affd47b2911c2bb7875fa"
+      }
+    ],
+    "status": "complete_export",
+    "coverage_limitations": "Title-focused topical retrieval can miss relevant work with different titles. No claim of exhaustive coverage."
+  },
+  {
+    "search_id": "OA-20261014-S3",
+    "phase": "formal",
+    "protocol_version": "0.4",
+    "executed_at": "2026-10-14T12:51:15.766057+00:00",
+    "database": "OpenAlex",
+    "platform": "Works API",
+    "executor": "OpenAI assistant",
+    "query_family": "S3",
+    "exact_query": {
+      "title": "(LLM OR \"large language model\" OR agent OR agents OR copilot) AND (\"root cause\" OR diagnosis OR troubleshooting OR incident OR AIOps)",
+      "abstract": "cloud OR microservices OR \"distributed systems\" OR \"IT operations\""
+    },
+    "fields": [
+      "title (topic expression)",
+      "title and abstract (context expression)"
+    ],
+    "date_from": "2020-01-01",
+    "date_to": "2026-10-14",
+    "reported_hits": 391,
+    "exported_records": 391,
+    "pages": [
+      {
+        "page": 1,
+        "request_url": "https://api.openalex.org/works?search.title=%28LLM+OR+%22large+language+model%22+OR+agent+OR+agents+OR+copilot%29+AND+%28%22root+cause%22+OR+diagnosis+OR+troubleshooting+OR+incident+OR+AIOps%29&search.title_and_abstract=cloud+OR+microservices+OR+%22distributed+systems%22+OR+%22IT+operations%22&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=%2A&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 100,
+        "sha256": "f46618584f32f2c56987af4cf081d79c3e15c775fcc3e13e6192a26819259472"
+      },
+      {
+        "page": 2,
+        "request_url": "https://api.openalex.org/works?search.title=%28LLM+OR+%22large+language+model%22+OR+agent+OR+agents+OR+copilot%29+AND+%28%22root+cause%22+OR+diagnosis+OR+troubleshooting+OR+incident+OR+AIOps%29&search.title_and_abstract=cloud+OR+microservices+OR+%22distributed+systems%22+OR+%22IT+operations%22&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=IlszMC42NjczNCwgMTc4Mjg2NDAwMDAwMCwgJ2h0dHBzOi8vb3BlbmFsZXgub3JnL1c3MjExOTA1MjgwJ10i&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 100,
+        "sha256": "ce1684d19bffef02ff6452737eab60a256ef5e27af8c13fadbcd2448529f88c4"
+      },
+      {
+        "page": 3,
+        "request_url": "https://api.openalex.org/works?search.title=%28LLM+OR+%22large+language+model%22+OR+agent+OR+agents+OR+copilot%29+AND+%28%22root+cause%22+OR+diagnosis+OR+troubleshooting+OR+incident+OR+AIOps%29&search.title_and_abstract=cloud+OR+microservices+OR+%22distributed+systems%22+OR+%22IT+operations%22&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=IlsyMi45NTI0MTQsIDE3Njc1NzEyMDAwMDAsICdodHRwczovL29wZW5hbGV4Lm9yZy9XNzEyNDk2Mzc5MiddIg%3D%3D&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 100,
+        "sha256": "9f83d367c1b354ab69f8de9a32f253a2c6831cd7359bbdd3a2a7f05606aabf09"
+      },
+      {
+        "page": 4,
+        "request_url": "https://api.openalex.org/works?search.title=%28LLM+OR+%22large+language+model%22+OR+agent+OR+agents+OR+copilot%29+AND+%28%22root+cause%22+OR+diagnosis+OR+troubleshooting+OR+incident+OR+AIOps%29&search.title_and_abstract=cloud+OR+microservices+OR+%22distributed+systems%22+OR+%22IT+operations%22&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=IlsxNy44ODE5MDgsIDE3NzYyMTEyMDAwMDAsICdodHRwczovL29wZW5hbGV4Lm9yZy9XNzE1NDQ0OTEyMiddIg%3D%3D&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 91,
+        "sha256": "3a2ae221a0ed7bcc2b7b1fac0ebb29c13c471c8d606ac926771218826557f3c4"
+      }
+    ],
+    "status": "complete_export",
+    "coverage_limitations": "Title-focused topical retrieval can miss relevant work with different titles. No claim of exhaustive coverage."
+  },
+  {
+    "search_id": "OA-20261014-S4",
+    "phase": "formal",
+    "protocol_version": "0.4",
+    "executed_at": "2026-10-14T12:51:51.038184+00:00",
+    "database": "OpenAlex",
+    "platform": "Works API",
+    "executor": "OpenAI assistant",
+    "query_family": "S4",
+    "exact_query": {
+      "title": "(remediation OR \"self-healing\" OR \"incident response\" OR \"fault recovery\") AND (cloud OR microservices OR AIOps)",
+      "abstract": "agent OR automation OR autonomous OR \"human-in-the-loop\" OR approval OR rollback"
+    },
+    "fields": [
+      "title (topic expression)",
+      "title and abstract (context expression)"
+    ],
+    "date_from": "2020-01-01",
+    "date_to": "2026-10-14",
+    "reported_hits": 225,
+    "exported_records": 225,
+    "pages": [
+      {
+        "page": 1,
+        "request_url": "https://api.openalex.org/works?search.title=%28remediation+OR+%22self-healing%22+OR+%22incident+response%22+OR+%22fault+recovery%22%29+AND+%28cloud+OR+microservices+OR+AIOps%29&search.title_and_abstract=agent+OR+automation+OR+autonomous+OR+%22human-in-the-loop%22+OR+approval+OR+rollback&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=%2A&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 100,
+        "sha256": "4838971f3ee5232bd7436396f0acc9039c121022f5a42d9b61b9151a2761fd12"
+      },
+      {
+        "page": 2,
+        "request_url": "https://api.openalex.org/works?search.title=%28remediation+OR+%22self-healing%22+OR+%22incident+response%22+OR+%22fault+recovery%22%29+AND+%28cloud+OR+microservices+OR+AIOps%29&search.title_and_abstract=agent+OR+automation+OR+autonomous+OR+%22human-in-the-loop%22+OR+approval+OR+rollback&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=IlsyMy43ODQ2NjYsIDE3NjcyMjU2MDAwMDAsICdodHRwczovL29wZW5hbGV4Lm9yZy9XNzEyNTQyOTE1MSddIg%3D%3D&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 100,
+        "sha256": "0c3adde962d8ccca063ca97c84b973b12d6e2bccbf6f5b66e073768017a7aba4"
+      },
+      {
+        "page": 3,
+        "request_url": "https://api.openalex.org/works?search.title=%28remediation+OR+%22self-healing%22+OR+%22incident+response%22+OR+%22fault+recovery%22%29+AND+%28cloud+OR+microservices+OR+AIOps%29&search.title_and_abstract=agent+OR+automation+OR+autonomous+OR+%22human-in-the-loop%22+OR+approval+OR+rollback&filter=from_publication_date%3A2020-01-01%2Cto_publication_date%3A2026-10-14&per_page=100&cursor=IlsxNy41ODAzNzYsIDE3NDcyNjcyMDAwMDAsICdodHRwczovL29wZW5hbGV4Lm9yZy9XNDQxMDM4NTc1OSddIg%3D%3D&select=id%2Cdoi%2Ctitle%2Cpublication_date%2Ctype%2Cabstract_inverted_index%2Cprimary_location%2Clocations%2Copen_access%2Cauthorships%2Creferenced_works%2Clanguage%2Cids",
+        "returned": 25,
+        "sha256": "afa40a735f0914b82121806bb344cb51443f679ea4cef509a8dee0e9816bf149"
+      }
+    ],
+    "status": "complete_export",
+    "coverage_limitations": "Title-focused topical retrieval can miss relevant work with different titles. No claim of exhaustive coverage."
+  }
+]

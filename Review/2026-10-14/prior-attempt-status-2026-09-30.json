@@ -1,0 +1,39 @@
+{
+  "recorded_at": "2026-09-30T11:49:06.657027+00:00",
+  "status": "Search execution in progress. Not a completed review. No screening or full-text extraction has been completed.",
+  "openalex": [
+    {
+      "family": "S1",
+      "unique_records": 3549,
+      "reported_hits": 3549,
+      "complete": true,
+      "error": null
+    },
+    {
+      "family": "S2",
+      "unique_records": 2036,
+      "reported_hits": 2036,
+      "complete": true,
+      "error": null
+    },
+    {
+      "family": "S3",
+      "unique_records": 999,
+      "reported_hits": 999,
+      "complete": true,
+      "error": null
+    }
+  ],
+  "ieee": {
+    "family": "S3",
+    "reported_hits": 251,
+    "retained_records": 251,
+    "files": [
+      "ieee-S3-page1.ris",
+      "ieee-S3-page2.ris",
+      "ieee-S3-page3.ris"
+    ],
+    "date_filter": "Publication year 2020 through 2026. Exact cutoff still to be checked in screening."
+  },
+  "next_action": "Resume incomplete OpenAlex pagination from manifests, complete IEEE S1/S2/S4 exports, validate retrieval and eligibility, then screen all records before finalising the synthesis."
+}

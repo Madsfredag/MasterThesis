@@ -1,0 +1,3028 @@
+[
+  {
+    "id": "https://openalex.org/W7119287489",
+    "doi": null,
+    "title": "Correlation of security events in SIEM system",
+    "publication_date": "2025-01-01",
+    "type": "report",
+    "ids": {
+      "openalex": "https://openalex.org/W7119287489"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4206635230",
+    "doi": "https://doi.org/10.17762/jfcr.vi.201",
+    "title": "Application of Network Security Event Correlation Analysis and Situation Evaluation Technology",
+    "publication_date": "2021-11-16",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4206635230",
+      "doi": "https://doi.org/10.17762/jfcr.vi.201"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4395448776",
+    "doi": "https://doi.org/10.1109/iaeac59436.2024.10503996",
+    "title": "Research on Network Security Event Correlation Analysis Method Based on Knowledge Graph",
+    "publication_date": "2024-03-15",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4395448776",
+      "doi": "https://doi.org/10.1109/iaeac59436.2024.10503996"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4399598928",
+    "doi": "https://doi.org/10.21203/rs.3.rs-4508259/v1",
+    "title": "Firewall Log Classification: Leveraging Feature Selection and Stacking Ensemble",
+    "publication_date": "2024-06-13",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4399598928",
+      "doi": "https://doi.org/10.21203/rs.3.rs-4508259/v1"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7162077846",
+    "doi": "https://doi.org/10.13140/rg.2.2.29686.36169",
+    "title": "AI-Enhanced Network Security Incident Triage Using Wazuh and OPNsense Logs",
+    "publication_date": "2026-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7162077846",
+      "doi": "https://doi.org/10.13140/rg.2.2.29686.36169"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7117869722",
+    "doi": "https://doi.org/10.5281/zenodo.18110343",
+    "title": "THREAT DETECTION IN FIREWALL LOGS USING FEATURE SELECTION AND ENSEMBLE LEARNING",
+    "publication_date": "2025-08-31",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7117869722",
+      "doi": "https://doi.org/10.5281/zenodo.18110343"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3035278990",
+    "doi": "https://doi.org/10.1109/noms47738.2020.9110382",
+    "title": "Semantic feature selection for network telemetry event description",
+    "publication_date": "2020-04-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3035278990",
+      "doi": "https://doi.org/10.1109/noms47738.2020.9110382",
+      "mag": "3035278990"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4413309992",
+    "doi": "https://doi.org/10.1007/978-981-95-1334-5_16",
+    "title": "Network Flow Watermarking Segmentation Detection Based on Abstract Feature Extraction",
+    "publication_date": "2025-08-19",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4413309992",
+      "doi": "https://doi.org/10.1007/978-981-95-1334-5_16"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4408566019",
+    "doi": "https://doi.org/10.1109/acsac63791.2024.00076",
+    "title": "A Security Alert Investigation Tool Supporting Tier 1 Analysts in Contextualizing and Understanding Network Security Events",
+    "publication_date": "2024-12-09",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4408566019",
+      "doi": "https://doi.org/10.1109/acsac63791.2024.00076"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4213331198",
+    "doi": "https://doi.org/10.31224/osf.io/pm3hy",
+    "title": "Optimal feature selection for firewall log analysis using Machine learning and Hybrid Metaheuristic algorithms",
+    "publication_date": "2021-02-22",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4213331198",
+      "doi": "https://doi.org/10.31224/osf.io/pm3hy"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4381734237",
+    "doi": "https://doi.org/10.1109/noms56928.2023.10154455",
+    "title": "Understanding Semantics in Feature Selection for Fault Diagnosis in Network Telemetry Data",
+    "publication_date": "2023-05-08",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4381734237",
+      "doi": "https://doi.org/10.1109/noms56928.2023.10154455"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4353105514",
+    "doi": "https://doi.org/10.13140/rg.2.2.33005.46564",
+    "title": "Understanding Semantics in Feature Selection for Fault Diagnosis in Network Telemetry Data",
+    "publication_date": "2022-12-26",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4353105514",
+      "doi": "https://doi.org/10.13140/rg.2.2.33005.46564"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3198428899",
+    "doi": "https://doi.org/10.1108/ijpcc-04-2021-0102",
+    "title": "RETRACTED: An enhanced network intrusion detection system for malicious crawler detection and security event correlations in ubiquitous banking infrastructure",
+    "publication_date": "2021-09-06",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3198428899",
+      "doi": "https://doi.org/10.1108/ijpcc-04-2021-0102",
+      "mag": "3198428899"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3039782326",
+    "doi": "https://doi.org/10.14569/ijacsa.2020.0110667",
+    "title": "Signature based Network Intrusion Detection System using Feature Selection on Android",
+    "publication_date": "2020-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3039782326",
+      "doi": "https://doi.org/10.14569/ijacsa.2020.0110667",
+      "mag": "3039782326"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7136980368",
+    "doi": "https://doi.org/10.1109/ants66931.2025.11430108",
+    "title": "FIDS: Accelerating Network Intrusion Detection Through Strategic Feature Selection",
+    "publication_date": "2025-12-15",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7136980368",
+      "doi": "https://doi.org/10.1109/ants66931.2025.11430108"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7208517611",
+    "doi": null,
+    "title": "Development of rules for correlation of information security events in SIEM systems based on a normative list of events",
+    "publication_date": "2026-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7208517611"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7217624236",
+    "doi": null,
+    "title": "Writing security information and event management (SIEM)/log correlation rules",
+    "publication_date": "2021-01-01",
+    "type": "dissertation",
+    "ids": {
+      "openalex": "https://openalex.org/W7217624236"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7214004166",
+    "doi": "https://doi.org/10.5281/zenodo.22900791",
+    "title": "Autonomous Alert Triage and Incident Response Pipeline Using Endpoint Telemetry, Wazuh SIEM, and Large Language Models",
+    "publication_date": "2026-09-22",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7214004166",
+      "doi": "https://doi.org/10.5281/zenodo.22900791"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4406486761",
+    "doi": "https://doi.org/10.1038/s41598-025-85878-3",
+    "title": "A two-tier optimization strategy for feature selection in robust adversarial attack mitigation on internet of things network security",
+    "publication_date": "2025-01-17",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4406486761",
+      "doi": "https://doi.org/10.1038/s41598-025-85878-3",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/39824955"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4392269288",
+    "doi": "https://doi.org/10.1016/j.cose.2024.103751",
+    "title": "Archimedes Fire Hawk Optimization enabled feature selection with deep maxout for network intrusion detection",
+    "publication_date": "2024-02-09",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4392269288",
+      "doi": "https://doi.org/10.1016/j.cose.2024.103751"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4391148585",
+    "doi": "https://doi.org/10.1109/skima59232.2023.10387337",
+    "title": "Hybrid Feature Selection Based Lightweight Network Intrusion Detection System for MQTT Protocol",
+    "publication_date": "2023-12-08",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4391148585",
+      "doi": "https://doi.org/10.1109/skima59232.2023.10387337"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4401508972",
+    "doi": "https://doi.org/10.1109/iccworkshops59551.2024.10615911",
+    "title": "Enhancing Intrusion Detection in Software Defined Networks with Optimized Feature Selection and Logistic Regression",
+    "publication_date": "2024-06-09",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4401508972",
+      "doi": "https://doi.org/10.1109/iccworkshops59551.2024.10615911"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7169767847",
+    "doi": "https://doi.org/10.3390/s26144600",
+    "title": "Short-Window Micro-Behavioral Triage for High-Throughput Firewall Telemetry: Limits, Features, and Operational Feasibility",
+    "publication_date": "2026-07-20",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7169767847",
+      "doi": "https://doi.org/10.3390/s26144600",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/42515483"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4285810007",
+    "doi": "https://doi.org/10.1016/j.cose.2022.102842",
+    "title": "HDFEF: A hierarchical and dynamic feature extraction framework for intrusion detection systems",
+    "publication_date": "2022-07-19",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4285810007",
+      "doi": "https://doi.org/10.1016/j.cose.2022.102842"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7221434688",
+    "doi": "https://doi.org/10.64917/fecsit/vol3iss10-02",
+    "title": "SIEM Logs as Digital Evidence: Reliability, Integrity, and Challenges in Cybercrime Investigations",
+    "publication_date": "2026-10-12",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7221434688",
+      "doi": "https://doi.org/10.64917/fecsit/vol3iss10-02"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4402574955",
+    "doi": "https://doi.org/10.1093/comjnl/bxae088",
+    "title": "Intrusion detection based on hybrid metaheuristic feature selection",
+    "publication_date": "2024-09-16",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4402574955",
+      "doi": "https://doi.org/10.1093/comjnl/bxae088"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7217831074",
+    "doi": null,
+    "title": "Explainable Analysis of Security Information and Event Management (SIEM) Event Logs for Event Profiling and Preliminary Triage",
+    "publication_date": "2026-06-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7217831074"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7218124184",
+    "doi": null,
+    "title": "Ranking Based Security Scheme with Attack Detection and Improved Network Security",
+    "publication_date": "2023-02-04",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7218124184"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4416026623",
+    "doi": "https://doi.org/10.62225/2583049x.2023.3.1.5172",
+    "title": "Systematic Review of SIEM Integration for Threat Detection and Log Correlation in AWS-Based Infrastructure",
+    "publication_date": "2023-02-13",
+    "type": "review",
+    "ids": {
+      "openalex": "https://openalex.org/W4416026623",
+      "doi": "https://doi.org/10.62225/2583049x.2023.3.1.5172"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4321368211",
+    "doi": "https://doi.org/10.1016/j.vehcom.2023.100585",
+    "title": "Flow-based intrusion detection system in Vehicular Ad hoc Network using context-aware feature extraction",
+    "publication_date": "2023-02-20",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4321368211",
+      "doi": "https://doi.org/10.1016/j.vehcom.2023.100585"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4402752634",
+    "doi": "https://doi.org/10.1108/ijpcc-08-2024-0306",
+    "title": "Retraction notice: An enhanced network intrusion detection system for malicious crawler detection and security event correlations in ubiquitous banking infrastructure",
+    "publication_date": "2024-09-23",
+    "type": "retraction",
+    "ids": {
+      "openalex": "https://openalex.org/W4402752634",
+      "doi": "https://doi.org/10.1108/ijpcc-08-2024-0306"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4308043326",
+    "doi": "https://doi.org/10.1002/cpe.7445",
+    "title": "A novel framework approach for intrusion detection based on improved critical feature selection in Internet of Things networks",
+    "publication_date": "2022-11-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4308043326",
+      "doi": "https://doi.org/10.1002/cpe.7445"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4408579293",
+    "doi": "https://doi.org/10.12720/jait.16.3.342-356",
+    "title": "A Multiclass Network Intrusion Detection System Using Stacking Ensemble Technique with Hybrid Feature Selection",
+    "publication_date": "2025-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4408579293",
+      "doi": "https://doi.org/10.12720/jait.16.3.342-356"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4391889465",
+    "doi": "https://doi.org/10.1109/comsnets59351.2024.10426939",
+    "title": "Anomaly Detection in IoT Networks Based on Intelligent Security Event Correlation",
+    "publication_date": "2024-01-03",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4391889465",
+      "doi": "https://doi.org/10.1109/comsnets59351.2024.10426939"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4380882849",
+    "doi": "https://doi.org/10.1007/s11042-023-15788-x",
+    "title": "An Ensemble Intrusion Detection System based on Acute Feature Selection",
+    "publication_date": "2023-06-16",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4380882849",
+      "doi": "https://doi.org/10.1007/s11042-023-15788-x"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7212539388",
+    "doi": "https://doi.org/10.5281/zenodo.22748621",
+    "title": "MECHANISM FOR EARLY DETECTION OF CYBERSECURITY INCIDENTS BASED ON CORRELATION RULES AND LOG ANALYSIS IN SIEM SYSTEMS",
+    "publication_date": "2026-09-14",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7212539388",
+      "doi": "https://doi.org/10.5281/zenodo.22748621"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7213081467",
+    "doi": "https://doi.org/10.5281/zenodo.22748903",
+    "title": "MECHANISM FOR EARLY DETECTION OF CYBERSECURITY INCIDENTS BASED ON CORRELATION RULES AND LOG ANALYSIS IN SIEM SYSTEMS",
+    "publication_date": "2026-09-14",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7213081467",
+      "doi": "https://doi.org/10.5281/zenodo.22748903"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4362682390",
+    "doi": "https://doi.org/10.1109/ic2ecs57645.2022.10088070",
+    "title": "A Correlation Analysis-Based Security Event Processing System for Power Networks",
+    "publication_date": "2022-12-16",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4362682390",
+      "doi": "https://doi.org/10.1109/ic2ecs57645.2022.10088070"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3015050543",
+    "doi": "https://doi.org/10.1016/j.neucom.2019.08.108",
+    "title": "Wind speed forecasting using deep neural network with feature selection",
+    "publication_date": "2020-04-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3015050543",
+      "doi": "https://doi.org/10.1016/j.neucom.2019.08.108",
+      "mag": "3015050543"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3095858789",
+    "doi": "https://doi.org/10.21437/interspeech.2020-2396",
+    "title": "Hybrid Network Feature Extraction for Depression Assessment from Speech",
+    "publication_date": "2020-10-25",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3095858789",
+      "doi": "https://doi.org/10.21437/interspeech.2020-2396",
+      "mag": "3095858789"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4221052478",
+    "doi": "https://doi.org/10.1007/978-3-030-96308-8_51",
+    "title": "Implementation-Oriented Feature Selection in UNSW-NB15 Intrusion Detection Dataset",
+    "publication_date": "2022-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4221052478",
+      "doi": "https://doi.org/10.1007/978-3-030-96308-8_51"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7204668740",
+    "doi": "https://doi.org/10.69889/q86vhp67",
+    "title": "A Hybrid CNN-LSTM Framework with PSO-Optimized Feature Selection for Real-Time Network Intrusion Detection",
+    "publication_date": "2025-03-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7204668740",
+      "doi": "https://doi.org/10.69889/q86vhp67"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3201253606",
+    "doi": "https://doi.org/10.35940/ijeat.e9701.069520",
+    "title": "A Correlation and Clustering Algorithm for Time Series Monitoring of Network Flows",
+    "publication_date": "2020-06-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3201253606",
+      "doi": "https://doi.org/10.35940/ijeat.e9701.069520",
+      "mag": "3201253606"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4381618828",
+    "doi": "https://doi.org/10.46632/jemm/9/2/5",
+    "title": "Network Flow based Abnormal Behavior feature Extraction for DDoS Attack Classification used Adaptive Federated Learning Model",
+    "publication_date": "2023-06-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4381618828",
+      "doi": "https://doi.org/10.46632/jemm/9/2/5"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4386831341",
+    "doi": "https://doi.org/10.3390/jsan12050067",
+    "title": "Recursive Feature Elimination with Cross-Validation with Decision Tree: Feature Selection Method for Machine Learning-Based Intrusion Detection Systems",
+    "publication_date": "2023-09-18",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4386831341",
+      "doi": "https://doi.org/10.3390/jsan12050067"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3006136675",
+    "doi": "https://doi.org/10.1007/978-3-030-58201-2_17",
+    "title": "Zeek-Osquery: Host-Network Correlation for Advanced Monitoring and Intrusion Detection",
+    "publication_date": "2020-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3006136675",
+      "doi": "https://doi.org/10.1007/978-3-030-58201-2_17",
+      "mag": "3006136675"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7217517047",
+    "doi": null,
+    "title": "SIEM Workflow Optimization and Threat Intelligence for Cloud Incident Response: Approaches to Correlation Automation, Triage Reduction, and Cloud Infrastructure Resilience",
+    "publication_date": "2026-04-07",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7217517047"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3124913368",
+    "doi": "https://doi.org/10.3997/2214-4609.202032051",
+    "title": "Study on Geological Feature Extraction from FMI Logging Data by Using Deep Learning Neural Network",
+    "publication_date": "2020-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3124913368",
+      "doi": "https://doi.org/10.3997/2214-4609.202032051",
+      "mag": "3124913368"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7154445826",
+    "doi": "https://doi.org/10.5281/zenodo.19594127",
+    "title": "DUAL-THRESHOLD FEATURE SELECTION AND LIGHTWEIGHT ADAPTIVE SOFT-VOTING ENSEMBLE FOR NETWORK INTRUSION DETECTION IN IoT ENVIRONMENT",
+    "publication_date": "2026-04-15",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7154445826",
+      "doi": "https://doi.org/10.5281/zenodo.19594127"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4411006078",
+    "doi": "https://doi.org/10.71443/9789349552388-13",
+    "title": "Security Event Correlation Using Graph Neural Networks for Threat Hunting and Response Automation",
+    "publication_date": "2025-03-10",
+    "type": "book-chapter",
+    "ids": {
+      "openalex": "https://openalex.org/W4411006078",
+      "doi": "https://doi.org/10.71443/9789349552388-13"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7213225814",
+    "doi": "https://doi.org/10.18522/2311-3103-2026-3-68-83",
+    "title": "SCENARIO- AND RISK-WEIGHTED LOGGING DEFICIT METHODOLOGY FOR SIEM WITH A PROBABILISTIC INTENSITY BASELINE AND ASSESSMENT OF EVENT SUITABILITY FOR CORRELATION",
+    "publication_date": "2026-06-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7213225814",
+      "doi": "https://doi.org/10.18522/2311-3103-2026-3-68-83"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4286542428",
+    "doi": "https://doi.org/10.4018/ijsir.304901",
+    "title": "ESREHO-MaxNet: Deep Maxout Network For Intrusion Detection And Attack Mitigation In Iot With Wrapper Based Feature Selection Approach",
+    "publication_date": "2022-07-21",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4286542428",
+      "doi": "https://doi.org/10.4018/ijsir.304901"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7202258912",
+    "doi": "https://doi.org/10.5281/zenodo.21907230",
+    "title": "Certificate-Targeted Network Telemetry for Safe Policy Ranking under Selective KPI Observation",
+    "publication_date": "2026-08-12",
+    "type": "dataset",
+    "ids": {
+      "openalex": "https://openalex.org/W7202258912",
+      "doi": "https://doi.org/10.5281/zenodo.21907230"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3202308396",
+    "doi": "https://doi.org/10.1155/2021/3566360",
+    "title": "G-CAS: Greedy Algorithm-Based Security Event Correlation System for Critical Infrastructure Network",
+    "publication_date": "2021-09-24",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3202308396",
+      "doi": "https://doi.org/10.1155/2021/3566360",
+      "mag": "3202308396"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4379229568",
+    "doi": "https://doi.org/10.3390/app13116753",
+    "title": "Improving Reliability for Detecting Anomalies in the MQTT Network by Applying Correlation Analysis for Feature Selection Using Machine Learning Techniques",
+    "publication_date": "2023-06-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4379229568",
+      "doi": "https://doi.org/10.3390/app13116753"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3013905853",
+    "doi": null,
+    "title": "A Network Flow Correlation Method Based on Chaos Theory and Principal Component Analysis.",
+    "publication_date": "2020-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3013905853",
+      "mag": "3013905853"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7203550944",
+    "doi": "https://doi.org/10.5281/zenodo.21957181",
+    "title": "Reproducibility Package for Conservation-Aware Telemetry Risk Ranking for Flow-Based Intrusion Detection under Compound Exporter Defects",
+    "publication_date": "2026-08-15",
+    "type": "software",
+    "ids": {
+      "openalex": "https://openalex.org/W7203550944",
+      "doi": "https://doi.org/10.5281/zenodo.21957181"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4387666455",
+    "doi": "https://doi.org/10.1371/journal.pone.0286652",
+    "title": "Attentive transformer deep learning algorithm for intrusion detection on IoT systems using automatic Xplainable feature selection",
+    "publication_date": "2023-10-16",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4387666455",
+      "doi": "https://doi.org/10.1371/journal.pone.0286652",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/37844095"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3177350688",
+    "doi": "https://doi.org/10.21428/594757db.89eadeff",
+    "title": "Neural Network Architectures and Feature Extraction for Lumber Production Prediction",
+    "publication_date": "2021-06-13",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3177350688",
+      "doi": "https://doi.org/10.21428/594757db.89eadeff",
+      "mag": "3177350688"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7160184911",
+    "doi": "https://doi.org/10.1016/j.iot.2026.101957",
+    "title": "A hybrid bio-inspired encoding and feature selection for real-time IoT network intrusion detection using deep learning framework",
+    "publication_date": "2026-05-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7160184911",
+      "doi": "https://doi.org/10.1016/j.iot.2026.101957"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4409410837",
+    "doi": "https://doi.org/10.3390/app15084252",
+    "title": "Resource-Efficient Traffic Classification Using Feature Selection for Message Queuing Telemetry Transport-Internet of Things Network-Based Security Attacks",
+    "publication_date": "2025-04-11",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4409410837",
+      "doi": "https://doi.org/10.3390/app15084252"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4416875041",
+    "doi": "https://doi.org/10.1109/icoici65217.2025.11253413",
+    "title": "Intrusion Detection for MQTT IoT Traffic using Evolutionary Feature Selection, Ensemble Learning, and Explainable AI",
+    "publication_date": "2025-09-17",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4416875041",
+      "doi": "https://doi.org/10.1109/icoici65217.2025.11253413"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3210150632",
+    "doi": "https://doi.org/10.48550/arxiv.2111.02802",
+    "title": "Distributed Sparse Feature Selection in Communication-Restricted Networks",
+    "publication_date": "2021-11-02",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W3210150632",
+      "doi": "https://doi.org/10.48550/arxiv.2111.02802",
+      "mag": "3210150632"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4389922168",
+    "doi": "https://doi.org/10.3390/electronics12245026",
+    "title": "Single-Instruction-Multiple-Data Instruction-Set-Based Heat Ranking Optimization for Massive Network Flow",
+    "publication_date": "2023-12-16",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4389922168",
+      "doi": "https://doi.org/10.3390/electronics12245026"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4321606791",
+    "doi": "https://doi.org/10.1109/comsnets56262.2023.10041389",
+    "title": "LiteEx: A Lightweight Feature Extraction Tool for Captured Network Traces",
+    "publication_date": "2023-01-03",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4321606791",
+      "doi": "https://doi.org/10.1109/comsnets56262.2023.10041389"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4404031371",
+    "doi": "https://doi.org/10.1109/icccnt61001.2024.10724592",
+    "title": "Cohesive Heartbeat Monitoring for Geolocation and Log Correlation in Campus Networks",
+    "publication_date": "2024-06-24",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4404031371",
+      "doi": "https://doi.org/10.1109/icccnt61001.2024.10724592"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4404892927",
+    "doi": "https://doi.org/10.1007/978-3-031-78383-8_6",
+    "title": "ENS-RFMC: An Encrypted Network Traffic Sampling Method Based on Rule-Based Feature Extraction and Multi-hierarchical Clustering for Intrusion Detection",
+    "publication_date": "2024-12-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4404892927",
+      "doi": "https://doi.org/10.1007/978-3-031-78383-8_6"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4412505757",
+    "doi": "https://doi.org/10.1002/spy2.70059",
+    "title": "Mass Estimation and Protection of Network Security Using Inception‐ LSTM and Bayesian Attack Behavior Correlation",
+    "publication_date": "2025-07-20",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4412505757",
+      "doi": "https://doi.org/10.1002/spy2.70059"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7164500492",
+    "doi": "https://doi.org/10.1109/access.2026.3703083",
+    "title": "Loss-Centric Cyber Resilience Evaluation and Automated Countermeasure Ranking Using Public Network Flow Data",
+    "publication_date": "2026-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7164500492",
+      "doi": "https://doi.org/10.1109/access.2026.3703083"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4414405405",
+    "doi": "https://doi.org/10.1109/icicke65317.2025.11136636",
+    "title": "Cauchy Gaussian Mutation Strategy based Parrot Optimizer for Feature Selection in Intrusion Detection System",
+    "publication_date": "2025-06-06",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4414405405",
+      "doi": "https://doi.org/10.1109/icicke65317.2025.11136636"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4401430135",
+    "doi": "https://doi.org/10.32604/cmes.2024.052637",
+    "title": "Multi-Binary Classifiers Using Optimal Feature Selection for Memory-Saving Intrusion Detection Systems",
+    "publication_date": "2024-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4401430135",
+      "doi": "https://doi.org/10.32604/cmes.2024.052637"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7211880350",
+    "doi": "https://doi.org/10.5281/zenodo.22649020",
+    "title": "Designing a Multi-Agent AI SOAR System for Real-Time SIEM Triage and Incident Response",
+    "publication_date": "2026-09-07",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7211880350",
+      "doi": "https://doi.org/10.5281/zenodo.22649020"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3199714564",
+    "doi": "https://doi.org/10.1007/978-981-16-0275-7_3",
+    "title": "An Approach for Alert Correlation Using ArcSight SIEM and Open Source NIDS",
+    "publication_date": "2021-01-01",
+    "type": "book-chapter",
+    "ids": {
+      "openalex": "https://openalex.org/W3199714564",
+      "doi": "https://doi.org/10.1007/978-981-16-0275-7_3",
+      "mag": "3199714564"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4200513212",
+    "doi": "https://doi.org/10.1109/icses52305.2021.9633821",
+    "title": "Retracted: Using Ensemble Learning Algorithms and Feature Selection Method for Improved Intrusion Detection System",
+    "publication_date": "2021-09-24",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4200513212",
+      "doi": "https://doi.org/10.1109/icses52305.2021.9633821"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4411013398",
+    "doi": "https://doi.org/10.62420/selco.v1i2.7",
+    "title": "Enhancing the performance of IoT network intrusion detection models using NF-ToN-IoT-V2 and IoTID20 datasets with chi-square feature selection",
+    "publication_date": "2025-06-04",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4411013398",
+      "doi": "https://doi.org/10.62420/selco.v1i2.7"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7126026060",
+    "doi": "https://doi.org/10.1109/srds69199.2025.00022",
+    "title": "CCE: A Cloud-Based SIEM Correlation Engine Built on Serverless Functions",
+    "publication_date": "2025-09-29",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7126026060",
+      "doi": "https://doi.org/10.1109/srds69199.2025.00022"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7140374336",
+    "doi": "https://doi.org/10.1109/sisimpact67725.2025.11439262",
+    "title": "Integrated Feature Extraction Using Principal Components and Deep Autoencoder With Extra Trees for Intrusion Detection Systems",
+    "publication_date": "2025-11-28",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7140374336",
+      "doi": "https://doi.org/10.1109/sisimpact67725.2025.11439262"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7160330870",
+    "doi": "https://doi.org/10.1007/s00521-026-11963-x",
+    "title": "An integrated three-phase framework with feature selection and Bayesian optimization for multiclass intrusion detection on ToN_IoT datasets",
+    "publication_date": "2026-05-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7160330870",
+      "doi": "https://doi.org/10.1007/s00521-026-11963-x"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4403390106",
+    "doi": "https://doi.org/10.1109/access.2024.3479310",
+    "title": "An Optimization-Based Feature Selection and Hybrid Spiking VGG 16 for Intrusion Detection in the CPS Perception Layer",
+    "publication_date": "2024-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4403390106",
+      "doi": "https://doi.org/10.1109/access.2024.3479310"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4386825956",
+    "doi": "https://doi.org/10.1016/j.aiig.2023.09.001",
+    "title": "Automated stratigraphic correlation of well logs using Attention Based Dense Network",
+    "publication_date": "2023-09-18",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4386825956",
+      "doi": "https://doi.org/10.1016/j.aiig.2023.09.001"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4221004701",
+    "doi": "https://doi.org/10.1016/j.cose.2022.102684",
+    "title": "Chameleon: Optimized feature selection using particle swarm optimization and ensemble methods for network anomaly detection",
+    "publication_date": "2022-03-10",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4221004701",
+      "doi": "https://doi.org/10.1016/j.cose.2022.102684"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4409729336",
+    "doi": "https://doi.org/10.3390/pr13051288",
+    "title": "Stratigraphic Correlation of Well Logs Using Geology-Informed Deep Learning Networks",
+    "publication_date": "2025-04-23",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4409729336",
+      "doi": "https://doi.org/10.3390/pr13051288"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7130384193",
+    "doi": "https://doi.org/10.1109/icicse67247.2025.11390870",
+    "title": "ICCFR: An Iterative Cross-Correlation Feature Ranking Algorithm for Machine Learning-Based Intrusion Detection in MQTT IoT Systems",
+    "publication_date": "2025-11-05",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7130384193",
+      "doi": "https://doi.org/10.1109/icicse67247.2025.11390870"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4283445654",
+    "doi": "https://doi.org/10.1145/3533050.3533068",
+    "title": "Resource Prediction of Virtual Network Function Based on Traffic Feature Extraction",
+    "publication_date": "2022-04-09",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4283445654",
+      "doi": "https://doi.org/10.1145/3533050.3533068"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4401074662",
+    "doi": "https://doi.org/10.3390/s24154901",
+    "title": "Revolutionizing SIEM Security: An Innovative Correlation Engine Design for Multi-Layered Attack Detection",
+    "publication_date": "2024-07-28",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4401074662",
+      "doi": "https://doi.org/10.3390/s24154901",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/39123948"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7167971131",
+    "doi": "https://doi.org/10.21203/rs.3.rs-10300653/v1",
+    "title": "Large scale IoT Intrusion Detection using Isolation Forest and Mutual Information based Feature Selection",
+    "publication_date": "2026-07-10",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7167971131",
+      "doi": "https://doi.org/10.21203/rs.3.rs-10300653/v1"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3116011291",
+    "doi": "https://doi.org/10.1145/3428363.3428378",
+    "title": "Efficient Feature Selection for Detecting Botnets based on Network Traffic and Behavior Analysis",
+    "publication_date": "2020-12-22",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3116011291",
+      "doi": "https://doi.org/10.1145/3428363.3428378",
+      "mag": "3116011291"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4403059312",
+    "doi": "https://doi.org/10.1109/icses52305.2021.10703015",
+    "title": "Retraction Notice: Using Ensemble Learning Algorithms and Feature Selection Method for Improved Intrusion Detection System",
+    "publication_date": "2021-09-24",
+    "type": "retraction",
+    "ids": {
+      "openalex": "https://openalex.org/W4403059312",
+      "doi": "https://doi.org/10.1109/icses52305.2021.10703015"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7217358002",
+    "doi": null,
+    "title": "Hybrid-Ids: An Approach for Intrusion Detection System with Hybrid Feature Extraction Technique Using Supervised Machine Learning",
+    "publication_date": "2023-04-16",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7217358002"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4402288718",
+    "doi": "https://doi.org/10.1109/sp54263.2024.00005",
+    "title": "Kairos: Practical Intrusion Detection and Investigation using Whole-system Provenance",
+    "publication_date": "2024-05-19",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4402288718",
+      "doi": "https://doi.org/10.1109/sp54263.2024.00005"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4285290022",
+    "doi": "https://doi.org/10.3997/2214-4609.202210837",
+    "title": "Log Pattern Recognition Using Siamese Neural Networks for Enhancing Well Correlation",
+    "publication_date": "2022-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4285290022",
+      "doi": "https://doi.org/10.3997/2214-4609.202210837"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7135043898",
+    "doi": "https://doi.org/10.66320/k6evjc57",
+    "title": "Multimodal AI for Cloud Security: Intelligent Correlation of Network Traffic, Audit Logs, and System Metrics",
+    "publication_date": "2026-02-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7135043898",
+      "doi": "https://doi.org/10.66320/k6evjc57"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4414198107",
+    "doi": "https://doi.org/10.1109/isac364032.2025.11156933",
+    "title": "Temporal Pattern-Aware Intrusion Detection in Smart Homes via SCOA-Driven Feature Selection and Deep Learning",
+    "publication_date": "2025-07-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4414198107",
+      "doi": "https://doi.org/10.1109/isac364032.2025.11156933"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3201308463",
+    "doi": "https://doi.org/10.2118/205985-ms",
+    "title": "Automating Well Log Correlation Workflow Using Soft Attention Convolutional Neural Networks",
+    "publication_date": "2021-09-15",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3201308463",
+      "doi": "https://doi.org/10.2118/205985-ms",
+      "mag": "3201308463"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4291221699",
+    "doi": "https://doi.org/10.48550/arxiv.2208.05476",
+    "title": "Sequence Feature Extraction for Malware Family Analysis via Graph Neural Network",
+    "publication_date": "2022-08-10",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4291221699",
+      "doi": "https://doi.org/10.48550/arxiv.2208.05476"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3045218790",
+    "doi": "https://doi.org/10.1109/taslp.2020.3011320",
+    "title": "Device Feature Extraction Based on Parallel Neural Network Training for Replay Spoofing Detection",
+    "publication_date": "2020-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3045218790",
+      "doi": "https://doi.org/10.1109/taslp.2020.3011320",
+      "mag": "3045218790"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4411359626",
+    "doi": "https://doi.org/10.1109/iceeng64546.2025.11031370",
+    "title": "Optimized Feature Selection for Enhanced Network Attack Detection Using Bat Algorithm",
+    "publication_date": "2025-05-12",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4411359626",
+      "doi": "https://doi.org/10.1109/iceeng64546.2025.11031370"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4405711529",
+    "doi": "https://doi.org/10.56294/dm2024577",
+    "title": "Optimizing Intrusion Detection for DoS, DDoS, and Mirai Attacks Subtypes Using Hierarchical Feature Selection and CatBoost on the CICIoT2023 Dataset",
+    "publication_date": "2024-12-17",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4405711529",
+      "doi": "https://doi.org/10.56294/dm2024577"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7165132557",
+    "doi": "https://doi.org/10.20535/2411-2976.12026.36-50",
+    "title": "METHOD OF CRYPTOGRAPHICALLY RESILIENT EVENT CORRELATION IN SIEM BASED ON RISK-ORIENTED ASSESSMENT AND CONTEXT-HASHED SIMILARITY",
+    "publication_date": "2026-06-18",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7165132557",
+      "doi": "https://doi.org/10.20535/2411-2976.12026.36-50"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4353110732",
+    "doi": "https://doi.org/10.30574/wjaets.2023.8.2.0083",
+    "title": "Convolution neural networks with hybrid feature extraction methods for classification of voice sound signals",
+    "publication_date": "2023-03-22",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4353110732",
+      "doi": "https://doi.org/10.30574/wjaets.2023.8.2.0083"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4417459812",
+    "doi": "https://doi.org/10.48550/arxiv.2512.13565",
+    "title": "A Nonparametric Statistics Approach to Feature Selection in Deep Neural Networks with Theoretical Guarantees",
+    "publication_date": "2025-12-15",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4417459812",
+      "doi": "https://doi.org/10.48550/arxiv.2512.13565"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4410710912",
+    "doi": "https://doi.org/10.1016/j.jisa.2025.104096",
+    "title": "A systematic literature review of log-correlation tools for cyberattack detection and prediction in large networks",
+    "publication_date": "2025-05-24",
+    "type": "review",
+    "ids": {
+      "openalex": "https://openalex.org/W4410710912",
+      "doi": "https://doi.org/10.1016/j.jisa.2025.104096"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3026976654",
+    "doi": "https://doi.org/10.1177/0954409720925689",
+    "title": "Ranking the critical sections of railway networks",
+    "publication_date": "2020-05-19",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3026976654",
+      "doi": "https://doi.org/10.1177/0954409720925689",
+      "mag": "3026976654"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4365398151",
+    "doi": "https://doi.org/10.1137/1.9781611977653.ch47",
+    "title": "Node ranking in labeled networks",
+    "publication_date": "2023-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4365398151",
+      "doi": "https://doi.org/10.1137/1.9781611977653.ch47"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3099772213",
+    "doi": "https://doi.org/10.48084/etasr.3801",
+    "title": "Enhanced-PCA based Dimensionality Reduction and Feature Selection for Real-Time Network Threat Detection",
+    "publication_date": "2020-10-26",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3099772213",
+      "doi": "https://doi.org/10.48084/etasr.3801",
+      "mag": "3099772213"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4407373074",
+    "doi": "https://doi.org/10.1109/access.2025.3541125",
+    "title": "Ensemble Network Graph-Based Classification for Botnet Detection Using Adaptive Weighting and Feature Extraction",
+    "publication_date": "2025-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4407373074",
+      "doi": "https://doi.org/10.1109/access.2025.3541125"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7140841753",
+    "doi": "https://doi.org/10.66424/2071-8217-2026-1-14",
+    "title": "AUTOMATION OF INFORMATION SECURITY INCIDENT DETECTION USING CUSTOM CORRELATION RULES IN A SIEM SYSTEM",
+    "publication_date": "2026-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7140841753",
+      "doi": "https://doi.org/10.66424/2071-8217-2026-1-14"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4288368384",
+    "doi": "https://doi.org/10.1007/s40948-022-00415-0",
+    "title": "Empirical, statistical, and connectionist methods coupled with log variables ranking for the prediction of pore network permeability in a heterogeneous oil reservoir",
+    "publication_date": "2022-06-11",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4288368384",
+      "doi": "https://doi.org/10.1007/s40948-022-00415-0"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7161707168",
+    "doi": "https://doi.org/10.1109/access.2026.3694523",
+    "title": "A Lightweight Heterogeneous Neural Network Architecture for Multiscale Feature Extraction in Bearing Fault Diagnosis",
+    "publication_date": "2026-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7161707168",
+      "doi": "https://doi.org/10.1109/access.2026.3694523"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4385546423",
+    "doi": "https://doi.org/10.58530/2022/3437",
+    "title": "Investigating the origin of the BOLD initial dip with biophysical simulations based on realistic microvascular networks: flow or metabolism?",
+    "publication_date": "2023-08-03",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4385546423",
+      "doi": "https://doi.org/10.58530/2022/3437"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4210729859",
+    "doi": "https://doi.org/10.30632/pjv63n1-2022a2",
+    "title": "Automated Well-Log Depth Matching – 1D Convolutional Neural Networks Vs. Classic Cross Correlation",
+    "publication_date": "2022-01-28",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4210729859",
+      "doi": "https://doi.org/10.30632/pjv63n1-2022a2"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4388209906",
+    "doi": "https://doi.org/10.1088/1402-4896/ad0931",
+    "title": "A novel lidar signal noise reduction algorithm based on improved deep belief network",
+    "publication_date": "2023-11-02",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4388209906",
+      "doi": "https://doi.org/10.1088/1402-4896/ad0931"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7203606429",
+    "doi": "https://doi.org/10.64751/ijdim.2022.v1.n3.1290",
+    "title": "Cross-Domain Service Assurance for Private 5G Networks Using Streaming Telemetry and Dependency-Aware Event Correlation",
+    "publication_date": "2022-09-15",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7203606429",
+      "doi": "https://doi.org/10.64751/ijdim.2022.v1.n3.1290"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4407248832",
+    "doi": "https://doi.org/10.1007/978-981-96-1624-4_4",
+    "title": "Investigating the Transferability of Evasion Attacks in Network Intrusion Detection Systems Considering Domain-Specific Constraints",
+    "publication_date": "2025-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4407248832",
+      "doi": "https://doi.org/10.1007/978-981-96-1624-4_4"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7118269454",
+    "doi": "https://doi.org/10.28925/2663-4023.2025.31.1066",
+    "title": "CYBER DEFENSE OF URBAN DIGITAL SYSTEMS: SCALING SIEM CORRELATION TO REDUCE INCIDENTS IN A WARTIME CITY",
+    "publication_date": "2025-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7118269454",
+      "doi": "https://doi.org/10.28925/2663-4023.2025.31.1066"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7202249721",
+    "doi": "https://doi.org/10.33411/ijist/785",
+    "title": "Investigating Threats to ICS and SCADA Systems Via Honeypot Data Analysis and SIEM",
+    "publication_date": "2024-05-27",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7202249721",
+      "doi": "https://doi.org/10.33411/ijist/785"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4390502779",
+    "doi": "https://doi.org/10.1007/978-981-99-8479-4_20",
+    "title": "Feature Selection Techniques to Enhance Prediction of Clinical Appointment No-Shows Using Neural Network",
+    "publication_date": "2024-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4390502779",
+      "doi": "https://doi.org/10.1007/978-981-99-8479-4_20"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7212578142",
+    "doi": "https://doi.org/10.1038/s41598-026-70577-4",
+    "title": "Hybrid deep learning for smart grid SCADA intrusion detection with mutual information feature selection for smart meter data analysis",
+    "publication_date": "2026-09-14",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7212578142",
+      "doi": "https://doi.org/10.1038/s41598-026-70577-4"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7166504472",
+    "doi": "https://doi.org/10.33979/2072-8964-2026-25-1-134-142",
+    "title": "DETECTION OF INFORMATION SECURITY INCIDENTS BASED ON CORRELATION METHODS OF RECORDS IN SYSTEM AND NETWORK SERVICE LOGS",
+    "publication_date": "2026-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7166504472",
+      "doi": "https://doi.org/10.33979/2072-8964-2026-25-1-134-142"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7149454497",
+    "doi": "https://doi.org/10.5281/zenodo.19416028",
+    "title": "LOG-CORRELATION METHODS FOR EARLY DETECTION OF INSIDER-THREAT INDICATORS IN SMALL-TO-MEDIUM ENTERPRISE NETWORKS",
+    "publication_date": "2024-12-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7149454497",
+      "doi": "https://doi.org/10.5281/zenodo.19416028"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4386760978",
+    "doi": "https://doi.org/10.1016/j.bspc.2023.105446",
+    "title": "ReliefF based feature selection and Gradient Squirrel search Algorithm enabled Deep Maxout Network for detection of heart disease",
+    "publication_date": "2023-09-15",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4386760978",
+      "doi": "https://doi.org/10.1016/j.bspc.2023.105446"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4385241203",
+    "doi": "https://doi.org/10.47852/bonviewaaes32021068",
+    "title": "Optimization of Security Information and Event Management (SIEM) Infrastructures, and Events Correlation/Regression Analysis for Optimal Cyber Security Posture",
+    "publication_date": "2023-07-25",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4385241203",
+      "doi": "https://doi.org/10.47852/bonviewaaes32021068"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7161292847",
+    "doi": "https://doi.org/10.55041/isjem07392",
+    "title": "ResQ: Edge AI Mesh Networking for Disaster Triage",
+    "publication_date": "2026-05-15",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7161292847",
+      "doi": "https://doi.org/10.55041/isjem07392"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7139983668",
+    "doi": "https://doi.org/10.2139/ssrn.6451625",
+    "title": "Correlation Architecture Fingerprinting for Network Intrusion Characterization: A Weighted Jaccard Approach Validated Across Two Independent Datasets",
+    "publication_date": "2026-01-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7139983668",
+      "doi": "https://doi.org/10.2139/ssrn.6451625"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7221038084",
+    "doi": "https://doi.org/10.5281/zenodo.23240596",
+    "title": "Layered Network Telemetry for Security Incident Triage: Hop-Level AS/Geo Path Context and Per-Layer Active Probing at a Remote Satellite-Connected Site",
+    "publication_date": "2026-10-08",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7221038084",
+      "doi": "https://doi.org/10.5281/zenodo.23240596"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4405189038",
+    "doi": "https://doi.org/10.1177/09287329241291367",
+    "title": "Detection of motor nervous disease using deep learning based Duple feature extraction network",
+    "publication_date": "2024-11-21",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4405189038",
+      "doi": "https://doi.org/10.1177/09287329241291367",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/40105172"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3194205089",
+    "doi": "https://doi.org/10.3233/jifs-201068",
+    "title": "A branch & cut/metaheuristic optimization of financial supply chain based on input-output network flows: investigating the Iranian orthopedic footwear",
+    "publication_date": "2021-08-10",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3194205089",
+      "doi": "https://doi.org/10.3233/jifs-201068",
+      "mag": "3194205089"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4283376654",
+    "doi": "https://doi.org/10.1109/eurosp53844.2022.00011",
+    "title": "SIERRA: Ranking Anomalous Activities in Enterprise Networks",
+    "publication_date": "2022-06-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4283376654",
+      "doi": "https://doi.org/10.1109/eurosp53844.2022.00011"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4408278798",
+    "doi": "https://doi.org/10.3991/ijoe.v21i03.52631",
+    "title": "Convolutional Neural Network with Feature Extraction to Improve the Classification Accuracy of Multi-Class Facial Skin Disorders",
+    "publication_date": "2025-03-10",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4408278798",
+      "doi": "https://doi.org/10.3991/ijoe.v21i03.52631"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4310762541",
+    "doi": "https://doi.org/10.1016/j.jisa.2022.103373",
+    "title": "An end-to-end method for advanced persistent threats reconstruction in large-scale networks based on alert and log correlation",
+    "publication_date": "2022-12-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4310762541",
+      "doi": "https://doi.org/10.1016/j.jisa.2022.103373"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4399546295",
+    "doi": "https://doi.org/10.1007/978-3-031-61471-2_17",
+    "title": "A Cost-Sensitive Sparse Auto-encoder Based Feature Extraction for Network Traffic Classification Using CNN",
+    "publication_date": "2024-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4399546295",
+      "doi": "https://doi.org/10.1007/978-3-031-61471-2_17"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4361228036",
+    "doi": "https://doi.org/10.24124/2023/59378",
+    "title": "Linking spatial stream network modeling and telemetry data to investigate thermal habitat use by adult arctic grayling",
+    "publication_date": "2023-01-01",
+    "type": "dissertation",
+    "ids": {
+      "openalex": "https://openalex.org/W4361228036",
+      "doi": "https://doi.org/10.24124/2023/59378"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3040156878",
+    "doi": "https://doi.org/10.1109/access.2020.3007199",
+    "title": "Feature Extraction Based on the Non-Negative Matrix Factorization of Convolutional Neural Networks for Monitoring Domestic Activity With Acoustic Signals",
+    "publication_date": "2020-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3040156878",
+      "doi": "https://doi.org/10.1109/access.2020.3007199",
+      "mag": "3040156878"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4415616573",
+    "doi": "https://doi.org/10.1186/s13677-025-00789-y",
+    "title": "Advanced system log analyzer for anomaly detection and cyber forensic investigations using LSTM and transformer networks",
+    "publication_date": "2025-10-28",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4415616573",
+      "doi": "https://doi.org/10.1186/s13677-025-00789-y"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4399679074",
+    "doi": "https://doi.org/10.1016/j.energy.2024.132069",
+    "title": "Reservoir properties inversion using attention-based parallel hybrid network integrating feature selection and transfer learning",
+    "publication_date": "2024-06-14",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4399679074",
+      "doi": "https://doi.org/10.1016/j.energy.2024.132069"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4207048601",
+    "doi": "https://doi.org/10.14421/jiska.2022.7.1.46-55",
+    "title": "Pemanfaatan Network Forensic Investigation Framework untuk Mengidentifikasi Serangan Jaringan Melalui Intrusion Detection System (IDS)",
+    "publication_date": "2022-01-25",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4207048601",
+      "doi": "https://doi.org/10.14421/jiska.2022.7.1.46-55"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4321108312",
+    "doi": "https://doi.org/10.1142/s1793962324500119",
+    "title": "Malicious encrypted network traffic flow detection using enhanced optimal deep feature selection with DLSTM",
+    "publication_date": "2023-02-16",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4321108312",
+      "doi": "https://doi.org/10.1142/s1793962324500119"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4404268289",
+    "doi": "https://doi.org/10.3390/aerospace11110933",
+    "title": "A Convolution Auto-Encoders Network for Aero-Engine Hot Jet FT-IR Spectrum Feature Extraction and Classification",
+    "publication_date": "2024-11-11",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4404268289",
+      "doi": "https://doi.org/10.3390/aerospace11110933"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7210286118",
+    "doi": "https://doi.org/10.21203/rs.3.rs-10398747/v1",
+    "title": "Adaptive Neural Threshold Networks for SEC Accounting Enforcement Triage",
+    "publication_date": "2026-09-07",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7210286118",
+      "doi": "https://doi.org/10.21203/rs.3.rs-10398747/v1"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4393268571",
+    "doi": "https://doi.org/10.1038/s41598-024-57312-7",
+    "title": "Improved tactile speech robustness to background noise with a dual-path recurrent neural network noise-reduction method",
+    "publication_date": "2024-03-28",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4393268571",
+      "doi": "https://doi.org/10.1038/s41598-024-57312-7",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/38548750"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7117976294",
+    "doi": "https://doi.org/10.1007/978-981-95-1802-9_16",
+    "title": "Optimization of Feature Extraction and Enhancement for High Resolution Data: A Hybrid Approach Combining Classical and Neural Network Technique",
+    "publication_date": "2026-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7117976294",
+      "doi": "https://doi.org/10.1007/978-981-95-1802-9_16"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4283693182",
+    "doi": "https://doi.org/10.1145/3529299.3531502",
+    "title": "Research on Unified Fault Model and Fault Feature Extraction Method of Active Distribution Network Considering Flexible Load",
+    "publication_date": "2022-04-22",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4283693182",
+      "doi": "https://doi.org/10.1145/3529299.3531502"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7162007431",
+    "doi": "https://doi.org/10.1109/cipher70417.2026.11523812",
+    "title": "Graph Neural Threat Intelligence: Real-Time Attack Path Prediction Using Event Correlation from Wazuh SIEM",
+    "publication_date": "2026-02-13",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7162007431",
+      "doi": "https://doi.org/10.1109/cipher70417.2026.11523812"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4416799289",
+    "doi": "https://doi.org/10.1109/snpd65828.2025.11253024",
+    "title": "Improving the efficiency of attack detection in cellular networks through the combination of statistical feature selection methods and machine learning algorithms",
+    "publication_date": "2025-06-25",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4416799289",
+      "doi": "https://doi.org/10.1109/snpd65828.2025.11253024"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4409667559",
+    "doi": "https://doi.org/10.3390/app15094609",
+    "title": "Adaptive Graph Convolutional Network with Deep Sequence and Feature Correlation Learning for Porosity Prediction from Well-Logging Data",
+    "publication_date": "2025-04-22",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4409667559",
+      "doi": "https://doi.org/10.3390/app15094609"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7171498784",
+    "doi": "https://doi.org/10.48550/arxiv.2607.24006",
+    "title": "Agentic Cloud Decoys: A Deception-Driven Framework for Autonomous Intrusion Investigation",
+    "publication_date": "2026-07-27",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7171498784",
+      "doi": "https://doi.org/10.48550/arxiv.2607.24006"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4414146251",
+    "doi": "https://doi.org/10.21203/rs.3.rs-7340701/v1",
+    "title": "A Phased Graph Convolutional Network Framework for Multi-Step Attack Detection: Event-Log Correlation and Heterogeneous Dataset Evaluation",
+    "publication_date": "2025-09-12",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4414146251",
+      "doi": "https://doi.org/10.21203/rs.3.rs-7340701/v1"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4301431339",
+    "doi": "https://doi.org/10.1007/978-981-19-3575-6_54",
+    "title": "Detecting Zeus Malware Network Traffic Using the Random Forest Algorithm with Both a Manual and Automated Feature Selection Process",
+    "publication_date": "2022-10-05",
+    "type": "book-chapter",
+    "ids": {
+      "openalex": "https://openalex.org/W4301431339",
+      "doi": "https://doi.org/10.1007/978-981-19-3575-6_54"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3209454990",
+    "doi": "https://doi.org/10.1109/jstars.2021.3122461",
+    "title": "LCS-EnsemNet: A Semisupervised Deep Neural Network for SAR Image Change Detection With Dual Feature Extraction and Label-Consistent Self-Ensemble",
+    "publication_date": "2021-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3209454990",
+      "doi": "https://doi.org/10.1109/jstars.2021.3122461",
+      "mag": "3209454990"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3202844457",
+    "doi": "https://doi.org/10.1007/s10955-022-02981-9",
+    "title": "Displacement Correlations in Disordered Athermal Networks",
+    "publication_date": "2022-09-15",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3202844457",
+      "doi": "https://doi.org/10.1007/s10955-022-02981-9",
+      "mag": "3202844457"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4406267146",
+    "doi": "https://doi.org/10.1109/icssas64001.2024.10760778",
+    "title": "Automated Detection of Tree-Cutting Activities in Forest Environments using Convolutional Neural Networks and Advanced Audio Feature Extraction Techniques",
+    "publication_date": "2024-10-23",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4406267146",
+      "doi": "https://doi.org/10.1109/icssas64001.2024.10760778"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3197948966",
+    "doi": "https://doi.org/10.1155/2021/6721564",
+    "title": "A Feature-Extraction-Based Lightweight Convolutional and Recurrent Neural Networks Adaptive Computing Model for Container Terminal Liner Handling Volume Forecasting",
+    "publication_date": "2021-08-26",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3197948966",
+      "doi": "https://doi.org/10.1155/2021/6721564",
+      "mag": "3197948966"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4410716010",
+    "doi": "https://doi.org/10.1007/978-3-031-89363-6_9",
+    "title": "Reducing False Positives in Intrusion Detection System Alerts: A Novel Aggregation and Correlation Model",
+    "publication_date": "2025-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4410716010",
+      "doi": "https://doi.org/10.1007/978-3-031-89363-6_9"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7168178906",
+    "doi": "https://doi.org/10.20535/tacs.2664-29132026.1.356135",
+    "title": "Correlation of Wi-Fi Radio Events with SIEM Cyber Events: Event Schema, Context Enrichment Rules, and SOAR Playbooks for Tactical Response",
+    "publication_date": "2026-07-03",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7168178906",
+      "doi": "https://doi.org/10.20535/tacs.2664-29132026.1.356135"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7171286220",
+    "doi": "https://doi.org/10.5281/zenodo.21580795",
+    "title": "SIEM-Driven Security Leadership in the Modern Enterprise: Advancing Proactive SecOps Through AI Correlation, MITRE ATT&CK Frameworks, and PCI-Focused",
+    "publication_date": "2023-11-17",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7171286220",
+      "doi": "https://doi.org/10.5281/zenodo.21580795"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7155081990",
+    "doi": "https://doi.org/10.32628/ijsrset2613250",
+    "title": "SIEM-Driven Security Leadership in the Modern Enterprise: Advancing Proactive SecOps Through AI Correlation, MITRE ATT&CK Frameworks, and PCI-Focused",
+    "publication_date": "2023-11-16",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7155081990",
+      "doi": "https://doi.org/10.32628/ijsrset2613250"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4297984073",
+    "doi": "https://doi.org/10.1016/j.measen.2022.100500",
+    "title": "Identifying peanut maturity based on Hyper Spectral Invariant Scaled Feature Selection using Adaptive Dense Net Recurrent Neural Network",
+    "publication_date": "2022-09-29",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4297984073",
+      "doi": "https://doi.org/10.1016/j.measen.2022.100500"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3202195831",
+    "doi": "https://doi.org/10.1007/978-981-16-3097-2_21",
+    "title": "‘NIS’ a Network Investigation System",
+    "publication_date": "2021-10-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3202195831",
+      "doi": "https://doi.org/10.1007/978-981-16-3097-2_21",
+      "mag": "3202195831"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3188053439",
+    "doi": "https://doi.org/10.1145/3459930.3469518",
+    "title": "Deep neural network models to automate incident triage in the radiation oncology incident learning system",
+    "publication_date": "2021-07-30",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3188053439",
+      "doi": "https://doi.org/10.1145/3459930.3469518",
+      "mag": "3188053439"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4414411764",
+    "doi": "https://doi.org/10.62593/2090-2468.1077",
+    "title": "New Correlation for Calculating Porosity Using density log by applying artificial neural networks and uncertainty analysis: An application in the Mishrif Formation, South Iraq",
+    "publication_date": "2025-09-21",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4414411764",
+      "doi": "https://doi.org/10.62593/2090-2468.1077"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7204179357",
+    "doi": "https://doi.org/10.5281/zenodo.22089086",
+    "title": "Review data for Causality-aware Provenance-based Intrusion Detection: A Survey of Graph Learning, Root-cause Candidate Ranking, and Evaluation",
+    "publication_date": "2026-08-25",
+    "type": "dataset",
+    "ids": {
+      "openalex": "https://openalex.org/W7204179357",
+      "doi": "https://doi.org/10.5281/zenodo.22089086"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4411094018",
+    "doi": "https://doi.org/10.1007/s11053-025-10517-7",
+    "title": "Identification of Coal Structure Based on Geophysical Logging Data in Zhengzhuang Block, Southern Qinshui Basin, China: Investigation by Convolutional Neural Networks",
+    "publication_date": "2025-06-06",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4411094018",
+      "doi": "https://doi.org/10.1007/s11053-025-10517-7"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7122662094",
+    "doi": "https://doi.org/10.17605/osf.io/39ujn",
+    "title": "Investigating IP Camera Hacking: Comparing HIKVISION DVR Logs with Suspect’s PC and Mobile Phone Artifacts in Local and Exterior Network Environment",
+    "publication_date": "2026-01-01",
+    "type": "other",
+    "ids": {
+      "openalex": "https://openalex.org/W7122662094",
+      "doi": "https://doi.org/10.17605/osf.io/39ujn"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4414359324",
+    "doi": "https://doi.org/10.24963/ijcai.2025/598",
+    "title": "A Correlation Manifold Self-Attention Network for EEG Decoding",
+    "publication_date": "2025-09-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4414359324",
+      "doi": "https://doi.org/10.24963/ijcai.2025/598"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7160898168",
+    "doi": "https://doi.org/10.2139/ssrn.6739618",
+    "title": "MMDL-Net: A Multimodal Deep Learning Network for Post-Collision Injury Prediction and Triage Support",
+    "publication_date": "2026-01-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7160898168",
+      "doi": "https://doi.org/10.2139/ssrn.6739618"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7163564933",
+    "doi": "https://doi.org/10.48550/arxiv.2606.04733",
+    "title": "Contrastive Learning and Correlation Clustering for Sequences of Network Telescope Data",
+    "publication_date": "2026-06-03",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7163564933",
+      "doi": "https://doi.org/10.48550/arxiv.2606.04733"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4319458371",
+    "doi": "https://doi.org/10.1016/b978-0-323-99199-5.00010-0",
+    "title": "The classification of the investigations and punishment for crime syndicates that relate to intrusions against IoT-based healthcare systems",
+    "publication_date": "2023-01-01",
+    "type": "book-chapter",
+    "ids": {
+      "openalex": "https://openalex.org/W4319458371",
+      "doi": "https://doi.org/10.1016/b978-0-323-99199-5.00010-0"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4294691005",
+    "doi": "https://doi.org/10.23919/acc53348.2022.9867665",
+    "title": "Discovery of Alarm Correlations Based on Pattern Mining and Network Analysis",
+    "publication_date": "2022-06-08",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4294691005",
+      "doi": "https://doi.org/10.23919/acc53348.2022.9867665"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3186371302",
+    "doi": "https://doi.org/10.2139/ssrn.3882417",
+    "title": "Criminal Networks Mining and Visualization for Crime Investigation",
+    "publication_date": "2021-01-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W3186371302",
+      "doi": "https://doi.org/10.2139/ssrn.3882417",
+      "mag": "3186371302"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4322580598",
+    "doi": "https://doi.org/10.4236/jcc.2023.112009",
+    "title": "Machine Learning-Based Alarms Classification and Correlation in an SDH/WDM Optical Network to Improve Network Maintenance",
+    "publication_date": "2023-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4322580598",
+      "doi": "https://doi.org/10.4236/jcc.2023.112009"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4409494395",
+    "doi": "https://doi.org/10.1109/tifs.2025.3561681",
+    "title": "CorreFlow: A Covert Fingerprinting Modulation for Flow Correlation in Open Heterogeneous Networks",
+    "publication_date": "2025-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4409494395",
+      "doi": "https://doi.org/10.1109/tifs.2025.3561681"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3183530150",
+    "doi": "https://doi.org/10.1145/3459104.3459135",
+    "title": "Network Forensics Investigation in Virtual Data Centers Using ELK",
+    "publication_date": "2021-02-19",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3183530150",
+      "doi": "https://doi.org/10.1145/3459104.3459135",
+      "mag": "3183530150"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4388970316",
+    "doi": "https://doi.org/10.56726/irjmets46492",
+    "title": "CYBERFLOW: DEEP LEARNING METHODS TO NETWORK CIRCULATION INVESTIGATION BY VIA NEURAL NETWORK",
+    "publication_date": "2023-11-24",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4388970316",
+      "doi": "https://doi.org/10.56726/irjmets46492"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3026020785",
+    "doi": "https://doi.org/10.1016/j.chaos.2020.109848",
+    "title": "Fractal structure in the S&P500: A correlation-based threshold network approach",
+    "publication_date": "2020-05-11",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3026020785",
+      "doi": "https://doi.org/10.1016/j.chaos.2020.109848",
+      "mag": "3026020785"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3097351038",
+    "doi": "https://doi.org/10.2118/202908-ms",
+    "title": "Automatic Well Correlation by Aligning Multiple Well using Deep Neural Networks",
+    "publication_date": "2020-11-06",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3097351038",
+      "doi": "https://doi.org/10.2118/202908-ms",
+      "mag": "3097351038"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7203632488",
+    "doi": "https://doi.org/10.3390/computers15080531",
+    "title": "A Privacy-Conscious and Explainable IDS-Oriented Triage and Response Pipeline for Mobile Network Infrastructure Using Aggregated Cellular Traffic Signatures",
+    "publication_date": "2026-08-16",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7203632488",
+      "doi": "https://doi.org/10.3390/computers15080531"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7131384091",
+    "doi": "https://doi.org/10.48550/arxiv.2602.19270",
+    "title": "Hagenberg Risk Management Process (Part 2): From Context-Sensitive Triage to Case Analysis With Bowtie and Bayesian Networks",
+    "publication_date": "2026-02-22",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7131384091",
+      "doi": "https://doi.org/10.48550/arxiv.2602.19270"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3176428776",
+    "doi": "https://doi.org/10.3390/e24091182",
+    "title": "Clarifying How Degree Entropies and Degree-Degree Correlations Relate to Network Robustness",
+    "publication_date": "2022-08-24",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3176428776",
+      "doi": "https://doi.org/10.3390/e24091182",
+      "mag": "3176428776",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/36141068"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4401768540",
+    "doi": "https://doi.org/10.3390/rs16163097",
+    "title": "Continuous Wavelet Transform Peak-Seeking Attention Mechanism Conventional Neural Network: A Lightweight Feature Extraction Network with Attention Mechanism Based on the Continuous Wave Transform Peak-Seeking Method for Aero-Engine Hot Jet Fourier Transform Infrared Classification",
+    "publication_date": "2024-08-22",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4401768540",
+      "doi": "https://doi.org/10.3390/rs16163097"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4387445642",
+    "doi": "https://doi.org/10.1109/rusautocon58002.2023.10272785",
+    "title": "Investigation of the Possibility of Using WSN Networks for Interaction of Unmanned Vehicles",
+    "publication_date": "2023-09-10",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4387445642",
+      "doi": "https://doi.org/10.1109/rusautocon58002.2023.10272785"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4313532163",
+    "doi": "https://doi.org/10.1007/978-3-031-21127-0_46",
+    "title": "Detecting Global Community Structure in a COVID-19 Activity Correlation Network",
+    "publication_date": "2023-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4313532163",
+      "doi": "https://doi.org/10.1007/978-3-031-21127-0_46"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3010844922",
+    "doi": "https://doi.org/10.1109/access.2020.2982057",
+    "title": "Method for Extracting Patterns of Coordinated Network Attacks on Electric Power CPS Based on Temporal–Topological Correlation",
+    "publication_date": "2020-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3010844922",
+      "doi": "https://doi.org/10.1109/access.2020.2982057",
+      "mag": "3010844922"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4381893191",
+    "doi": "https://doi.org/10.25131/sajg.126.0013",
+    "title": "Timing of the Cenozoic magmatic intrusions in the offshore Tanga Basin, Tanzania: correlation to age equivalent deposits in the Eyasi-Wembere Basin and their implications for petroleum potential",
+    "publication_date": "2023-06-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4381893191",
+      "doi": "https://doi.org/10.25131/sajg.126.0013"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4406091544",
+    "doi": "https://doi.org/10.1088/2631-8695/ada664",
+    "title": "Application of correlation-based recurrent neural network in porosity prediction for petroleum exploration",
+    "publication_date": "2025-01-06",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4406091544",
+      "doi": "https://doi.org/10.1088/2631-8695/ada664"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7115681532",
+    "doi": "https://doi.org/10.1016/j.ast.2025.111514",
+    "title": "CoGAN: A novel correlation-integrated generative adversarial network for enhanced satellite anomaly detection",
+    "publication_date": "2025-12-17",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7115681532",
+      "doi": "https://doi.org/10.1016/j.ast.2025.111514"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7203954266",
+    "doi": "https://doi.org/10.5281/zenodo.22021429",
+    "title": "ADT-BN-WW reproduction package: attack-defense trees and Bayesian networks for water-SCADA cyber risk ranking",
+    "publication_date": "2026-08-20",
+    "type": "software",
+    "ids": {
+      "openalex": "https://openalex.org/W7203954266",
+      "doi": "https://doi.org/10.5281/zenodo.22021429"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7204082762",
+    "doi": "https://doi.org/10.26634/jdf.4.1.1219",
+    "title": "Forensic-Ready Network Architecture: Investigative Limitations of TCP/IP-Based Networks in Cybercrime Response",
+    "publication_date": "2026-06-15",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7204082762",
+      "doi": "https://doi.org/10.26634/jdf.4.1.1219"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7203901370",
+    "doi": "https://doi.org/10.5281/zenodo.22023821",
+    "title": "ADT-BN-WW reproduction package: attack-defense trees and Bayesian networks for water-SCADA cyber risk ranking",
+    "publication_date": "2026-08-20",
+    "type": "software",
+    "ids": {
+      "openalex": "https://openalex.org/W7203901370",
+      "doi": "https://doi.org/10.5281/zenodo.22023821"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4282042282",
+    "doi": "https://doi.org/10.1136/heartjnl-2022-bcs.160",
+    "title": "160 Triage of cardiac imaging testing did not impact patient outcomes in a large cardiac network during the covid-19 pandemic",
+    "publication_date": "2022-06-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4282042282",
+      "doi": "https://doi.org/10.1136/heartjnl-2022-bcs.160"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3131002964",
+    "doi": "https://doi.org/10.1109/icdmw51313.2020.00070",
+    "title": "A Deep Neural Network Approach to Tracing Paths in Cybersecurity Investigations",
+    "publication_date": "2020-11-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3131002964",
+      "doi": "https://doi.org/10.1109/icdmw51313.2020.00070",
+      "mag": "3131002964"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4221126123",
+    "doi": "https://doi.org/10.21203/rs.3.rs-1208836/v1",
+    "title": "Timing of the Miocene-Quaternary magmatic intrusions in the Tanga offshore basin: correlation to age equivalent deposits in the Eyasi-Wembere basin and their implications for petroleum potential",
+    "publication_date": "2022-03-16",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4221126123",
+      "doi": "https://doi.org/10.21203/rs.3.rs-1208836/v1"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4417120344",
+    "doi": "https://doi.org/10.17485/ijst/v18i44.1401",
+    "title": "Forensics Investigation Framework for Advanced Threat Detection in Quantum-Era Networks",
+    "publication_date": "2025-12-08",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4417120344",
+      "doi": "https://doi.org/10.17485/ijst/v18i44.1401"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7134909774",
+    "doi": "https://doi.org/10.2139/ssrn.6269501",
+    "title": "Forecasting Oil Volatility through Network Models with GARCH-Informed Correlation Weights",
+    "publication_date": "2026-01-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7134909774",
+      "doi": "https://doi.org/10.2139/ssrn.6269501"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7162992933",
+    "doi": "https://doi.org/10.3390/electronics15112386",
+    "title": "Correlation Scaling Attack and Its Covariance-Based Mitigation in Controller Area Network",
+    "publication_date": "2026-06-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7162992933",
+      "doi": "https://doi.org/10.3390/electronics15112386"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7154005816",
+    "doi": "https://doi.org/10.48550/arxiv.2604.08661",
+    "title": "Geometry-Induced Long-Range Correlations in Recurrent Neural Network Quantum States",
+    "publication_date": "2026-04-09",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7154005816",
+      "doi": "https://doi.org/10.48550/arxiv.2604.08661"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4282563188",
+    "doi": "https://doi.org/10.1007/s12596-022-00900-5",
+    "title": "Filtering investigation for enhanced performance of MZM–MZI integrated switching network",
+    "publication_date": "2022-06-13",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4282563188",
+      "doi": "https://doi.org/10.1007/s12596-022-00900-5"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4416831351",
+    "doi": "https://doi.org/10.46717/igj.2025.58.2e.2",
+    "title": "Combining Nuclear Magnetic Resonance (NMR) Logging to Predict Free Fluid Porosity through Seismic Attributes Utilizing Probabilistic Neural Network: An Empirical Investigation within an Iraqi Carbonate Reservoir",
+    "publication_date": "2025-11-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4416831351",
+      "doi": "https://doi.org/10.46717/igj.2025.58.2e.2"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4401508259",
+    "doi": "https://doi.org/10.1109/tifs.2024.3441935",
+    "title": "Inter-Flow Spatio-Temporal Correlation Analysis Based Website Fingerprinting Using Graph Neural Network",
+    "publication_date": "2024-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4401508259",
+      "doi": "https://doi.org/10.1109/tifs.2024.3441935"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7165205175",
+    "doi": "https://doi.org/10.58812/esiscs.v2i02.1101",
+    "title": "Autonomous Network Troubleshooting with AIOps and Machine Learning: A Data-Driven Architecture for Correlation, Prediction, and Remediation",
+    "publication_date": "2024-12-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7165205175",
+      "doi": "https://doi.org/10.58812/esiscs.v2i02.1101"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3124933690",
+    "doi": "https://doi.org/10.18154/rwth-2020-11914",
+    "title": "Investigations on neural networks, discriminative training criteria and error bounds",
+    "publication_date": "2020-01-01",
+    "type": "dissertation",
+    "ids": {
+      "openalex": "https://openalex.org/W3124933690",
+      "doi": "https://doi.org/10.18154/rwth-2020-11914",
+      "mag": "3124933690"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3080366447",
+    "doi": "https://doi.org/10.24200/sci.2020.55117.4083",
+    "title": "Calculation of Urban Transportation Network Reliability Considering Correlation Among the Links Comprising a Route",
+    "publication_date": "2020-08-23",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3080366447",
+      "doi": "https://doi.org/10.24200/sci.2020.55117.4083",
+      "mag": "3080366447"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4417052504",
+    "doi": "https://doi.org/10.1109/cises66934.2025.11265499",
+    "title": "An AI-Driven Network Forensic Framework Using BERT and GPT for Cybercrime Investigation",
+    "publication_date": "2025-08-11",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4417052504",
+      "doi": "https://doi.org/10.1109/cises66934.2025.11265499"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4292690582",
+    "doi": "https://doi.org/10.1016/j.renene.2022.07.125",
+    "title": "Wind speed forecasting with correlation network pruning and augmentation: A two-phase deep learning method",
+    "publication_date": "2022-08-10",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4292690582",
+      "doi": "https://doi.org/10.1016/j.renene.2022.07.125"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4402329840",
+    "doi": "https://doi.org/10.2139/ssrn.4949860",
+    "title": "Efficient Reactive Forensic Investigation Model for Large Apt Computer Network Events",
+    "publication_date": "2024-01-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4402329840",
+      "doi": "https://doi.org/10.2139/ssrn.4949860"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4393632163",
+    "doi": "https://doi.org/10.5281/zenodo.4763384",
+    "title": "Investigating Fracture Network Deformation Using Noble Gas Release: Dataset",
+    "publication_date": "2021-05-14",
+    "type": "dataset",
+    "ids": {
+      "openalex": "https://openalex.org/W4393632163",
+      "doi": "https://doi.org/10.5281/zenodo.4763384"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7203484832",
+    "doi": "https://doi.org/10.36348/gajeb.2026.v08i04.039",
+    "title": "A RAG and Agentic AI Architecture for Automated Fixed-Access Network Investigation",
+    "publication_date": "2026-08-12",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7203484832",
+      "doi": "https://doi.org/10.36348/gajeb.2026.v08i04.039"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4313362603",
+    "doi": "https://doi.org/10.31699/ijcpe.2022.4.7",
+    "title": "Comparison of Estimation Sonic Shear Wave Time Using Empirical Correlations and Artificial Neural Network",
+    "publication_date": "2022-12-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4313362603",
+      "doi": "https://doi.org/10.31699/ijcpe.2022.4.7"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3038089734",
+    "doi": "https://doi.org/10.1145/3394231.3397924",
+    "title": "Joint Local and Global Sequence Modeling in Temporal Correlation Networks for Trending Topic Detection",
+    "publication_date": "2020-06-23",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3038089734",
+      "doi": "https://doi.org/10.1145/3394231.3397924",
+      "mag": "3038089734"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3214218051",
+    "doi": "https://doi.org/10.1109/ficloud49777.2021.00033",
+    "title": "Efficacy of ADDIE Model in Peer-to-Peer Networks: Digital Evidence Investigation",
+    "publication_date": "2021-08-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3214218051",
+      "doi": "https://doi.org/10.1109/ficloud49777.2021.00033",
+      "mag": "3214218051"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4406083974",
+    "doi": "https://doi.org/10.1007/978-3-031-71025-4_14",
+    "title": "Honeypot-Based Data Collection for Dark Web Investigations Using the Tor Network",
+    "publication_date": "2025-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4406083974",
+      "doi": "https://doi.org/10.1007/978-3-031-71025-4_14"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7155219771",
+    "doi": "https://doi.org/10.47974/jios-2257",
+    "title": "Investigating the role of time factors in the effective implementation and maintenance of secure computer networks",
+    "publication_date": "2026-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7155219771",
+      "doi": "https://doi.org/10.47974/jios-2257"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7212557874",
+    "doi": "https://doi.org/10.17485/ijst/v19i32.647",
+    "title": "Investigating Methods of Artificial Intelligence in Fiber Optic Network Performance Monitoring",
+    "publication_date": "2026-09-24",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7212557874",
+      "doi": "https://doi.org/10.17485/ijst/v19i32.647"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4313245861",
+    "doi": "https://doi.org/10.3390/jcp3010001",
+    "title": "An Investigation to Detect Banking Malware Network Communication Traffic Using Machine Learning Techniques",
+    "publication_date": "2022-12-27",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4313245861",
+      "doi": "https://doi.org/10.3390/jcp3010001"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3187000346",
+    "doi": null,
+    "title": "Investigation of the capabilities of neural networks for predicting the functioning of message brokers of technological platforms",
+    "publication_date": "2021-07-29",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3187000346",
+      "mag": "3187000346"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3004733219",
+    "doi": "https://doi.org/10.3390/su12031113",
+    "title": "Evaluation Indexes and Correlation Analysis of Origination–Destination Travel Time of Nanjing Metro Based on Complex Network Method",
+    "publication_date": "2020-02-04",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3004733219",
+      "doi": "https://doi.org/10.3390/su12031113",
+      "mag": "3004733219"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7162582120",
+    "doi": "https://doi.org/10.1109/menacomm69507.2026.11532791",
+    "title": "Cloud-Native, AI-Augmented Fault Correlation and Root Cause Analysis for Multi-Vendor Networks",
+    "publication_date": "2026-05-12",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7162582120",
+      "doi": "https://doi.org/10.1109/menacomm69507.2026.11532791"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4416133094",
+    "doi": "https://doi.org/10.1007/s12471-025-01999-4",
+    "title": "A comprehensive analysis of female participation in cardiovascular trials involving the WCN investigator network",
+    "publication_date": "2025-11-12",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4416133094",
+      "doi": "https://doi.org/10.1007/s12471-025-01999-4",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/41222889"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4416249769",
+    "doi": "https://doi.org/10.1109/ijcnn64981.2025.11227200",
+    "title": "Domain Adaptation Using Adversarial Neural Network with Correlation Alignment Loss for Household Appliance Classification",
+    "publication_date": "2025-06-30",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4416249769",
+      "doi": "https://doi.org/10.1109/ijcnn64981.2025.11227200"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4415070560",
+    "doi": "https://doi.org/10.1016/j.comnet.2025.111763",
+    "title": "ProxyCorr: robust traffic correlation attacks via mixed spatio-temporal analysis in encrypted proxy networks",
+    "publication_date": "2025-10-11",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4415070560",
+      "doi": "https://doi.org/10.1016/j.comnet.2025.111763"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4409815285",
+    "doi": "https://doi.org/10.1017/rsm.2025.18",
+    "title": "An investigation of the impact of using contrast- and arm-synthesis models for network meta-analysis",
+    "publication_date": "2025-04-25",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4409815285",
+      "doi": "https://doi.org/10.1017/rsm.2025.18",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/41626917"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7125366064",
+    "doi": "https://doi.org/10.48550/arxiv.2601.14601",
+    "title": "Holmes: An Evidence-Grounded LLM Agent for Auditable DDoS Investigation in Cloud Networks",
+    "publication_date": "2026-01-21",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7125366064",
+      "doi": "https://doi.org/10.48550/arxiv.2601.14601"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3183952488",
+    "doi": "https://doi.org/10.1016/j.ascom.2023.100692",
+    "title": "Artificial neural networks for galaxy clustering: Learning from the two-point correlation function of BOSS galaxies",
+    "publication_date": "2023-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3183952488",
+      "doi": "https://doi.org/10.1016/j.ascom.2023.100692",
+      "mag": "3183952488"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4410274662",
+    "doi": "https://doi.org/10.1164/ajrccm.2025.211.abstracts.a5675",
+    "title": "Differential Correlation Network Analysis Illustrates Novel Biomarker Interactions Underlying Hyperinflammation in Pediatric ARDS",
+    "publication_date": "2025-05-01",
+    "type": "conference-abstract",
+    "ids": {
+      "openalex": "https://openalex.org/W4410274662",
+      "doi": "https://doi.org/10.1164/ajrccm.2025.211.abstracts.a5675"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7123348433",
+    "doi": "https://doi.org/10.2139/ssrn.6066531",
+    "title": "Integrated Multi-scale Characterization for Fracture Network Analysis: Rekefjord Quarry Investigation",
+    "publication_date": "2026-01-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7123348433",
+      "doi": "https://doi.org/10.2139/ssrn.6066531"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3119516304",
+    "doi": "https://doi.org/10.21203/rs.3.rs-18124/v1",
+    "title": "Construction and investigation of lncRNA-miRNA-mRNA ceRNA network in thymic epithelial neoplasms",
+    "publication_date": "2020-03-20",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W3119516304",
+      "doi": "https://doi.org/10.21203/rs.3.rs-18124/v1",
+      "mag": "3119516304"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4393189337",
+    "doi": "https://doi.org/10.3390/pr12040664",
+    "title": "A New Empirical Correlation for Pore Pressure Prediction Based on Artificial Neural Networks Applied to a Real Case Study",
+    "publication_date": "2024-03-26",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4393189337",
+      "doi": "https://doi.org/10.3390/pr12040664"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4380992843",
+    "doi": "https://doi.org/10.3390/s23125626",
+    "title": "Investigating the Effectiveness of Novel Support Vector Neural Network for Anomaly Detection in Digital Forensics Data",
+    "publication_date": "2023-06-15",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4380992843",
+      "doi": "https://doi.org/10.3390/s23125626",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/37420791"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4366547701",
+    "doi": "https://doi.org/10.1145/3544548.3581111",
+    "title": "How Can Deep Neural Networks Aid Visualization Perception Research? Three Studies on Correlation Judgments in Scatterplots",
+    "publication_date": "2023-04-19",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4366547701",
+      "doi": "https://doi.org/10.1145/3544548.3581111"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3215289990",
+    "doi": "https://doi.org/10.3390/e23121612",
+    "title": "Crash Diagnosis and Price Rebound Prediction in NYSE Composite Index Based on Visibility Graph and Time-Evolving Stock Correlation Network",
+    "publication_date": "2021-11-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3215289990",
+      "doi": "https://doi.org/10.3390/e23121612",
+      "mag": "3215289990",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/34945918"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7106682178",
+    "doi": "https://doi.org/10.25397/g837-ty81",
+    "title": "Investigating Agent Based Training Methods In Wireless Networks to Accelerate the Training Time",
+    "publication_date": "2025-11-25",
+    "type": "other",
+    "ids": {
+      "openalex": "https://openalex.org/W7106682178",
+      "doi": "https://doi.org/10.25397/g837-ty81"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7154569430",
+    "doi": "https://doi.org/10.1145/3803525.3804991",
+    "title": "From Anomaly to Attack Path: LLM-Based Network Traffic Investigation for APT Detection",
+    "publication_date": "2026-04-16",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7154569430",
+      "doi": "https://doi.org/10.1145/3803525.3804991"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3204838076",
+    "doi": "https://doi.org/10.1109/snpd51163.2021.9704888",
+    "title": "An Investigation on Multiscale Normalised Deep Scattering Spectrum with Deep Residual Network for Acoustic Scene Classification",
+    "publication_date": "2021-11-24",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W3204838076",
+      "doi": "https://doi.org/10.1109/snpd51163.2021.9704888",
+      "mag": "3204838076"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4311186865",
+    "doi": "https://doi.org/10.1007/s10796-022-10360-8",
+    "title": "The Case for Validating ADDIE Model as a Digital Forensic Model for Peer-to-Peer Network Investigation",
+    "publication_date": "2022-12-02",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4311186865",
+      "doi": "https://doi.org/10.1007/s10796-022-10360-8"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4413096534",
+    "doi": "https://doi.org/10.1109/iccsp64183.2025.11088449",
+    "title": "Privacy-Preserving Cybercrime Investigation: AI and Zero-Knowledge Proofs for Secure Network Forensics",
+    "publication_date": "2025-06-05",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4413096534",
+      "doi": "https://doi.org/10.1109/iccsp64183.2025.11088449"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4396558052",
+    "doi": "https://doi.org/10.1016/j.physa.2024.129785",
+    "title": "Investigation of Indian stock markets using topological data analysis and geometry-inspired network measures",
+    "publication_date": "2024-04-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4396558052",
+      "doi": "https://doi.org/10.1016/j.physa.2024.129785"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4315606975",
+    "doi": "https://doi.org/10.15587/1729-4061.2022.266990",
+    "title": "Investigating the impact of network topologies on the iot-based wsn in smart home monitoring system",
+    "publication_date": "2022-12-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4315606975",
+      "doi": "https://doi.org/10.15587/1729-4061.2022.266990"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7130354055",
+    "doi": "https://doi.org/10.1007/s12008-026-02498-5",
+    "title": "Experimental investigation and numerical simulation of a counter flow heat exchanger: artificial neural networks",
+    "publication_date": "2026-02-18",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7130354055",
+      "doi": "https://doi.org/10.1007/s12008-026-02498-5"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3202278345",
+    "doi": "https://doi.org/10.48550/arxiv.2109.14994",
+    "title": "An investigation of pre-upsampling generative modelling and Generative Adversarial Networks in audio super resolution",
+    "publication_date": "2021-09-30",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W3202278345",
+      "doi": "https://doi.org/10.48550/arxiv.2109.14994",
+      "mag": "3202278345"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7131658030",
+    "doi": "https://doi.org/10.14445/23497157/ijres-v12i6p103",
+    "title": "Investigation and Analysis of the Quality of Signal Strength of Cellular Networks along Ethiope River Banks",
+    "publication_date": "2025-12-30",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7131658030",
+      "doi": "https://doi.org/10.14445/23497157/ijres-v12i6p103"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7204895881",
+    "doi": "https://doi.org/10.2139/ssrn.7376399",
+    "title": "A Synergistic Agentic Framework Combining Breadth-First Query Expansion and Semantic Re-Ranking for Adaptive Workflow Orchestration in Multi-Agent Productivity Networks",
+    "publication_date": "2026-01-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7204895881",
+      "doi": "https://doi.org/10.2139/ssrn.7376399"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7135392684",
+    "doi": "https://doi.org/10.1016/j.ijhydene.2026.154475",
+    "title": "A numerical investigation of hydrogen blending effects on pressure regulators and compressors in natural gas pipeline networks",
+    "publication_date": "2026-03-14",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7135392684",
+      "doi": "https://doi.org/10.1016/j.ijhydene.2026.154475"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4412790179",
+    "doi": "https://doi.org/10.1101/2025.07.24.666553",
+    "title": "Zero-inflated Joint Species Distribution Models for improved partial-correlation network inference from community data",
+    "publication_date": "2025-07-31",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4412790179",
+      "doi": "https://doi.org/10.1101/2025.07.24.666553"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4386329761",
+    "doi": "https://doi.org/10.21203/rs.3.rs-3303152/v1",
+    "title": "Investigation on the impact of new bike stations on a bike-share system based on a complex bike-sharing network",
+    "publication_date": "2023-08-31",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4386329761",
+      "doi": "https://doi.org/10.21203/rs.3.rs-3303152/v1"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4412507556",
+    "doi": "https://doi.org/10.1101/2025.07.16.665086",
+    "title": "Investigating Cannabis sativa L. gene expression through housekeeping genes and gene coexpression networks",
+    "publication_date": "2025-07-20",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4412507556",
+      "doi": "https://doi.org/10.1101/2025.07.16.665086"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3210271350",
+    "doi": "https://doi.org/10.1016/j.cmpb.2021.106465",
+    "title": "GeneCoNet: A web application server for constructing cancer patient-specific gene correlation networks with prognostic gene pairs",
+    "publication_date": "2021-10-21",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3210271350",
+      "doi": "https://doi.org/10.1016/j.cmpb.2021.106465",
+      "mag": "3210271350",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/34715518"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4321331747",
+    "doi": "https://doi.org/10.1142/s0218348x2340025x",
+    "title": "MEYER WAVELET NEURAL NETWORKS PROCEDURES TO INVESTIGATE THE NUMERICAL PERFORMANCES OF THE COMPUTER VIRUS SPREAD WITH KILL SIGNALS",
+    "publication_date": "2023-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4321331747",
+      "doi": "https://doi.org/10.1142/s0218348x2340025x"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7220950980",
+    "doi": "https://doi.org/10.4103/lungindia.lungindia_346_26",
+    "title": "Clinical and molecular insights into primary ciliary dyskinesia: Genotype-phenotype correlation and protein interaction networks in an Indian retrospective cohort",
+    "publication_date": "2026-10-07",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7220950980",
+      "doi": "https://doi.org/10.4103/lungindia.lungindia_346_26",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/42847711"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7165692538",
+    "doi": "https://doi.org/10.1016/j.jpdc.2026.105302",
+    "title": "Investigating quantum-resilient cryptographic architectures for cloud native environments using modified hybrid neural networks",
+    "publication_date": "2026-06-23",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7165692538",
+      "doi": "https://doi.org/10.1016/j.jpdc.2026.105302"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4406280495",
+    "doi": "https://doi.org/10.1007/s11047-024-10009-2",
+    "title": "Investigating particle swarm optimization and various mobility algorithms for autonomous navigation in flying ad-hoc networks",
+    "publication_date": "2025-01-11",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4406280495",
+      "doi": "https://doi.org/10.1007/s11047-024-10009-2"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4392509561",
+    "doi": "https://doi.org/10.3390/met14030308",
+    "title": "Exploring Resistance Spot Welding for Grade 2 Titanium Alloy: Experimental Investigation and Artificial Neural Network Modeling",
+    "publication_date": "2024-03-06",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4392509561",
+      "doi": "https://doi.org/10.3390/met14030308"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3138276576",
+    "doi": "https://doi.org/10.1155/2021/6618504",
+    "title": "Experimental Investigation of Water‐Sand Mixed Fluid Initiation and Migration in Filling Fracture Network during Water Inrush",
+    "publication_date": "2021-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3138276576",
+      "doi": "https://doi.org/10.1155/2021/6618504",
+      "mag": "3138276576"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3141689768",
+    "doi": "https://doi.org/10.1115/1.4050777",
+    "title": "Novel Empirical Correlation for Estimation of the Total Organic Carbon in Devonian Shale From the Spectral Gamma-Ray and Based on the Artificial Neural Networks",
+    "publication_date": "2021-04-02",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3141689768",
+      "doi": "https://doi.org/10.1115/1.4050777",
+      "mag": "3141689768"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4403509921",
+    "doi": "https://doi.org/10.1177/17588359241289200",
+    "title": "Identification of a central network hub of key prognostic genes based on correlation between transcriptomics and survival in patients with metastatic solid tumors",
+    "publication_date": "2024-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4403509921",
+      "doi": "https://doi.org/10.1177/17588359241289200",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/39429467"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7128592546",
+    "doi": "https://doi.org/10.56975/ijedr.v14i1.304073",
+    "title": "Adaptive Ensemble Learning Framework for Zero Day DDoS Attack Detection in Software Defined Networks Using Multi Dimensional Feature Correlation",
+    "publication_date": "2026-02-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7128592546",
+      "doi": "https://doi.org/10.56975/ijedr.v14i1.304073"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7132927470",
+    "doi": null,
+    "title": "Petrophysical characterization of basal Cretaceous sands by correlation with seismic attributes using neural networks in the Tubridgi field, North Carnarvon Basin, Australia.",
+    "publication_date": "2024-07-26",
+    "type": "dissertation",
+    "ids": {
+      "openalex": "https://openalex.org/W7132927470"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4407181726",
+    "doi": "https://doi.org/10.3389/feart.2024.1516420",
+    "title": "Correlation of artificial neural network and multi-attribute transformation: a test case to predict the effective porosity of Cretaceous sandstones of the Sembar Formation, southeast Pakistan",
+    "publication_date": "2025-02-05",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4407181726",
+      "doi": "https://doi.org/10.3389/feart.2024.1516420"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4393275357",
+    "doi": "https://doi.org/10.1007/s40808-024-01955-y",
+    "title": "A modelling approach of cellular automata-based artificial neural network for investigating dynamic urban expansion in Kolkata urban agglomeration",
+    "publication_date": "2024-03-28",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4393275357",
+      "doi": "https://doi.org/10.1007/s40808-024-01955-y"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3127140890",
+    "doi": "https://doi.org/10.1016/j.jcis.2021.01.081",
+    "title": "A pore network modelling approach to investigate the interplay between local and Darcy viscosities during the flow of shear-thinning fluids in porous media",
+    "publication_date": "2021-02-02",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3127140890",
+      "doi": "https://doi.org/10.1016/j.jcis.2021.01.081",
+      "mag": "3127140890",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/33561594"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4389221794",
+    "doi": "https://doi.org/10.37750/2616-6798.2023.4(47).291614",
+    "title": "Using the wi-fi capabilities of routers for determining a mobile terminal and its network activity during сyber crimes investigation",
+    "publication_date": "2023-11-29",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4389221794",
+      "doi": "https://doi.org/10.37750/2616-6798.2023.4(47).291614"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4393541655",
+    "doi": "https://doi.org/10.5281/zenodo.1249281",
+    "title": "Quantification of 3D spatial correlations between state variables and distances to the grain boundary network in full-field crystal plasticity spectral method simulations",
+    "publication_date": "2020-03-23",
+    "type": "dataset",
+    "ids": {
+      "openalex": "https://openalex.org/W4393541655",
+      "doi": "https://doi.org/10.5281/zenodo.1249281"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4402946737",
+    "doi": "https://doi.org/10.1167/jov.24.10.1078",
+    "title": "Spatial scrambling in human vision: investigating efficiency for discriminating scrambled letters using convolutional neural networks and confusion matrices",
+    "publication_date": "2024-09-15",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4402946737",
+      "doi": "https://doi.org/10.1167/jov.24.10.1078"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4400487005",
+    "doi": "https://doi.org/10.1016/j.marpetgeo.2024.106998",
+    "title": "High-resolution analysis of 3D fracture networks from Digital Outcrop Models, correlation to plate-tectonic events and calibration of subsurface models (Jurassic, Arabian Plate)",
+    "publication_date": "2024-07-10",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4400487005",
+      "doi": "https://doi.org/10.1016/j.marpetgeo.2024.106998"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4417507473",
+    "doi": "https://doi.org/10.1002/cncr.70210",
+    "title": "Characterization of chromosome 5 aberrations in TP53 mutated myeloid neoplasms with ≥5% blasts: An International TP53 Investigators Network (iTiN) study",
+    "publication_date": "2025-12-19",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4417507473",
+      "doi": "https://doi.org/10.1002/cncr.70210",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/41417597"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7197022722",
+    "doi": "https://doi.org/10.3390/su18157983",
+    "title": "Evolutionary Characteristics of the Spatial Correlation Network of County-Level CO2 Emissions Driven by the “Dual Cores”: A Case Study of the Chengdu–Chongqing Twin-City Economic Circle",
+    "publication_date": "2026-08-06",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7197022722",
+      "doi": "https://doi.org/10.3390/su18157983"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4402320052",
+    "doi": "https://doi.org/10.1007/s11356-024-34902-6",
+    "title": "Investigating PCB degradation by indigenous fungal strains isolated from the transformer oil–contaminated site: degradation kinetics, Bayesian network, artificial neural networks, QSAR with DFT, molecular docking, and molecular dynamics simulation",
+    "publication_date": "2024-09-06",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4402320052",
+      "doi": "https://doi.org/10.1007/s11356-024-34902-6",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/39240431"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7163149662",
+    "doi": "https://doi.org/10.1117/1.oe.65.6.068101",
+    "title": "Performance investigation of a high-data-rate dual-polarized spatial multiplexed free-space optical system using duo-binary modulation for next-generation networks",
+    "publication_date": "2026-06-02",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7163149662",
+      "doi": "https://doi.org/10.1117/1.oe.65.6.068101"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7140581177",
+    "doi": "https://doi.org/10.5281/zenodo.19233353",
+    "title": "Pairwise Co-expression Instability in Lung Adenocarcinoma: A Systematic Large-Scale Analysis of Tumour–Normal Differential Gene Pair Correlations and Identification of Candidate Two-Gene Network Vulnerabilities",
+    "publication_date": "2026-03-26",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7140581177",
+      "doi": "https://doi.org/10.5281/zenodo.19233353"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4394802767",
+    "doi": "https://doi.org/10.1097/01.ju.0001008588.39303.c9.19",
+    "title": "MP10-19 MANAGEMENT OF CHRONIC PAIN AND OVERALL MORTALITY IN METASTATIC RENAL CELL CARCINOMA: A MULTICENTER INVESTIGATION FROM A LARGE GLOBAL HEALTH RESEARCH NETWORK (TriNetX)",
+    "publication_date": "2024-04-15",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4394802767",
+      "doi": "https://doi.org/10.1097/01.ju.0001008588.39303.c9.19"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3164834581",
+    "doi": "https://doi.org/10.1016/j.ptlrs.2021.05.005",
+    "title": "Investigations on the relationship among the porosity, permeability and pore throat size of transition zone samples in carbonate reservoirs using multiple regression analysis, artificial neural network and adaptive neuro-fuzzy interface system",
+    "publication_date": "2021-05-21",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3164834581",
+      "doi": "https://doi.org/10.1016/j.ptlrs.2021.05.005",
+      "mag": "3164834581"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3168745123",
+    "doi": "https://doi.org/10.1289/isee.2020.virtual.p-0282",
+    "title": "Prenatal phthalate exposure quantified in meconium and cognition at 12-months: findings from the Early Autism Risk Longitudinal Investigation (EARLI) and the Prenatal Alcohol in SIDS and Stillbirth (PASS) network study",
+    "publication_date": "2020-10-26",
+    "type": "conference-abstract",
+    "ids": {
+      "openalex": "https://openalex.org/W3168745123",
+      "doi": "https://doi.org/10.1289/isee.2020.virtual.p-0282",
+      "mag": "3168745123"
+    }
+  }
+]

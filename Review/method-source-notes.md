@@ -87,3 +87,17 @@ Search parameters, result count and limitations are recorded under
 `P-OA-20260930-01` in `search-log.json`. Raw metadata is retained in
 `pilot-openalex-20260930.json`. No abstracts or full papers are republished.
 Protocol amendment 0.3 records the source change before formal screening.
+
+
+## Execution and reporting on 14 October 2026
+
+The field-specific OpenAlex search and paging documentation was checked
+again. Four focused title/context queries were paginated to completion in
+OpenAlex and executed in IEEE Xplore. Search metadata, exact expressions and
+interim counts are in `2026-10-14/`.
+
+The field refinement improves precision but misses known relevant studies.
+It is recorded as a protocol amendment and recall limitation, not a claim
+that title searches exhaust the field. Thirteen full-text assessments now
+support Chapter 3. The remaining selection and reference-list work is
+explicitly incomplete. No backdated review decisions are asserted.

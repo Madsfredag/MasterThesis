@@ -1,6 +1,8 @@
 # Study extraction form
 
-Template only. No study has been assessed using this form.
+Extraction checklist. Thirteen structured study assessments are recorded in
+`study-extraction.json` as of 14 October 2026. These assessments do not complete
+selection from the search corpus. Author verification remains pending.
 
 ## Identity and relevance
 
@@ -57,3 +59,4 @@ study design. Do not sum the judgements or invent a pass threshold.
 
 Explain how each material concern limits the particular conclusion being
 drawn. Record the extraction recheck and resolved discrepancies separately.
+

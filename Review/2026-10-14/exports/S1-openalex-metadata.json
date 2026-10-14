@@ -1,0 +1,519 @@
+[
+  {
+    "id": "https://openalex.org/W4290927880",
+    "doi": "https://doi.org/10.1145/3534678.3539041",
+    "title": "Causal Inference-Based Root Cause Analysis for Online Service Systems with Intervention Recognition",
+    "publication_date": "2022-08-12",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4290927880",
+      "doi": "https://doi.org/10.1145/3534678.3539041"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4372338130",
+    "doi": "https://doi.org/10.1016/j.jss.2023.111724",
+    "title": "CausalRCA: Causal inference based precise fine-grained root cause localization for microservice applications",
+    "publication_date": "2023-05-06",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4372338130",
+      "doi": "https://doi.org/10.1016/j.jss.2023.111724"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4403536391",
+    "doi": "https://doi.org/10.1145/3691620.3695065",
+    "title": "Root Cause Analysis for Microservice System based on Causal Inference: How Far Are We?",
+    "publication_date": "2024-10-18",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4403536391",
+      "doi": "https://doi.org/10.1145/3691620.3695065"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4389158453",
+    "doi": "https://doi.org/10.1145/3611643.3616249",
+    "title": "Nezha: Interpretable Fine-Grained Root Causes Analysis for Microservices on Multi-modal Observability Data",
+    "publication_date": "2023-11-30",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4389158453",
+      "doi": "https://doi.org/10.1145/3611643.3616249"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7151265837",
+    "doi": "https://doi.org/10.1109/nnice68970.2026.11466191",
+    "title": "DeCausal: Deviation-Aware Causal Inference for Microservice Root Cause Analysis",
+    "publication_date": "2026-01-23",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7151265837",
+      "doi": "https://doi.org/10.1109/nnice68970.2026.11466191"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7169865453",
+    "doi": "https://doi.org/10.1109/tse.2026.3715410",
+    "title": "TCRCA: Topology-Guided Causal Inference for Root Cause Analysis in Microservices",
+    "publication_date": "2026-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7169865453",
+      "doi": "https://doi.org/10.1109/tse.2026.3715410"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4396758707",
+    "doi": "https://doi.org/10.1145/3589334.3645442",
+    "title": "MULAN: Multi-modal Causal Structure Learning and Root Cause Analysis for Microservice Systems",
+    "publication_date": "2024-05-08",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4396758707",
+      "doi": "https://doi.org/10.1145/3589334.3645442"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7134189168",
+    "doi": "https://doi.org/10.1109/bigdata66926.2025.11401594",
+    "title": "Online Multi-Modal Root Cause Identification in Microservice Systems",
+    "publication_date": "2025-12-08",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7134189168",
+      "doi": "https://doi.org/10.1109/bigdata66926.2025.11401594"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7134814516",
+    "doi": "https://doi.org/10.66238/ijcbs26",
+    "title": "Graph Neural Networks with Causal Inference for Root Cause Analysis in Microservice Architectures",
+    "publication_date": "2025-12-07",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7134814516",
+      "doi": "https://doi.org/10.66238/ijcbs26"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7155506180",
+    "doi": "https://doi.org/10.63282/3050-9246.ijetcsit-v5i4p119",
+    "title": "Causal Inference in Distributed Tracing: Automating Root Cause Analysis in Complex Microservice Dependencies",
+    "publication_date": "2024-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7155506180",
+      "doi": "https://doi.org/10.63282/3050-9246.ijetcsit-v5i4p119"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4403536919",
+    "doi": "https://doi.org/10.1145/3691620.3695485",
+    "title": "MRCA: Metric-level Root Cause Analysis for Microservices via Multi-Modal Data",
+    "publication_date": "2024-10-18",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4403536919",
+      "doi": "https://doi.org/10.1145/3691620.3695485"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7169550549",
+    "doi": "https://doi.org/10.1145/3803437.3805219",
+    "title": "Bridging the Delay: Lag-Aware Spatio-Temporal Causal Inference for Microservice Root Cause Analysis",
+    "publication_date": "2026-07-05",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7169550549",
+      "doi": "https://doi.org/10.1145/3803437.3805219"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7202035760",
+    "doi": "https://doi.org/10.5281/zenodo.21861147",
+    "title": "An Explainable Multi-Modal Approach for Anomaly Detection and Root Cause Analysis in Cloud-Native Microservice Systems - Replication Package",
+    "publication_date": "2026-08-09",
+    "type": "dataset",
+    "ids": {
+      "openalex": "https://openalex.org/W7202035760",
+      "doi": "https://doi.org/10.5281/zenodo.21861147"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4414272870",
+    "doi": "https://doi.org/10.2139/ssrn.5498415",
+    "title": "TRACER: Automated Metric-Level Root Cause Localization in Microservices via Anomaly Detection and Causal Inference",
+    "publication_date": "2025-01-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4414272870",
+      "doi": "https://doi.org/10.2139/ssrn.5498415"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4400489143",
+    "doi": "https://doi.org/10.1109/cscwd61410.2024.10580445",
+    "title": "MicroMCM: Fine-grained Root Cause Localization for Microservice Systems Based on Multiple Causal Inference Methods",
+    "publication_date": "2024-05-08",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4400489143",
+      "doi": "https://doi.org/10.1109/cscwd61410.2024.10580445"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7170676166",
+    "doi": "https://doi.org/10.5281/zenodo.21528611",
+    "title": "Structure-Aware Root Cause Localization for Microservice Backends via Joint Graph Representation Learning and Causal Inference",
+    "publication_date": "2024-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7170676166",
+      "doi": "https://doi.org/10.5281/zenodo.21528611"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7160360544",
+    "doi": null,
+    "title": "Hypergraph and Latent ODE Learning for Multimodal Root Cause Localization in Microservices",
+    "publication_date": "2026-05-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7160360544"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7160192284",
+    "doi": "https://doi.org/10.48550/arxiv.2605.00351",
+    "title": "Hypergraph and Latent ODE Learning for Multimodal Root Cause Localization in Microservices",
+    "publication_date": "2026-05-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7160192284",
+      "doi": "https://doi.org/10.48550/arxiv.2605.00351"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7161133455",
+    "doi": "https://doi.org/10.1109/icaace69793.2026.11509078",
+    "title": "Hypergraph and Latent ODE Learning for Multimodal Root Cause Localization in Microservices",
+    "publication_date": "2026-03-20",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7161133455",
+      "doi": "https://doi.org/10.1109/icaace69793.2026.11509078"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4410818268",
+    "doi": "https://doi.org/10.3390/s25113396",
+    "title": "Multi-Dimensional Anomaly Detection and Fault Localization in Microservice Architectures: A Dual-Channel Deep Learning Approach with Causal Inference for Intelligent Sensing",
+    "publication_date": "2025-05-28",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4410818268",
+      "doi": "https://doi.org/10.3390/s25113396",
+      "pmid": "https://pubmed.ncbi.nlm.nih.gov/40968945"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7204273072",
+    "doi": "https://doi.org/10.1109/iwqos70441.2026.11661026",
+    "title": "RCAgentBench: An Agent-Oriented Benchmark for Multimodal Root Cause Analysis in Microservices",
+    "publication_date": "2026-06-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7204273072",
+      "doi": "https://doi.org/10.1109/iwqos70441.2026.11661026"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4401175975",
+    "doi": "https://doi.org/10.1145/3651890.3672254",
+    "title": "TraceWeaver: Distributed Request Tracing for Microservices Without Application Modification",
+    "publication_date": "2024-07-31",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4401175975",
+      "doi": "https://doi.org/10.1145/3651890.3672254"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7171288713",
+    "doi": "https://doi.org/10.5281/zenodo.21580797",
+    "title": "AI-Augmented Root Cause Analysis in Distributed Microservices : A Deep Learning and Causal Inference Framework for Intelligent Quality Engineering",
+    "publication_date": "2023-11-17",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7171288713",
+      "doi": "https://doi.org/10.5281/zenodo.21580797"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7129074456",
+    "doi": "https://doi.org/10.36227/techrxiv.177126526.67932591/v1",
+    "title": "Multimodal Root Cause Analysis for Cloud Microservices: Integrating Temporal Convolutional Networks with Causal Discovery and LLM Priors",
+    "publication_date": "2026-02-16",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7129074456",
+      "doi": "https://doi.org/10.36227/techrxiv.177126526.67932591/v1"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7160256255",
+    "doi": "https://doi.org/10.32628/ijsrset2613251",
+    "title": "AI-Augmented Root Cause Analysis in Distributed Microservices : A Deep Learning and Causal Inference Framework for Intelligent Quality Engineering",
+    "publication_date": "2023-11-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7160256255",
+      "doi": "https://doi.org/10.32628/ijsrset2613251"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7154873635",
+    "doi": null,
+    "title": "Event Correlation and Request Tracing in Asynchronous Microservice Architectures",
+    "publication_date": "2026-04-17",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7154873635"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7203837764",
+    "doi": "https://doi.org/10.1109/tbdata.2026.3725931",
+    "title": "CHASE: A Causal Hypergraph based Framework for Root Cause Analysis in Multimodal Microservice Systems",
+    "publication_date": "2026-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7203837764",
+      "doi": "https://doi.org/10.1109/tbdata.2026.3725931"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4292794684",
+    "doi": "https://doi.org/10.1007/978-3-031-14135-5_14",
+    "title": "MMRCA: MultiModal Root Cause Analysis",
+    "publication_date": "2022-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W4292794684",
+      "doi": "https://doi.org/10.1007/978-3-031-14135-5_14"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4417508611",
+    "doi": "https://doi.org/10.1109/tsc.2025.3646329",
+    "title": "UDA-RCL: Unsupervised Domain Adaptation for Microservice Root Cause Localization Utilizing Multimodal Data",
+    "publication_date": "2025-12-19",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4417508611",
+      "doi": "https://doi.org/10.1109/tsc.2025.3646329"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7214054788",
+    "doi": "https://doi.org/10.21203/rs.3.rs-10852927/v1",
+    "title": "MARCA: Multi-Agent Root Cause Analysis with Multi-Modal Data",
+    "publication_date": "2026-09-22",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7214054788",
+      "doi": "https://doi.org/10.21203/rs.3.rs-10852927/v1"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4410538768",
+    "doi": "https://doi.org/10.14778/3717755.3717774",
+    "title": "RCRank: Multimodal Ranking of Root Causes of Slow Queries in Cloud Database Systems",
+    "publication_date": "2024-12-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4410538768",
+      "doi": "https://doi.org/10.14778/3717755.3717774"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4225815701",
+    "doi": "https://doi.org/10.1007/978-1-4842-8161-1_9",
+    "title": "Request Tracing",
+    "publication_date": "2022-01-01",
+    "type": "book-chapter",
+    "ids": {
+      "openalex": "https://openalex.org/W4225815701",
+      "doi": "https://doi.org/10.1007/978-1-4842-8161-1_9"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4414339323",
+    "doi": "https://doi.org/10.63282/3050-922x.ijeret-v3i1p109",
+    "title": "Causal Inference and Graph-Based AI Models for Root Cause Analysis in Telecom and Networking Systems",
+    "publication_date": "2022-01-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4414339323",
+      "doi": "https://doi.org/10.63282/3050-922x.ijeret-v3i1p109"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7163156484",
+    "doi": "https://doi.org/10.1016/j.procs.2026.04.270",
+    "title": "Distributed Fault Root Cause Localization and Self-Healing Strategy Generation Based on Causal Inference",
+    "publication_date": "2026-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7163156484",
+      "doi": "https://doi.org/10.1016/j.procs.2026.04.270"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7131261249",
+    "doi": "https://doi.org/10.1109/apsec66846.2025.00016",
+    "title": "AutoRCA: A Graph Sequence-based Automatic Root Cause Analysis Method for Microservice Systems through Multimodal Data",
+    "publication_date": "2025-12-02",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7131261249",
+      "doi": "https://doi.org/10.1109/apsec66846.2025.00016"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7204187534",
+    "doi": "https://doi.org/10.1007/s44443-026-01193-5",
+    "title": "Topo-MFP: Topology-aware multimodal propagation learning for fault detection and root cause localization in microservice systems",
+    "publication_date": "2026-08-25",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7204187534",
+      "doi": "https://doi.org/10.1007/s44443-026-01193-5"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4415933773",
+    "doi": "https://doi.org/10.1109/tsc.2025.3629066",
+    "title": "TAMO:Fine-Grained Root Cause Analysis via Tool-Assisted LLM Agent With Multi-Modality Observation Data in Cloud-Native Systems",
+    "publication_date": "2025-11-01",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W4415933773",
+      "doi": "https://doi.org/10.1109/tsc.2025.3629066"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4399554691",
+    "doi": "https://doi.org/10.48550/arxiv.2406.05375",
+    "title": "LEMMA-RCA: A Large Multi-modal Multi-domain Dataset for Root Cause Analysis",
+    "publication_date": "2024-06-08",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W4399554691",
+      "doi": "https://doi.org/10.48550/arxiv.2406.05375"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7120148801",
+    "doi": "https://doi.org/10.48550/arxiv.2601.04709",
+    "title": "Bridging Temporal and Textual Modalities: A Multimodal Framework for Automated Cloud Failure Root Cause Analysis",
+    "publication_date": "2026-01-08",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7120148801",
+      "doi": "https://doi.org/10.48550/arxiv.2601.04709"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7161598265",
+    "doi": "https://doi.org/10.15662/ijrai.2024.0702009",
+    "title": "Signal Overload in Cloud-Native Observability Platforms: A Scalable Framework for Telemetry Correlation",
+    "publication_date": "2024-03-12",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7161598265",
+      "doi": "https://doi.org/10.15662/ijrai.2024.0702009"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7123354219",
+    "doi": "https://doi.org/10.1109/dsa66321.2025.00012",
+    "title": "Fault Localization Algorithm Based on Multimodal Contrastive and Causal Learning",
+    "publication_date": "2025-11-24",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7123354219",
+      "doi": "https://doi.org/10.1109/dsa66321.2025.00012"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7134945841",
+    "doi": "https://doi.org/10.2139/ssrn.6179459",
+    "title": "Learning-Based Failure Prediction in Edge-Cloud Systems Through Multi-Signal Telemetry Correlation",
+    "publication_date": "2026-01-01",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7134945841",
+      "doi": "https://doi.org/10.2139/ssrn.6179459"
+    }
+  },
+  {
+    "id": "https://openalex.org/W3080031172",
+    "doi": "https://doi.org/10.5120/ijca2020920617",
+    "title": "Distributed Request Tracing using Zipkin and Spring Boot Sleuth",
+    "publication_date": "2020-08-17",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W3080031172",
+      "doi": "https://doi.org/10.5120/ijca2020920617",
+      "mag": "3080031172"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7162327454",
+    "doi": "https://doi.org/10.3997/2214-4609.2025101021",
+    "title": "Cloud-Native Automated Multi-Well and Multi-log Correlation using Dynamic Time Warping and Machine Learning",
+    "publication_date": "2025-01-01",
+    "type": "conference-paper",
+    "ids": {
+      "openalex": "https://openalex.org/W7162327454",
+      "doi": "https://doi.org/10.3997/2214-4609.2025101021"
+    }
+  },
+  {
+    "id": "https://openalex.org/W4416026623",
+    "doi": "https://doi.org/10.62225/2583049x.2023.3.1.5172",
+    "title": "Systematic Review of SIEM Integration for Threat Detection and Log Correlation in AWS-Based Infrastructure",
+    "publication_date": "2023-02-13",
+    "type": "review",
+    "ids": {
+      "openalex": "https://openalex.org/W4416026623",
+      "doi": "https://doi.org/10.62225/2583049x.2023.3.1.5172"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7117922222",
+    "doi": "https://doi.org/10.5281/zenodo.18107871",
+    "title": "Building Resilient and Compliance-Driven Observability Architectures for Modern BFSI Enterprises Using Unified Monitoring, Telemetry Correlation, and Proactive Incident Intelligence",
+    "publication_date": "2021-01-12",
+    "type": "article",
+    "ids": {
+      "openalex": "https://openalex.org/W7117922222",
+      "doi": "https://doi.org/10.5281/zenodo.18107871"
+    }
+  },
+  {
+    "id": "https://openalex.org/W7213597498",
+    "doi": "https://doi.org/10.48550/arxiv.2609.19699",
+    "title": "BA-TRACE: Boundary-Aware Trace Reconstruction for Scenario-Based Evaluation of Mixed AUTOSAR Adaptive and ROS 2 Vehicular Embedded Systems",
+    "publication_date": "2026-09-17",
+    "type": "preprint",
+    "ids": {
+      "openalex": "https://openalex.org/W7213597498",
+      "doi": "https://doi.org/10.48550/arxiv.2609.19699"
+    }
+  }
+]

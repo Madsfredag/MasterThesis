@@ -1,6 +1,6 @@
 # Thesis writing guide
 
-Working conventions, updated 30 September 2026.
+Working conventions, updated 14 October 2026.
 
 ## Current report and editing workflow
 
@@ -144,21 +144,23 @@ available full text in addition to titles and abstracts. Check publication
 status and link preprints to published reports. Do not describe OpenAlex
 as equivalent to ACM coverage or claim comprehensive coverage of AI research.
 
-Protocol version 0.3 is in the appendix. Operational records are in
-`Review/`. On 30 September 2026, IEEE and OpenAlex access pilots were
-performed. ACM presented a persistent bot-verification page and was
-replaced before any ACM search was executed. Five OpenAlex metadata
-records were retained as an access pilot, not as included studies. No formal
-search corpus has been exported and no formal study selection or
-extraction has been completed. Pilot counts are not review-selection
-counts. Keep missing results marked with visible TODO boxes.
+Protocol version 0.4 and the actual reporting status are in Appendix A.
+On 14 October, four focused searches were exported from both sources.
+The 1,131 search occurrences produced 954 records after exact DOI/title
+matching. Screening is unfinished. The current synthesis contains thirteen
+full-text assessments, not a final SLR inclusion set. The 305 initial
+exclusions are provisional and require verification. Do not describe
+unattempted retrieval as unavailable or unfinished screening as completed.
+The machine-readable status and metadata are in `Review/2026-10-14/`.
+Broader September search exports were recovered from an interrupted attempt
+and remain separate from the October corpus.
 
-The exact Norlys log locations and schemas do not have to be finalised
-before the review can proceed. Clarify access and inspect representative
-telemetry alongside it, then assess which literature assumptions apply.
-As reported by Mads on 30 September 2026, only the landing zone has been
-created. Telemetry sources and access are being clarified with coworkers.
-Do not infer that connectors, agents or a test path are already deployed.
+The author reported on 14 October that health, ping and controlled-failure
+endpoints run in the Container App, with application requests and logs visible
+in Application Insights. This does not establish a complete Cloudflare-to-Azure
+request path or access to every intended source. Clarify and inspect that
+telemetry alongside the literature work. Record actual iterations with dates.
+Do not backdate searches or claim human verification that has not happened.
 
 Chapter 5 explains how the PoC is designed, built and evaluated, referring
 back to Chapter 3 where relevant. The Introduction does not need a
@@ -239,3 +241,4 @@ Example of a bold paragraph lead-in:
 ~~~latex
 \noindent\textbf{Logs.} A log records events emitted by a system component.
 ~~~
+
