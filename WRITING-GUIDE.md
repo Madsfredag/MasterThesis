@@ -1,6 +1,6 @@
 # Thesis writing guide
 
-Working conventions, updated 14 October 2026.
+Working conventions for the thesis.
 
 ## Current report and editing workflow
 
@@ -12,8 +12,6 @@ old draft with current work.
 When editing in Overleaf, push changes through Integrations > GitHub before
 requesting a review. Overleaf saves alone do not update GitHub. If changes
 are made through GitHub, pull them into Overleaf before continuing there.
-The assistant checks the repository during requested work; it does not
-continuously monitor either service.
 
 Work on one subsection at a time:
 
@@ -121,46 +119,30 @@ method. Collecting sources does not by itself constitute that review.
 Pilot the queries and screening rules before formal screening. Record
 later changes with their date, reason and effect on the evidence.
 
-Decision of 30 September 2026: put the full review documentation in
-Appendix A, `Appendices/A-Systematic-Literature-Review.tex`. It contains
-the protocol and will contain search and selection records, quality
-assessments, detailed study findings and review limitations. Remove the
-old section 3.1 on the method. Chapter 3, State of the Art, presents a
-concise account of the review coverage, the thematic comparison and
-evidence-supported implications for the PoC. Include relevant negative
-and conflicting findings. It must remain understandable without the
-appendix. This supersedes the earlier decision to keep the detailed
-method in Chapter 3.
+Put the review method, selection account, quality appraisal and detailed
+study assessments in Appendix A, `Appendices/A-Systematic-Literature-Review.tex`.
+Keep Chapter 3 focused on the thematic comparison and its implications.
+Use a conventional methods structure. Do not include a day-by-day project
+diary, chat history or commentary about drafting the thesis. Retain search
+dates because they define the literature coverage, but do not date each section.
 
-IEEE Xplore and OpenAlex are the current main search sources. Mads asked
-for another site after ACM access problems. The assistant selected
-OpenAlex and verified an API search and metadata export on 30 September
-2026. This replaces the earlier ACM source choice.
-Scopus and an independent arXiv search have been removed from the plan.
-One round of reference-list checking remains supplementary. An author
-copy can provide full text without being counted as a database search.
-Record the fields used in each source. OpenAlex's default search includes
-available full text in addition to titles and abstracts. Check publication
-status and link preprints to published reports. Do not describe OpenAlex
-as equivalent to ACM coverage or claim comprehensive coverage of AI research.
+The searches used IEEE Xplore and OpenAlex. OpenAlex coverage differs from
+ACM Digital Library. Check source fields, publication dates and preprint
+versions when interpreting results. The current record consists of 954
+deduplicated records, with 305 provisional exclusions, eight formal records
+assessed for synthesis and 641 other records awaiting final assessment.
+Five supplementary studies bring the current synthesis to thirteen studies.
+Do not describe this as a completed SLR until selection and verification
+are finished. Preserve the actual method, including assistance used, without
+repeating process commentary throughout the thesis.
 
-Protocol version 0.4 and the actual reporting status are in Appendix A.
-On 14 October, four focused searches were exported from both sources.
-The 1,131 search occurrences produced 954 records after exact DOI/title
-matching. Screening is unfinished. The current synthesis contains thirteen
-full-text assessments, not a final SLR inclusion set. The 305 initial
-exclusions are provisional and require verification. Do not describe
-unattempted retrieval as unavailable or unfinished screening as completed.
-The machine-readable status and metadata are in `Review/2026-10-14/`.
-Broader September search exports were recovered from an interrupted attempt
-and remain separate from the October corpus.
-
-The author reported on 14 October that health, ping and controlled-failure
-endpoints run in the Container App, with application requests and logs visible
-in Application Insights. This does not establish a complete Cloudflare-to-Azure
-request path or access to every intended source. Clarify and inspect that
-telemetry alongside the literature work. Record actual iterations with dates.
-Do not backdate searches or claim human verification that has not happened.
+The supporting files are `Review/searches.csv` and `Review/screening.csv`.
+The first records the eight executed queries and their counts. The second
+combines bibliographic metadata, source memberships and screening decisions.
+Keep detailed findings and quality judgements in the appendix, avoiding a
+second file containing the same assessments. Earlier exports remain available
+in repository history. Record methodological changes that affect the results,
+but keep ordinary editing and deployment milestones out of the review.
 
 Chapter 5 explains how the PoC is designed, built and evaluated, referring
 back to Chapter 3 where relevant. The Introduction does not need a

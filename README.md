@@ -3,13 +3,13 @@
 Source of truth for the LaTeX report. Pull GitHub changes into Overleaf before
 editing there. See `WRITING-GUIDE.md` for the agreed scope and writing conventions.
 
-## Review update — 14 October 2026
+## Literature review
 
-Chapter 3 contains a thematic comparison of thirteen assessed studies.
-Appendix A contains the method, executed-search counts, study assessments,
-quality appraisal and limitations. The broader SLR selection is **not complete**.
-See `Review/README.md` and `Review/2026-10-14/status.json` for the exact status.
-No final inclusion count, complete snowballing round or human verification is claimed.
+Chapter 3 presents the research comparison. Appendix A contains the review
+method, selection account and detailed study assessments. Supporting search
+and screening records are explained in [Review/README.md](Review/README.md).
+The current synthesis covers thirteen studies; full selection and verification
+remain in progress.
 
 Build the report with `latexmk -pdf ClassicThesis.tex`.
 The existing template uses the BibTeX backend configured in

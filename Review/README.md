@@ -1,63 +1,40 @@
 # Literature review records
 
-Updated 14 October 2026. Protocol 0.4. **Search exports are complete for the
-focused queries. Study selection is not complete.**
+The thesis text is in `Chapters/03-State-of-the-Art.tex` and
+`Appendices/A-Systematic-Literature-Review.tex`. Detailed paper summaries and
+quality assessments are included directly in the appendix.
 
-The main synthesis is in `Chapters/03-State-of-the-Art.tex`. Appendix A holds
-the review method and thirteen study assessments. These are the current
-assessed evidence set, not a final set selected from the complete search corpus.
+This folder contains two supporting tables. They can be opened in Excel or
+another CSV reader. They are research records, not additional thesis chapters.
 
-## What has actually been done
-
-- Four searches in OpenAlex and four in IEEE Xplore on 14 October.
-- 1,131 search occurrences: 933 OpenAlex and 198 IEEE.
-- 954 records after exact DOI/title matching, with memberships retained.
-- 305 provisional exclusions: 253 E4, 50 E3 and two E7.
-- Eight formal records and five supplementary studies assessed for synthesis.
-- 641 other formal records have no final assessment. Provisional exclusions
-  also need verification. No human verification has been performed.
-
-The bulk retrieval process was interrupted by a network-policy rejection.
-Its failures do not establish that papers are unavailable through AU access.
-Some full texts were available as previously retained author copies or through
-web rendering. A PDF download is not an eligibility decision.
-
-## Files
-
-| File | Purpose |
+| File | Contents |
 | --- | --- |
-| `search-log.json` | Historical pilots and executed October searches. |
-| `protocol-amendments.json` | Actual dated changes and their limitations. |
-| `selection-log.json` | Every deduplicated formal record, provisional decisions and pending statuses. |
-| `study-extraction.json` | Thirteen assessments with source locators, quality judgements and reviewer implications. |
-| `2026-10-14/status.json` | Reconciled interim counts, not a completed PRISMA flow. |
-| `2026-10-14/records.json` | Bibliographic record identities, source memberships and exact-match duplicates. |
-| `2026-10-14/exports/` | All hit metadata retained from the eight focused searches. |
-| `2026-10-14/query-expressions.json` | Exact Boolean term blocks. |
-| `2026-10-14/openalex-search-log.json` | API fields, request URLs, pagination and original-page hashes. |
-| `2026-10-14/ieee-search-log.json` | Field-prefixed expressions, filters, counts and export limitations. |
-| `2026-10-14/retrieval-attempts.json` | Actual bulk attempts, including errors and unassessed HTML. |
-| `2026-10-14/assessed-report-versions.json` | Versions and hashes for the reports used in the synthesis. |
-| `2026-10-14/original-export-manifest.json` | Original export hashes. Repository exports contain bibliographic metadata, not republished full papers. |
-| `2026-10-14/prior-attempt-status-2026-09-30.json` | Recovered checkpoint from the unfinished broader September attempt. |
+| [searches.csv](searches.csv) | Eight searches: source, search date, exact expressions, fields, filters and result counts. |
+| [screening.csv](screening.csv) | 954 deduplicated records: titles, authors, source links, available abstracts, search memberships and selection decisions. |
 
-IEEE S4's citation download did not yield a retained file. All 45 visible
-result titles and document IDs were retained instead. Abstract and publication
-metadata enrichment remains pending. This is not an ACM search or an
-independent arXiv search.
+## Current selection
 
-## Completing the review
+The searches returned 1,131 occurrences. Removing 177 exact DOI/title repeats
+left 954 records. These comprise 305 provisional exclusions, eight records
+assessed for the current synthesis and 641 records awaiting final assessment.
+Five supplementary studies described in Appendix A bring the synthesis to
+thirteen studies. The final inclusion set is not yet established.
 
-1. Recheck the provisional exclusions and resolve pending title/abstract decisions.
-2. Retrieve and assess the eligible full texts. Keep inaccessible and unattempted
-   reports separate. Link preprints and publications with changed titles.
-3. Complete the planned one-round reference-list check. The present supplementary
-   set comes from Background and earlier exploration, not completed snowballing.
-4. Verify all extraction claims and locators. Record who performed each check.
-5. Reconcile the final selection flow and update the synthesis, including any
-   contradictory results. Reconsider title-focused recall because several
-   relevant seed studies were missed.
+The initial screening and assessments used AI assistance and remain unverified.
+`Verified by`, `Verification date` and `Final decision` are blank until those
+steps are completed. An assessed record is not automatically a final inclusion.
+The exclusion codes are defined in Appendix A. Missing abstracts and dates
+mean the search export did not supply them; they are not exclusion reasons.
+IEEE S4 retained titles and document IDs, so those records need enrichment.
 
-The scope remains the approved non-production Cloudflare-to-Azure PoC.
-The search-field refinement and assistant assessments are documented decisions,
-not separately approved supervisor methods or human-reviewed results.
+## Maintaining the records
+
+Use the existing record ID when reviewing a paper. Check its publication
+version, title/abstract and relevant full text, then record the decision and
+reason. Keep provisional and verified decisions distinct. Assess the remaining
+candidates and complete the reference-list search before finalising the counts.
+Add new searches as rows and keep their actual search dates.
+
+The earlier individual exports, retrieval logs and extraction files are
+preserved in [repository history](https://github.com/Madsfredag/MasterThesis/tree/a664a543cba1fc5ea6f2fd15bc64f87a7b2bbb57/Review).
+The two consolidated tables replace those scattered files in the working tree.
