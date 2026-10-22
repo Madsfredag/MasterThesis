@@ -9,12 +9,164 @@ establish success at the others. This chapter compares their evidence and
 uses that comparison to motivate design and evaluation choices for the
 Norlys proof of concept.
 
-The comparison draws on thirteen studies published between 2021 and
-2026, comprising ten conference papers and three preprints. It covers
-their methods, evaluation settings and limitations. Appendix~\ref{app:systematic-literature-review}
-provides the search strategy and detailed assessments. Selection from the
-full search corpus is still in progress, so the conclusions are limited
-to the studies assessed so far.
+The chapter begins with a focused comparison of conventional ML and
+LLM-based diagnosis. The subsequent thematic synthesis draws on thirteen
+previously assessed studies published between 2021 and 2026, comprising
+ten conference papers and three preprints.
+Appendix~\ref{app:systematic-literature-review} provides the existing review
+method and detailed assessments. Selection for the updated review is still
+in progress, so the synthesis is limited to the studies assessed so far.
+
+\section{Conventional ML and LLM-Based Diagnosis}
+\label{sec:state-of-the-art:ml-llm}
+
+LLMs are themselves machine-learning (ML) models. The distinction here is
+between methods trained or fitted for a specific diagnostic task and
+workflows that use a pretrained LLM to interpret evidence and guide an
+investigation. This focused comparison examines representative approaches
+to establish the rationale for the LLM-focused review. It considers their
+inputs, diagnostic outputs and evaluation limits, rather than providing
+an exhaustive review of conventional ML.
+
+\subsection{Conventional Methods for Operational Diagnosis}
+
+Conventional ML can do more than detect unusual behaviour. Sage learns
+relationships between service dependencies, resource measurements and
+latency without requiring manually labelled root causes. It uses
+counterfactual analysis: estimating whether performance would recover if
+a suspected service or resource behaved normally. Its experiments report
+root-cause identification accuracy above 93\% for the evaluated performance
+problems. However, the method still needs representative observations of
+the system. The authors discuss using fault injection when ordinary
+operation provides too few failure modes
+\parencite[Sections~3--4, 6--7]{gan2021sage}.
+A shortage of labelled incidents therefore does not, by itself, rule out
+an ML approach.
+
+CIRCA offers another option. It fits regression models to measurements
+before a fault is detected and uses a structural graph to assess which
+metric changes are possible root-cause indicators. This reduces its
+dependence on examples of previously diagnosed failures. Its requirements
+instead include suitable pre-failure measurements and knowledge of the
+system's architecture and metric relationships
+\parencite[Section~4]{li2022circa}. These assumptions matter when deciding
+whether a method can be transferred to a different environment.
+
+Conventional models can also combine telemetry types. Eadro learns from
+logs, metrics and traces together, using service dependencies to support
+anomaly detection and rank suspected services. It trains against anomaly
+and culprit-service labels. Its evaluation uses injected CPU and network
+faults in TrainTicket and SocialNetwork, with similar root-cause
+distributions in the training and test sets
+\parencite[Sections~IV--V]{lee2023eadro}. This demonstrates that using
+several telemetry sources is not a capability unique to LLMs. However,
+ranking a service does not itself provide an explanation of which
+configuration caused the fault or why a particular repair is appropriate.
+
+\subsection{LLM-Based Investigation and Its Limits}
+
+RCAgent illustrates a different use of a model. A controller selects tools
+to retrieve information and consult specialised log and code analysis
+agents. It can request additional observations as an investigation
+develops. The surrounding software provides system access, retains
+observations and checks tool calls
+\parencite[Sections~2--3]{wang2024rcagent}. The attraction for this thesis
+is the possibility of combining investigation steps with an explanation
+that refers to the retrieved evidence. This capability depends on the
+tools and information supplied to the model. It does not give the model
+automatic knowledge of the deployed system.
+
+RCACopilot provides a direct comparison with conventional classifiers.
+On 653 Microsoft incidents, using a 75/25 training--test split, its GPT-4
+workflow reports a micro-F1 of 0.766, compared with 0.076 for FastText and
+0.022 for XGBoost. Its simpler GPT-4 prompting variant scores 0.026.
+These results support the value of the complete workflow in that setting,
+including diagnostic information and historical examples. They do not
+isolate model type as the reason for the difference or establish superiority
+over conventional ML generally
+\parencite[Sections~5.1--5.3, Table~2]{chen2024rcacopilot}.
+
+The boundary between the approaches is also flexible. RCACopilot uses
+FastText embeddings trained on historical incidents to retrieve relevant
+examples for the LLM \parencite[Section~4.2]{chen2024rcacopilot}. A system
+can therefore combine specialised learning methods with language-model
+reasoning. For the PoC, a similar division could let statistical or learned
+methods identify suspicious observations while an agent investigates their
+meaning and requests further evidence.
+
+LLM-based investigation introduces its own failure modes. RCAgent includes
+mechanisms for malformed outputs, invalid actions and repeated tool calls,
+and retains original observations to manage long tool responses
+\parencite[Sections~2--3]{wang2024rcagent}. These mechanisms show that a
+usable agent requires more than a prompt. A generated explanation still
+needs to be checked against the fault and the source records. Neither a
+well-written answer nor agreement between agents establishes correctness.
+
+\subsection{Implications for the PoC and Review Scope}
+
+Table~\ref{tab:sota:ml-llm} summarises the comparison. The entries describe
+the examined approaches and the questions they raise for this project.
+They are not universal properties of every ML model or LLM system.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Comparison of the examined diagnostic approaches.}
+\label{tab:sota:ml-llm}
+\begin{tabularx}{\textwidth}{@{}p{0.19\textwidth}XX@{}}
+\toprule
+Aspect & Conventional ML approaches & LLM-based workflows \\
+\midrule
+Data requirements &
+Sage and CIRCA use system observations without labelled root causes.
+Eadro uses anomaly and service labels. &
+RCAgent needs tools and system context. RCACopilot also uses historical
+incidents. \\
+Diagnostic output &
+Suspected services, resources or metrics, depending on the method. &
+Cause categories or written diagnoses, potentially with evidence and
+proposed actions. \\
+Investigation &
+Analysis follows the implemented model and diagnostic procedure. &
+A tool-using controller can choose further retrieval steps from returned
+observations. \\
+Main checks &
+Representative data, dependency assumptions and performance on faults
+outside the training distribution. &
+Correct interpretation, valid tool use, supported claims and consistency
+across runs. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For the Norlys PoC, the intended outcome is a diagnosis of a failed request
+across operational layers, supported by records that a person can inspect.
+An LLM-based workflow is worth investigating because it offers a mechanism
+for interpreting those records, choosing further queries and presenting
+an explanation. The comparison also leaves a role for conventional ML
+where a task has suitable measurements and a clearly defined output.
+The amount and representativeness of available data must be examined for
+each candidate method. Limited traffic alone cannot establish which method
+will work best.
+
+A meaningful comparison must keep the diagnostic task consistent. An anomaly
+detector should be assessed on detection, while methods that identify causes
+can be compared on the correct component and failure explanation. The
+reported scores above concern different datasets and outcomes, so they
+cannot be combined into a ranking. For this project, a proposed evaluation
+would use the same controlled faults and comparable access to incident
+evidence. It would report training or setup requirements alongside diagnosis
+time, computational cost, repeated-run variation and unsupported claims.
+Any training or retrieval examples must be separated from the test incidents.
+
+This comparison motivates investigating LLM-based agents without assuming
+that they are the best solution. The following literature review focuses
+on how such agents use operational telemetry and how studies establish the
+correctness and reliability of their diagnoses. Its findings will inform
+the choice of agent approach and evaluation criteria. Conventional ML
+remains relevant as a possible component or comparison method, while the
+choice between a single agent and multiple agents requires separate
+evidence.
 
 \section{Telemetry Correlation and Root-Cause Analysis}
 \label{sec:state-of-the-art:correlation}

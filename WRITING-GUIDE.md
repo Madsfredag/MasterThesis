@@ -209,11 +209,19 @@ only after comparing the evidence.
 
 The working Chapter 3 structure is:
 
-- 3.1 Telemetry Correlation and Root-Cause Analysis
-- 3.2 Security Telemetry and Feature Selection
-- 3.3 LLM Agents for Operational Diagnosis
-- 3.4 Automated Remediation and Human Oversight
-- 3.5 Comparison and Research Gap
+- 3.1 Conventional ML and LLM-Based Diagnosis
+- 3.2 Telemetry Correlation and Root-Cause Analysis
+- 3.3 Security Telemetry and Feature Selection
+- 3.4 LLM Agents for Operational Diagnosis
+- 3.5 Automated Remediation and Human Oversight
+- 3.6 Comparison and Research Gap
+
+Section 3.1 is a focused contextual comparison of conventional ML and
+LLM-based diagnosis, placed before the thematic review findings. It motivates
+the LLM-focused question without assuming an LLM advantage. Its supporting
+ML sources are not automatically included in the formal LLM review corpus.
+Keep the approved review question unchanged and evaluate conventional ML
+as a possible component or baseline when its data and task requirements fit.
 
 Refine topic headings based on the review findings. Appendix A holds the
 full review documentation. Chapter 3 contains the synthesis needed for
@@ -264,4 +272,3 @@ Example of a bold paragraph lead-in:
 ~~~latex
 \noindent\textbf{Logs.} A log records events emitted by a system component.
 ~~~
-
