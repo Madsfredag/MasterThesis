@@ -8,8 +8,14 @@ editing there. See `WRITING-GUIDE.md` for the agreed scope and writing conventio
 Chapter 3 presents the research comparison. Appendix A contains the review
 method, selection account and detailed study assessments. Supporting search
 and screening records are explained in [Review/README.md](Review/README.md).
-The current synthesis covers thirteen studies; full selection and verification
-remain in progress.
+The earlier IEEE/OpenAlex synthesis covers thirteen studies and remains
+incomplete. The newer IEEE/ACM search was reported as 793 deduplicated
+candidates at the supervisor meeting. These are separate review records.
+
+See [the decisions from 21 October 2026](SUPERVISOR-MEETING-2026-10-21.md).
+The review now prioritises evidence for evaluating agent approaches, while
+source coverage and conventional ML alternatives require further analysis.
+The full SLR is to be sent to the supervisors for approval.
 
 Build the report with `latexmk -pdf ClassicThesis.tex`.
 The existing template uses the BibTeX backend configured in
