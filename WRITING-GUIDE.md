@@ -126,23 +126,64 @@ Use a conventional methods structure. Do not include a day-by-day project
 diary, chat history or commentary about drafting the thesis. Retain search
 dates because they define the literature coverage, but do not date each section.
 
-The searches used IEEE Xplore and OpenAlex. OpenAlex coverage differs from
-ACM Digital Library. Check source fields, publication dates and preprint
-versions when interpreting results. The current record consists of 954
-deduplicated records, with 305 provisional exclusions, eight formal records
-assessed for synthesis and 641 other records awaiting final assessment.
-Five supplementary studies bring the current synthesis to thirteen studies.
-Do not describe this as a completed SLR until selection and verification
-are finished. Preserve the actual method, including assistance used, without
-repeating process commentary throughout the thesis.
+### Current direction after the supervisor meeting, 21 October 2026
 
-The supporting files are `Review/searches.csv` and `Review/screening.csv`.
-The first records the eight executed queries and their counts. The second
+Read [the meeting record](SUPERVISOR-MEETING-2026-10-21.md) before further
+review or agent-selection work. The supervisors approved the following
+review question for piloting (English translation):
+
+> How do LLM-based agents use operational telemetry to diagnose faults in
+> cloud and microservice systems, and what evidence supports the correctness
+> and reliability of their diagnoses?
+
+Prioritise finding and assessing evaluation methods that provide concrete
+criteria for comparing agent approaches. Use the evidence to justify the
+criteria and then the design choices. No final agent architecture, model,
+evaluation framework or winner has been approved.
+
+The newer search presented at the meeting used IEEE and ACM, English-language
+studies from 2020–2026, and a reported 793 records after deduplication. This
+is a candidate count, not a count of included studies. Source coverage still
+needs investigation. Google Scholar was suggested as a supplementary source.
+Do not assume IEEE and ACM are sufficient, or assert publisher coverage
+without checking the collections actually searched.
+
+There is no fixed number of core studies or agent approaches. Include enough
+evidence for a defensible answer and explain the assessment criteria and
+selection reasoning. The earlier 5–15-study workload idea is not an inclusion
+cap.
+
+Consider conventional ML alternatives or components where appropriate, and
+include an analysis in the report. No replacement of the LLM approach has
+been decided. Extend the date range for relevant ML literature if justified,
+and document any change to the search scope.
+
+The full SLR remains in Appendix A. Put the substantive findings and the
+knowledge used throughout the thesis in State of the Art. This chapter may
+be 10–12 pages when justified by content, rather than constrained by the
+earlier shorter outline. The agreed next meeting deliverable is the full
+SLR for supervisor approval.
+
+### Earlier review material
+
+The earlier IEEE/OpenAlex record reported 954 deduplicated records:
+305 provisional exclusions, eight formal records assessed for synthesis,
+and 641 other records awaiting final assessment. Five supplementary studies
+brought that synthesis to thirteen studies. These figures describe the
+earlier material, not the newer IEEE/ACM candidate set.
+
+Its supporting files are `Review/searches.csv` and `Review/screening.csv`.
+The first records eight executed queries and their counts. The second
 combines bibliographic metadata, source memberships and screening decisions.
+Do not merge the two review histories or describe either as completed
+without verifying the selection and assessment records.
+
 Keep detailed findings and quality judgements in the appendix, avoiding a
-second file containing the same assessments. Earlier exports remain available
-in repository history. Record methodological changes that affect the results,
-but keep ordinary editing and deployment milestones out of the review.
+second file containing the same assessments. Preserve the actual method,
+including assistance used, without repeating process commentary throughout
+the thesis. Earlier exports remain available in repository history. Record
+methodological changes that affect the results, but keep ordinary editing
+and deployment milestones out of the review.
 
 Chapter 5 explains how the PoC is designed, built and evaluated, referring
 back to Chapter 3 where relevant. The Introduction does not need a
