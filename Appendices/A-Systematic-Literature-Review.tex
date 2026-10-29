@@ -1,461 +1,346 @@
-\automark[section]{chapter}
 \chapter{Systematic Literature Review}
 \label{app:systematic-literature-review}
+\automark[section]{chapter}
+\markboth{Systematic Literature Review}{Systematic Literature Review}
 
-This appendix presents the search strategy, selection criteria and study
-assessments supporting Chapter~\ref{cha:state-of-the-art}. The review
-examines telemetry correlation, security-related features, agent-based
-diagnosis and automated remediation in cloud and distributed systems.
-The procedure draws on the software-engineering review guidance of
-Kitchenham and Charters \parencite[Section~5.4]{kitchenham2007guidelines}
-and the search-reporting guidance in PRISMA-S \parencite{rethlefsen2021prismas}.
+\section{Purpose and Review Question}
 
-\thesisTODO{Complete screening and verify the study assessments. The current
-synthesis covers thirteen studies, but the final inclusion set has not
-been established. Resolve the pending decisions and reference-list search,
-then update the selection counts and synthesis.}
+The review examines how operational telemetry supports LLM-based fault
+diagnosis, with particular attention to the evidence used to evaluate
+correctness and reliability. Its purpose is to derive criteria for choosing
+and evaluating an agent approach for the Norlys PoC. It does not assume
+that the highest published score identifies the best transferable system.
+The review question is:
 
-\section{Review Questions and Scope}
-
-The literature questions support the thesis research questions introduced
-in Section~\ref{sec:introduction:research-questions}.
-
-\begin{description}
-\item[LQ1:] How do existing approaches connect telemetry across components
-and identify faults, including when shared identifiers or records are missing?
-\item[LQ2:] Which security-related fields and derived features have been
-used for diagnosis, and how has their relevance been assessed?
-\item[LQ3:] How do LLM-based agents investigate operational failures, and
-how are diagnostic accuracy, consistency and supporting evidence evaluated?
-\item[LQ4:] How do remediation approaches restrict and approve changes,
-and what evidence is reported about validation, recovery and rollback?
-\end{description}
-
-The scope covers cloud services, distributed applications and their
-supporting network and security controls. Methods developed for other
-platforms are relevant when they address these questions and could inform
-the Norlys PoC. For example, a method evaluated on AWS may offer useful
-ideas for correlating telemetry in Azure. Conventional diagnostic methods
-are included as potential comparisons for agent-based approaches.
-
-The publication window is 1 January 2020 to 14 October 2026, the date of
-the searches. Older methodology sources, standards and product documentation
-provide context but are outside the technical study selection.
-
-\section{Search Strategy}
-
-The searches used IEEE Xplore and OpenAlex. OpenAlex replaced the planned
-ACM Digital Library search because of access difficulties. It indexes
-multiple publishers and repositories, so its coverage differs from ACM
-Digital Library and includes preprints as well as published papers.
-
-The OpenAlex Works API used \path{search.title} for the topic expression
-and \path{search.title_and_abstract} for context. Publication-date filters
-covered the exact window above. Cursor pagination retained all returned
-records. The database documents field-specific and Boolean searches
-\parencite{openalex2026search}.
-
-IEEE used \enquote{Document Title} for each topic term and
-\enquote{All Metadata} for contextual terms, with a 2020--2026 year filter.
-Exact publication dates still require checking during selection because
-a year filter cannot enforce the October cut-off on its own. Citation
-exports with abstracts were retained for S1--S3. For S4, the complete
-45-result title and document-ID list was captured from the visible results.
-Abstracts and publication details for these S4 records still require
-checking during screening.
-
-Each expression below has a title block T and a context block C. OpenAlex
-applied T AND C in the fields specified above. IEEE applied the same Boolean
-structure with field prefixes on individual terms. The exact queries, source-specific fields, filters and result counts are
-retained in \path{Review/searches.csv}. The corresponding records and
-selection decisions are in \path{Review/screening.csv}.
-
-\subsection{S1: Correlation and Root-Cause Analysis}
-\begin{quote}\small\raggedright
-T: \enquote{trace reconstruction} OR \enquote{request tracing} OR
-\enquote{telemetry correlation} OR \enquote{log correlation} OR
-((\enquote{root cause} OR \enquote{fault localization}) AND
-(multimodal OR \enquote{multi-modal} OR \enquote{causal inference}))
-
-C: cloud OR microservices OR \enquote{distributed systems} OR
-\enquote{online service}
+\begin{quote}
+How do LLM-based agents use operational telemetry to diagnose faults in
+cloud and microservice systems, and what evidence supports the correctness
+and reliability of their diagnoses?
 \end{quote}
 
-\subsection{S2: Security Telemetry and Features}
-\begin{quote}\small\raggedright
-T: (firewall OR \enquote{network security} OR intrusion OR network OR
-SIEM) AND (\enquote{feature selection} OR \enquote{feature extraction} OR
-correlation OR ranking OR triage OR investigation OR \enquote{noise reduction})
+The synthesis in Chapter~\ref{cha:state-of-the-art} connects the findings
+to design and evaluation choices. This appendix documents the method,
+selection outcome, appraisal and retained reports. The assessment workbook
+contains the record-level decisions and detailed extraction. Technical
+background sources used elsewhere in the thesis are not automatically
+included in this review.
 
-C: logs OR telemetry OR \enquote{network flow} OR \enquote{security events}
+\section{Sources and Search Strategy}
+
+The main searches used IEEE Xplore and the ACM Digital Library Full-Text
+Collection on 16 October 2026. Google Scholar supplemented these exports
+on 22 October 2026 with three focused queries. Two previously identified
+benchmark reports, OpenRCA and ITBench, were added separately as citation
+additions. This was not an exhaustive citation-network search.
+
+The publication-year range was 2020--2026, with English-language reports
+eligible for screening. IEEE used conference, journal and early-access
+content types. The ACM export used the e-publication date range
+1 January 2020--31 December 2026. These are the actual search filters;
+coverage ends at the respective search dates. Additional ACM interface
+filters were not recorded and are not assumed.
+
+The database queries deliberately covered operational diagnosis more
+broadly than LLM agents. The supervisor-approved LLM-focused question was
+then applied during selection. This retained the existing broad exports
+while narrowing their eligibility. The LLM restriction was therefore a
+screening criterion, rather than a requirement that every database result
+mention an LLM in its abstract. Google Scholar supplemented this corpus
+with more focused searches and publishers beyond the two main collections.
+It was not treated as a complete or stable enumeration of the field.
+
+\subsection{Database Expressions}
+
+The following is the recorded ACM expression, applied to the abstract
+field. Wildcards and alternatives are preserved from the search record.
+
+\begin{quote}\small\raggedright
+\texttt{(cloud OR microservice* OR "distributed systems" OR "online service" OR SIEM)}\\[3pt]
+\texttt{AND ("root cause" OR "fault localization" OR "fault localisation" OR troubleshooting OR "incident diagnosis" OR "distributed tracing" OR remediation OR "self-healing" OR ((security OR attack) AND investigation))}\\[3pt]
+\texttt{AND (log OR logs OR trace* OR tracing OR metric* OR telemetry OR "security events" OR "large language model" OR "large language models" OR LLM OR causal)}
 \end{quote}
 
-\subsection{S3: Agents for Operational Diagnosis}
-\begin{quote}\small\raggedright
-T: (LLM OR \enquote{large language model} OR agent OR agents OR copilot)
-AND (\enquote{root cause} OR diagnosis OR troubleshooting OR incident OR AIOps)
+IEEE used the same three concept blocks. Each term was explicitly
+qualified with the abstract field. Its recorded localisation term was
+\texttt{"fault locali?ation"}, and its language-model term was
+\texttt{"large language model*"}. The exact executable expression, rather
+than a retrospectively improved query, is preserved in the workbook's Searches sheet. A copy is held in
+\texttt{Review/searches.csv}.
 
-C: cloud OR microservices OR \enquote{distributed systems} OR
-\enquote{IT operations}
-\end{quote}
+\subsection{Google Scholar Supplement}
 
-\subsection{S4: Remediation and Oversight}
-\begin{quote}\small\raggedright
-T: (remediation OR \enquote{self-healing} OR \enquote{incident response}
-OR \enquote{fault recovery}) AND (cloud OR microservices OR AIOps)
+The three queries were:
+\begin{enumerate}
+\item \texttt{"root cause analysis" "agent" "cloud" "language"}
+\item \texttt{"microservices" "diagnosis" "large language model"}
+\item \texttt{"benchmark" "cloud" "agents" "diagnosis"}
+\end{enumerate}
 
-C: agent OR automation OR autonomous OR \enquote{human-in-the-loop}
-OR approval OR rollback
-\end{quote}
+For each query, the first 50 relevance-ranked results were captured using
+the 2020--2026 range, with patents disabled and citation records enabled.
+This produced 150 occurrences. The limit applies to captured records,
+not to the reported size of Scholar's result set. Relevance ordering and
+the bounded capture limit restrict recall and reproducibility.
+
+\section{Eligibility and Selection}
+
+A report was eligible when it presented original research on diagnostic
+use of operational telemetry in cloud services, microservices or supporting
+infrastructure, with an LLM-based diagnostic contribution. Diagnostic
+benchmarks were also eligible when they provided usable tasks, reference
+causes and scoring procedures for evaluating such agents. A relevant study
+could use logs, metrics, traces, incident records or combinations of these.
+It did not have to use the PoC's particular vendors or agent organisation.
+
+Research preprints were eligible, with the retrieved version recorded.
+They were not treated as equivalent to independently peer-reviewed
+publications. Earlier and later reports of the same work were linked when
+their contributions overlapped; overlapping evaluations were not counted
+as independent confirmations.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Search results by query family. Counts include overlaps.}
-\label{tab:slr:searches}
-\begin{tabular}{@{}lrrl@{}}
-\toprule
-Family & OpenAlex & IEEE & IEEE retained format \\
-\midrule
-S1 & 47 & 12 & Citations and abstracts \\
-S2 & 270 & 90 & Citations and abstracts \\
-S3 & 391 & 51 & Citations and abstracts \\
-S4 & 225 & 45 & Titles and document IDs \\
-\midrule
-Total & 933 & 198 & \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\section{Eligibility, Deduplication and Selection}
-
-A study is eligible when it is an English-language primary study in the
-date window, addresses at least one literature question and reports a
-relevant empirical evaluation. Operational records, simulations and
-controlled testbeds can qualify. Their differences must be retained in the
-assessment. Reviews, conceptual proposals and product descriptions may
-provide context but do not independently establish effectiveness.
-
-An intrusion classifier does not qualify solely because it uses network
-data. Its analysis must contribute relevant information about telemetry,
-features or investigation. Uncertain records require full-text assessment.
-Negative findings are not an exclusion reason.
-
-\begin{table}[htbp]
-\centering\small
-\caption{Exclusion codes. Apply the first applicable reason and retain its basis.}
+\caption{Exclusion criteria applied during selection.}
+\label{tab:slr:exclusions}
 \begin{tabularx}{\textwidth}{@{}lX@{}}
 \toprule
 Code & Reason \\
 \midrule
-E1 & Outside the publication window. \\
-E2 & Full report is not in English. \\
-E3 & Not a primary empirical study, for example a review or conceptual account. \\
-E4 & Outside cloud/distributed operations and their supporting network/security domain. \\
-E5 & No relevant contribution to a literature question. \\
-E6 & No relevant empirical evaluation after full-text assessment. \\
-E7 & Retracted report. \\
+E1 & Ineligible publication type: review, dissertation, proceedings volume or position-only proposal. \\
+E2 & Outside cloud/service operations and supporting infrastructure. \\
+E3 & No LLM-based diagnostic contribution and no usable diagnostic benchmark; detection alone, code repair and remediation-only evaluation are outside scope. \\
+E4 & Insufficient completed method or assessable evaluation after examining the full text. \\
+E5 & Retracted publication or retraction notice. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-Deduplication first removed repeated search occurrences and merged exact
-DOI or normalised-title matches. Source memberships and record identifiers
-were retained. This produced 954 records from 1,131 search occurrences,
-removing 177 repeated occurrences. This is record-level deduplication,
-not a final count of distinct underlying studies. Preprint and publication
-versions with changed titles can remain separate and require manual linking.
+A weak result or an unfavourable comparison was not an exclusion reason.
+E4 distinguishes the absence of an assessable completed evaluation from
+weak evidence in an otherwise identifiable evaluation. For example,
+SuperDRI describes an implemented workflow, held-out incident comparison
+and query-execution counts. It is retained for its method and process
+measurements, while its lack of diagnostic correctness evidence limits
+what can be concluded from it. GS2-14 is excluded under E4 in the supplied
+full-text assessment because its reported accuracy lacks a fault-case
+count, reference-label procedure and sufficiently described baselines.
+That borderline assessment remains identifiable in the workbook.
 
-Initial screening recorded 305 provisional exclusions: 253 under E4,
-50 under E3 and two under E7. These decisions remain subject to verification. Eight formal records have full-text assessments
-in the current synthesis. The remaining 641 records do not have final
-assessments. Five supplementary studies bring the current synthesis to
-thirteen. Table~\ref{tab:slr:status} summarises the current selection status.
+\subsection{Duplicate Removal and Screening}
+
+The database exports contained 819 occurrences: 550 IEEE and 269 ACM.
+Duplicate matching used DOI equality, exact normalised titles and a checked
+title variant. The recorded 26 duplicate occurrences comprised 19 DOI
+matches, six exact-title matches and one title variant, leaving 793
+candidates. Scholar results were checked against these records and earlier
+Scholar captures, removing a further 46 repeated occurrences. Titles and
+metadata were used to distinguish repeats from different reports of the
+same study; the latter were linked as companions where appropriate.
+
+Title and abstract screening assessed relevance against the question and
+criteria. Records retained at this stage proceeded to full-text retrieval;
+retention did not itself constitute inclusion. Full-text assessments
+examined the method, diagnostic task, evaluation and relevance before
+assigning inclusion, exclusion or companion status. Each exclusion retains
+a record-specific reason. Missing full text is a separate retrieval outcome,
+not evidence that a paper fails the relevance criteria.
+
+AI assistance was used for screening, retrieval and extraction. The
+workbook separates these assessments from the author's verification
+fields; an independent second screening and completed author verification
+are not claimed. The present synthesis uses the recorded assessments,
+with targeted source checks of results central to the comparison. This
+limits the confidence that can be placed in unverified borderline decisions.
+
+\subsection{Selection Outcome}
 
 \begin{table}[htbp]
 \centering\small
-\caption{Current study selection status.}
-\label{tab:slr:status}
+\caption{Reconciled selection counts. Occurrences, reports and independent
+findings are not interchangeable units.}
+\label{tab:slr:flow}
 \begin{tabularx}{\textwidth}{@{}Xr@{}}
 \toprule
-Stage or status & Count \\
+Stage & Count \\
 \midrule
-Search occurrences & 1,131 \\
-Repeated occurrences removed by exact matching & 177 \\
-Deduplicated formal records & 954 \\
-Provisional exclusions awaiting verification & 305 \\
-Formal records assessed for the current synthesis & 8 \\
-Other formal records without final assessment & 641 \\
-Supplementary studies assessed & 5 \\
-Studies discussed in the current synthesis & 13 \\
-Final SLR inclusion set & Not determined \\
+IEEE and ACM occurrences & 819 \\
+Database duplicate occurrences removed & 26 \\
+Unique database candidates & 793 \\
+Scholar occurrences captured & 150 \\
+Scholar duplicates removed & 46 \\
+New Scholar candidates & 104 \\
+Separately recorded citation additions & 2 \\
+Candidates after deduplication and additions & 899 \\
+Title/abstract exclusions (667 database, 35 Scholar) & 702 \\
+Reports sought for full-text assessment & 197 \\
+Reports not retrieved & 97 \\
+Reports assessed in full text & 100 \\
+Full-text exclusions & 29 \\
+Companion reports linked to retained work & 3 \\
+Reports retained for synthesis & 68 \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-Full-text retrieval was limited by access and network restrictions.
-An unsuccessful download does not establish that a report is unavailable
-through institutional access. Records not yet retrieved remain pending.
-The five supplementary studies were identified through earlier background
-reading and exploratory searches. The planned reference-list search has
-not yet been completed.
+The full-text exclusions comprise three E1, three E2, eighteen E3 and five
+E4 decisions. The three companions link the earlier AIOpsLab report
+(SLR0553) to GS3-04, the earlier recursion-of-thought report (GS1-35) to
+SLR0071, and the earlier GALA report (GS1-40) to SLR0600. They are recorded
+without adding independent evidence to the same study families.
 
-\section{Quality Assessment and Extraction}
-\label{sec:slr:quality}
+Retrieval was closed on 29 October 2026 with 97 reports not retrieved:
+74 database candidates and 23 Scholar candidates. Recorded obstacles
+included authenticated publisher access, automated-access challenges,
+repository restrictions and records without a resolved full-text link.
+The search for alternative versions was not exhaustive. These reports
+are omitted from the full-text synthesis, while their identities and
+retrieval status remain in the screening record. This does not mean that
+the reports are unavailable through a university browser or to other readers.
 
-The six appraisal questions are:
+\section{Extraction and Quality Appraisal}
+
+For retained reports, extraction records the diagnostic method, system
+context, telemetry, data and reference causes, evaluation procedure,
+reported findings, limitations and implications for the PoC. Source URLs,
+retrieved versions and passage locations support checking the extraction.
+The workbook's detailed fields additionally distinguish agent roles,
+models, tools, baselines, metric definitions, efficiency and reliability
+where these were extracted. A blank field is not evidence that the paper
+omits the information.
+
+Appraisal examines the following dimensions rather than assigning a total
+quality score:
 \begin{enumerate}
-\item Are the problem, system and relevant assumptions described?
-\item Are the data sources, scenarios and reference answers explained?
-\item Are the evaluation procedure and outcome measures clear?
-\item Do the comparisons support the claimed improvement?
-\item Are variation and material sources of bias addressed?
-\item Is enough information available to inspect the method and its limits?
+\item \textbf{Task and ground truth:} what constitutes a correct diagnosis,
+how faults and labels are established, and which cases are omitted.
+\item \textbf{Comparison validity:} shared evidence, models, training access,
+tool interfaces and inference budgets; whether baselines were actually rerun.
+\item \textbf{Outcome validity:} separation of detection, localisation,
+causal explanation, tool success, task completion and recovery.
+\item \textbf{Reliability:} repeated runs, healthy controls, missing or
+misleading evidence, uncertainty, timeouts and incomplete answers.
+\item \textbf{Transfer and reproducibility:} system realism, proprietary
+inputs, released artifacts, model versions and reported operating cost.
 \end{enumerate}
 
-Judgements are recorded separately as supported, partly supported, not
-supported, not reported or not applicable. They are not added into a total
-score. A weak comparison qualifies an improvement claim, while missing
-reporting remains distinct from evidence that a procedure was not performed.
-Quality concerns do not silently remove unfavourable studies.
-
-Each assessment records the source version, relevant questions, data and
-evaluation setting, supported finding, source locator and limitations.
-The study summaries below distinguish reported findings from their
-implications for the PoC. The assessments and initial screening used AI
-assistance and await verification. No independent second-reviewer check
-has been completed.
-
-\section{Assessed Studies}
-
-The identifiers below refer to the thirteen assessed studies. They do not
-replace the record identifiers used in the search and selection files.
-Page locators refer to the PDF version assessed, which can differ from
-the pagination in the published proceedings.
-
-\subsection{R01: Sage}
-\noindent\textbf{Source and relevance.} \parencite{gan2021sage}. Published conference paper. LQ1, LQ3, LQ4. Sections 5-6, PDF pp. 10-11.
-
-RPC graph and performance measurements support counterfactual diagnosis and resource actuation. Experiments inject resource interference and software faults in microservice applications.
-
-\noindent\textbf{Interpretation limit.} The incomplete-instrumentation experiment retains per-tier latency and end-to-end measurements. Concurrent independent causes are harder than single causes.
-
-\noindent\textbf{Appraisal.} Baselines require different instrumentation. Tested faults and platforms bound transfer. Repeated independent deployment variation is not established by the assessed sections.
-
-\subsection{R02: TraceWeaver}
-\noindent\textbf{Source and relevance.} \parencite{ashok2024traceweaver}. Published conference paper. LQ1, LQ3. Sections 4-6, PDF pp. 7-11.
-
-Matches spans through timing distributions, call-graph constraints and joint optimisation. Evaluates benchmark applications and transformed Alibaba trace data, including load and dynamic call behaviour.
-
-\noindent\textbf{Interpretation limit.} Request/response observations and test traces are required. Alibaba data are separated by call graph and inter-arrival times compressed. Reconstruction is not direct evidence of a cause.
-
-\noindent\textbf{Appraisal.} Comparator assumptions differ. Production evaluation transforms sampled data. Useful ablations and load variation are reported, but this does not validate arbitrary cross-platform log correlation.
-
-\subsection{R03: CIRCA}
-\noindent\textbf{Source and relevance.} \parencite{li2022circa}. Published conference paper. LQ1, LQ3. Sections 5.1-5.4, Tables 3-4, PDF pp. 5-8.
-
-Structural graph plus regression-based hypothesis testing ranks root-cause metrics. Oracle evaluation: 99 incidents, AC@1 0.404 and AC@5 0.763. Simulations assess graph and fault-strength variation.
-
-\noindent\textbf{Interpretation limit.} Metric ranking differs from component diagnosis. Architecture knowledge and metric mapping are needed. Some baseline information and sampling assumptions differ.
-
-\noindent\textbf{Appraisal.} Original baseline implementations do not all receive their original operator information or sampling rate. Real evaluation is one database context, with additional simulated robustness checks.
-
-\subsection{R04: Causal RCA empirical comparison}
-\noindent\textbf{Source and relevance.} \parencite{pham2024howfar}. Published conference paper. LQ1, LQ3. Sections 3-5, PDF pp. 3-9.
-
-Compares causal discovery and RCA on synthetic data and microservice testbeds. Studies graph accuracy, diagnostic performance, runtime and input length, with repeated experiments.
-
-\noindent\textbf{Interpretation limit.} CIRCA uses a PC-derived graph because its structural graph is unavailable. Limited fault types and benchmark systems constrain generalisation.
-
-\noindent\textbf{Appraisal.} Extensive comparison and repetition, but adapted inputs and implementation choices prevent treating every result as a direct replication of the original method.
-
-\subsection{R05: SIERRA}
-\noindent\textbf{Source and relevance.} \parencite{lee2022sierra}. Published conference paper. LQ2, LQ3. Sections 4-7, Tables 2 and 5, PDF pp. 3-5 and 8-9.
-
-Ranks anomalous SIEM windows using severity, direction and action context, and 62 count/rate/distribution features. Evaluates about 29.4 million firewall/IDS events with rolling weekly tests.
-
-\noindent\textbf{Interpretation limit.} Ground truth is not exhaustive. Ten-minute windows and eight-week training periods may not suit a low-traffic PoC. Context features alone do not consistently improve detection.
-
-\noindent\textbf{Appraisal.} Temporal evaluation and component comparisons are described. Partially labelled private enterprise data limit completeness and independent replication.
-
-\subsection{R06: CICIDS2017 troubleshooting}
-\noindent\textbf{Source and relevance.} \parencite{engelen2021troubleshooting}. Published conference paper. LQ2, LQ3. Sections III-IV, Tables I-II, PDF pp. 3-5.
-
-Reconstructs dataset-generation steps and evaluates original and corrected flow data. Finds flow-construction and labelling defects and shortcut learning. Per-class outcomes change despite near-identical aggregate accuracy.
-
-\noindent\textbf{Interpretation limit.} Findings concern one dataset and particular reconstruction and classifier choices, not every intrusion dataset.
-
-\noindent\textbf{Appraisal.} Reconstruction and comparative experiments are inspectable. Dataset and model scope bound transfer beyond the studied benchmark.
-
-\subsection{R07: Holmes}
-\noindent\textbf{Source and relevance.} \parencite{chen2026holmes}. Preprint. LQ2, LQ3. Sections 3-4 and Table 2, PDF pp. 4-7 (arXiv v1).
-
-Uses counters and sampled traffic for triage, then packet-derived evidence summaries and constrained reports. Representative replay windows include wrong attributions with high self-reported confidence.
-
-\noindent\textbf{Interpretation limit.} One illustrative replay table is not an overall accuracy estimate. No comparative evidence establishes production effectiveness or safe automated repair.
-
-\noindent\textbf{Appraisal.} Method is described, but the small illustrative evaluation lacks comprehensive comparison and repeated-run coverage. Claims about scalability are not established by this experiment.
-
-\subsection{R08: RCACopilot}
-\noindent\textbf{Source and relevance.} \parencite{chen2024rcacopilot}. Published conference paper. LQ3. Sections 5.1-5.6, Tables 2-4, PDF pp. 10-12.
-
-Handlers collect diagnostics and retrieve historical incidents for root-cause categorisation. Uses 653 incidents with a 75/25 split. GPT-4 micro-F1 is 0.766, macro-F1 0.533. More context is not always better.
-
-\noindent\textbf{Interpretation limit.} Private single-service labelled data and imbalanced categories limit transfer. Collection-module deployment scale must not be confused with equivalent deployment of LLM prediction.
-
-\noindent\textbf{Appraisal.} Ablations and three rounds are reported. One service, private labels, model choice and historical similarity remain limitations.
-
-\subsection{R09: RCAgent}
-\noindent\textbf{Source and relevance.} \parencite{wang2024rcagent}. Published conference paper. LQ3. Sections 4-5, Tables 1-4, PDF pp. 5-6 (arXiv v2).
-
-Controller and expert agents use bounded tools and observation snapshots. Evaluation uses 161 selected anomalous Flink jobs. Semantic and LLM-based scores, action validity and trajectory completion are distinct outcomes.
-
-\noindent\textbf{Interpretation limit.} Tool and observation changes accompany the multi-agent design, so agent count is not isolated. LLM scoring and class-balanced selection affect interpretation. Proposed fixes are not executed repairs.
-
-\noindent\textbf{Appraisal.} Engineer-reviewed annotations and leakage controls are described. Several architectural changes and surrogate output scores limit causal attribution to agent organisation.
-
-\subsection{R10: TimeRAG}
-\noindent\textbf{Source and relevance.} \parencite{park2026timerag}. Preprint. LQ1, LQ3. Sections 4-6, Tables 1-3, PDF pp. 5-7 (arXiv v1).
-
-Aligns metric time series with textual representations and retrieves incident examples. Reports multiple-choice diagnosis accuracy separately from GPT-4o-judged report win rates. Some short-sequence results favour baselines.
-
-\noindent\textbf{Interpretation limit.} Fixed-seed offline evaluation, augmented series and an LLM report judge limit operational conclusions. Report preference is not diagnosis accuracy.
-
-\noindent\textbf{Appraisal.} Dataset and metric definitions are supplied. Augmentation, fixed seed and lack of live evaluation constrain robustness and transfer claims.
-
-\subsection{R11: AIOpsLab}
-\noindent\textbf{Source and relevance.} \parencite{chen2025aiopslab}. Published conference paper. LQ3, LQ4. Sections 3.2-3.6, Tables 2-4, PDF pp. 7-9.
-
-Provides live fault-injection tasks for detection, localisation, RCA and mitigation. Compares agent behaviour, correctness, time, steps and tokens. More steps do not consistently improve performance.
-
-\noindent\textbf{Interpretation limit.} The evaluated Flash implementation is simplified. Task definitions and selected problem sets affect comparisons. The reported selected-problem count and task-table denominators require care and are not pooled here.
-
-\noindent\textbf{Appraisal.} Live evaluation and task definitions are useful. Reconstructed baselines, problem selection and reporting granularity qualify comparative conclusions.
-
-\subsection{R12: STRATUS}
-\noindent\textbf{Source and relevance.} \parencite{chen2025stratus}. Published conference paper. LQ3, LQ4. Sections 3-5, Tables 1-4, PDF pp. 5-9 (NeurIPS version).
-
-Separates diagnostic and writer roles and uses reversible action stacks. GPT-4o solves 9/13 AIOpsLab mitigation tasks, versus 2/13 without retry and 3/13 with retry without undo.
-
-\noindent\textbf{Interpretation limit.} Eight ITBench successes exploit non-persistent injected faults. Faithful undo and severity measurement are assumptions. Human approval support is described, but its effectiveness is not established by a user study.
-
-\noindent\textbf{Appraisal.} Ablation supports undo-and-retry in the tested tasks. Small task sets, benchmark artefacts and differences in baseline provenance constrain generalisation.
-
-\subsection{R13: SREGym}
-\noindent\textbf{Source and relevance.} \parencite{clark2026sregym}. Preprint. LQ3, LQ4. Sections 2.5-3, Tables 2-5, PDF pp. 5-9 (arXiv v2).
-
-Evaluates 90 live scenarios with three runs per agent-model configuration. Distinguishes diagnosis, mitigation and joint success. Added noise reduces diagnosis success for each configuration.
-
-\noindent\textbf{Interpretation limit.} Different agents also have different models and tools. LLM-judge agreement is checked on a sample, not proof of an error-free oracle. One benchmark family cannot establish general production reliability.
-
-\noindent\textbf{Appraisal.} Repeated runs and a human-labelled oracle-validation sample support appraisal. Architecture, tool and model differences confound a universal agent ranking.
-
-\section{Quality-Appraisal Overview}
-
-Table~\ref{tab:slr:quality} summarises the quality assessment. S means
-supported, P partly supported and N not supported. The study summaries explain the reasons for partial or unsupported
-judgements. The scores are considered separately rather than combined
-into a ranking.
-
-\begin{table}[htbp]
-\centering\small
-\caption{Separate quality judgements for the assessed evidence set.}
-\label{tab:slr:quality}
-\begin{tabular}{@{}llcccccc@{}}
-\toprule
-Study & Short name & Q1 & Q2 & Q3 & Q4 & Q5 & Q6 \\
-\midrule
-R01 & Sage & S & S & S & P & P & S \\
-R02 & TraceWeaver & S & S & S & P & P & S \\
-R03 & CIRCA & S & S & S & P & P & S \\
-R04 & Causal RCA comparison & S & S & S & P & S & S \\
-R05 & SIERRA & S & S & S & P & P & S \\
-R06 & CICIDS2017 audit & S & S & S & S & P & S \\
-R07 & Holmes & S & P & P & N & P & S \\
-R08 & RCACopilot & S & S & S & P & P & S \\
-R09 & RCAgent & S & S & S & P & P & S \\
-R10 & TimeRAG & S & S & S & P & P & S \\
-R11 & AIOpsLab & S & S & P & P & P & S \\
-R12 & STRATUS & S & S & S & P & P & S \\
-R13 & SREGym & S & S & S & P & S & S \\
-\bottomrule
-\end{tabular}
-\end{table}
-\section{Remediation Controls: Evidence and Limits}
-
-The most detailed remediation controls in the current evidence set are
-reported by STRATUS. Its controls must be distinguished by what is
-implemented, experimentally examined or only supported as a capability.
-Table~\ref{tab:slr:controls} avoids treating these categories as equivalent.
-
-\begin{table}[htbp]
-\centering\small
-\caption{Assessment of STRATUS controls, based on Sections 3--5
-\parencite{chen2025stratus}.}
-\label{tab:slr:controls}
-\begin{tabularx}{\textwidth}{@{}p{0.25\textwidth}X@{}}
-\toprule
-Control & Reported status and evidential limit \\
-\midrule
-Read/write separation & Implemented through confinement and serialised writers. The paper acknowledges limitations of rule-based confinement. \\
-Reversible actions & Implemented action stack and undo mechanism. The safety argument assumes faithful undo. External effects can exceed this model. \\
-Undo-and-retry & Evaluated by ablation on thirteen AIOpsLab mitigation tasks. This supports a bounded result, not universal safe recovery. \\
-Dry run & Described for applicable commands. The effectiveness of dry runs is not isolated by the reported ablation. \\
-Human approval & Supported by interceptable actions. No human-approval effectiveness study is established by the assessed evaluation. \\
-Recovery verification & Uses alerts, request outcomes and component health. Reported ITBench artefacts show why the persistence of the fault must also be checked. \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-For the thesis, allow-list enforcement, approval, execution, recovery
-verification and rollback should therefore have separate observations.
-A dry run cannot establish that a live change will restore the endpoint.
-An approval cannot establish that the proposed diagnosis is correct. These
-are evaluation distinctions derived from the comparison, not claims that
-the PoC has implemented or validated those controls.
-
-\section{Synthesis Procedure and Implications}
-
-The synthesis is thematic. It compares assumptions, tasks, evidence and
-limitations within each literature question. No pooled effect size or
-cross-paper accuracy league table is calculated. The studies evaluate
-incompatible units, including metric rankings, reconstructed traces,
-incident categories, generated explanations and live repairs. Even a
-shared term such as accuracy can refer to a different denominator.
-
-The comparison supports five concrete priorities for the PoC: preserve
-provenance when linking observations, validate the meaning of security
-features, constrain the tools exposed to agents, separate diagnostic
-correctness from explanation quality, and verify repairs independently of
-command success. These priorities follow from the assessed evidence. The
-particular tools, thresholds, baselines and number of experimental runs
-remain design decisions to justify in the methodology and implementation.
-
-The literature also identifies questions to investigate during
-implementation. Shared trace identifiers support explicit correlation
-within the application, while sources without these identifiers may
-require time-based matching or topology information. Inspecting the
-available telemetry will determine which assumptions can be tested in
-the PoC and whether further searches are needed.
+The synthesis groups studies by these evaluation and design issues. It
+uses quantitative results only with their metric and experimental context.
+There is no pooled accuracy or league table across different datasets.
+For example, a successful KQL call, a penalised root-cause score and a
+joint cause-and-remedy success rate cannot be treated as the same outcome.
+The number of retained reports is an outcome of selection, not a target
+quota. The number discussed at length in Chapter~\ref{cha:state-of-the-art}
+reflects their contribution to its argument, rather than a second,
+undocumented exclusion step.
 
 \section{Limitations}
 
-The dominant limitation is unfinished selection. The thirteen assessments
-are useful evidence, but cannot establish the final balance of findings
-across the 954-record corpus. Prior familiarity and easier access influenced
-which texts could be assessed first. An exhaustive research-gap claim would
-therefore be premature.
+Coverage is limited by the selected collections, search expressions,
+publication window and bounded Scholar supplement. The 97 unretrieved
+reports constitute a substantial coverage limitation: the assessed set
+cannot establish the absence of other relevant approaches or an exhaustive
+best-performing system. Source access may also favour some publishers
+and open versions over others.
 
-Search coverage is also limited by title-focused terminology, different
-fields across sources, the English-language boundary and the 2020 cut-off.
-Sage, AIOpsLab, STRATUS and SREGym were missed by the focused searches
-and entered through supplementary reading. These misses indicate a need
-to reconsider search recall. OpenAlex publication metadata and preprint versions
-require checking, while the IEEE S4 export lacks abstracts. Replacing ACM
-because of access difficulties does not remove these source differences.
+Assisted single-reviewer screening and unverified extraction introduce
+selection and interpretation risks. Preprints may change after the
+retrieved version. Several studies use proprietary incidents, small fault
+sets or model-dependent judges. Such limitations are carried into the
+synthesis rather than converted into unsupported precision. The review
+provides evaluation hypotheses and design criteria for the PoC; their
+applicability must be tested in that environment.
 
-Three assessed sources are preprints. Their findings are identified as such
-and tied to the versions examined. Publication does not by itself guarantee
-strong evidence, but peer-review status remains useful context. Private
-industrial datasets, small controlled fault sets, reused benchmarks and
-LLM-based evaluation further limit transfer to the Norlys path.
+\section{Retained Reports and Appraisal Summary}
 
+Table~\ref{tab:slr:catalogue} identifies all 68 retained reports using the
+stable screening IDs. Titles link to the assessed source version. The
+brief appraisal highlights a limitation rather than reproducing the full
+extraction. Detailed methods, findings and passage references remain in
+\texttt{SLR-screening-completed.xlsx}, especially the Studies and Key results
+sheets. These reports are retained in the current synthesis; their presence
+does not imply that every reported numerical claim is independently verified.
+
+\begingroup
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{longtable}{@{}p{0.14\textwidth}p{0.43\textwidth}p{0.39\textwidth}@{}}
+\caption{Retained reports, approach and principal appraisal concern.}
+\label{tab:slr:catalogue}\\
+\toprule ID & Report and approach & Appraisal concern \\
+\midrule\endfirsthead
+\multicolumn{3}{l}{\textit{Table \thetable\ continued}}\\
+\toprule ID & Report and approach & Appraisal concern \\
+\midrule\endhead
+\midrule\multicolumn{3}{r}{\textit{Continued on next page}}\\\endfoot
+\bottomrule\endlastfoot
+SLR0057 & \href{https://www.researchgate.net/publication/406279260_VeriTrail-RCA_Evidence-Verified_Root_Cause_Localization_for_Microservice_Backends}{VeriTrail-RCA: Evidence-Verified Root Cause Localization for Microservice Backends}\par\emph{Evidence-verifying diagnostic agent} & Only one backbone. Subset selection, inconsistent descriptions of some aggregate/process denominators and unreleased sampling code reduce confidence. \\
+SLR0059 & \href{https://arxiv.org/pdf/2605.15611}{TopoEvo: A Topology-Aware Self-Evolving Multi-Agent Framework for Root Cause Analysis in Microservices}\par\emph{Topology-guided multi-agent diagnosis} & Incident counts, split independence and repeated-run uncertainty are not sufficiently specified in the evaluation. Topology faithfulness partly uses the method’s own salient edges. \\
+SLR0071 & \href{https://xplorestaging.ieee.org/ielx8/8858/11676280/11575089.pdf?arnumber=11575089}{Toward In-Depth Root Cause Localization for Microservices With Multi-Agent Recursion-of-Thought}\par\emph{Recursive multi-agent localisation} & The improved result is not universal across datasets. Aggregate localisation does not validate every explanation. \\
+SLR0082 & \href{https://arxiv.org/pdf/2603.21145}{NeSy-Edge: Neuro-Symbolic Trustworthy Self-Healing in the Computing Continuum}\par\emph{Neuro-symbolic agentic diagnosis} & Log-centric constructed evaluation. Independence and verification of derived root-cause annotations are not fully established. \\
+SLR0096 & \href{https://arxiv.org/pdf/2509.26463}{ErrorPrism: Reconstructing Error Propagation Paths in Cloud Service Systems}\par\emph{Code-assisted diagnostic agent} & The static-analysis baseline is scored by candidate-function precision, not the same exact-path metric. Private Go systems and selected templates limit transfer. \\
+SLR0102 & \href{https://arxiv.org/pdf/2605.15581}{STAR: A Stage-Attributed Triage and Repair Framework for RCA Agents in Microservices}\par\emph{Agent trajectory correction} & Reimplemented workflows, unclear incident denominators and judge-dependent stage labels. Extra inference budget is part of the improvement. \\
+SLR0119 & \href{https://arxiv.org/pdf/2602.05292}{ORACL: Optimized Reasoning for Autoscaling via Chain of Thought With LLMs for Microservices}\par\emph{Trained diagnostic and control workflow} & RCA sample denominator, class aggregation and split details are not sufficiently clear in the inspected evaluation. No RCA confidence interval. \\
+SLR0131 & \href{https://arxiv.org/pdf/2509.25874}{LogPilot: Intent-aware and Scalable Alert Diagnosis for Large-scale Online Service Systems}\par\emph{Alert-guided log diagnosis} & Private selected alerts and subjective usefulness. No conventional baseline is tested. \\
+SLR0171 & \href{https://arxiv.org/pdf/2506.10043}{TrioXpert: An Automated Incident Management Framework for Microservice System}\par\emph{Modality-specialised multi-agent diagnosis} & Incident timestamps are supplied for classification/localisation. Private-domain transfer, unclear split leakage and limited uncertainty reporting. \\
+SLR0208 & \href{https://arxiv.org/pdf/2507.03224}{RCA Copilot: Transforming Network Data into Actionable Insights via Large Language Models}\par\emph{Retrieval-assisted network diagnosis} & Very small dataset, limited held-out topology evidence and no exact component/cause correctness metric. Semantic similarity is not diagnostic accuracy. \\
+SLR0245 & \href{https://xplorestaging.ieee.org/ielx8/6287639/11323511/11598804.pdf?arnumber=11598804}{CausalOpsBench: A Reproducible Interventional-Replay Benchmark for Topology-Aware Operational Incident Response}\par\emph{Interventional diagnostic benchmark} & Mostly synthetic cross-domain scaffold with compact candidate labels. External and native composites cannot be compared directly. \\
+SLR0256 & \href{https://www.preprints.org/frontend/manuscript/41c58f87035172007cb15106de9bf93a/download_pub}{Hierarchical Expert Multi-Agent Framework for Causal Root Cause Localization in Cloud-Native Microservices}\par\emph{Hierarchical expert diagnosis} & Preprint with sparse reproducibility, ground-truth and split details. Narrative names a best baseline absent from its comparison table. \\
+SLR0303 & \href{https://arxiv.org/pdf/2503.23051}{COCA: Generative Root Cause Analysis for Distributed Systems with Code Knowledge}\par\emph{Code-assisted generative diagnosis} & Public resolved issues risk pretraining contamination. Ground-truth creators also rate usefulness. \\
+SLR0304 & \href{https://doi.org/10.1109/tsc.2025.3629066}{TAMO:Fine-Grained Root Cause Analysis via Tool-Assisted LLM Agent With Multi-Modality Observation Data in Cloud-Native Systems}\par\emph{Hybrid ML tools with LLM interpretation} & Most quantitative evidence evaluates ML tools, not final LLM correctness. Reported subsecond inference is not demonstrated as complete LLM investigation time. \\
+SLR0359 & \href{https://arxiv.org/pdf/2301.03797}{Recommending Root-Cause and Mitigation Steps for Cloud Incidents Using Large Language Models}\par\emph{Fine-tuned incident recommendation} & Private historical descriptions, not autonomous live investigation. Humans select the best of several LLM candidates while encoder baselines supply one, limiting comparison. \\
+SLR0571 & \href{https://arxiv.org/pdf/2603.02032}{MetaRCA: A Generalizable Root Cause Analysis Framework for Cloud-Native Systems Powered by Meta Causal Knowledge}\par\emph{Offline LLM knowledge with statistical diagnosis} & Offline knowledge construction is excluded from online latency. Eighteen cases with missing trace relationships are excluded. \\
+SLR0572 & \href{https://arxiv.org/pdf/2601.02736}{Hypothesize-Then-Verify: Speculative Root Cause Analysis for Microservices with Pathwise Parallelism}\par\emph{Parallel hypothesis verification} & Different backbones and training access confound the architecture comparison. Brief preliminary study, with limited sample/split and uncertainty detail. \\
+SLR0573 & \href{https://arxiv.org/pdf/2401.13810}{Automated Root Causing of Cloud Incidents using In-Context Learning with GPT-4}\par\emph{Retrieval-based incident recommendation} & Private historical descriptions and limited human sample. Model size and context configuration change with the compared approach. \\
+SLR0576 & \href{https://arxiv.org/pdf/2601.22208}{Stalled, Biased, and Confused: Uncovering Reasoning Failures in LLMs for Cloud-Based Root Cause Analysis}\par\emph{Controlled agent evaluation} & Graph-mediated observations and selected models limit transfer. Valid graph paths are not proof of causality. \\
+SLR0577 & \href{https://nkcs.iops.ai/wp-content/uploads/2025/03/ChangeLLM.pdf}{A Multimodal Intelligent Change Assessment Framework for Microservice Systems Based on Large Language Models}\par\emph{LLM-assisted change diagnosis} & Selected private cases and supplied fault times. Main table reports D1 Avg@5 0.975 with Top1 0.775, inconsistent with the stated mean-of-top-k formula if all accuracies are bounded by one. \\
+SLR0578 & \href{https://saurabhjha.one/pubs/ASE2022/paper.pdf}{A fault injection platform for learning AIOps models}\par\emph{Diagnostic evaluation infrastructure} & Two benchmark applications. Algorithm details are outside the paper and operational artifacts include private infrastructure. \\
+SLR0579 & \href{https://arxiv.org/pdf/2603.02057}{Beyond Microservices: Testing Web-Scale RCA Methods on GPU-Driven LLM Workloads}\par\emph{Diagnostic transfer benchmark} & Small topology, single faults and oracle timestamps. An LLM is the monitored workload, not the diagnostician. \\
+SLR0586 & \href{https://alessandrocornacchia.github.io/assets/pdf/apsys25-llm-failure-analysis-cornacchia.pdf}{Between Promise and Pain: The Reality of Automating Failure Analysis in Microservices with LLMs}\par\emph{Tool and agent comparison} & Very small diagnostic problem set and different reasoning models. Code-QA results are not incident diagnosis scores. \\
+SLR0593 & \href{https://arxiv.org/pdf/2305.15778}{Automatic Root Cause Analysis via Large Language Models for Cloud Incidents}\par\emph{Retrieval-assisted diagnostic workflow} & One private service and pre-existing handler expertise. Temporal independence of the split is not established. \\
+SLR0595 & \href{https://arxiv.org/pdf/2607.01788}{KRCA: An Efficient Root Cause Analysis System in Hyper-scale Microservice Systems via Agentic AI}\par\emph{Graph and memory guided agent diagnosis} & Private hyper-scale infrastructure and historical memory. Mixed-model main/subagents and absence of conventional baselines prevent isolating pure architecture superiority. \\
+SLR0600 & \href{https://arxiv.org/pdf/2608.08968}{GALA: Graph-Augmented LLM Agents for Root Cause Analysis and Incident Response in Microservices}\par\emph{Graph-guided multi-agent workflow} & Pod match does not require correct fault type. Report rubric partly rewards remediation absent from some baselines. \\
+SLR0602 & \href{https://arxiv.org/pdf/2504.11505}{eARCO: Efficient Automated Root Cause Analysis with Prompt Optimization}\par\emph{Prompt-optimised incident diagnosis} & Private data, summarised references and model-judge dependence. Reported gains are ordinal rating improvements, not exact diagnosis accuracy. \\
+SLR0603 & \href{https://grace-liu.github.io/static/papers/25-SIGCOMM-bian.pdf}{Towards LLM-Based Failure Localization in Production-Scale Networks}\par\emph{Production network localisation} & Monitoring first restricts candidates to six devices with reported >98\% coverage. Private network and device localisation are narrower than open-ended root-cause explanation. \\
+SLR0612 & \href{https://arxiv.org/pdf/2502.08224}{Flow-of-Action: SOP Enhanced LLM-Based Multi-Agent System for Root Cause Analysis}\par\emph{Runbook-guided multi-agent diagnosis} & Coverage scores penalise false causes only by 0.1 and are not exact accuracy. Baselines differ in accessible telemetry. \\
+SLR0617 & \href{https://arxiv.org/pdf/2404.03662}{X-Lifecycle Learning for Cloud Incident Management using LLMs}\par\emph{Dependency-context incident diagnosis} & Private selected service and historical records. Fine-tuned GPT-3 versus GPT-4 comparisons confound training method and backbone. \\
+SLR0618 & \href{https://arxiv.org/pdf/2601.02732}{Agentic Memory Enhanced Recursive Reasoning for Root Cause Localization in Microservices}\par\emph{Tool-using agent with memory} & Incident counts and repeat uncertainty are insufficiently clear. Per-alert versus batch timing differs across baselines. \\
+SLR0619 & \href{https://arxiv.org/pdf/2310.16340}{RCAgent: Cloud Root Cause Analysis by Autonomous Agents with Tool-Augmented Large Language Models}\par\emph{Tool-using diagnostic agent} & Private single-platform data and selection through an existing diagnostic tool. LLM grading and human helpfulness do not establish exact-cause accuracy. \\
+SLR0623 & \href{https://nkcs.iops.ai/wp-content/uploads/2026/04/Yujia__Aloha_to_FSE_26.pdf}{Aloha: Localizing Batch Failures in Large-scale Cloud Systems via Contrast Analysis and Human-in-the-Loop Agent}\par\emph{Agent-assisted contrast analysis} & Private cases, limited label and repetition detail. Human corrections contribute to results, so accuracy is not wholly autonomous. \\
+SLR0629 & \href{https://arxiv.org/pdf/2403.04123}{Exploring LLM-Based Agents for Root Cause Analysis}\par\emph{Retrieval and ReAct comparison} & Private historical records. The text describes a 100-case qualitative sample but table denominators sum to 97. \\
+SLR0635 & \href{https://arxiv.org/pdf/2602.06223}{Scaling Mobile Chaos Testing with AI-Driven Test Execution}\par\emph{Industrial diagnostic workflow} & Proprietary system. Diagnostic sample size and independent label protocol are insufficiently specified. \\
+SLR0669 & \href{https://arxiv.org/pdf/2510.04711}{Rethinking the Evaluation of Microservice RCA with a Fault Propagation-Aware Benchmark}\par\emph{Diagnostic benchmark} & No LLM evaluated. Fault distribution is imbalanced, impact filtering omits subtle failures and supervised methods use a test subset while other methods use the full dataset. \\
+SLR0680 & \href{https://cdn.amazon.science/9d/ff/bc236d704789bdfcfe521bd55614/scipub-approval152129-45181258-expansioncontraction-a-multiagent-graph-traversal-pattern-for-compound-ai-systems.pdf}{Expansion-Contraction: A Multi-Agent Graph Traversal Pattern for Compound AI Systems}\par\emph{Graph-structured multi-agent diagnosis} & Microservice evidence is constructed, not a live telemetry study. Main production results are outside the domain. \\
+SLR0685 & \href{https://arxiv.org/pdf/2412.17015}{RCAEval: A Benchmark for Root Cause Analysis of Microservice Systems with Telemetry Data}\par\emph{Diagnostic benchmark} & Injected benchmark applications and a limited reported experiment. Reconstructed baselines and modality adaptations require care. \\
+GS1-03 & \href{https://arxiv.org/pdf/2603.00468}{Cloud-OpsBench: A reproducible benchmark for agentic root cause analysis in cloud systems}\par\emph{Diagnostic benchmark} & Frozen snapshots control the observation space but do not reproduce a changing live environment. Predefined tool responses and evidence graphs constrain acceptable investigations. \\
+GS1-04 & \href{https://link.springer.com/content/pdf/10.1007/s40747-025-02096-0.pdf?error=cookies_not_supported\&code=1ef4fe7b-5190-45d9-80b8-240de4d8c9c0}{Leveraging multi-agent framework for root cause analysis}\par\emph{Specialised multi-agent workflow} & Small Nezha corpus of 101 cases before splitting. Adapted baselines, unclear uncertainty and resource matching. \\
+GS1-06 & \href{https://arxiv.org/pdf/2602.09937}{Why do AI agents systematically fail at cloud root cause analysis?}\par\emph{Empirical evaluation} & One agent framework. Mitigations use smaller Bank subsets (70 prompt tasks and 41 communication cases). \\
+GS1-08 & \href{https://arxiv.org/pdf/2605.03505}{LATS-RCA: Language Agent Tree Search for Root Cause Analysis in Microservices}\par\emph{Tree-search multi-agent diagnosis} & One small API-error dataset, pre-identified anomalies, no healthy cases. More search receives substantially more inference resources. \\
+GS1-31 & \href{https://ojs.aaai.org/index.php/AAAI/article/view/36991/40953}{Rcaflow: A workflow-informed hierarchical planning multi-agent system for root cause analysis}\par\emph{Workflow-guided multi-agent diagnosis} & Adapted baselines, unclear repeated-run uncertainty, and path length restricted to completed diagnoses. Ablation table has a minor Market value inconsistency. \\
+GS1-32 & \href{https://www.techscience.com/cmc/v88n1/67280/html}{Graph-Augmented Multi-Agent Robust Root Cause Analysis in AIOps}\par\emph{Graph-guided multi-agent diagnosis} & Validation-set tuning is described without a clear independent test split. Narrow baseline selection and uncertain repetition units limit confidence. \\
+GS1-44 & \href{https://aclanthology.org/2024.findings-emnlp.232.pdf}{mABC: multi-Agent Blockchain-Inspired Collaboration for root cause analysis in micro-services architecture}\par\emph{Multi-agent diagnosis} & Some prose and table values disagree. Exact diagnostic-case denominator is not clear from call-chain counts. \\
+GS1-48 & \href{https://arxiv.org/pdf/2601.04709}{Bridging temporal and textual modalities: A multimodal framework for automated cloud failure root cause analysis}\par\emph{Hybrid time-series and retrieval diagnosis} & Forecasting extends short sequences and may change the evidence. Pairwise preference is not verified cause accuracy. \\
+GS2-03 & \href{https://nkcs.iops.ai/wp-content/uploads/2026/03/LocaleXpert.pdf}{LLM-Enhanced Failure Localization in Microservices: Integrating Multi-Modal Data and Expert Interpretation}\par\emph{Hybrid modality experts} & Private data and partially sampled human review. Text similarity and preference do not prove causal correctness. \\
+GS2-07 & \href{https://arxiv.org/pdf/2607.04623}{Can LLMs Really Recover Microservice Failures? A Recovery-Aware Evaluation of Diagnosis-to-Action Reasoning}\par\emph{Diagnosis-to-action benchmark} & Incomplete cases are excluded by the quality gate. Fixed mappings give RCA-only methods recovery actions they do not generate themselves. \\
+GS2-22 & \href{https://arxiv.org/pdf/2607.08529}{Log-Insight: Automating Microservice Incident Diagnosis via Neuro-Symbolic Log Analysis}\par\emph{Statistical preprocessing with LLM synthesis} & Only 11 distinct incidents despite 110 runs. Baseline comparison covers three cases. \\
+GS2-28 & \href{https://arxiv.org/pdf/2512.19697}{Automated fault detection in 5G core networks using large language models}\par\emph{Fixed LLM diagnostic classifier} & Small single-testbed dataset. Prompt explicitly supplies fault-to-symptom rules and assumes one fault. \\
+GS2-30 & \href{https://www.mdpi.com/1424-8220/26/17/5571/pdf}{A Knowledge-Enhanced Iterative Reasoning Framework for Accurate and Traceable Fault Diagnosis in Distributed Service Systems}\par\emph{Knowledge-graph and LLM hybrid} & One small, closed fault taxonomy with strong class-specific rules. Perfect results on this split do not show generalisation to unknown failures. \\
+GS2-37 & \href{https://arxiv.org/pdf/2602.08804}{Root Cause Analysis Method Based on Large Language Models with Residual Connection Structures}\par\emph{Telemetry filtering with LLM diagnosis} & Successive development iterations may overfit the benchmark. No held-out development protocol, repeated uncertainty or strong external baselines is established in the evaluated section. \\
+GS2-41 & \href{https://arxiv.org/pdf/2608.21310}{Beyond Fault Localization: A Trajectory-Level Study of LLM Agents for Microservice Root Cause Analysis}\par\emph{Trajectory evaluation and verification intervention} & Preprint, framework adaptations and limited backbones. Agreement for most annotation tasks concerns binary acceptance of proposed labels, not independent initial construction. \\
+GS3-03 & \href{https://arxiv.org/pdf/2512.16381}{A network arena for benchmarking ai agents on network troubleshooting}\par\emph{Network diagnostic benchmark} & Mixed network settings and emulation limit cloud transfer. Boolean-mask accuracy is not necessarily case-level exact match. \\
+GS3-04 & \href{https://proceedings.mlsys.org/paper_files/paper/2025/file/d1f9e4a9f109b6e8b75ed362736f22ec-Paper-Conference.pdf}{Aiopslab: A holistic framework to evaluate ai agents for enabling autonomous clouds}\par\emph{Live agent benchmark} & FLASH is a simplified reimplementation. The stated 48-problem evaluation and table-implied denominators do not reconcile cleanly. \\
+GS3-09 & \href{https://arxiv.org/pdf/2606.29193}{A Multi-Dataset Benchmark for Evaluating LLM Agents in Microservice Failure Diagnosis}\par\emph{Diagnostic benchmark} & Demo scale, curated recoverable cases and subjective composite weights. Keyword/semantic matches can reward superficial evidence mentions. \\
+GS3-11 & \href{https://arxiv.org/pdf/2411.05349}{Enhancing cluster resilience: Llm-agent based autonomous intelligent cluster diagnosis system and evaluation framework}\par\emph{Cluster diagnosis agent and benchmark} & Some explicitly marked configurations expose the full dataset or benchmark-specific plans and cannot support held-out effectiveness. GPU-cluster setting is adjacent to the thesis cloud API. \\
+GS3-15 & \href{https://arxiv.org/pdf/2604.23455}{CUJBench: Benchmarking LLM Agents for Browser-to-Backend Failure Diagnosis}\par\emph{Browser-to-backend diagnostic benchmark} & Partial human label validation. Four timeout runs excluded. \\
+GS3-24 & \href{https://arxiv.org/pdf/2605.07161}{SREGym: A Live Benchmark for AI SRE Agents with High-Fidelity Failure Scenarios}\par\emph{Live diagnostic benchmark} & Synthetic Kubernetes settings and LLM-judge dependence. Commercial models and unequal token consumption complicate architecture comparisons. \\
+GS3-38 & \href{https://arxiv.org/pdf/2608.27021}{FaulT-Bench: Towards Benchmarking Network Troubleshooting LLM Agents under Unreliable User Tickets}\par\emph{Diagnostic reliability benchmark} & Mostly enterprise/campus network settings, limited direct cloud transfer. LLM judge and composite outcome weighting. \\
+GS3-39 & \href{https://arxiv.org/pdf/2607.22165}{DBA-Bench: A Production-Fidelity Benchmark for LLM-Based Database Operations Agents}\par\emph{Database operational benchmark} & Diagnosis excludes inapplicable and unresolved judge outputs, creating a different denominator from outcome scores. Mixed tuning/change tasks are not all diagnostic. \\
+GS3-48 & \href{https://proceedings.neurips.cc/paper_files/paper/2025/file/47a6e9e2c3019f13ad94a0f259fe4970-Paper-Conference.pdf}{Stratus: A multi-agent system for autonomous reliability engineering of modern clouds}\par\emph{Multi-agent reliability workflow} & RCA labels can be ambiguous. Some mitigation successes exploit nonpersistent injections. \\
+SUP-OpenRCA & \href{https://proceedings.iclr.cc/paper_files/paper/2025/file/d29b8d53678015079e1d245c023e49d2-Paper-Conference.pdf}{OpenRCA: Can Large Language Models Locate the Root Cause of Software Failures?}\par\emph{Diagnostic benchmark and controller--executor agent} & Known candidate reasons/components and a failure window are supplied. Oracle sampling uses privileged information. \\
+SUP-ITBench & \href{https://tingdai.github.io/files/itbench_ICML25.pdf}{ITBench: Evaluating AI Agents across Diverse Real-World IT Automation Tasks}\par\emph{Live operational benchmark} & Only 11 of 102 total-domain scenarios initially released. Table footnote and prose differ on how trace conditions are aggregated, so a modality effect should not be inferred from the headline score alone. \\
+SLR0584 & \href{https://www.vldb.org/pvldb/vol19/p4678-zhu.pdf}{SuperDRI: Graph-Guided Autonomous Troubleshooting for Cloud Databases}\par\emph{Graph-guided multi-agent incident troubleshooting (industrial demo)} & Process agreement and query execution are measured, but diagnostic correctness, a matched baseline and model identity are not established. \\
+SLR0696 & \href{https://www.vldb.org/pvldb/vol19/p3928-chen.pdf}{DBAgent: An RL-Based Agent for Autonomous Database Operations and Maintenance}\par\emph{RL-fine-tuned LLM agent for database diagnosis and O\&M (DBAgent)} & Joint cause-and-remedy metric; overall averages include consultation. Training access differs from prompt-only baselines. \\
+GS2-42 & \href{https://sol.sbc.org.br/index.php/semish/article/download/43509/43272}{Cloud Microservices: An Empirical Study of MCP-Orchestrated LLM Agents for Incident Triage}\par\emph{Controlled model/temperature comparison of an MCP tool-using agent} & Three scenarios only. The headline success rate pools fault and healthy cases; false-positive rates require separate interpretation. \\
+GS2-48 & \href{https://assets-eu.researchsquare.com/files/rs-10499343/v1_covered_585c57a7-39b6-4e04-a86f-bdcf416ada4e.pdf?c=1790145669}{Agent-MIRUPD: Operationalizing LLM Agents for Microservices Incident Response Under Performance Degradation}\par\emph{Staged lifecycle agent with stage-context propagation and HITL mitigation} & Preprint with small experiments. Published baseline results were reused rather than rerun under common conditions. \\
+\end{longtable}
+\endgroup

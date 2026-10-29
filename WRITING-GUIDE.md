@@ -141,12 +141,10 @@ criteria for comparing agent approaches. Use the evidence to justify the
 criteria and then the design choices. No final agent architecture, model,
 evaluation framework or winner has been approved.
 
-The newer search presented at the meeting used IEEE and ACM, English-language
-studies from 2020–2026, and a reported 793 records after deduplication. This
-is a candidate count, not a count of included studies. Source coverage still
-needs investigation. Google Scholar was suggested as a supplementary source.
-Do not assume IEEE and ACM are sufficient, or assert publisher coverage
-without checking the collections actually searched.
+The current corpus uses the 16 October IEEE/ACM exports (793 unique
+candidates), a bounded Google Scholar supplement (150 occurrences, 104 new
+candidates), and two separately recorded citation additions. Search scope,
+exact expressions and limitations are documented in Appendix A.
 
 There is no fixed number of core studies or agent approaches. Include enough
 evidence for a defensible answer and explain the assessment criteria and
@@ -164,26 +162,27 @@ be 10–12 pages when justified by content, rather than constrained by the
 earlier shorter outline. The agreed next meeting deliverable is the full
 SLR for supervisor approval.
 
-### Earlier review material
+### Consolidated review record
 
-The earlier IEEE/OpenAlex record reported 954 deduplicated records:
-305 provisional exclusions, eight formal records assessed for synthesis,
-and 641 other records awaiting final assessment. Five supplementary studies
-brought that synthesis to thirteen studies. These figures describe the
-earlier material, not the newer IEEE/ACM candidate set.
+Retrieval closed on 29 October 2026. The reconciled counts are 197 reports
+sought, 97 not retrieved and 100 assessed: 68 retained, 29 excluded and
+three companion reports. Do not silently remove retrieval failures or
+count companions as independent confirmation. Access obstacles do not mean
+that a paper is universally unavailable.
 
-Its supporting files are `Review/searches.csv` and `Review/screening.csv`.
-The first records eight executed queries and their counts. The second
-combines bibliographic metadata, source memberships and screening decisions.
-Do not merge the two review histories or describe either as completed
-without verifying the selection and assessment records.
+The current `Review/searches.csv` and `Review/screening.csv` replace the
+superseded working tables. Earlier versions remain in Git history. The
+assessment workbook, `SLR-screening-completed.xlsx`, holds full extractions,
+retrieval attempts and author-verification fields; these fields are not
+filled on the author's behalf. Appendix A contains the complete review
+method and retained-report catalogue, and Chapter 3 contains the synthesis.
 
-Keep detailed findings and quality judgements in the appendix, avoiding a
-second file containing the same assessments. Preserve the actual method,
-including assistance used, without repeating process commentary throughout
-the thesis. Earlier exports remain available in repository history. Record
-methodological changes that affect the results, but keep ordinary editing
-and deployment milestones out of the review.
+Do not reopen retrieval or rescreen the entire corpus as routine editing.
+Correct a specific evidenced error transparently. Keep source versions,
+metric definitions, denominators and model/budget differences attached to
+comparative claims. An assisted assessment is not personal author reading
+or independent double screening. Disclose the method once, without turning
+the appendix into a project diary.
 
 Chapter 5 explains how the PoC is designed, built and evaluated, referring
 back to Chapter 3 where relevant. The Introduction does not need a
@@ -214,7 +213,8 @@ The working Chapter 3 structure is:
 - 3.3 Security Telemetry and Feature Selection
 - 3.4 LLM Agents for Operational Diagnosis
 - 3.5 Automated Remediation and Human Oversight
-- 3.6 Comparison and Research Gap
+- 3.6 Evidence for Evaluating Diagnostic Agents
+- 3.7 Comparison and Research Gap
 
 Section 3.1 is a focused contextual comparison of conventional ML and
 LLM-based diagnosis, placed before the thematic review findings. It motivates

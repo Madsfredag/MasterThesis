@@ -5,17 +5,18 @@ editing there. See `WRITING-GUIDE.md` for the agreed scope and writing conventio
 
 ## Literature review
 
-Chapter 3 presents the research comparison. Appendix A contains the review
-method, selection account and detailed study assessments. Supporting search
-and screening records are explained in [Review/README.md](Review/README.md).
-The earlier IEEE/OpenAlex synthesis covers thirteen studies and remains
-incomplete. The newer IEEE/ACM search was reported as 793 deduplicated
-candidates at the supervisor meeting. These are separate review records.
+Chapter 3 compares conventional ML and LLM-based diagnosis, then synthesises
+research findings into criteria for evaluating agent approaches. Appendix A
+contains the review method, reconciled selection counts and a catalogue of
+all 68 retained reports. See [Review/README.md](Review/README.md) for the records.
+
+Retrieval closed on 29 October 2026: 197 reports sought, 97 not retrieved,
+100 assessed (68 retained, 29 excluded, three companion reports). These are
+assisted assessments; the author's verification fields remain separate.
+The review does not claim exhaustive coverage or a universally best agent.
 
 See [the decisions from 21 October 2026](SUPERVISOR-MEETING-2026-10-21.md).
-The review now prioritises evidence for evaluating agent approaches, while
-source coverage and conventional ML alternatives require further analysis.
-The full SLR is to be sent to the supervisors for approval.
+The emphasis is on evidence for evaluation criteria and then agent design.
 
 Build the report with `latexmk -pdf ClassicThesis.tex`.
 The existing template uses the BibTeX backend configured in
@@ -64,6 +65,7 @@ You should have received a copy of the GNU General Public License
 along with this program; see the file COPYING.  If not, write to
 the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
 Boston, MA 02111-1307, USA.
+
 
 
 

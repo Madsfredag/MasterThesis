@@ -10,12 +10,18 @@ uses that comparison to motivate design and evaluation choices for the
 Norlys proof of concept.
 
 The chapter begins with a focused comparison of conventional ML and
-LLM-based diagnosis. The subsequent thematic synthesis draws on thirteen
-previously assessed studies published between 2021 and 2026, comprising
-ten conference papers and three preprints.
-Appendix~\ref{app:systematic-literature-review} provides the existing review
-method and detailed assessments. Selection for the updated review is still
-in progress, so the synthesis is limited to the studies assessed so far.
+LLM-based diagnosis. The systematic review then contributes 68 retained
+reports from IEEE Xplore, ACM Digital Library, Google Scholar and two
+separately recorded citation additions. Appendix~\ref{app:systematic-literature-review}
+explains the search, selection and appraisal. The synthesis prioritises the
+strength of diagnostic evidence and the evaluation choices it supports;
+it does not rank systems by incomparable headline scores.
+
+The tracing, conventional ML and security studies also provide technical
+background for interpreting the operational path. Such contextual sources
+are not automatically members of the LLM-focused review corpus. Publication
+versions and study-specific limitations are recorded in the appendix and
+assessment workbook.
 
 \section{Conventional ML and LLM-Based Diagnosis}
 \label{sec:state-of-the-art:ml-llm}
@@ -334,13 +340,69 @@ and repeated runs. They do not establish a universal ranking of agent
 architectures, since the agents also differ in models, tools and budgets
 \parencite[Sections~2.5--3]{clark2026sregym}.
 
-These studies motivate a comparison in which the multi-agent PoC and its
-baseline receive the same accessible evidence, incident description and
+These studies motivate a comparison in which candidate agent approaches
+receive the same accessible evidence, incident description and
 time or tool budget. The particular baseline remains an evaluation-design
 decision. Useful measurements include correct faulty component, correct
 failure explanation, unsupported claims, invalid tool calls, elapsed time
 and variation across repeated attempts. Agent agreement should not be used
 as a substitute for checking the fault and its supporting evidence.
+
+
+\subsection{What Agent Comparisons Actually Establish}
+
+mABC combines specialised roles, a workflow and weighted voting. Its
+TrainTicket ablation reports a root-cause score of 54.4 for the complete
+GPT-4-Turbo system and 38.4 without multi-agent collaboration. This is
+useful evidence for investigating collaboration. However, the score is
+$\mathrm{RA}=(A_c-0.1A_i)/A_t$, where $A_c$ and $A_i$ are correct and
+incorrect proposed causes and $A_t$ is the total reference causes. It is
+not ordinary incident-level accuracy. The ablation also does not match
+inference cost between the variants. The result therefore supports a
+specific design hypothesis, not the conclusion that multiple agents are
+always preferable \parencite[Section~3.2, Table~7]{zhang2024mabc}.
+
+SuperDRI shows how a graph built from past incidents can guide investigation
+of cloud databases. A coordination agent, action planner and Kusto agent
+retrieve context and execute diagnostic queries. Its evaluation reports
+735 successful first attempts out of 957 KQL queries and an average of
+2.39 actions matching engineers' actions over 61 held-out incidents.
+These measure tool execution and process agreement, respectively. Neither
+establishes whether the final root cause is correct. The paper does not
+define a diagnostic ground-truth scoring procedure or a matched baseline
+\parencite[Section~2.2, Figure~2, Table~1]{zhu2026superdri}.
+For the PoC, successful Log Analytics queries are therefore an intermediate
+capability. A separate check must establish whether the evidence supports
+the diagnosis.
+
+DBAgent combines telemetry analysis, retrieval and a trained reasoning
+policy. Its preprocessing includes statistical anomaly detection and
+rule-based execution-plan analysis, illustrating a hybrid use of specialised
+methods and an LLM. Its success criterion jointly checks a root-cause label
+and a remedy; the overall results also include a consultation task. These
+results must not be interpreted as root-cause-only accuracy. Moreover,
+DBAgent receives supervised and reinforcement learning, whereas its main
+comparison agents use prompting. The difference cannot be attributed
+solely to agent organisation \parencite[Sections~4--6]{chen2026dbagent}.
+
+Agent-MIRUPD, a preprint describing a staged single-agent design, links diagnosis stages and tests the consequences
+of incorrect information passed between them. This is relevant to a
+multi-agent pipeline: an early mistake can become a later agent's assumed
+fact. Its comparison with published RE1 and RE2 results is explicitly
+literature-based; those baselines were not rerun in the same environment.
+Consequently, it is not independent confirmation of their original scores
+or a controlled demonstration of superiority
+\parencite[Sections~6.3--6.4]{rasouli2026agentmirupd}.
+
+Together, these examples suggest separating three experimental changes:
+the information supplied to an agent, the organisation of its reasoning
+and the resources available to it. Adding agents while also changing the
+model, tools and budget prevents a clear explanation of any improvement.
+A single investigator and a collaborating variant can instead share a
+model, evidence interface and scenario set. Their respective strengths can
+then be assessed under both a common resource limit and their observed
+operating cost. This is a proposed experimental design derived from the
+comparison, not an experimental result of this thesis.
 
 \section{Automated Remediation and Human Oversight}
 \label{sec:state-of-the-art:remediation}
@@ -386,6 +448,115 @@ endpoint and the relevant configuration, rather than treating command
 completion as repair. These are design implications for RQ4. Their
 implementation and effectiveness remain matters for the thesis experiments.
 
+
+\section{Evidence for Evaluating Diagnostic Agents}
+\label{sec:state-of-the-art:evaluation}
+
+\subsection{Define the Diagnosis Before Scoring It}
+
+A diagnostic answer can identify a component, a fault type, an incident
+time or a propagation path. These are distinct outcomes. OpenRCA makes
+this explicit by requiring all elements requested in a query to match:
+a partly correct answer is distinguished from a fully correct answer.
+Its best reported agent result with Claude 3.5 Sonnet is 11.34\% full-query
+accuracy over 335 cases. This apparently low score cannot be compared
+directly with service-localisation accuracy, where identifying the faulty
+component alone may suffice
+\parencite[Sections~2.3--5, Tables~1--4]{xu2025openrca}.
+
+For this thesis, the primary diagnostic outcome should require both the
+faulty component or operational layer and a correct explanation of the
+injected condition. Component-only results can be reported separately.
+Evidence grounding is a further outcome: cited records must exist and
+support the asserted relationship. A correct answer obtained from an
+unsupported guess should not receive the same grounding assessment as an
+answer backed by the observed request, rule or configuration.
+
+The reference answer must come from the controlled fault and its verified
+system effect, rather than from another generated diagnosis. The injected
+configuration, expected symptoms and recovery checks can be recorded
+before the agent runs. Scenario labels that reveal the answer should be
+kept out of agent-visible evidence. This matters in the existing PoC,
+where the controlled-failure log explicitly names its scenario. That
+endpoint demonstrates telemetry delivery and correlation; by itself, it
+is not a demanding test of root-cause reasoning.
+
+\subsection{Test False Diagnoses and Incomplete Evidence}
+
+Souza and Cola\c{c}o J\'unior evaluate an MCP-based agent across two fault
+scenarios and one healthy control. Their best configuration reports
+71.1\% success across 45 runs pooled over all three scenarios. This is
+not a fault-only accuracy estimate. In the healthy control, the same
+configuration produces two false diagnoses in 15 runs, or 13.3\%; the
+reported 95\% interval is 3.7--37.9\%. Across the eight configurations,
+false-positive rates range from 0\% to 100\%
+\parencite[Tables~4--5]{souza2026cloudmicroservices}.
+The small denominators also show why a percentage without its case count
+and uncertainty can be misleading.
+
+The PoC should therefore contain healthy requests as well as injected
+failures. It should distinguish a false diagnosis from an explicit statement
+that evidence is insufficient. Missing logs, competing symptoms and an
+incorrect initial suspicion are relevant perturbations. SREGym's
+background-disturbance experiments and Agent-MIRUPD's altered upstream
+context support testing these conditions
+\parencite{clark2026sregym,rasouli2026agentmirupd}.
+An agent must not be rewarded for confidently naming a cause merely because
+every evaluation case is guaranteed to contain a visible fault.
+
+\subsection{Control Comparisons and Report the Cost}
+
+The same incidents, accessible observations and scoring rules are needed
+for an interpretable comparison. Model version, prompts, retrieval context,
+tools and stopping conditions should be recorded. When comparing one and
+several agents, a common token, tool-call or time limit helps distinguish
+organisational effects from simply purchasing more inference. Training or
+historical examples must be separated from evaluation incidents. DBAgent's
+trained-versus-prompted comparison illustrates why training access must
+also be reported \parencite{chen2026dbagent}.
+
+Repeated runs assess the stability of a configuration on the same cases.
+They do not turn one fault into many independent fault types. Results
+should therefore report both the number of scenarios and repetitions,
+with per-scenario outcomes alongside aggregate results. Timeouts, invalid
+outputs and failed tool calls belong in the run accounting. Excluding them
+from the denominator can make an unreliable system appear accurate.
+SREGym and AIOpsLab provide examples of evaluating repeated attempts and
+operational failures \parencite{clark2026sregym,chen2025aiopslab}.
+
+A shorter response is not necessarily a cheaper investigation. Useful
+resource measurements include elapsed diagnosis time, model calls, input
+and output tokens, and tool calls. Model prices and deployment choices
+belong with cost calculations so they can be reproduced. These are
+secondary outcomes alongside correctness, not substitutes for it.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Evaluation criteria derived from the review. Exact thresholds and
+scenario sampling belong in the evaluation design.}
+\label{tab:sota:evaluation}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}X@{}}
+\toprule
+Criterion & Operational interpretation for the PoC \\
+\midrule
+Diagnostic correctness & Component and cause match the injected fault; report component-only and joint results separately. \\
+Evidence grounding & Cited observations exist, are relevant and support the explanation; record unsupported claims. \\
+Healthy-system behaviour & Count false diagnoses and appropriate abstention on healthy or insufficient-evidence cases. \\
+Robustness & Repeat cases and perturb evidence availability, background symptoms and initial assumptions. \\
+Fair comparison & Share cases, evidence, model and budgets when isolating agent organisation; disclose training access. \\
+Efficiency & Record time, tokens, model calls and tool calls, including failed attempts. \\
+Operational reliability & Report timeouts, non-submission, invalid outputs and tool failures with all-run denominators. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+These criteria provide the basis for selecting an approach through the
+PoC experiments. They do not yield an architecture ranking from the
+literature alone. A collaborating approach is preferable only if its
+measured benefits justify its additional cost and complexity under the
+chosen scenarios and constraints.
+
 \section{Comparison and Research Gap}
 \label{sec:state-of-the-art:gap}
 
@@ -423,5 +594,6 @@ diagnosis and safe repair.
 
 The thesis can test these questions by making the path, injected faults,
 observations and permitted actions explicit. Its claims should remain
-bounded by the evaluated scenarios. Until review selection is complete,
-this is a justified empirical focus, not an exhaustive research-gap claim.
+bounded by the evaluated scenarios. The retrieval limits documented in Appendix~\ref{app:systematic-literature-review}
+mean that this is a bounded empirical focus, rather than a claim that no
+other study addresses these questions.

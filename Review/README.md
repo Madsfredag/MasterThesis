@@ -1,40 +1,57 @@
 # Literature review records
 
-The thesis text is in `Chapters/03-State-of-the-Art.tex` and
-`Appendices/A-Systematic-Literature-Review.tex`. Detailed paper summaries and
-quality assessments are included directly in the appendix.
+The current review question is: How do LLM-based agents use operational
+telemetry to diagnose faults in cloud and microservice systems, and what
+evidence supports the correctness and reliability of their diagnoses?
 
-This folder contains two supporting tables. They can be opened in Excel or
-another CSV reader. They are research records, not additional thesis chapters.
+Chapter 3 presents the thematic synthesis and evaluation criteria. Appendix A
+contains the complete review method, selection outcome, appraisal approach
+and retained-report catalogue. The conventional ML comparison precedes the
+LLM-focused synthesis and is not counted as an additional database search.
 
-| File | Contents |
+| Record | Purpose |
 | --- | --- |
-| [searches.csv](searches.csv) | Eight searches: source, search date, exact expressions, fields, filters and result counts. |
-| [screening.csv](screening.csv) | 954 deduplicated records: titles, authors, source links, available abstracts, search memberships and selection decisions. |
+| [searches.csv](searches.csv) | Five executed searches, including exact expressions, dates, fields, filters and capture limits. |
+| [screening.csv](screening.csv) | 945 recorded occurrences, with stable IDs, decisions, reasons, links, companion relations and retrieval status. |
+| `SLR-screening-completed.xlsx` | Master assessment workbook supplied with the review: full screening metadata, 68 study extractions, key results and retrieval history. |
 
-## Current selection
+## Selection outcome
 
-The searches returned 1,131 occurrences. Removing 177 exact DOI/title repeats
-left 954 records. These comprise 305 provisional exclusions, eight records
-assessed for the current synthesis and 641 records awaiting final assessment.
-Five supplementary studies described in Appendix A bring the synthesis to
-thirteen studies. The final inclusion set is not yet established.
+IEEE (550) and ACM (269) supplied 819 occurrences; 26 duplicates left 793
+candidates. The Scholar supplement captured 150 occurrences, of which 46
+were duplicates, leaving 104 new candidates. Two known benchmark reports
+were added separately. Thus 899 candidates entered selection: 702 were
+excluded at title/abstract stage and 197 reports were sought.
 
-The initial screening and assessments used AI assistance and remain unverified.
-`Verified by`, `Verification date` and `Final decision` are blank until those
-steps are completed. An assessed record is not automatically a final inclusion.
-The exclusion codes are defined in Appendix A. Missing abstracts and dates
-mean the search export did not supply them; they are not exclusion reasons.
-IEEE S4 retained titles and document IDs, so those records need enrichment.
+Retrieval closed on 29 October 2026 with 97 reports not retrieved. Of 100
+full texts assessed, 68 were retained, 29 excluded and three linked as
+companions. The full-text exclusions are E1: 3, E2: 3, E3: 18 and E4: 5.
+These counts are not numbers of independent experiments or author-read papers.
 
-## Maintaining the records
+## Interpretation and maintenance
 
-Use the existing record ID when reviewing a paper. Check its publication
-version, title/abstract and relevant full text, then record the decision and
-reason. Keep provisional and verified decisions distinct. Assess the remaining
-candidates and complete the reference-list search before finalising the counts.
-Add new searches as rows and keep their actual search dates.
+Screening and extraction used AI assistance. The author's decision and reason
+fields remain blank until the author performs that verification. A recorded
+assessment is not independent double screening. The sources for the flagged
+new results were checked where obtainable; GS2-14's existing borderline E4
+assessment was retained from the supplied workbook, without claiming another
+independent full-text check.
 
-The earlier individual exports, retrieval logs and extraction files are
-preserved in [repository history](https://github.com/Madsfredag/MasterThesis/tree/a664a543cba1fc5ea6f2fd15bc64f87a7b2bbb57/Review).
-The two consolidated tables replace those scattered files in the working tree.
+SuperDRI remains included because it has an implemented diagnostic method
+and completed process evaluation, although it does not establish diagnostic
+correctness. DBAgent's success metric jointly assesses cause and remedy,
+and its aggregate includes consultation. GS2-42 pools fault and healthy cases
+in its headline success rate; Table 5 spans 0–100% healthy false positives
+across configurations. Agent-MIRUPD reuses published baseline scores rather
+than rerunning those baselines, so those scores are not independent evidence.
+
+The 97 unretrieved reports remain identifiable. Access obstacles are not
+relevance exclusions or proof of universal unavailability. Retrieval is
+closed for this review; no new search or wholesale rescreening is implied.
+Corrections should identify the affected record and evidence.
+
+These consolidated tables replace the superseded working tables. Earlier
+versions remain in Git history; there is no need to maintain parallel active
+search histories or a separate download checklist. Exact source passages and
+full retrieval attempts remain in the workbook rather than being duplicated
+throughout the thesis.
