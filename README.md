@@ -8,10 +8,10 @@ editing there. See `WRITING-GUIDE.md` for the agreed scope and writing conventio
 Chapter 3 compares conventional ML and LLM-based diagnosis, then synthesises
 research findings into criteria for evaluating agent approaches. Appendix A
 contains the review method, reconciled selection counts and a catalogue of
-all 68 retained reports. See [Review/README.md](Review/README.md) for the records.
+all 76 retained reports. See [Review/README.md](Review/README.md) for the records.
 
-Retrieval closed on 29 October 2026: 197 reports sought, 97 not retrieved,
-100 assessed (68 retained, 29 excluded, three companion reports). These are
+Retrieval was renewed on 30 October 2026: 197 reports sought, 84 not retrieved,
+113 assessed (76 retained, 34 excluded, three companion reports). These are
 assisted assessments; the author's verification fields remain separate.
 The review does not claim exhaustive coverage or a universally best agent.
 

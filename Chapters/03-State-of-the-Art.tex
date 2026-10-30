@@ -10,169 +10,163 @@ uses that comparison to motivate design and evaluation choices for the
 Norlys proof of concept.
 
 The chapter begins with a focused comparison of conventional ML and
-LLM-based diagnosis. The systematic review then contributes 68 retained
+LLM-based diagnosis. The systematic review then contributes 76 retained
 reports from IEEE Xplore, ACM Digital Library, Google Scholar and two
 separately recorded citation additions. Appendix~\ref{app:systematic-literature-review}
 explains the search, selection and appraisal. The synthesis prioritises the
-strength of diagnostic evidence and the evaluation choices it supports;
-it does not rank systems by incomparable headline scores.
+strength of diagnostic evidence and the evaluation choices it supports.
+Published scores are compared only where their tasks and measures align.
 
-The tracing, conventional ML and security studies also provide technical
-background for interpreting the operational path. Such contextual sources
-are not automatically members of the LLM-focused review corpus. Publication
-versions and study-specific limitations are recorded in the appendix and
-assessment workbook.
+The systematic review chiefly supports diagnostic evaluation in RQ3 and
+the evidence requirements relevant to RQ1. RQ2 and RQ4 also draw on
+contextual security and remediation literature, which was not searched
+systematically for those questions. Conventional ML and tracing papers
+provide additional context. A paper excluded from the LLM-focused review
+can therefore still support a clearly identified contextual comparison.
+Appendix~\ref{app:systematic-literature-review} records the formal selection.
+Technical terms and evaluation measures are explained in
+Appendix~\ref{app:glossary}.
 
 \section{Conventional ML and LLM-Based Diagnosis}
 \label{sec:state-of-the-art:ml-llm}
 
-LLMs are themselves machine-learning (ML) models. The distinction here is
-between methods trained or fitted for a specific diagnostic task and
-workflows that use a pretrained LLM to interpret evidence and guide an
-investigation. This focused comparison examines representative approaches
-to establish the rationale for the LLM-focused review. It considers their
-inputs, diagnostic outputs and evaluation limits, rather than providing
-an exhaustive review of conventional ML.
+Diagnosing an operational failure requires more than detecting unusual
+behaviour. A method must connect the observed symptoms to a faulty component
+or condition and provide a basis for checking that conclusion. Conventional
+machine learning and large language models offer different ways to perform
+this task. Their suitability depends on the available data, the required
+diagnostic output and the steps needed to obtain further evidence.
+
+Large language models are themselves a form of machine learning. In this
+comparison, conventional ML refers to task-specific classifiers, learned
+dependency models and related statistical methods. LLM-based diagnosis
+refers to workflows that use a pretrained language model to interpret
+observations or direct an investigation. The comparison examines
+representative methods from both groups to establish the scope of the
+subsequent review. It is a focused comparison, rather than a systematic
+review of all conventional ML methods.
 
 \subsection{Conventional Methods for Operational Diagnosis}
 
-Conventional ML can do more than detect unusual behaviour. Sage learns
-relationships between service dependencies, resource measurements and
-latency without requiring manually labelled root causes. It uses
-counterfactual analysis: estimating whether performance would recover if
-a suspected service or resource behaved normally. Its experiments report
-root-cause identification accuracy above 93\% for the evaluated performance
-problems. However, the method still needs representative observations of
-the system. The authors discuss using fault injection when ordinary
-operation provides too few failure modes
-\parencite[Sections~3--4, 6--7]{gan2021sage}.
-A shortage of labelled incidents therefore does not, by itself, rule out
-an ML approach.
+Gan et al. introduce Sage, a system for diagnosing performance problems in
+microservices. Sage learns relationships between dependencies, resource
+measurements and latency without manually labelled root causes. It uses
+counterfactual analysis to estimate whether performance would recover if
+a suspected service or resource behaved normally. The authors report
+root-cause identification accuracy above 93\% for the evaluated faults.
+The method needs representative system observations, and fault injection
+can supply failure modes absent from ordinary traffic
+\parencite[Sections~3--4, 6--7]{gan2021sage}. Sage demonstrates that a lack
+of labelled incidents does not, by itself, rule out conventional ML.
 
-CIRCA offers another option. It fits regression models to measurements
-before a fault is detected and uses a structural graph to assess which
-metric changes are possible root-cause indicators. This reduces its
-dependence on examples of previously diagnosed failures. Its requirements
-instead include suitable pre-failure measurements and knowledge of the
-system's architecture and metric relationships
-\parencite[Section~4]{li2022circa}. These assumptions matter when deciding
-whether a method can be transferred to a different environment.
+Li et al. propose CIRCA, which identifies root-cause indicators among
+monitoring metrics. It fits regression models to observations before a
+failure and tests changes against a structural graph of metric
+relationships. Its requirements centre on suitable measurements and
+knowledge of the system architecture, rather than a training set of
+labelled failures \parencite[Section~4]{li2022circa}.
 
-Conventional models can also combine telemetry types. Eadro learns from
-logs, metrics and traces together, using service dependencies to support
-anomaly detection and rank suspected services. It trains against anomaly
-and culprit-service labels. Its evaluation uses injected CPU and network
-faults in TrainTicket and SocialNetwork, with similar root-cause
-distributions in the training and test sets
-\parencite[Sections~IV--V]{lee2023eadro}. This demonstrates that using
-several telemetry sources is not a capability unique to LLMs. However,
-ranking a service does not itself provide an explanation of which
-configuration caused the fault or why a particular repair is appropriate.
+Lee et al. present Eadro, which combines logs, metrics and traces with
+service dependencies. The model learns to detect anomalies and rank
+suspected services using anomaly and culprit-service labels. Its
+experiments inject CPU and network faults into TrainTicket and
+SocialNetwork, with similar root-cause distributions in the training and
+test data \parencite[Sections~IV--V]{lee2023eadro}. Eadro therefore shows
+that combining different telemetry types is not specific to LLMs. Its
+service ranking addresses localisation. Explaining the responsible
+configuration or selecting a repair requires further investigation.
+
+These methods provide concrete alternatives for tasks with defined inputs
+and outputs. The relevant distinction is between their particular data
+requirements. A supervised classifier needs suitable labels, whereas a
+dependency-based method may instead need a representative baseline and
+an accurate structural graph. Their usefulness for a new environment
+depends on whether those requirements can be met and whether their output
+answers the operational question.
 
 \subsection{LLM-Based Investigation and Its Limits}
 
-RCAgent illustrates a different use of a model. A controller selects tools
-to retrieve information and consult specialised log and code analysis
-agents. It can request additional observations as an investigation
-develops. The surrounding software provides system access, retains
-observations and checks tool calls
-\parencite[Sections~2--3]{wang2024rcagent}. The attraction for this thesis
-is the possibility of combining investigation steps with an explanation
-that refers to the retrieved evidence. This capability depends on the
-tools and information supplied to the model. It does not give the model
-automatic knowledge of the deployed system.
+Wang et al. introduce RCAgent, in which a controller selects diagnostic
+tools and consults specialised log and code analysis agents. It can
+retrieve additional observations as the investigation develops. Tool
+interfaces, retained observations and output checks connect the model's
+decisions to the operational system
+\parencite[Sections~2--3]{wang2024rcagent}. This provides a mechanism for
+investigating a question whose necessary evidence is not known in advance.
+The model's access and conclusions remain limited by the information
+returned by those tools.
 
-RCACopilot provides a direct comparison with conventional classifiers.
-On 653 Microsoft incidents, using a 75/25 training--test split, its GPT-4
-workflow reports a micro-F1 of 0.766, compared with 0.076 for FastText and
-0.022 for XGBoost. Its simpler GPT-4 prompting variant scores 0.026.
-These results support the value of the complete workflow in that setting,
-including diagnostic information and historical examples. They do not
-isolate model type as the reason for the difference or establish superiority
-over conventional ML generally
+Chen et al. present RCACopilot, which gathers diagnostic information using
+incident handlers and retrieves historical incidents before generating a
+cause category and explanation. On 653 Microsoft incidents with a 75/25
+training--test split, its GPT-4 workflow reports a micro-F1 of 0.766.
+Micro-F1 combines precision and recall after pooling classification
+decisions across categories. Larger values indicate better classification,
+but the score does not measure whether an explanation is supported by
+telemetry. FastText and XGBoost score 0.076 and 0.022, respectively, while
+a simpler GPT-4 prompting variant scores 0.026
 \parencite[Sections~5.1--5.3, Table~2]{chen2024rcacopilot}.
 
-The boundary between the approaches is also flexible. RCACopilot uses
-FastText embeddings trained on historical incidents to retrieve relevant
-examples for the LLM \parencite[Section~4.2]{chen2024rcacopilot}. A system
-can therefore combine specialised learning methods with language-model
-reasoning. For the PoC, a similar division could let statistical or learned
-methods identify suspicious observations while an agent investigates their
-meaning and requests further evidence.
+The poor result of the simpler GPT-4 variant is as relevant as the result
+of the complete workflow. The experiment supports the combination of
+diagnostic information, retrieval and model use in this setting. It does
+not establish that replacing a conventional model with an LLM is sufficient
+to improve diagnosis. RCACopilot itself uses FastText embeddings to retrieve
+historical examples, combining a specialised learned representation with
+language-model interpretation
+\parencite[Section~4.2]{chen2024rcacopilot}.
 
-LLM-based investigation introduces its own failure modes. RCAgent includes
-mechanisms for malformed outputs, invalid actions and repeated tool calls,
-and retains original observations to manage long tool responses
-\parencite[Sections~2--3]{wang2024rcagent}. These mechanisms show that a
-usable agent requires more than a prompt. A generated explanation still
-needs to be checked against the fault and the source records. Neither a
-well-written answer nor agreement between agents establishes correctness.
+Flexible investigation also introduces additional failure modes. RCAgent
+handles malformed responses, invalid actions and repeated tool calls
+\parencite[Sections~2--3]{wang2024rcagent}. A fluent explanation or agreement
+between agents is therefore insufficient evidence of correctness. The
+diagnosis must be checked against the actual fault, and its supporting
+claims must be checked against the retrieved observations. Repeated runs
+and the cost of obtaining that evidence also matter when evaluating the
+complete workflow.
 
-\subsection{Implications for the PoC and Review Scope}
+\subsection{Choice of Approach for the Thesis}
 
-Table~\ref{tab:sota:ml-llm} summarises the comparison. The entries describe
-the examined approaches and the questions they raise for this project.
-They are not universal properties of every ML model or LLM system.
+The Norlys use case concerns a failing request across application, network
+and security layers. Its intended output includes the faulty layer or
+component, an explanation supported by identifiable records and a basis
+for human-approved remediation. This combines localisation with an
+investigation whose next query depends on the observations already found.
+Table~\ref{tab:sota:ml-llm} relates the examined methods to these needs.
 
 \begin{table}[htbp]
-\centering
-\small
-\caption{Comparison of the examined diagnostic approaches.}
+\centering\small
+\caption{Task requirements and the capabilities of the examined approaches.}
 \label{tab:sota:ml-llm}
-\begin{tabularx}{\textwidth}{@{}p{0.19\textwidth}XX@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.20\textwidth}XX@{}}
 \toprule
-Aspect & Conventional ML approaches & LLM-based workflows \\
+Requirement & Conventional ML methods & LLM-based workflows \\
 \midrule
-Data requirements &
-Sage and CIRCA use system observations without labelled root causes.
-Eadro uses anomaly and service labels. &
-RCAgent needs tools and system context. RCACopilot also uses historical
-incidents. \\
-Diagnostic output &
-Suspected services, resources or metrics, depending on the method. &
-Cause categories or written diagnoses, potentially with evidence and
-proposed actions. \\
-Investigation &
-Analysis follows the implemented model and diagnostic procedure. &
-A tool-using controller can choose further retrieval steps from returned
-observations. \\
-Main checks &
-Representative data, dependency assumptions and performance on faults
-outside the training distribution. &
-Correct interpretation, valid tool use, supported claims and consistency
-across runs. \\
+Localise a fault & Sage, CIRCA and Eadro produce ranked causes or indicators within defined system models. & Agents can interpret retrieved observations and propose a component or cause. Their correctness requires separate verification. \\
+Use available data & Requirements differ between labelled examples, pre-failure measurements and structural knowledge. & Pretraining supports language interpretation. Tools, system context and, in some methods, historical incidents remain necessary. \\
+Gather further evidence & Additional retrieval follows the implemented diagnostic procedure. & A tool-using controller can choose further queries from earlier results. Invalid or unnecessary queries add risk and cost. \\
+Support an operator's decision & Rankings and model outputs require an operational interpretation. & Written explanations can connect observations to a proposed cause. Readability does not establish factual support. \\
+Evaluate performance & Test representative and unfamiliar faults, data requirements and localisation quality. & Also test unsupported claims, tool use, variation between runs and inference cost. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-For the Norlys PoC, the intended outcome is a diagnosis of a failed request
-across operational layers, supported by records that a person can inspect.
-An LLM-based workflow is worth investigating because it offers a mechanism
-for interpreting those records, choosing further queries and presenting
-an explanation. The comparison also leaves a role for conventional ML
-where a task has suitable measurements and a clearly defined output.
-The amount and representativeness of available data must be examined for
-each candidate method. Limited traffic alone cannot establish which method
-will work best.
+For a narrowly defined prediction task with suitable observations,
+conventional ML remains a credible choice. The thesis addresses the wider
+investigation process, including selecting further evidence and explaining
+its relevance across operational layers. The reviewed agent designs
+provide an explicit mechanism for these activities. This task fit motivates
+the decision to explore LLM-based agents as the main investigative approach.
+It does not require replacing statistical analysis or specialised models
+where they provide useful evidence.
 
-A meaningful comparison must keep the diagnostic task consistent. An anomaly
-detector should be assessed on detection, while methods that identify causes
-can be compared on the correct component and failure explanation. The
-reported scores above concern different datasets and outcomes, so they
-cannot be combined into a ranking. For this project, a proposed evaluation
-would use the same controlled faults and comparable access to incident
-evidence. It would report training or setup requirements alongside diagnosis
-time, computational cost, repeated-run variation and unsupported claims.
-Any training or retrieval examples must be separated from the test incidents.
-
-This comparison motivates investigating LLM-based agents without assuming
-that they are the best solution. The following literature review focuses
-on how such agents use operational telemetry and how studies establish the
-correctness and reliability of their diagnoses. Its findings will inform
-the choice of agent approach and evaluation criteria. Conventional ML
-remains relevant as a possible component or comparison method, while the
-choice between a single agent and multiple agents requires separate
-evidence.
+The subsequent systematic review therefore examines how LLM-based agents
+use operational telemetry and how their diagnoses are evaluated. Its role
+is to establish criteria for selecting and testing an agent design.
+Whether collaboration improves diagnosis over a single investigator
+remains an empirical question. The comparison must distinguish the effect
+of agent organisation from changes in the model, information and computing
+budget.
 
 \section{Telemetry Correlation and Root-Cause Analysis}
 \label{sec:state-of-the-art:correlation}
@@ -208,8 +202,11 @@ observations disappear entirely
 
 CIRCA ranks root-cause metrics using a structural graph and regression-based
 hypothesis testing. In its evaluation on 99 Oracle database incidents,
-AC@1 is 0.404 and AC@5 is 0.763. Here AC@k measures recovery of labelled
-root-cause metrics among the first k recommendations. These values are not
+the first recommendation recovers, on average, 40.4\% of the labelled
+root-cause metrics. Considering the first five recommendations increases
+this average to 76.3\%. CIRCA calls this measure AC@$k$. For each incident,
+it divides the number of correct metrics in the first $k$ positions by the
+number of labelled root-cause metrics, then averages over incidents. These values are not
 an accuracy estimate for identifying an Azure resource or a firewall rule.
 Constructing CIRCA's structural graph also requires knowledge of the system
 architecture and the meaning of its metrics
@@ -234,6 +231,13 @@ to a more complex method.
 
 \section{Security Telemetry and Feature Selection}
 \label{sec:state-of-the-art:security}
+
+In this thesis, security-related failures are misconfigured controls that
+interfere with legitimate requests, such as an incorrect firewall or web
+application firewall rule. Detecting malicious activity is outside the
+evaluation scope. The contextual studies below inform the interpretation
+and validation of security telemetry. Their attack-detection results do
+not establish performance on configuration faults.
 
 Security observations need context. A connection count has a different
 meaning when it describes blocked connections to an internal service than
@@ -275,16 +279,18 @@ performance or the correctness of automated mitigation
 
 Together, these findings suggest two separate checks for a proposed
 security feature: can it be computed reliably from the available telemetry,
-and does it help distinguish the controlled scenarios? Candidate fields
-for the Norlys path include time, source and destination, request target,
-status, policy action and rule identifier. This is a proposed requirements
-list for the PoC, not a claim that every field has been validated by the
-review or is already available from every source. Retaining the source
+and does it help distinguish the controlled scenarios? \thesisTODO{Confirm the security fields available for the selected request
+path: time, source and destination, request target, status, policy action
+and rule identifier. Decide whether event counts or other aggregates are
+needed as agent-tool outputs, and document that choice in Requirements
+and System Design.} Retaining the source
 records allows an investigator to check an aggregate or model-generated
 interpretation against the underlying event.
 
 \section{LLM Agents for Operational Diagnosis}
 \label{sec:state-of-the-art:agents}
+
+\subsection{Diagnostic Workflows and Their Evaluation}
 
 Operational LLM systems differ in how they obtain information. RCACopilot
 uses incident handlers to gather diagnostic information and retrieve
@@ -297,8 +303,9 @@ necessarily improve the prediction
 \parencite[Sections~5.1--5.4]{chen2024rcacopilot}.
 
 RCAgent instead gives a controller access to tools and specialised LLM
-experts. Its evaluation uses 161 selected anomalous Flink jobs, with
-annotations reviewed by engineers. It assesses generated causes, solutions
+experts. Its evaluation uses 161 selected Apache Flink jobs showing abnormal
+behaviour. A Flink job is a data-processing task running on a distributed
+processing platform. Engineers reviewed the diagnostic annotations. It assesses generated causes, solutions
 and evidence, as well as tool-use behaviour. An ablation using more general
 query tools produces substantially more invalid actions. This supports
 careful tool design, but does not isolate agent count as the sole reason
@@ -349,7 +356,55 @@ and variation across repeated attempts. Agent agreement should not be used
 as a substitute for checking the fault and its supporting evidence.
 
 
-\subsection{What Agent Comparisons Actually Establish}
+\subsection{Patterns in Diagnostic Workflows}
+
+The reviewed approaches differ along several design dimensions that can
+be combined. Table~\ref{tab:state:patterns} groups these dimensions by the
+role they play in an investigation. The categories overlap. For example,
+a collaborating system can use both historical retrieval and evidence
+verification. The distinction therefore guides controlled comparisons
+without treating every named framework as an entirely different method.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Recurring diagnostic design choices and the comparison each requires.
+Study IDs refer to the catalogue in Appendix A.}
+\label{tab:state:patterns}
+\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}XX@{}}
+\toprule
+Design choice & Examples & Evaluation implication \\
+\midrule
+Historical retrieval & RCACopilot (SLR0593), LogTwin (SLR0009) & Separate benefits of prior cases from the reasoning workflow. \\
+Graph-guided investigation & GALA (SLR0600), CausalRCA (SLR0048) & Vary topology quality and compare with the same evidence access. \\
+Hypothesis verification & VeriTrail-RCA (SLR0057), VerifyRCA (SLR0167), VerifyOps (SLR0183) & Measure unsupported claims and incorrect rejections as well as final accuracy. \\
+Workflow and role separation & Flow-of-Action (SLR0612), mABC (GS1-44) & Match tools and budgets when testing coordination. \\
+Evidence representation & Representation-aware RCA (SLR0563), LogTwin (SLR0009) & Compare diagnostic information retained per unit of input. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+In their study of representation-aware root-cause analysis, Wen et al.
+vary telemetry representation while keeping the model and
+prompt fixed. Their exploratory experiments show why input preparation
+should be evaluated separately from agent organisation
+\parencite[Section~6]{wen2026representation}. Adding agents to a system
+with better summaries would otherwise confound two design changes.
+
+Three verification approaches make the evidence requirement explicit.
+VeriTrail-RCA checks supporting and contradicting observations. VerifyRCA
+tests hypotheses under a query budget. VerifyOps introduces controlled
+tool and telemetry noise. Together, they motivate testing the verification
+process itself, including occasions when it rejects a correct hypothesis
+\parencite{hu2026veritrail,ma2026verifyrca,ren2026verifyops}.
+
+VerifyRCA reports top-one accuracy of 0.72, compared with 0.39 without
+verification. The ablation also removes evidence queries, so it does not
+isolate checking from information acquisition
+\parencite[Table~I]{ma2026verifyrca}. This distinction matters for the PoC:
+an improvement can result from obtaining better evidence, checking it more
+carefully or both. These changes need separate comparisons.
+
+\subsection{Evidence for Agent Collaboration}
 
 mABC combines specialised roles, a workflow and weighted voting. Its
 TrainTicket ablation reports a root-cause score of 54.4 for the complete
@@ -379,7 +434,7 @@ DBAgent combines telemetry analysis, retrieval and a trained reasoning
 policy. Its preprocessing includes statistical anomaly detection and
 rule-based execution-plan analysis, illustrating a hybrid use of specialised
 methods and an LLM. Its success criterion jointly checks a root-cause label
-and a remedy; the overall results also include a consultation task. These
+and a remedy. The overall results also include a consultation task. These
 results must not be interpreted as root-cause-only accuracy. Moreover,
 DBAgent receives supervised and reinforcement learning, whereas its main
 comparison agents use prompting. The difference cannot be attributed
@@ -389,7 +444,7 @@ Agent-MIRUPD, a preprint describing a staged single-agent design, links diagnosi
 of incorrect information passed between them. This is relevant to a
 multi-agent pipeline: an early mistake can become a later agent's assumed
 fact. Its comparison with published RE1 and RE2 results is explicitly
-literature-based; those baselines were not rerun in the same environment.
+literature-based. Those baselines were not rerun in the same environment.
 Consequently, it is not independent confirmation of their original scores
 or a controlled demonstration of superiority
 \parencite[Sections~6.3--6.4]{rasouli2026agentmirupd}.
@@ -401,8 +456,9 @@ model, tools and budget prevents a clear explanation of any improvement.
 A single investigator and a collaborating variant can instead share a
 model, evidence interface and scenario set. Their respective strengths can
 then be assessed under both a common resource limit and their observed
-operating cost. This is a proposed experimental design derived from the
-comparison, not an experimental result of this thesis.
+operating cost. \thesisTODO{Specify the single-investigator baseline, collaborating
+variant, shared model and evidence interface, and resource limits in the
+evaluation design.}
 
 \section{Automated Remediation and Human Oversight}
 \label{sec:state-of-the-art:remediation}
@@ -414,7 +470,14 @@ latter makes it possible to observe recovery, but benchmark success still
 depends on what the evaluator checks
 \parencite{wang2024rcagent,chen2025aiopslab}.
 
-STRATUS provides the most direct assessed example of controlled
+VeriOps-Agent separates diagnosis from permission to act. In its injected
+fault evaluation, top-one diagnostic accuracy is 0.58 with the evidence
+gate and 0.57 without it. The principal benefit is fewer wrong fixes,
+partly achieved through escalation. Safe deferral and diagnostic
+correctness therefore require separate measures
+\parencite[Table~II]{zheng2026veriops}.
+
+STRATUS provides another assessed example of controlled
 multi-agent remediation. It separates detection, diagnosis, mitigation
 and undo roles. Its transactional no-regression argument relies on
 serialised writers, faithful undo and checks against a severity measure.
@@ -476,10 +539,11 @@ The reference answer must come from the controlled fault and its verified
 system effect, rather than from another generated diagnosis. The injected
 configuration, expected symptoms and recovery checks can be recorded
 before the agent runs. Scenario labels that reveal the answer should be
-kept out of agent-visible evidence. This matters in the existing PoC,
-where the controlled-failure log explicitly names its scenario. That
-endpoint demonstrates telemetry delivery and correlation; by itself, it
-is not a demanding test of root-cause reasoning.
+kept out of agent-visible evidence. Otherwise, an agent could reproduce
+the injected scenario name without interpreting the observations.
+\thesisTODO{Document how fault labels and other answer-revealing test
+metadata are separated from agent-visible telemetry in the evaluation
+design. Check this separation in the implemented fault scenarios.}
 
 \subsection{Test False Diagnoses and Incomplete Evidence}
 
@@ -487,7 +551,7 @@ Souza and Cola\c{c}o J\'unior evaluate an MCP-based agent across two fault
 scenarios and one healthy control. Their best configuration reports
 71.1\% success across 45 runs pooled over all three scenarios. This is
 not a fault-only accuracy estimate. In the healthy control, the same
-configuration produces two false diagnoses in 15 runs, or 13.3\%; the
+configuration produces two false diagnoses in 15 runs, or 13.3\%. The
 reported 95\% interval is 3.7--37.9\%. Across the eight configurations,
 false-positive rates range from 0\% to 100\%
 \parencite[Tables~4--5]{souza2026cloudmicroservices}.
@@ -540,11 +604,11 @@ scenario sampling belong in the evaluation design.}
 \toprule
 Criterion & Operational interpretation for the PoC \\
 \midrule
-Diagnostic correctness & Component and cause match the injected fault; report component-only and joint results separately. \\
-Evidence grounding & Cited observations exist, are relevant and support the explanation; record unsupported claims. \\
+Diagnostic correctness & Component and cause match the injected fault. Report component-only and joint results separately. \\
+Evidence grounding & Cited observations exist, are relevant and support the explanation. Record unsupported claims. \\
 Healthy-system behaviour & Count false diagnoses and appropriate abstention on healthy or insufficient-evidence cases. \\
 Robustness & Repeat cases and perturb evidence availability, background symptoms and initial assumptions. \\
-Fair comparison & Share cases, evidence, model and budgets when isolating agent organisation; disclose training access. \\
+Fair comparison & Share cases, evidence, model and budgets when isolating agent organisation. Disclose training access. \\
 Efficiency & Record time, tokens, model calls and tool calls, including failed attempts. \\
 Operational reliability & Report timeouts, non-submission, invalid outputs and tool failures with all-run denominators. \\
 \bottomrule
@@ -557,8 +621,25 @@ literature alone. A collaborating approach is preferable only if its
 measured benefits justify its additional cost and complexity under the
 chosen scenarios and constraints.
 
+Confidence also requires its own validation. PACE-LM, the earlier
+version of LM-PACE, calibrates confidence in proposed cloud root causes
+using retrieved incidents and a validation set. Its expected calibration
+error measures agreement between confidence and observed correctness,
+rather than diagnostic accuracy itself. Dependence on model-generated
+labels limits the strength of that evidence
+\parencite[Sections~4--5]{zhang2023pacelm}. A score called confidence should
+therefore not be presented as a probability without a calibration check.
+
 \section{Comparison and Research Gap}
 \label{sec:state-of-the-art:gap}
+
+CUJBench is a close comparison for the request-path setting because it
+evaluates browser-to-backend diagnosis. Its comparison of browser-only and
+combined diagnostic tools shows that broader access can also increase
+unsuccessful exploration and non-submission. The study supports measuring
+completed diagnoses and timeouts alongside correctness. It does not
+establish the availability or quality of Cloudflare and firewall evidence
+in the Norlys environment \parencite[Section~III]{meng2026cujbench}.
 
 The assessed evidence supports combining several ideas rather than
 selecting one paper as a complete solution. Request reconstruction supplies
@@ -570,20 +651,25 @@ recovery. Table~\ref{tab:sota:implications} summarises the implications.
 \begin{table}[htbp]
 \centering
 \small
-\caption{Evidence-informed priorities for the PoC. These are evaluation
-priorities, not completed implementation results.}
+\caption{Evidence-informed priorities for the PoC. Evidence is distinguished by its role in the chapter.}
 \label{tab:sota:implications}
-\begin{tabularx}{\textwidth}{@{}p{0.11\textwidth}XX@{}}
+\begin{tabularx}{\textwidth}{@{}p{0.07\textwidth}p{0.20\textwidth}XX@{}}
 \toprule
-Question & Design priority & Evidence to collect \\
+RQ & Literature basis & Design priority & Evidence to collect \\
 \midrule
-RQ1 & Preserve identifiers and distinguish inferred links. & Correct and missing path links, with source records. \\
-RQ2 & Select interpretable fields and test useful aggregates. & Availability, scenario relevance and effects of removing features. \\
-RQ3 & Use bounded tools and check explanations against the fault. & Component and cause correctness, evidence quality, cost and repeated-run variation. \\
-RQ4 & Separate approval, execution, recovery and undo. & Approved scope, actual changes, recovery tests, rejected actions and rollback outcomes. \\
+RQ1 & SLR and contextual tracing studies & Preserve identifiers and distinguish inferred links. & Correct and missing path links, with source records. \\
+RQ2 & Contextual security studies & Select interpretable fields and test useful aggregates. & Availability, scenario relevance and effects of removing features. \\
+RQ3 & SLR diagnostic studies and benchmarks & Use bounded tools and check explanations against the fault. & Component and cause correctness, evidence quality, cost and repeated-run variation. \\
+RQ4 & Contextual remediation studies and related SLR findings & Separate approval, execution, recovery and undo. & Approved scope, actual changes, recovery tests, rejected actions and rollback outcomes. \\
 \bottomrule
 \end{tabularx}
 \end{table}
+
+The comparisons do not establish a generally superior agent count. The
+mABC ablation supports collaboration within its tested workflow, while
+other comparisons also change models, tools or training. A controlled
+comparison of a single investigator and a collaborating design is
+therefore needed to assess the value of collaboration in the Norlys path.
 
 The contribution is a controlled investigation within the selected
 operational path. Combining Cloudflare and Azure alone does not establish

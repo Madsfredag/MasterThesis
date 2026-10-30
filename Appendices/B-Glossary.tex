@@ -1,0 +1,67 @@
+\chapter{Glossary}
+\label{app:glossary}
+\automark[section]{chapter}
+\markboth{Glossary}{Glossary}
+
+The definitions below explain the terms used in the thesis. A study's own
+metric definition takes precedence where the same abbreviation has several
+meanings.
+
+\begin{description}
+\item[Ablation] An experiment that removes or changes one part of a system
+to estimate its contribution. Other relevant conditions should be held fixed.
+\item[AC@k in CIRCA] The average fraction of labelled root-cause metrics
+recovered among the first $k$ recommendations. It is not automatically the
+percentage of incidents diagnosed completely correctly.
+\item[Agent] A system that uses a model to choose actions, call tools and
+use their results when deciding what to do next.
+\item[Anomaly] An observation that differs from an expected pattern.
+An anomaly can be a symptom rather than the cause of a failure.
+\item[Apache Flink job] A data-processing task executed on the distributed
+Apache Flink platform. An anomalous job shows unexpected behaviour.
+\item[Baseline] A reference method against which an evaluated method is compared.
+\item[Calibration] Agreement between a model's stated confidence and its
+observed correctness across comparable cases.
+\item[Confounding] A situation where several factors change together,
+preventing a result from being attributed to one of them alone.
+\item[Counterfactual] A hypothetical change used to ask what would have
+happened if a suspected condition had been different.
+\item[Evidence grounding] Linking a diagnostic claim to observations that
+support it. A cited observation can still be misinterpreted.
+\item[Expected calibration error (ECE)] A summary of the differences between
+confidence and observed correctness across confidence groups. The grouping
+and reference labels affect the result.
+\item[False positive] A reported fault where the reference case is healthy
+or does not contain that fault. The denominator must be stated.
+\item[Ground truth] The reference used to judge correctness, such as a
+recorded injected fault. Its quality must also be checked.
+\item[LLM] A large language model, trained to model and generate language.
+An LLM is itself a form of machine learning.
+\item[Macro-F1] The unweighted average of the F1 scores calculated separately
+for each class. Rare classes receive the same weight as common classes.
+\item[Micro-F1] F1 calculated after combining correct predictions, false
+positives and false negatives across classes. F1 balances precision and
+recall. In single-label multiclass classification, micro-F1 equals accuracy.
+\item[Mean reciprocal rank (MRR)] The average reciprocal of the first correct
+answer's rank. A first-place answer contributes 1 and a second-place answer
+contributes $1/2$. The treatment of missing answers must be specified.
+\item[Multimodal telemetry] Different kinds of observations used together,
+such as logs, metrics and traces.
+\item[Precision and recall] Precision measures how many selected items are
+correct. Recall measures how many relevant items were recovered.
+\item[Preprint] A publicly available research manuscript whose retrieved
+version is not necessarily peer reviewed.
+\item[Retrieval-augmented generation (RAG)] Providing a language model with
+selected external information before it generates an answer.
+\item[Root-cause analysis (RCA)] Investigating the condition responsible for
+a failure. Locating a faulty component is one part of that investigation.
+\item[Span and trace] A span represents one operation. A trace groups related
+spans that describe a request's execution across components.
+\item[Telemetry] Observations emitted or collected while a system runs,
+including logs, metrics, traces and events.
+\item[Token] A unit of model input or output, often a word fragment. Token
+counts help describe inference cost and context limits.
+\item[Top-k localisation] Whether the correct component appears among the
+first $k$ candidates. Multi-cause tasks require an explicit scoring rule.
+\item[WAF] A web application firewall that applies rules to HTTP requests.
+\end{description}

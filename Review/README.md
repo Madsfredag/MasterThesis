@@ -13,7 +13,7 @@ LLM-focused synthesis and is not counted as an additional database search.
 | --- | --- |
 | [searches.csv](searches.csv) | Five executed searches, including exact expressions, dates, fields, filters and capture limits. |
 | [screening.csv](screening.csv) | 945 recorded occurrences, with stable IDs, decisions, reasons, links, companion relations and retrieval status. |
-| `SLR-screening-completed.xlsx` | Master assessment workbook supplied with the review: full screening metadata, 68 study extractions, key results and retrieval history. |
+| `SLR-screening-completed.xlsx` | Master assessment workbook supplied with the review: full screening metadata, 76 study extractions, key results and retrieval history. |
 
 ## Selection outcome
 
@@ -23,9 +23,10 @@ were duplicates, leaving 104 new candidates. Two known benchmark reports
 were added separately. Thus 899 candidates entered selection: 702 were
 excluded at title/abstract stage and 197 reports were sought.
 
-Retrieval closed on 29 October 2026 with 97 reports not retrieved. Of 100
-full texts assessed, 68 were retained, 29 excluded and three linked as
-companions. The full-text exclusions are E1: 3, E2: 3, E3: 18 and E4: 5.
+Renewed retrieval on 30 October 2026 obtained 13 more full texts. Of 197
+reports sought, 84 remain not retrieved and 113 are assessed: 76 retained,
+34 excluded and three companions. Full-text exclusions are E1: 4, E2: 3,
+E3: 22 and E4: 5.
 These counts are not numbers of independent experiments or author-read papers.
 
 ## Interpretation and maintenance
@@ -45,9 +46,9 @@ in its headline success rate; Table 5 spans 0–100% healthy false positives
 across configurations. Agent-MIRUPD reuses published baseline scores rather
 than rerunning those baselines, so those scores are not independent evidence.
 
-The 97 unretrieved reports remain identifiable. Access obstacles are not
-relevance exclusions or proof of universal unavailability. Retrieval is
-closed for this review; no new search or wholesale rescreening is implied.
+The 84 unretrieved reports remain identifiable. Access obstacles are not
+relevance exclusions or proof of universal unavailability. The renewed pass used the existing candidate set. No new database search
+or wholesale rescreening was performed.
 Corrections should identify the affected record and evidence.
 
 These consolidated tables replace the superseded working tables. Earlier

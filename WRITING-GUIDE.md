@@ -141,7 +141,7 @@ criteria for comparing agent approaches. Use the evidence to justify the
 criteria and then the design choices. No final agent architecture, model,
 evaluation framework or winner has been approved.
 
-The current corpus uses the 16 October IEEE/ACM exports (793 unique
+The current review uses the 16 October IEEE/ACM exports (793 unique
 candidates), a bounded Google Scholar supplement (150 occurrences, 104 new
 candidates), and two separately recorded citation additions. Search scope,
 exact expressions and limitations are documented in Appendix A.
@@ -164,8 +164,8 @@ SLR for supervisor approval.
 
 ### Consolidated review record
 
-Retrieval closed on 29 October 2026. The reconciled counts are 197 reports
-sought, 97 not retrieved and 100 assessed: 68 retained, 29 excluded and
+Retrieval was renewed on 30 October 2026. The reconciled counts are 197 reports
+sought, 84 not retrieved and 113 assessed: 76 retained, 34 excluded and
 three companion reports. Do not silently remove retrieval failures or
 count companions as independent confirmation. Access obstacles do not mean
 that a paper is universally unavailable.
@@ -177,7 +177,7 @@ retrieval attempts and author-verification fields; these fields are not
 filled on the author's behalf. Appendix A contains the complete review
 method and retained-report catalogue, and Chapter 3 contains the synthesis.
 
-Do not reopen retrieval or rescreen the entire corpus as routine editing.
+Do not reopen retrieval or rescreen the entire set of papers as routine editing.
 Correct a specific evidenced error transparently. Keep source versions,
 metric definitions, denominators and model/budget differences attached to
 comparative claims. An assisted assessment is not personal author reading
@@ -219,7 +219,7 @@ The working Chapter 3 structure is:
 Section 3.1 is a focused contextual comparison of conventional ML and
 LLM-based diagnosis, placed before the thematic review findings. It motivates
 the LLM-focused question without assuming an LLM advantage. Its supporting
-ML sources are not automatically included in the formal LLM review corpus.
+ML sources are not automatically included in the formal LLM review.
 Keep the approved review question unchanged and evaluate conventional ML
 as a possible component or baseline when its data and task requirements fit.
 
@@ -272,3 +272,19 @@ Example of a bold paragraph lead-in:
 ~~~latex
 \noindent\textbf{Logs.} A log records events emitted by a system component.
 ~~~
+
+
+## Agreed revision requirements
+
+- Preserve the four thesis RQs and the single approved SLR review question.
+- Write final-quality prose. Do not use semicolons or the word “corpus”.
+- Compare conventional ML and LLM methods against the same diagnostic needs.
+  Motivate the LLM focus from task fit, without treating general superiority as established.
+- Introduce a paper before referring to its authors' findings. Define metrics before scores.
+- Security scope concerns misconfigured controls blocking legitimate requests.
+  Attack detection is outside the PoC evaluation scope.
+- Use the existing yellow thesisTODO boxes for project choices awaiting agreement.
+  Keep genuine research limitations in ordinary academic prose.
+- Appendix B explains technical terms and evaluation measures.
+- After all chapters are written, review titles, repeated content and the narrative
+  connecting the problem, four RQs, literature, design, evaluation and conclusions.
