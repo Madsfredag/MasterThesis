@@ -21,9 +21,26 @@ and reliability of their diagnoses?
 The synthesis in Chapter~\ref{cha:state-of-the-art} connects the findings
 to design and evaluation choices. This appendix documents the method,
 selection outcome, appraisal and retained reports. The assessment workbook
-contains the record-level decisions and detailed extraction. Technical
-background sources used elsewhere in the thesis are not automatically
-included in this review.
+contains the record-level decisions and detailed extraction.
+
+The review question concerns diagnosis. It provides the systematic
+evidence for diagnostic evaluation (RQ3) and part of the evidence
+requirements for telemetry correlation (RQ1). Security telemetry (RQ2) and
+remediation (RQ4) were not reviewed systematically. The search captured
+some reports on these topics, but remediation-only and attack-investigation
+reports were excluded under E3 and E2. Chapter~\ref{cha:state-of-the-art}
+discusses them as context sources.
+
+Context sources are cited for background and contrast, not counted as
+review evidence. Six of them were returned by the searches and excluded
+at title/abstract screening under E3 because they do not use an LLM for
+diagnosis. These are Sage (SLR0679), Eadro (SLR0015), CIRCA (SLR0609),
+TraceWeaver (SLR0681), SIERRA (SLR0206) and the causal-inference evaluation
+by Pham et~al.\ (SLR0146). Holmes and the dataset study by Engelen
+et~al.\ were not returned by the searches. Holmes investigates DDoS attacks
+and would fall under E2. PACE-LM, which Chapter~\ref{cha:state-of-the-art}
+cites for confidence calibration, is not a context source. It is the
+assessed version of the retained report LM-PACE (SLR0613).
 
 \section{Sources and Search Strategy}
 
@@ -36,18 +53,21 @@ additions. This was not an exhaustive citation-network search.
 The publication-year range was 2020--2026, with English-language reports
 eligible for screening. IEEE used conference, journal and early-access
 content types. The ACM export used the e-publication date range
-1 January 2020--31 December 2026. These are the actual search filters.
-coverage ends at the respective search dates. Additional ACM interface
-filters were not recorded and are not assumed.
+1 January 2020--31 December 2026. Coverage ends at the respective search
+dates. Additional ACM interface filters were not recorded and are not
+assumed.
 
 The database queries deliberately covered operational diagnosis more
-broadly than LLM agents. The supervisor-approved LLM-focused question was
-then applied during selection. This retained the existing broad exports
-while narrowing their eligibility. The LLM restriction was therefore a
-screening criterion, rather than a requirement that every database result
-mention an LLM in its abstract. Google Scholar supplemented these records
-with more focused searches and publishers beyond the two main collections.
-It was not treated as a complete or stable enumeration of the field.
+broadly than LLM agents. The narrower LLM-focused question was applied
+during selection. The LLM restriction was a screening criterion, so a
+database result did not need to mention an LLM in its abstract to be
+captured. This made the database exports sensitive but not specific. Most
+of the 793 database candidates describe statistical, causal or
+deep-learning diagnosis without an LLM, and most title/abstract exclusions
+are E3 for that reason. Google Scholar supplemented these records with
+more focused LLM and agent queries and with publishers beyond the two main
+collections. It was not treated as a complete or stable enumeration of the
+field.
 
 \subsection{Database Expressions}
 
@@ -64,8 +84,12 @@ IEEE used the same three concept blocks. Each term was explicitly
 qualified with the abstract field. Its recorded localisation term was
 \texttt{"fault locali?ation"}, and its language-model term was
 \texttt{"large language model*"}. The exact executable expression, rather
-than a retrospectively improved query, is preserved in the workbook's Searches sheet. A copy is held in
-\texttt{Review/searches.csv}.
+than a retrospectively improved query, is preserved in the workbook's
+Searches sheet. A copy is held in \texttt{Review/searches.csv}. The two
+expressions differ in one respect. ACM quotes \texttt{"self-healing"} as a
+phrase, while IEEE leaves the hyphenated term unquoted. Its effect on the
+IEEE result set was not tested. The difference is recorded rather than
+corrected because the exports were made with these expressions.
 
 \subsection{Google Scholar Supplement}
 
@@ -88,7 +112,12 @@ A report was eligible when it presented original research on diagnostic
 use of operational telemetry in cloud services, microservices or supporting
 infrastructure, with an LLM-based diagnostic contribution. Diagnostic
 benchmarks were also eligible when they provided usable tasks, reference
-causes and scoring procedures for evaluating such agents. A relevant study
+causes and scoring procedures for evaluating such agents. Such a benchmark
+qualified even when the report itself evaluated no LLM. Diagnosis in
+networks, databases and GPU clusters was treated as supporting
+infrastructure when the diagnosed system carried or hosted cloud services,
+such as data-centre, cloud and mobile-core networks. Optical
+transport-layer control was treated as outside this scope. A relevant study
 could use logs, metrics, traces, incident records or combinations of these.
 It did not have to use the PoC's particular vendors or agent organisation.
 
@@ -96,7 +125,17 @@ Research preprints were eligible, with the retrieved version recorded.
 They were not treated as equivalent to independently peer-reviewed
 publications. Earlier and later reports of the same work were linked when
 their contributions overlapped. Overlapping evaluations were not counted
-as independent confirmations.
+as independent confirmations. Following the Cochrane distinction between studies and
+reports, reports were linked as one study only when they shared an
+experiment, a dataset or results, and not on author overlap alone
+\parencite{li2024cochranech5}. VeriTrail-RCA (SLR0057) and VeriOps-Agent
+(SLR0266) share four authors and appeared in the same year. Their
+evaluation sets, primary outcomes and results differ, and neither cites
+the other. The first evaluates root cause localisation on public benchmark
+subsets, while the second evaluates remediation gating on Kubernetes fault
+scenarios. They are therefore retained as separate studies, but as work
+from one group they are not treated as independent confirmations of
+evidence verification.
 
 \begin{table}[htbp]
 \centering\small
@@ -144,19 +183,22 @@ same study. The latter were linked as companions where appropriate.
 
 Title and abstract screening assessed relevance against the question and
 criteria. Records retained at this stage proceeded to full-text retrieval.
-retention did not itself constitute inclusion. Full-text assessments
-examined the method, diagnostic task, evaluation and relevance before
-assigning inclusion, exclusion or companion status. Each exclusion has a recorded criterion and explanation. Some title/abstract
-explanations use the same wording for the same criterion. They do not
-constitute a detailed paper-specific assessment. Missing full text is a separate retrieval outcome,
+Retention did not itself constitute inclusion. The 702 title/abstract
+exclusions comprise 47 E1, 22 E2, 631 E3 and two E5 decisions. Most E3
+decisions concern database records on non-LLM diagnosis, and these share a
+standard reason for the same criterion. Full-text assessments examined the
+method, diagnostic task, evaluation and relevance before assigning
+inclusion, exclusion or companion status. Each full-text decision has a
+record-specific reason. Missing full text is a separate retrieval outcome,
 not evidence that a paper fails the relevance criteria.
 
-AI assistance was used for screening, retrieval and extraction. The
-workbook separates these assessments from the author's verification
-fields. An independent second screening and completed author verification
-are not claimed. The present synthesis uses the recorded assessments,
-with targeted source checks of results central to the comparison. This
-limits the confidence that can be placed in unverified borderline decisions.
+Screening was carried out by a single reviewer. GitHub Copilot was used
+to propose title/abstract decisions, locate open full texts, draft
+extraction fields and check reported numbers against the source passages.
+The author checked all 113 full-text decisions and 176 title/abstract
+decisions, including the borderline cases. No decision was changed. The
+workbook records the author's decision and reason for each checked
+record.
 
 \subsection{Method and Amendments}
 
@@ -164,19 +206,23 @@ The review separates search, selection, extraction and appraisal, following
 the methodological structure described by Kitchenham and Charters
 \parencite{kitchenham2007guidelines}. Search reporting records expressions,
 sources, dates and limits in line with PRISMA-S
-\parencite{rethlefsen2021prismas}. These guidelines inform the method and
-its reporting. They do not establish that every recommended procedure was
-performed.
+\parencite{rethlefsen2021prismas}.
 
-The LLM-focused question was agreed after the broad database searches and
-applied during screening. No prospectively registered protocol or completed
-independent screening pilot is claimed. Retrieval was reopened on
-30 October to seek author manuscripts and repository copies of the
-97 unresolved reports. This produced 13 additional full-text assessments,
-with eight inclusions and five exclusions. The search expressions and
-candidate set were unchanged. Proposal-only exclusions were also assigned
-consistently to E1. Earlier decisions and retrieval attempts remain in the
-review records.
+The review had no registered protocol and no screening pilot. Three
+deviations from a prospective protocol are recorded. First, the
+LLM-focused question was agreed after the broad database searches and
+applied during screening, so the database expressions do not require an
+LLM term. Second, full-text retrieval was repeated. The first pass assessed
+87 of the 197 reports sought. Renewed passes on 29 and 30 October 2026
+searched publisher open-access versions, author manuscripts, institutional
+repositories and preprint servers for the remainder. The first renewed pass
+added 13 assessments, with four inclusions and nine exclusions. The second
+added 13 more, with eight inclusions and five exclusions. Third, exclusion
+codes were harmonised. Proposal-only reports were recoded to E1, and one
+title/abstract E4 decision (SLR0570) was recoded to E3 because E4 applies
+only after full-text examination. The search
+expressions and candidate set were unchanged throughout, and earlier
+decisions and retrieval attempts remain in the review records.
 
 \subsection{Selection Outcome}
 
@@ -214,14 +260,46 @@ E4 decisions. The three companions link the earlier AIOpsLab report
 SLR0071, and the earlier GALA report (GS1-40) to SLR0600. They are recorded
 without adding independent evidence to the same study families.
 
-Of 197 reports sought, 84 were not retrieved within the review period
-because full-text access attempts were blocked or no accessible matching
-version was located. Following PRISMA 2020, these are reported as not
-retrieved rather than excluded \parencite{page2021prisma}. Their possible
-effect on the findings is discussed in Section~\ref{sec:slr:limitations}.
-The total comprises 62 database records and 22 Scholar records. This is a
-retrieval outcome, not a claim that the reports are unavailable to readers
-with other access routes.
+Of 197 reports sought, 84 were not retrieved. Retrieval used open routes:
+publisher open-access versions, author manuscripts, institutional
+repositories and preprint servers, searched by DOI and exact title.
+Subscription access through the university library was not used. For 55
+of the 84 reports, the only version located was subscription-only. Fifty
+of these are in IEEE Xplore, three at Springer and two in the ACM Digital
+Library. For 19 reports an open copy was located, but the host's automated
+bot check prevented download during the retrieval passes. One report was
+found only as an author upload to ResearchGate, and nine had no full-text
+link and no matching version could be located. The total comprises 62
+database records and 22 Scholar records. Following PRISMA 2020, these
+reports are recorded as not retrieved rather than excluded
+\parencite{page2021prisma}. The record of each attempt is kept in
+\texttt{Review/retrieval-log.csv}.
+Retrieval was closed after the second renewed pass. The unretrieved reports
+are treated as a declared limitation (Section~\ref{sec:slr:limitations}),
+and the sensitivity check below estimates their possible effect.
+
+A sensitivity check estimated how the unretrieved reports could affect
+the findings. Each was rated from its abstract, or its title where no
+abstract was available, against the inclusion criteria. Thirty-six appear
+likely to be eligible, 31 are unclear and 17 appear likely to be excluded.
+The likely eligible and unclear reports resemble the retained set, with
+fewer benchmarks. They mostly describe fixed LLM workflows, multi-agent
+systems and graph-guided investigation, and 11 claim some form of evidence
+verification. Abstracts
+rarely state how the evaluation was controlled, so the check cannot show
+whether these reports would change the appraisal counts. The missing
+reports are therefore a coverage limitation for design approaches,
+particularly evidence verification, rather than evidence of a different
+evaluation practice.
+
+The supplementary sources added substantially to the review. Twenty-eight
+of the 76 retained reports (37\,\%) were found only through the Scholar
+supplement or the citation additions. Sixteen of these are preprints. The
+remainder appeared at machine-learning venues such as AAAI, EMNLP, ICLR,
+MLSys and NeurIPS, or with publishers outside the two collections, such as
+Springer and MDPI. They include 12 of the 18 benchmark and framework
+reports. IEEE Xplore and the ACM Digital Library alone would have missed
+most of the benchmark evidence.
 
 \section{Extraction and Quality Appraisal}
 
@@ -230,9 +308,7 @@ context, telemetry, data and reference causes, evaluation procedure,
 reported findings, limitations and implications for the PoC. Source URLs,
 retrieved versions and passage locations support checking the extraction.
 The workbook's detailed fields additionally distinguish agent roles,
-models, tools, baselines, metric definitions, efficiency and reliability
-where these were extracted. A blank field is not evidence that the paper
-omits the information.
+models, tools, baselines, metric definitions, efficiency and reliability.
 
 Appraisal examines the following dimensions rather than assigning a total
 quality score:
@@ -255,26 +331,91 @@ There is no pooled accuracy or league table across different datasets.
 For example, a successful KQL call, a penalised root-cause score and a
 joint cause-and-remedy success rate cannot be treated as the same outcome.
 The number of retained reports is an outcome of selection, not a target
-quota. The number discussed at length in Chapter~\ref{cha:state-of-the-art}
-reflects their contribution to its argument, rather than a second,
-undocumented exclusion step.
+quota.
+
+\subsection{Appraisal Results}
+\label{sec:slr:appraisal-results}
+
+Each dimension was rated strong, partial or weak for every retained report.
+A strong rating means the report states the information and the design
+supports the claim it makes. A partial rating means the information is
+present but incomplete or confounded. Table~\ref{tab:slr:appraisal}
+summarises the ratings for the 67 reports appraised against their full
+text. Nine further reports (SLR0009, SLR0048, SLR0057, SLR0167, SLR0183,
+SLR0256, SLR0266, SLR0328 and SLR0563) were appraised from their
+extraction records. Their eligibility and extraction were based on the
+full text, but the author-uploaded copies could not be downloaded again
+when the appraisal was made. Fields that the extraction records did not
+cover were left unrated, and these nine reports are not counted in
+Table~\ref{tab:slr:appraisal}.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Appraisal ratings for the 67 retained reports appraised against
+their full text.}
+\label{tab:slr:appraisal}
+\begin{tabularx}{\textwidth}{@{}Xrrr@{}}
+\toprule
+Dimension & Strong & Partial & Weak \\
+\midrule
+Task and ground truth & 23 & 38 & 6 \\
+Comparison validity & 6 & 46 & 15 \\
+Outcome validity & 18 & 41 & 8 \\
+Reliability & 4 & 29 & 34 \\
+Transfer and reproducibility & 9 & 27 & 31 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Reliability is the weakest dimension. Of the 67 reports, 20 repeat runs
+and 17 report the variability between them. Ten include healthy or
+no-fault cases, and seven let the system report that the evidence is
+insufficient. Eighteen test missing, noisy or misleading evidence.
+Fourteen check whether a diagnosis contains claims that the evidence does
+not support.
+
+Comparison validity is mostly partial. Seven reports match the inference
+budget across the compared methods. Twenty-five report cost or steps
+without matching them, and 29 report neither. Thirty-five compare only
+against other LLM methods, and seven have no baseline. In 27 reports the
+proposed method uses training or historical data that its baselines do not,
+so a difference in score often reflects more than the design being tested.
+
+Transfer is limited by data access. Eighteen reports evaluate only
+proprietary incidents and thirteen combine proprietary and public data.
+Twenty-three release code or data. Sixteen report time, tokens and cost
+in full, and 34 report some of these.
+
+Outcome measures vary. Twenty-four reports score top-$k$ localisation,
+fourteen require an exact or joint cause, and twelve report classification
+accuracy or F1 over fault types. Six use an LLM judge, five use textual
+similarity to a reference and four report task success. Six of the 67 do
+not score diagnostic correctness against a ground truth at all. These
+counts support the evaluation criteria in
+Section~\ref{sec:state-of-the-art:evaluation}.
 
 \section{Limitations}
 \label{sec:slr:limitations}
 
 Coverage is limited by the selected collections, search expressions,
 publication window and bounded Scholar supplement. The 84 unretrieved
-reports constitute a substantial coverage limitation: the assessed set
-cannot establish the absence of other relevant approaches or an exhaustive
-best-performing system. Source access may also favour some publishers
-and open versions over others.
+reports are a substantial limitation. The assessed set cannot show that no
+other relevant approach exists, and it cannot identify a best-performing
+system. Retrieval through open routes also favours preprints and
+open-access publishers. Fifty of the unretrieved reports are
+subscription-only IEEE papers, so IEEE conference and journal work is
+under-represented among the retained reports.
 
-Assisted single-reviewer screening and unverified extraction introduce
-selection and interpretation risks. Preprints may change after the
-retrieved version. Several studies use proprietary incidents, small fault
-sets or model-dependent judges. Such limitations are carried into the
-synthesis rather than converted into unsupported precision. The review
-provides evaluation hypotheses and design criteria for the PoC. Their
+Nine retained reports were appraised from their extraction records rather
+than from the full text, so their appraisal is less complete.
+
+Single-reviewer screening introduces selection and interpretation risks.
+Checking every full-text decision and a sample of title/abstract
+decisions limits these risks but does not remove them. Preprints may change after the retrieved
+version. Several studies use proprietary incidents, small fault sets or
+model-dependent judges. These limitations are carried into the synthesis
+and are not converted into unsupported precision. The review provides
+evaluation hypotheses and design criteria for the PoC, and their
 applicability must be tested in that environment.
 
 \section{Retained Reports and Appraisal Summary}
@@ -283,8 +424,8 @@ Table~\ref{tab:slr:catalogue} identifies all 76 retained reports using the
 stable screening IDs. Titles link to the assessed source version. The
 brief appraisal highlights a limitation rather than reproducing the full
 extraction. Detailed methods, findings and passage references remain in
-\texttt{SLR-screening-completed.xlsx}, especially the Studies and Key results
-sheets. These reports are retained in the current synthesis. Their presence
+\texttt{SLR-screening-completed.xlsx}, especially the Studies, Appraisal and
+Key results sheets. These reports are retained in the current synthesis. Their presence
 does not imply that every reported numerical claim is independently verified.
 
 \begingroup
@@ -321,7 +462,7 @@ SLR0572 & \href{https://arxiv.org/pdf/2601.02736}{Hypothesize-Then-Verify: Specu
 SLR0573 & \href{https://arxiv.org/pdf/2401.13810}{Automated Root Causing of Cloud Incidents using In-Context Learning with GPT-4}\par\emph{Retrieval-based incident recommendation} & Private historical descriptions and limited human sample. Model size and context configuration change with the compared approach. \\
 SLR0576 & \href{https://arxiv.org/pdf/2601.22208}{Stalled, Biased, and Confused: Uncovering Reasoning Failures in LLMs for Cloud-Based Root Cause Analysis}\par\emph{Controlled agent evaluation} & Graph-mediated observations and selected models limit transfer. Valid graph paths are not proof of causality. \\
 SLR0577 & \href{https://nkcs.iops.ai/wp-content/uploads/2025/03/ChangeLLM.pdf}{A Multimodal Intelligent Change Assessment Framework for Microservice Systems Based on Large Language Models}\par\emph{LLM-assisted change diagnosis} & Selected private cases and supplied fault times. Main table reports D1 Avg@5 0.975 with Top1 0.775, inconsistent with the stated mean-of-top-k formula if all accuracies are bounded by one. \\
-SLR0578 & \href{https://saurabhjha.one/pubs/ASE2022/paper.pdf}{A fault injection platform for learning AIOps models}\par\emph{Diagnostic evaluation infrastructure} & Two benchmark applications. Algorithm details are outside the paper and operational artifacts include private infrastructure. \\
+SLR0578 & \href{https://saurabhjha.one/pubs/ASE2022/paper.pdf}{A fault injection platform for learning AIOps models}\par\emph{Diagnostic evaluation infrastructure} & Retained as evaluation infrastructure with injected-fault ground truth. No LLM is evaluated and no task set is released, so this is the weakest fit to the benchmark criterion. Two benchmark applications and private infrastructure. \\
 SLR0579 & \href{https://arxiv.org/pdf/2603.02057}{Beyond Microservices: Testing Web-Scale RCA Methods on GPU-Driven LLM Workloads}\par\emph{Diagnostic transfer benchmark} & Small topology, single faults and oracle timestamps. An LLM is the monitored workload, not the diagnostician. \\
 SLR0586 & \href{https://alessandrocornacchia.github.io/assets/pdf/apsys25-llm-failure-analysis-cornacchia.pdf}{Between Promise and Pain: The Reality of Automating Failure Analysis in Microservices with LLMs}\par\emph{Tool and agent comparison} & Very small diagnostic problem set and different reasoning models. Code-QA results are not incident diagnosis scores. \\
 SLR0593 & \href{https://arxiv.org/pdf/2305.15778}{Automatic Root Cause Analysis via Large Language Models for Cloud Incidents}\par\emph{Retrieval-assisted diagnostic workflow} & One private service and pre-existing handler expertise. Temporal independence of the split is not established. \\
@@ -358,11 +499,11 @@ GS3-03 & \href{https://arxiv.org/pdf/2512.16381}{A network arena for benchmarkin
 GS3-04 & \href{https://proceedings.mlsys.org/paper_files/paper/2025/file/d1f9e4a9f109b6e8b75ed362736f22ec-Paper-Conference.pdf}{Aiopslab: A holistic framework to evaluate ai agents for enabling autonomous clouds}\par\emph{Live agent benchmark} & FLASH is a simplified reimplementation. The stated 48-problem evaluation and table-implied denominators do not reconcile cleanly. \\
 GS3-09 & \href{https://arxiv.org/pdf/2606.29193}{A Multi-Dataset Benchmark for Evaluating LLM Agents in Microservice Failure Diagnosis}\par\emph{Diagnostic benchmark} & Demo scale, curated recoverable cases and subjective composite weights. Keyword/semantic matches can reward superficial evidence mentions. \\
 GS3-11 & \href{https://arxiv.org/pdf/2411.05349}{Enhancing cluster resilience: Llm-agent based autonomous intelligent cluster diagnosis system and evaluation framework}\par\emph{Cluster diagnosis agent and benchmark} & Some explicitly marked configurations expose the full dataset or benchmark-specific plans and cannot support held-out effectiveness. GPU-cluster setting is adjacent to the thesis cloud API. \\
-GS3-15 & \href{https://arxiv.org/pdf/2604.23455}{CUJBench: Benchmarking LLM Agents for Browser-to-Backend Failure Diagnosis}\par\emph{Browser-to-backend diagnostic benchmark} & Partial human label validation. Four timeout runs excluded. \\
+GS3-15 & \href{https://arxiv.org/pdf/2604.23455}{CUJBench: Benchmarking LLM Agents for Browser-to-Backend Failure Diagnosis}\par\emph{Browser-to-backend diagnostic benchmark} & Only 40 of 87 reference labels were checked by a human. Four timeout runs excluded, and denominators differ between tables. \\
 GS3-24 & \href{https://arxiv.org/pdf/2605.07161}{SREGym: A Live Benchmark for AI SRE Agents with High-Fidelity Failure Scenarios}\par\emph{Live diagnostic benchmark} & Synthetic Kubernetes settings and LLM-judge dependence. Commercial models and unequal token consumption complicate architecture comparisons. \\
 GS3-38 & \href{https://arxiv.org/pdf/2608.27021}{FaulT-Bench: Towards Benchmarking Network Troubleshooting LLM Agents under Unreliable User Tickets}\par\emph{Diagnostic reliability benchmark} & Mostly enterprise/campus network settings, limited direct cloud transfer. LLM judge and composite outcome weighting. \\
 GS3-39 & \href{https://arxiv.org/pdf/2607.22165}{DBA-Bench: A Production-Fidelity Benchmark for LLM-Based Database Operations Agents}\par\emph{Database operational benchmark} & Diagnosis excludes inapplicable and unresolved judge outputs, creating a different denominator from outcome scores. Mixed tuning/change tasks are not all diagnostic. \\
-GS3-48 & \href{https://proceedings.neurips.cc/paper_files/paper/2025/file/47a6e9e2c3019f13ad94a0f259fe4970-Paper-Conference.pdf}{Stratus: A multi-agent system for autonomous reliability engineering of modern clouds}\par\emph{Multi-agent reliability workflow} & RCA labels can be ambiguous. Some mitigation successes exploit nonpersistent injections. \\
+GS3-48 & \href{https://proceedings.neurips.cc/paper_files/paper/2025/file/47a6e9e2c3019f13ad94a0f259fe4970-Paper-Conference.pdf}{Stratus: A multi-agent system for autonomous reliability engineering of modern clouds}\par\emph{Multi-agent reliability workflow} & RCA labels can be ambiguous, and localisation is scored as Pass@3. With GPT-4o it fails all three no-fault detection problems. Some mitigation successes exploit nonpersistent injections. \\
 SUP-OpenRCA & \href{https://proceedings.iclr.cc/paper_files/paper/2025/file/d29b8d53678015079e1d245c023e49d2-Paper-Conference.pdf}{OpenRCA: Can Large Language Models Locate the Root Cause of Software Failures?}\par\emph{Diagnostic benchmark and controller--executor agent} & Known candidate reasons/components and a failure window are supplied. Oracle sampling uses privileged information. \\
 SUP-ITBench & \href{https://tingdai.github.io/files/itbench_ICML25.pdf}{ITBench: Evaluating AI Agents across Diverse Real-World IT Automation Tasks}\par\emph{Live operational benchmark} & Only 11 of 102 total-domain scenarios initially released. Table footnote and prose differ on how trace conditions are aggregated, so a modality effect should not be inferred from the headline score alone. \\
 SLR0584 & \href{https://www.vldb.org/pvldb/vol19/p4678-zhu.pdf}{SuperDRI: Graph-Guided Autonomous Troubleshooting for Cloud Databases}\par\emph{Graph-guided multi-agent incident troubleshooting (industrial demo)} & Process agreement and query execution are measured, but diagnostic correctness, a matched baseline and model identity are not established. \\

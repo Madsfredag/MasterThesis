@@ -1,0 +1,625 @@
+Record ID,Retrieval log (29-30 October 2026)
+SLR0552,"ACM Digital Library — Unpaywall: hybrid, licence cc-by.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+OpenAlex location (IEEE/ACM International Conference on Automated Software Engineering (ASE), publishedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429)
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name (OpenAlex not queried in this run)
+arXiv author+title-keyword search: no candidate with matching authors and title
+Web search (exact title) -> co-author publication page and ASE 2026 researchr page: Pages list the paper (Min Zhang, Chenxi Zhang, Senyu Xie et al., ASE 2026) but link only to DOI 10.1145/3832783.3837424; no author PDF or preprint found
+Unpaywall API: is_oa=True, oa_status=hybrid, 1 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0004,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0005,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429)
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name (OpenAlex not queried in this run)
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0012,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0013,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0028,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate version: arXiv acronym/author search 2409.00854v3: PDF 12 pp; alt title ""Scaler: Efficient and Effective Cross Flow Analysis""; title sim 0.2; author hits ['yang', 'wang', 'ming', 'he', 'cui', 'zhou']; accepted=True -> REJECTED on manual check 2026-10-29: different paper 
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0029,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0030,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0035,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate version: OpenAlex alt work W7115005190: HTTP 200 returned HTML landing page, not PDF; alt title ""Dataset for: TrainTicketTrace: A Multi-Fault Distributed Dataset for Microservice Fault De""
+alternate version: OpenAlex alt work W7115005190: HTTP 200 returned HTML landing page, not PDF; alt title ""Dataset for: TrainTicketTrace: A Multi-Fault Distributed Dataset for Microservice Fault De""
+alternate version: OpenAlex alt work W7115005190: HTTP 200 returned HTML landing page, not PDF; alt title ""Dataset for: TrainTicketTrace: A Multi-Fault Distributed Dataset for Microservice Fault De""
+alternate version: OpenAlex alt work W7115005190: HTTP 200 returned HTML landing page, not PDF; alt title ""Dataset for: TrainTicketTrace: A Multi-Fault Distributed Dataset for Microservice Fault De""
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0039,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0040,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0047,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+OpenAlex landing (Singapore Management University Institutional Knowledge (InK) (Singapore Management University)): HTTP 200 returned HTML landing page, not PDF
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0051,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate version: OpenAlex alt work W4415944773: HTTP 200 Springer landing page; PDF not openly linked (subscription); alt title ""Leveraging multi-agent framework for root cause analysis""
+alternate version: OpenAlex alt work W4415944773: HTTP 200 Springer landing page; PDF not openly linked (subscription); alt title ""Leveraging multi-agent framework for root cause analysis""
+alternate version: OpenAlex alt work W4415944773: HTTP 403 Cloudflare JavaScript bot challenge (browser required); alt title ""Leveraging multi-agent framework for root cause analysis""
+alternate version: OpenAlex alt work W4415944773: HTTP 200 Springer landing page; PDF not openly linked (subscription); alt title ""Leveraging multi-agent framework for root cause analysis""
+alternate version: OpenAlex alt work W4415944773: HTTP 200 Springer landing page; PDF not openly linked (subscription); alt title ""Leveraging multi-agent framework for root cause analysis""
+alternate version: OpenAlex alt work W4415944773: HTTP 403 Cloudflare JavaScript bot challenge (browser required); alt title ""Leveraging multi-agent framework for root cause analysis""
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429); Semantic Scholar HTTP 429
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0064,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429)
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name (OpenAlex not queried in this run)
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0066,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+alternate-version search: API availability: incomplete: OpenAlex skipped (daily API budget exhausted, HTTP 429)
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name (OpenAlex not queried in this run)
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0077,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0084,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0097,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0099,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0105,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0111,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0138,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0144,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0153,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0155,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0161,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+alternate-version search (OpenAlex/Semantic Scholar/arXiv acronym+author): no candidate with matching authors and title/method name [first run; OpenAlex/Semantic Scholar may have been rate-limited (HTTP 429) without detection; superseded by later run]
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0168,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0169,"IEEE Xplore — Unpaywall: green, licence cc-by.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+OpenAlex landing (None): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=green, 1 OA location(s)
+Unpaywall OA location (None, acceptedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0170,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0182,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0187,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0213,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0229,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0248,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0261,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0272,"ACM Digital Library — Unpaywall: closed.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0280,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0296,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0302,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0307,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0337,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0354,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0375,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0379,"IEEE Xplore — Unpaywall: green, licence cc-by-nc-nd, repository copy listed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+OpenAlex location (UPCommons institutional repository (Universitat Politècnica de Catalunya), submittedVersion): HTTP 418
+OpenAlex landing (UPCommons institutional repository (Universitat Politècnica de Catalunya)): HTTP 418
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=green, 1 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0384,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0390,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0393,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0408,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0491,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0528,"IEEE Xplore — Unpaywall: green, licence cc-by, repository copy listed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+OpenAlex landing (Explore Bristol Research): HTTP 200 returned HTML landing page, not PDF
+OpenAlex landing (Explore Bristol Research) -> linked PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+OpenAlex landing (Explore Bristol Research) -> linked PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+OpenAlex landing (Bristol Research (University of Bristol)): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=green, 2 OA location(s)
+Unpaywall OA location (repository, publishedVersion): HTTP 200 returned HTML landing page, not PDF
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0544,"IEEE Xplore — Unpaywall: closed.
+DOI landing: HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0557,"ACM Digital Library — Unpaywall: hybrid, licence cc-by, repository copy listed.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+OpenAlex landing (Fraunhofer-Publica (Fraunhofer-Gesellschaft)): HTTP 200 CAPTCHA/bot challenge page (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=hybrid, 2 OA location(s)
+Unpaywall OA location (publisher, publishedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0574,"ACM Digital Library — Unpaywall: hybrid, licence cc-by-nc-nd.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+OpenAlex location (IEEE/ACM International Conference on Automated Software Engineering (ASE), publishedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=hybrid, 1 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0580,"ACM Digital Library — Unpaywall: hybrid, licence cc-by.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=hybrid, 1 OA location(s)
+Unpaywall OA location (publisher, publishedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0590,"ACM Digital Library — Unpaywall: hybrid, licence cc-by.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=hybrid, 1 OA location(s)
+Unpaywall OA location (publisher, publishedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0592,"ACM Digital Library — Unpaywall: closed.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=False, oa_status=closed, 0 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0599,"ACM Digital Library — Unpaywall: hybrid, licence cc-by.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+OpenAlex location (IEEE/ACM International Conference on Automated Software Engineering (ASE), publishedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=hybrid, 1 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0604,"ACM Digital Library — Unpaywall: gold, licence cc-by.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=gold, 1 OA location(s)
+Unpaywall OA location (publisher, publishedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0615,"ACM Digital Library — Unpaywall: hybrid, licence cc-by-nc-nd.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: arXiv HTTP failure
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=hybrid, 1 OA location(s)
+Unpaywall OA location (publisher, publishedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0643,"ACM Digital Library — Unpaywall: bronze.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: arXiv HTTP failure
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=bronze, 1 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0650,"ACM Digital Library — Unpaywall: hybrid, licence cc-by.
+ACM publisher PDF: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+DOI landing: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+OpenAlex location (IEEE/ACM International Conference on Automated Software Engineering (ASE), publishedVersion): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: arXiv HTTP failure
+arXiv author+title-keyword search: no candidate with matching authors and title
+Unpaywall API: is_oa=True, oa_status=hybrid, 1 OA location(s)
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+SLR0667,"ACM Digital Library — OpenAlex: hybrid, licence cc-by.
+OpenAlex landing (ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE)): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: Exact title found: DOI 10.1145/3803437.3805578, FSE Companion 2026 (Panahandeh, Ezzati-Jivan, Hamou-Lhadj); full text on ACM DL (Cloudflare challenge)
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS1-02,"Repositories and other hosts — OpenAlex: closed.
+OpenAlex landing (None): HTTP 403 CAPTCHA/bot challenge page (browser required)
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): Search located author upload on ResearchGate (Jaykumar Ambadas Maheshkar; framework AURORA); ResearchGate blocks scripted access (HTTP 403 seen for other RG items) - browser download needed
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS1-16,"Repositories and other hosts — OpenAlex: hybrid, licence cc-by.
+Source URL: HTTP 200 CAPTCHA/bot challenge page (browser required)
+OpenAlex landing (International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS)): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+HAL file link: HTTP 200 Anubis proof-of-work ""not a bot"" challenge page, no PDF (browser required)
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS1-20,"SpringerLink — OpenAlex: closed.
+Source URL: HTTP 200 Springer landing page; PDF not openly linked (subscription)
+OpenAlex landing (IFIP advances in information and communication technology): HTTP 200 Springer landing page; PDF not openly linked (subscription)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS1-27,"No link in export (title search needed) — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): exact-title search returned no matching record (only unrelated LLM RCA papers)
+arXiv author+title-keyword search: no candidate with matching authors and title
+Web search (Bing), exact title: No exact-title match; only a different paper (Roy et al., arXiv 2403.04123, 'Exploring LLM-based Agents for Root Cause Analysis') returned - not the same report
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS1-30,"No link in export (title search needed) — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): search service returned HTTP 504 gateway timeouts repeatedly on 2026-10-29; not completed
+arXiv author+title-keyword search: no candidate with matching authors and title
+Web search (Bing), exact title: No exact-title match; only unrelated RCAgent/Cloud-OpsBench/other papers returned
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS1-34,"No link in export (title search needed) — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): search service returned HTTP 504 gateway timeouts repeatedly on 2026-10-29; not completed
+arXiv author+title-keyword search: no candidate with matching authors and title
+Web search (Bing), exact title: Search service failed (HTTP 504 Gateway Timeout, 3 attempts) - not a finding about the paper
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS1-38,"No link in export (title search needed) — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): search service returned HTTP 504 gateway timeouts repeatedly on 2026-10-29; not completed
+arXiv author+title-keyword search: no candidate with matching authors and title
+Web search (Bing), exact title: Search service failed (HTTP 504 Gateway Timeout) - not a finding about the paper
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS1-41,"No link in export (title search needed) — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): search service returned HTTP 504 gateway timeouts repeatedly on 2026-10-29; not completed
+arXiv author+title-keyword search: no candidate with matching authors and title
+Web search (Bing), exact title: Search service failed (HTTP 504 Gateway Timeout) - not a finding about the paper
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS1-49,"Repositories and other hosts — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Source URL: HTTP 200 returned HTML landing page, not PDF
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+TDCommons landing page metadata (bepress_citation_pdf_url): HTTP 403 Cloudflare JavaScript bot challenge on PDF link (browser required). Landing metadata: Defensive Publications Series, author Sandeep Kumar, online 2026-03-25
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS2-10,"IEEE Xplore — OpenAlex: closed.
+Source URL: HTTP 200 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+OpenAlex landing (International Conference on Dependable Systems & Networks/Proceedings): HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS2-16,"No link in export (title search needed) — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): search service returned HTTP 504 gateway timeouts repeatedly on 2026-10-29; not completed
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS2-25,"IEEE Xplore — OpenAlex: closed.
+Source URL: HTTP 200 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+OpenAlex landing (IEEE International Conference on Big Data (BigData)): HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS2-29,"ACM Digital Library — OpenAlex: hybrid, licence cc-by.
+Source URL: HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+OpenAlex landing (International World Wide Web Conference (WWW)): HTTP 403 Cloudflare JavaScript bot challenge (browser required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS2-35,"No link in export (title search needed) — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): search service returned HTTP 504 gateway timeouts repeatedly on 2026-10-29; not completed
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS2-44,"Repositories and other hosts — OpenAlex: closed.
+OpenAlex landing (None): HTTP 403 CAPTCHA/bot challenge page (browser required)
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): search service returned HTTP 504 gateway timeouts repeatedly on 2026-10-29; not completed
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS2-47,"Repositories and other hosts — OpenAlex: green, licence cc-by-nc-nd.
+Source URL: HTTP 418
+OpenAlex landing (UPCommons institutional repository (Universitat Politècnica de Catalunya)): HTTP 418
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS3-13,"Repositories and other hosts — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Source URL: HTTP 403 access denied
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS3-18,"IEEE Xplore — OpenAlex: closed.
+Source URL: HTTP 200 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+OpenAlex landing (International Conference on Emerging Research in Smart Electronics and Machine Informatics (ECMI)): HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS3-20,"SpringerLink — OpenAlex: closed.
+Source URL: HTTP 200 Springer landing page; PDF not openly linked (subscription)
+OpenAlex landing (Lecture notes in computer science): HTTP 200 Springer landing page; PDF not openly linked (subscription)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS3-22,"SpringerLink — OpenAlex: closed.
+Source URL: HTTP 200 Springer landing page; PDF not openly linked (subscription)
+OpenAlex landing (World Wide Web): HTTP 200 Springer landing page; PDF not openly linked (subscription)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS3-33,"No link in export (title search needed) — not in OpenAlex.
+OpenAlex metadata: no matching work found by DOI/exact title
+Semantic Scholar metadata: no match by DOI/exact title
+arXiv exact-title search: no exact-title match
+Crossref bibliographic title search: no work with title similarity >= 0.8
+Web search (Bing): search service returned HTTP 504 gateway timeouts repeatedly on 2026-10-29; not completed
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."
+GS3-35,"IEEE Xplore — OpenAlex: closed.
+Source URL: HTTP 200 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+OpenAlex landing (International Conference on Intelligent Computing, Information and Control Systems (ICOIICS)): HTTP 202 IEEE Xplore returned HTML/JS app page, not PDF (subscription/browser session required)
+arXiv exact-title search: no exact-title match
+arXiv author+title-keyword search: no candidate with matching authors and title
+2026-10-30: exact-title web search for publisher, author and repository copies. No assessable matching full text obtained in this renewed search."

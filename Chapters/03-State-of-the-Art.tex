@@ -292,21 +292,23 @@ interpretation against the underlying event.
 
 \subsection{Diagnostic Workflows and Their Evaluation}
 
-Operational LLM systems differ in how they obtain information. RCACopilot
-uses incident handlers to gather diagnostic information and retrieve
-historical examples before predicting a root-cause category. Its evaluation
-uses 653 incidents from one Microsoft service, split into training and test
-sets. The reported GPT-4 result is a micro-F1 of 0.766 and a macro-F1 of
-0.533. The distinction matters because the categories are imbalanced. Its
-ablation also finds that adding more incident-related information does not
+Operational LLM systems differ in how they obtain information. RCACopilot,
+introduced in Section~\ref{sec:state-of-the-art:ml-llm}, gathers evidence
+through fixed incident handlers. Its micro-F1 of 0.766 sits beside a
+macro-F1 of 0.533. Micro-F1 pools decisions across categories, so frequent
+categories dominate it. Macro-F1 averages the categories equally. The gap
+suggests that rarer incident categories are diagnosed less well. The paper
+reports three repeated rounds only as bounds on these scores. Its ablation
+also finds that adding more incident-related information does not
 necessarily improve the prediction
-\parencite[Sections~5.1--5.4]{chen2024rcacopilot}.
+\parencite[Sections~5.1--5.6]{chen2024rcacopilot}.
 
-RCAgent instead gives a controller access to tools and specialised LLM
-experts. Its evaluation uses 161 selected Apache Flink jobs showing abnormal
+RCAgent's controller instead chooses tools as the investigation develops.
+Its evaluation uses 161 selected Apache Flink jobs showing abnormal
 behaviour. A Flink job is a data-processing task running on a distributed
-processing platform. Engineers reviewed the diagnostic annotations. It assesses generated causes, solutions
-and evidence, as well as tool-use behaviour. An ablation using more general
+processing platform. Engineers reviewed the diagnostic annotations. The
+evaluation assesses generated causes, solutions and evidence, as well as
+tool-use behaviour. An ablation using more general
 query tools produces substantially more invalid actions. This supports
 careful tool design, but does not isolate agent count as the sole reason
 for improvement. The system changes tool interfaces, output validation,
@@ -358,27 +360,38 @@ as a substitute for checking the fault and its supporting evidence.
 
 \subsection{Patterns in Diagnostic Workflows}
 
-The reviewed approaches differ along several design dimensions that can
-be combined. Table~\ref{tab:state:patterns} groups these dimensions by the
+The reviewed approaches differ in how the LLM is organised and in the
+design choices that support it. Of the 76 retained reports, 25 place an LLM
+step inside a fixed workflow and 17 present a multi-agent system. Eight
+use a single agent that selects tools, four prompt an LLM directly and four
+fine-tune a model. The remaining 18 are benchmarks or evaluation
+frameworks. A fixed workflow, rather than an autonomous agent, is
+therefore the most common design.
+
+Table~\ref{tab:state:patterns} groups the supporting design choices by the
 role they play in an investigation. The categories overlap. For example,
 a collaborating system can use both historical retrieval and evidence
-verification. The distinction therefore guides controlled comparisons
-without treating every named framework as an entirely different method.
+verification. The counts therefore sum to more than 76. The grouping
+guides controlled comparisons without treating every named framework as
+an entirely different method.
 
 \begin{table}[htbp]
 \centering\small
 \caption{Recurring diagnostic design choices and the comparison each requires.
-Study IDs refer to the catalogue in Appendix A.}
+Counts are retained reports using the choice. Study IDs refer to the
+catalogue in Appendix~\ref{app:systematic-literature-review}.}
 \label{tab:state:patterns}
-\begin{tabularx}{\textwidth}{@{}p{0.24\textwidth}XX@{}}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.2\textwidth}r>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
-Design choice & Examples & Evaluation implication \\
+Design choice & $n$ & Examples & Evaluation implication \\
 \midrule
-Historical retrieval & RCACopilot (SLR0593), LogTwin (SLR0009) & Separate benefits of prior cases from the reasoning workflow. \\
-Graph-guided investigation & GALA (SLR0600), CausalRCA (SLR0048) & Vary topology quality and compare with the same evidence access. \\
-Hypothesis verification & VeriTrail-RCA (SLR0057), VerifyRCA (SLR0167), VerifyOps (SLR0183) & Measure unsupported claims and incorrect rejections as well as final accuracy. \\
-Workflow and role separation & Flow-of-Action (SLR0612), mABC (GS1-44) & Match tools and budgets when testing coordination. \\
-Evidence representation & Representation-aware RCA (SLR0563), LogTwin (SLR0009) & Compare diagnostic information retained per unit of input. \\
+Evidence representation & 45 & Representation-aware RCA (SLR0563), LogTwin (SLR0009) & Compare diagnostic information retained per unit of input. \\
+Tool-using investigation & 38 & RCAgent (SLR0619), KRCA (SLR0595) & Count invalid and repeated tool calls as well as final accuracy. \\
+Workflow and role separation & 30 & Flow-of-Action (SLR0612), mABC (GS1-44) & Match tools and budgets when testing coordination. \\
+Historical retrieval & 27 & RCACopilot (SLR0593), LogTwin (SLR0009) & Separate benefits of prior cases from the reasoning workflow. \\
+Graph-guided investigation & 23 & GALA (SLR0600), CausalRCA (SLR0048) & Vary topology quality and compare with the same evidence access. \\
+Hypothesis verification & 19 & VeriTrail-RCA (SLR0057), VerifyRCA (SLR0167), VerifyOps (SLR0183) & Measure unsupported claims and incorrect rejections as well as final accuracy. \\
+Fine-tuning or reinforcement learning & 9 & DBAgent (SLR0696), Ahmed et~al.\ (SLR0359) & Give baselines the same training data or report the difference. \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -449,6 +462,45 @@ Consequently, it is not independent confirmation of their original scores
 or a controlled demonstration of superiority
 \parencite[Sections~6.3--6.4]{rasouli2026agentmirupd}.
 
+Across the review, 19 of the 76 reports compare a multi-agent design
+with a single agent or a single LLM. In 14 of them, the authors propose
+the multi-agent system, and all 14 report an advantage for it. These
+comparisons are rarely controlled. Five state that both variants use the
+same model, three that they share tools, and none matches the inference
+budget. No comparison controls all three.
+
+In the remaining comparisons, neither design is the authors' own
+proposal. Four compare a single agent directly with a multi-agent system.
+They use different measures, so only the direction of each result is
+comparable. In SREGym, Claude Code diagnoses 72.6\,\% of failures and
+the multi-agent Stratus 61.5\,\%, both with Claude Sonnet-4.6 and without
+added noise. Claude Code uses 1.47 million tokens against 812 thousand,
+and the two agents preprocess telemetry differently
+\parencite[Table~3]{clark2026sregym}. On four AIOpsLab problems, a single
+GPT-4o ReAct agent outperforms a three-agent GPT-4o system with the same
+native tools. Top-one accuracy on the performance problems is 50.0\,\%
+against 20.0\,\% \parencite[Table~4]{cornacchia2025promise}. In DBA-Bench,
+a ReAct agent completes 30.8\,\% of PostgreSQL tasks against 14.0\,\% for
+the multi-expert D-Bot, whose mean estimated token cost is 9.6 times
+higher. This outcome measure includes resolving the problem, not only diagnosing it
+\parencite[Section~6.5]{chen2026dbabench}. The exception is STAR. Under
+the same GPT-5 settings, the multi-agent mABC workflow outperforms RCAgent,
+which the authors treat as a lighter workflow without multi-agent
+coordination or voting. Top-one accuracy is 37.2\,\% against
+23.8\,\% \parencite[Table~II]{wang2026star}. A trajectory study of ten
+framework and model configurations attributes the differences to whether
+an agent adaptively re-queries telemetry as evidence emerges. The
+multi-agent mABC, which does not iterate over evidence, ranks lowest.
+Changing the backbone model of one leading framework moved accuracy five
+times as much as the spread between the leading frameworks \parencite[Section~5.1]{lu2026trajectory}.
+
+The evidence therefore does not show that multiple agents improve
+diagnosis. The favourable results come from comparisons in which the
+multi-agent system also differs in model, tools, knowledge or budget. The
+more neutral comparisons are few and small, and three of four favour a
+single agent. Agent organisation is a hypothesis to test under matched
+conditions, not an established advantage.
+
 Together, these examples suggest separating three experimental changes:
 the information supplied to an agent, the organisation of its reasoning
 and the resources available to it. Adding agents while also changing the
@@ -515,6 +567,19 @@ implementation and effectiveness remain matters for the thesis experiments.
 \section{Evidence for Evaluating Diagnostic Agents}
 \label{sec:state-of-the-art:evaluation}
 
+The appraisal of the 67 retained reports assessed in full text shows how
+rarely the evidence meets these needs
+(Section~\ref{sec:slr:appraisal-results}). Only ten include healthy
+cases in which no fault should be reported. Twenty report repeated runs,
+and 17 report how much the results vary. Seven match the inference budget
+of the compared systems. Fourteen check whether the cited evidence
+supports the diagnosis. Eighteen evaluate only proprietary incidents and
+13 combine proprietary and public data. Eleven use an LLM judge or text
+similarity as the primary measure. Six report no measure of correctness
+against a ground truth, and five of these are among the eleven. The
+following subsections derive
+evaluation requirements from the studies that address these gaps.
+
 \subsection{Define the Diagnosis Before Scoring It}
 
 A diagnostic answer can identify a component, a fault type, an incident
@@ -557,6 +622,18 @@ false-positive rates range from 0\% to 100\%
 \parencite[Tables~4--5]{souza2026cloudmicroservices}.
 The small denominators also show why a percentage without its case count
 and uncertainty can be misleading.
+
+FaulT-Bench shows that healthy cases can reverse the ranking of agents.
+Its 72 false-premise network scenarios contain a ticket reporting a fault
+that does not exist. Across three passes, the mean outcome score falls
+from 0.932 for genuine faults to 0.820 for these healthy cases. The agent
+with the richest diagnostic skills reports a non-existent fault in 24\,\%
+of its answered healthy runs, against 11\,\% for the simplest baseline.
+The traces show that the agents disproved the reported symptom and then
+presented a benign condition as the cause
+\parencite[Section~5.2, Tables~4 and~6]{tseng2026faultbench}. Its outcome
+score is graded by an LLM judge that was not validated against human
+ratings, so the over-diagnosis counts are the firmer evidence.
 
 The PoC should therefore contain healthy requests as well as injected
 failures. It should distinguish a false diagnosis from an explicit statement
@@ -665,11 +742,26 @@ RQ4 & Contextual remediation studies and related SLR findings & Separate approva
 \end{tabularx}
 \end{table}
 
-The comparisons do not establish a generally superior agent count. The
-mABC ablation supports collaboration within its tested workflow, while
-other comparisons also change models, tools or training. A controlled
+The comparisons do not establish a generally superior agent count. All 14
+multi-agent proposals that compare themselves with a single agent report
+an advantage, but none controls model, tools and inference budget
+together. Three of the four comparisons by third parties favour a single
+agent (Section~\ref{sec:state-of-the-art:agents}). The mABC ablation
+supports collaboration within its tested workflow. A controlled
 comparison of a single investigator and a collaborating design is
 therefore needed to assess the value of collaboration in the Norlys path.
+
+Network studies come closest to the cross-layer question. NIKA
+benchmarks agents on emulated network faults and reports that the best
+agent localises 68.7\,\% of faults but identifies the root cause in only
+55.3\,\% \parencite[Table~2]{wang2025nika}. BiAn localises the faulty
+device in 95.5\,\% of 357 production network incidents at Alibaba Cloud,
+against 86.3\,\% for a heuristic baseline
+\parencite[Section~6.1]{wang2025bian}. FaulT-Bench adds healthy networks
+and misleading tickets \parencite{tseng2026faultbench}. These studies
+diagnose the network layer on its own. None follows a request from an
+edge proxy and a firewall into the application, which is the path this
+thesis examines.
 
 The contribution is a controlled investigation within the selected
 operational path. Combining Cloudflare and Azure alone does not establish
@@ -682,4 +774,7 @@ The thesis can test these questions by making the path, injected faults,
 observations and permitted actions explicit. Its claims should remain
 bounded by the evaluated scenarios. The retrieval limits documented in Appendix~\ref{app:systematic-literature-review}
 mean that this is a bounded empirical focus, rather than a claim that no
-other study addresses these questions.
+other study addresses these questions. Several unretrieved reports
+describe evidence-verified or grounded diagnostic agents. They could
+weaken the gap claim for evidence verification if they evaluate it under
+controlled conditions.

@@ -11,8 +11,9 @@ contains the review method, reconciled selection counts and a catalogue of
 all 76 retained reports. See [Review/README.md](Review/README.md) for the records.
 
 Retrieval was renewed on 30 October 2026: 197 reports sought, 84 not retrieved,
-113 assessed (76 retained, 34 excluded, three companion reports). These are
-assisted assessments; the author's verification fields remain separate.
+113 assessed (76 retained, 34 excluded, three companion reports). The
+author's decision and reason fields record the author's check of every
+full-text decision and a title/abstract sample.
 The review does not claim exhaustive coverage or a universally best agent.
 
 See [the decisions from 21 October 2026](SUPERVISOR-MEETING-2026-10-21.md).
