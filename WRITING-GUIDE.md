@@ -92,6 +92,12 @@ Do not turn unresolved choices into facts or promise an unagreed method.
 General scientific qualifications and open research questions are not
 unfinished text and do not need these markers.
 
+Use a box only when text at that location needs a decision, confirmation
+or result to be completed. If the task belongs in a later chapter, track
+it in this guide instead. Keep the literature finding and its implications
+in Chapter 3 without an inline project-planning note. The open tasks moved
+from Chapter 3 are listed under "Follow-up work from State of the Art" below.
+
 Search all project files for \thesisTODO{ to find the outstanding notes.
 After the relevant decision or result is available, write or revise the
 text and remove that note. Resolve every note before submission rather
@@ -240,6 +246,24 @@ The four RQs cover telemetry correlation, security-relevant data/features,
 diagnostic effectiveness and remediation. Do not refer to RQ numbers before
 introducing the questions.
 
+### Follow-up work from State of the Art
+
+These tasks concern the PoC and its evaluation. They are open decisions,
+not missing literature-review text or evidence of completed work. Their
+motivation remains in Chapter 3. Complete the details in the chapters
+listed below and refer back to the relevant literature synthesis.
+
+| Origin in Chapter 3 | What the later chapters need to explain | Destination |
+| --- | --- | --- |
+| 3.3 Security Telemetry and Feature Selection | Confirm which fields are available along the selected path: time, source and destination, request target, status, policy action and rule identifier. Explain which fields the diagnostic tasks require and whether event counts or other aggregates should be exposed as agent-tool outputs. Justify the choice using availability and diagnostic relevance. | Chapter 4, Problem Analysis and Requirements, and Chapter 6, System Design. Record the implemented fields and any gaps in Chapter 7, Implementation. |
+| 3.4.3 Evidence for Agent Collaboration | Specify the single-investigator baseline and collaborating variant to be compared. Define the shared model, evidence interface, scenarios and resource limits so that the comparison can distinguish agent organisation from changes in available information or budget. These variants remain candidates until the evaluation design is agreed. | Chapter 5, Research Methodology and Evaluation Design. Describe the chosen agent roles and interfaces in Chapter 6, System Design. |
+| 3.6.1 Define the Diagnosis Before Scoring It | Explain how fault labels and other answer-revealing test metadata are kept separate from agent-visible telemetry. Check this separation in the implemented fault scenarios. | Chapter 5, Research Methodology and Evaluation Design, and Chapter 7, Implementation. |
+
+Remove an item from this list only when the corresponding account has been
+written and checked, or an explicit scope decision makes it unnecessary.
+Keep the exact four thesis research questions and the single SLR review
+question unchanged when completing these tasks.
+
 ## Project decisions and limits
 
 Use the agreed problem statement and research questions unless Mads
@@ -283,7 +307,9 @@ Example of a bold paragraph lead-in:
 - Introduce a paper before referring to its authors' findings. Define metrics before scores.
 - Security scope concerns misconfigured controls blocking legitimate requests.
   Attack detection is outside the PoC evaluation scope.
-- Use the existing yellow thesisTODO boxes for project choices awaiting agreement.
+- Use the existing yellow thesisTODO boxes for project choices awaiting agreement
+  when they prevent completion of the text at that location. Track tasks for
+  later chapters in this guide.
   Keep genuine research limitations in ordinary academic prose.
 - Appendix B explains technical terms and evaluation measures.
 - After all chapters are written, review titles, repeated content and the narrative

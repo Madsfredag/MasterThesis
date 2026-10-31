@@ -279,11 +279,7 @@ performance or the correctness of automated mitigation
 
 Together, these findings suggest two separate checks for a proposed
 security feature: can it be computed reliably from the available telemetry,
-and does it help distinguish the controlled scenarios? \thesisTODO{Confirm the security fields available for the selected request
-path: time, source and destination, request target, status, policy action
-and rule identifier. Decide whether event counts or other aggregates are
-needed as agent-tool outputs, and document that choice in Requirements
-and System Design.} Retaining the source
+and does it help distinguish the controlled scenarios? Retaining the source
 records allows an investigator to check an aggregate or model-generated
 interpretation against the underlying event.
 
@@ -508,9 +504,7 @@ model, tools and budget prevents a clear explanation of any improvement.
 A single investigator and a collaborating variant can instead share a
 model, evidence interface and scenario set. Their respective strengths can
 then be assessed under both a common resource limit and their observed
-operating cost. \thesisTODO{Specify the single-investigator baseline, collaborating
-variant, shared model and evidence interface, and resource limits in the
-evaluation design.}
+operating cost.
 
 \section{Automated Remediation and Human Oversight}
 \label{sec:state-of-the-art:remediation}
@@ -606,9 +600,6 @@ configuration, expected symptoms and recovery checks can be recorded
 before the agent runs. Scenario labels that reveal the answer should be
 kept out of agent-visible evidence. Otherwise, an agent could reproduce
 the injected scenario name without interpreting the observations.
-\thesisTODO{Document how fault labels and other answer-revealing test
-metadata are separated from agent-visible telemetry in the evaluation
-design. Check this separation in the implemented fault scenarios.}
 
 \subsection{Test False Diagnoses and Incomplete Evidence}
 
