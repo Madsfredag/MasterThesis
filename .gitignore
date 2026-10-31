@@ -1,0 +1,11 @@
+*.aux
+*.bbl
+*.blg
+*.log
+*.toc
+*.fls
+*.fdb_latexmk
+*.run.xml
+*.synctex.gz
+*-blx.bib
+ClassicThesis.pdf
