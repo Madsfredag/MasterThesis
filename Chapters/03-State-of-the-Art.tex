@@ -15,7 +15,6 @@ reports from IEEE Xplore, ACM Digital Library, Google Scholar and two
 separately recorded citation additions. Appendix~\ref{app:systematic-literature-review}
 explains the search, selection and appraisal. The synthesis prioritises the
 strength of diagnostic evidence and the evaluation choices it supports.
-Published scores are compared only where their tasks and measures align.
 
 The systematic review chiefly supports diagnostic evaluation in RQ3 and
 the evidence requirements relevant to RQ1. RQ2 and RQ4 also draw on
@@ -23,7 +22,6 @@ contextual security and remediation literature, which was not searched
 systematically for those questions. Conventional ML and tracing papers
 provide additional context. A paper excluded from the LLM-focused review
 can therefore still support a clearly identified contextual comparison.
-Appendix~\ref{app:systematic-literature-review} records the formal selection.
 Technical terms and evaluation measures are explained in
 Appendix~\ref{app:glossary}.
 
@@ -98,13 +96,12 @@ returned by those tools.
 
 Chen et al. present RCACopilot, which gathers diagnostic information using
 incident handlers and retrieves historical incidents before generating a
-cause category and explanation. On 653 Microsoft incidents with a 75/25
-training--test split, its GPT-4 workflow reports a micro-F1 of 0.766.
-Micro-F1 combines precision and recall after pooling classification
-decisions across categories. Larger values indicate better classification,
-but the score does not measure whether an explanation is supported by
-telemetry. FastText and XGBoost score 0.076 and 0.022, respectively, while
-a simpler GPT-4 prompting variant scores 0.026
+cause category and explanation. Its evaluation uses micro-F1, which combines
+precision and recall after pooling classification decisions across
+categories. Larger values indicate better classification. On 653 Microsoft
+incidents with a 75/25 training--test split, its GPT-4 workflow reports a
+micro-F1 of 0.766. FastText and XGBoost score 0.076 and 0.022, respectively,
+while a simpler GPT-4 prompting variant scores 0.026
 \parencite[Sections~5.1--5.3, Table~2]{chen2024rcacopilot}.
 
 The poor result of the simpler GPT-4 variant is as relevant as the result
@@ -118,12 +115,8 @@ language-model interpretation
 
 Flexible investigation also introduces additional failure modes. RCAgent
 handles malformed responses, invalid actions and repeated tool calls
-\parencite[Sections~2--3]{wang2024rcagent}. A fluent explanation or agreement
-between agents is therefore insufficient evidence of correctness. The
-diagnosis must be checked against the actual fault, and its supporting
-claims must be checked against the retrieved observations. Repeated runs
-and the cost of obtaining that evidence also matter when evaluating the
-complete workflow.
+\parencite[Sections~2--3]{wang2024rcagent}. These operational failures make
+tool-use reliability part of the assessment of an LLM-based workflow.
 
 \subsection{Choice of Approach for the Thesis}
 
@@ -142,10 +135,10 @@ Table~\ref{tab:sota:ml-llm} relates the examined methods to these needs.
 \toprule
 Requirement & Conventional ML methods & LLM-based workflows \\
 \midrule
-Localise a fault & Sage, CIRCA and Eadro produce ranked causes or indicators within defined system models. & Agents can interpret retrieved observations and propose a component or cause. Their correctness requires separate verification. \\
+Localise a fault & Sage, CIRCA and Eadro produce ranked causes or indicators within defined system models. & Agents interpret retrieved observations and propose a component or cause. \\
 Use available data & Requirements differ between labelled examples, pre-failure measurements and structural knowledge. & Pretraining supports language interpretation. Tools, system context and, in some methods, historical incidents remain necessary. \\
 Gather further evidence & Additional retrieval follows the implemented diagnostic procedure. & A tool-using controller can choose further queries from earlier results. Invalid or unnecessary queries add risk and cost. \\
-Support an operator's decision & Rankings and model outputs require an operational interpretation. & Written explanations can connect observations to a proposed cause. Readability does not establish factual support. \\
+Support an operator's decision & Rankings and model outputs require an operational interpretation. & Written explanations can connect observations to a proposed cause. \\
 Evaluate performance & Test representative and unfamiliar faults, data requirements and localisation quality. & Also test unsupported claims, tool use, variation between runs and inference cost. \\
 \bottomrule
 \end{tabularx}
@@ -163,10 +156,8 @@ where they provide useful evidence.
 The subsequent systematic review therefore examines how LLM-based agents
 use operational telemetry and how their diagnoses are evaluated. Its role
 is to establish criteria for selecting and testing an agent design.
-Whether collaboration improves diagnosis over a single investigator
-remains an empirical question. The comparison must distinguish the effect
-of agent organisation from changes in the model, information and computing
-budget.
+The following sections examine telemetry use, diagnostic workflows and
+the evidence supporting their evaluation.
 
 \section{Telemetry Correlation and Root-Cause Analysis}
 \label{sec:state-of-the-art:correlation}
@@ -201,20 +192,20 @@ observations disappear entirely
 \parencite[Sections~5--6]{gan2021sage}.
 
 CIRCA ranks root-cause metrics using a structural graph and regression-based
-hypothesis testing. In its evaluation on 99 Oracle database incidents,
-the first recommendation recovers, on average, 40.4\% of the labelled
-root-cause metrics. Considering the first five recommendations increases
-this average to 76.3\%. CIRCA calls this measure AC@$k$. For each incident,
-it divides the number of correct metrics in the first $k$ positions by the
-number of labelled root-cause metrics, then averages over incidents. These values are not
-an accuracy estimate for identifying an Azure resource or a firewall rule.
+hypothesis testing. Its AC@$k$ measure divides the number of correct metrics
+in the first $k$ positions by the number of labelled root-cause metrics,
+then averages over incidents. In its evaluation on 99 Oracle database
+incidents, the first recommendation recovers, on average, 40.4\% of the
+labelled root-cause metrics. Considering the first five recommendations
+increases this average to 76.3\%. These values describe metric recovery,
+not accuracy in identifying an Azure resource or a firewall rule.
 Constructing CIRCA's structural graph also requires knowledge of the system
 architecture and the meaning of its metrics
 \parencite[Sections~5.1--5.4, Table~3]{li2022circa}.
 
-An independent empirical comparison provides a useful qualification.
-Pham, Ha and Zhang evaluate causal discovery and root-cause methods on
-synthetic data and microservice testbeds. They find difficulties in
+An independent empirical comparison by Pham, Ha and Zhang evaluates
+causal discovery and root-cause methods on synthetic data and microservice
+testbeds. The study finds difficulties in
 recovering edge directions, increasing computational cost with larger
 systems and sensitivity to the assumed failure time. In their implementation,
 CIRCA's original structural graph is replaced by a graph learned using the
@@ -224,10 +215,9 @@ being evaluated \parencite[Sections~3--5]{pham2024howfar}.
 
 For RQ1, these studies motivate an explicit record of the relationships
 that can actually be observed. For RQ3, they motivate testing diagnosis with
-missing records, uncertain incident times and competing symptoms. They do
-not establish that a learned causal graph is necessary for the PoC. A
-simpler evidence-based baseline is needed before attributing an improvement
-to a more complex method.
+missing records, uncertain incident times and competing symptoms.
+The choice of correlation and diagnostic methods depends
+on the telemetry and dependency information available along the request path.
 
 \section{Security Telemetry and Feature Selection}
 \label{sec:state-of-the-art:security}
@@ -277,11 +267,10 @@ correct. Its replay-based evaluation also does not establish production
 performance or the correctness of automated mitigation
 \parencite[Sections~3--4, Table~2]{chen2026holmes}.
 
-Together, these findings suggest two separate checks for a proposed
-security feature: can it be computed reliably from the available telemetry,
-and does it help distinguish the controlled scenarios? Retaining the source
-records allows an investigator to check an aggregate or model-generated
-interpretation against the underlying event.
+These findings motivate checking both the reliable calculation of a
+security feature and its relevance to the controlled scenarios. Retaining
+the source records allows an investigator to check an aggregate or
+model-generated interpretation against the underlying event.
 
 \section{LLM Agents for Operational Diagnosis}
 \label{sec:state-of-the-art:agents}
@@ -290,11 +279,11 @@ interpretation against the underlying event.
 
 Operational LLM systems differ in how they obtain information. RCACopilot,
 introduced in Section~\ref{sec:state-of-the-art:ml-llm}, gathers evidence
-through fixed incident handlers. Its micro-F1 of 0.766 sits beside a
-macro-F1 of 0.533. Micro-F1 pools decisions across categories, so frequent
-categories dominate it. Macro-F1 averages the categories equally. The gap
-suggests that rarer incident categories are diagnosed less well. The paper
-reports three repeated rounds only as bounds on these scores. Its ablation
+through fixed incident handlers. Alongside micro-F1, the study reports
+macro-F1, which averages the F1 scores of the categories equally. Its
+macro-F1 of 0.533 is lower than its micro-F1 of 0.766, suggesting weaker
+performance on rarer incident categories. The paper reports three repeated
+rounds only as bounds on these scores. Its ablation
 also finds that adding more incident-related information does not
 necessarily improve the prediction
 \parencite[Sections~5.1--5.6]{chen2024rcacopilot}.
@@ -315,9 +304,8 @@ The two evaluations also measure different outcomes. RCACopilot's category
 F1 cannot be ranked directly against RCAgent's text-similarity measures or
 LLM-assigned scores. A plausible explanation may resemble a reference
 answer while pointing to the wrong component. Conversely, a correct answer
-may use different wording. For the PoC, correctness should be assessed
-against the injected fault and separately from the relevance and accuracy
-of the cited evidence.
+may use different wording. Classification, explanation quality and evidence
+support therefore need distinct measures.
 
 The TimeRAG preprint illustrates another measurement distinction. It
 combines time-series representations with retrieval and an LLM. Its
@@ -341,18 +329,14 @@ across 90 scenarios, with three runs per agent--model configuration. Added
 background disturbances reduce diagnosis success for every evaluated
 configuration. It uses a structured diagnosis rubric and reports checks
 against a human evaluator. Its results support testing competing symptoms
-and repeated runs. They do not establish a universal ranking of agent
-architectures, since the agents also differ in models, tools and budgets
+and repeated runs. Comparisons between configurations also involve
+differences in models, tools and budgets
 \parencite[Sections~2.5--3]{clark2026sregym}.
 
-These studies motivate a comparison in which candidate agent approaches
-receive the same accessible evidence, incident description and
-time or tool budget. The particular baseline remains an evaluation-design
-decision. Useful measurements include correct faulty component, correct
-failure explanation, unsupported claims, invalid tool calls, elapsed time
-and variation across repeated attempts. Agent agreement should not be used
-as a substitute for checking the fault and its supporting evidence.
-
+Across these studies, evaluation covers three distinct outcomes: the final
+diagnosis, the evidence supporting it and the behaviour of the investigation.
+Section~\ref{sec:state-of-the-art:evaluation} develops these distinctions
+into criteria for the PoC.
 
 \subsection{Patterns in Diagnostic Workflows}
 
@@ -416,15 +400,14 @@ carefully or both. These changes need separate comparisons.
 \subsection{Evidence for Agent Collaboration}
 
 mABC combines specialised roles, a workflow and weighted voting. Its
-TrainTicket ablation reports a root-cause score of 54.4 for the complete
-GPT-4-Turbo system and 38.4 without multi-agent collaboration. This is
-useful evidence for investigating collaboration. However, the score is
-$\mathrm{RA}=(A_c-0.1A_i)/A_t$, where $A_c$ and $A_i$ are correct and
-incorrect proposed causes and $A_t$ is the total reference causes. It is
-not ordinary incident-level accuracy. The ablation also does not match
-inference cost between the variants. The result therefore supports a
-specific design hypothesis, not the conclusion that multiple agents are
-always preferable \parencite[Section~3.2, Table~7]{zhang2024mabc}.
+root-cause measure is $\mathrm{RA}=(A_c-0.1A_i)/A_t$, where $A_c$ and $A_i$
+are correct and incorrect proposed causes and $A_t$ is the total reference
+causes. This penalises incorrect proposals and differs from ordinary
+incident-level accuracy. The TrainTicket ablation reports a root-cause
+score of 54.4 for the complete GPT-4-Turbo system and 38.4 without
+multi-agent collaboration. This result supports collaboration within the
+tested workflow, although the ablation does not match inference cost
+between the variants \parencite[Section~3.2, Table~7]{zhang2024mabc}.
 
 SuperDRI shows how a graph built from past incidents can guide investigation
 of cloud databases. A coordination agent, action planner and Kusto agent
@@ -435,9 +418,6 @@ These measure tool execution and process agreement, respectively. Neither
 establishes whether the final root cause is correct. The paper does not
 define a diagnostic ground-truth scoring procedure or a matched baseline
 \parencite[Section~2.2, Figure~2, Table~1]{zhu2026superdri}.
-For the PoC, successful Log Analytics queries are therefore an intermediate
-capability. A separate check must establish whether the evidence supports
-the diagnosis.
 
 DBAgent combines telemetry analysis, retrieval and a trained reasoning
 policy. Its preprocessing includes statistical anomaly detection and
@@ -449,10 +429,11 @@ DBAgent receives supervised and reinforcement learning, whereas its main
 comparison agents use prompting. The difference cannot be attributed
 solely to agent organisation \parencite[Sections~4--6]{chen2026dbagent}.
 
-Agent-MIRUPD, a preprint describing a staged single-agent design, links diagnosis stages and tests the consequences
-of incorrect information passed between them. This is relevant to a
-multi-agent pipeline: an early mistake can become a later agent's assumed
-fact. Its comparison with published RE1 and RE2 results is explicitly
+Agent-MIRUPD, a preprint describing a staged single-agent design, links
+diagnosis stages and tests the consequences of incorrect information
+passed between them. This is relevant to a multi-agent pipeline: an early
+mistake can become a later agent's assumed fact. Its comparison with
+published RE1 and RE2 results is explicitly
 literature-based. Those baselines were not rerun in the same environment.
 Consequently, it is not independent confirmation of their original scores
 or a controlled demonstration of superiority
@@ -472,39 +453,38 @@ comparable. In SREGym, Claude Code diagnoses 72.6\,\% of failures and
 the multi-agent Stratus 61.5\,\%, both with Claude Sonnet-4.6 and without
 added noise. Claude Code uses 1.47 million tokens against 812 thousand,
 and the two agents preprocess telemetry differently
-\parencite[Table~3]{clark2026sregym}. On four AIOpsLab problems, a single
-GPT-4o ReAct agent outperforms a three-agent GPT-4o system with the same
-native tools. Top-one accuracy on the performance problems is 50.0\,\%
-against 20.0\,\% \parencite[Table~4]{cornacchia2025promise}. In DBA-Bench,
-a ReAct agent completes 30.8\,\% of PostgreSQL tasks against 14.0\,\% for
-the multi-expert D-Bot, whose mean estimated token cost is 9.6 times
-higher. This outcome measure includes resolving the problem, not only diagnosing it
-\parencite[Section~6.5]{chen2026dbabench}. The exception is STAR. Under
-the same GPT-5 settings, the multi-agent mABC workflow outperforms RCAgent,
-which the authors treat as a lighter workflow without multi-agent
+\parencite[Table~3]{clark2026sregym}.
+
+The study \emph{Between Promise and Pain} compares a single GPT-4o ReAct
+agent with a three-agent GPT-4o system on four AIOpsLab problems, using the
+same native tools. Top-one accuracy on the performance problems is
+50.0\,\% for the single agent against 20.0\,\% for the collaborating system
+\parencite[Table~4]{cornacchia2025promise}. In DBA-Bench, a ReAct agent
+completes 30.8\,\% of PostgreSQL tasks against 14.0\,\% for the multi-expert
+D-Bot, whose mean estimated token cost is 9.6 times higher. This outcome
+measure includes resolving the problem, not only diagnosing it
+\parencite[Section~6.5]{chen2026dbabench}.
+
+STAR reports the opposite result. Under the same GPT-5 settings, the
+multi-agent mABC workflow outperforms RCAgent, which the authors treat as
+a lighter workflow without multi-agent
 coordination or voting. Top-one accuracy is 37.2\,\% against
-23.8\,\% \parencite[Table~II]{wang2026star}. A trajectory study of ten
-framework and model configurations attributes the differences to whether
-an agent adaptively re-queries telemetry as evidence emerges. The
+23.8\,\% \parencite[Table~II]{wang2026star}.
+
+A trajectory study of ten framework and model configurations attributes
+performance differences to whether an agent adaptively re-queries
+telemetry as evidence emerges. The
 multi-agent mABC, which does not iterate over evidence, ranks lowest.
 Changing the backbone model of one leading framework moved accuracy five
-times as much as the spread between the leading frameworks \parencite[Section~5.1]{lu2026trajectory}.
+times as much as the spread between the leading frameworks
+\parencite[Section~5.1]{lu2026trajectory}.
 
-The evidence therefore does not show that multiple agents improve
-diagnosis. The favourable results come from comparisons in which the
-multi-agent system also differs in model, tools, knowledge or budget. The
-more neutral comparisons are few and small, and three of four favour a
-single agent. Agent organisation is a hypothesis to test under matched
-conditions, not an established advantage.
-
-Together, these examples suggest separating three experimental changes:
-the information supplied to an agent, the organisation of its reasoning
-and the resources available to it. Adding agents while also changing the
-model, tools and budget prevents a clear explanation of any improvement.
-A single investigator and a collaborating variant can instead share a
-model, evidence interface and scenario set. Their respective strengths can
-then be assessed under both a common resource limit and their observed
-operating cost.
+The evidence supports collaboration in some evaluated workflows, but does
+not establish a general advantage over a single agent under comparable
+conditions. The value of separating roles remains an empirical question
+for the PoC. Section~\ref{sec:state-of-the-art:evaluation} develops criteria
+for distinguishing agent organisation from the information and resources
+available to it.
 
 \section{Automated Remediation and Human Oversight}
 \label{sec:state-of-the-art:remediation}
@@ -555,15 +535,15 @@ effect and rollback plan. A separate execution boundary can enforce the
 permitted actions. Recovery verification should check both the selected
 endpoint and the relevant configuration, rather than treating command
 completion as repair. These are design implications for RQ4. Their
-implementation and effectiveness remain matters for the thesis experiments.
+effectiveness can be assessed through recovery and rollback outcomes.
 
 
 \section{Evidence for Evaluating Diagnostic Agents}
 \label{sec:state-of-the-art:evaluation}
 
-The appraisal of the 67 retained reports assessed in full text shows how
-rarely the evidence meets these needs
-(Section~\ref{sec:slr:appraisal-results}). Only ten include healthy
+The appraisal identifies gaps in how diagnostic agents are evaluated
+(Section~\ref{sec:slr:appraisal-results}). Among the 67 retained reports
+appraised directly against their full text, only ten include healthy
 cases in which no fault should be reported. Twenty report repeated runs,
 and 17 report how much the results vary. Seven match the inference budget
 of the compared systems. Fourteen check whether the cited evidence
@@ -571,10 +551,10 @@ supports the diagnosis. Eighteen evaluate only proprietary incidents and
 13 combine proprietary and public data. Eleven use an LLM judge or text
 similarity as the primary measure. Six report no measure of correctness
 against a ground truth, and five of these are among the eleven. The
-following subsections derive
-evaluation requirements from the studies that address these gaps.
+following subsections derive evaluation criteria from the studies that
+address these gaps.
 
-\subsection{Define the Diagnosis Before Scoring It}
+\subsection{Diagnostic Correctness and Evidence Grounding}
 
 A diagnostic answer can identify a component, a fault type, an incident
 time or a propagation path. These are distinct outcomes. OpenRCA makes
@@ -593,6 +573,7 @@ Evidence grounding is a further outcome: cited records must exist and
 support the asserted relationship. A correct answer obtained from an
 unsupported guess should not receive the same grounding assessment as an
 answer backed by the observed request, rule or configuration.
+Agreement between agents alone does not satisfy this evidence requirement.
 
 The reference answer must come from the controlled fault and its verified
 system effect, rather than from another generated diagnosis. The injected
@@ -601,10 +582,20 @@ before the agent runs. Scenario labels that reveal the answer should be
 kept out of agent-visible evidence. Otherwise, an agent could reproduce
 the injected scenario name without interpreting the observations.
 
-\subsection{Test False Diagnoses and Incomplete Evidence}
+Confidence estimates require a further check. PACE-LM, the earlier
+version of LM-PACE, calibrates confidence in proposed cloud root causes
+using retrieved incidents and a validation set. Its expected calibration
+error measures agreement between confidence and observed correctness,
+rather than diagnostic accuracy itself. Dependence on model-generated
+labels limits the strength of that evidence
+\parencite[Sections~4--5]{zhang2023pacelm}. A score called confidence should
+therefore not be presented as a probability without a calibration check.
 
-Souza and Cola\c{c}o J\'unior evaluate an MCP-based agent across two fault
-scenarios and one healthy control. Their best configuration reports
+\subsection{Healthy Cases and Incomplete Evidence}
+
+In an empirical study of cloud microservice incident triage, Souza and
+Cola\c{c}o J\'unior evaluate an MCP-based agent across two fault scenarios
+and one healthy control. Their best configuration reports
 71.1\% success across 45 runs pooled over all three scenarios. This is
 not a fault-only accuracy estimate. In the healthy control, the same
 configuration produces two false diagnoses in 15 runs, or 13.3\%. The
@@ -636,16 +627,16 @@ context support testing these conditions
 An agent must not be rewarded for confidently naming a cause merely because
 every evaluation case is guaranteed to contain a visible fault.
 
-\subsection{Control Comparisons and Report the Cost}
+\subsection{Comparison Validity and Resource Use}
 
-The same incidents, accessible observations and scoring rules are needed
-for an interpretable comparison. Model version, prompts, retrieval context,
-tools and stopping conditions should be recorded. When comparing one and
-several agents, a common token, tool-call or time limit helps distinguish
-organisational effects from simply purchasing more inference. Training or
-historical examples must be separated from evaluation incidents. DBAgent's
-trained-versus-prompted comparison illustrates why training access must
-also be reported \parencite{chen2026dbagent}.
+The comparison of agent organisation requires a shared model, evidence
+interface, scenario set and scoring rules. A common token, tool-call or
+time limit helps distinguish the effect of collaboration from the effect
+of additional inference. Model versions, prompts, retrieval context and
+stopping conditions should be recorded. Training or historical examples
+must be separated from evaluation incidents. DBAgent's trained-versus-prompted
+comparison illustrates why training access must also be reported
+\parencite{chen2026dbagent}.
 
 Repeated runs assess the stability of a configuration on the same cases.
 They do not turn one fault into many independent fault types. Results
@@ -656,10 +647,10 @@ from the denominator can make an unreliable system appear accurate.
 SREGym and AIOpsLab provide examples of evaluating repeated attempts and
 operational failures \parencite{clark2026sregym,chen2025aiopslab}.
 
-A shorter response is not necessarily a cheaper investigation. Useful
-resource measurements include elapsed diagnosis time, model calls, input
-and output tokens, and tool calls. Model prices and deployment choices
-belong with cost calculations so they can be reproduced. These are
+Resource measurements should cover the complete investigation, including
+elapsed diagnosis time, model calls, input and output tokens, and tool calls.
+Model prices and deployment choices belong with cost calculations so they
+can be reproduced. These are
 secondary outcomes alongside correctness, not substitutes for it.
 
 \begin{table}[htbp]
@@ -683,20 +674,9 @@ Operational reliability & Report timeouts, non-submission, invalid outputs and t
 \end{tabularx}
 \end{table}
 
-These criteria provide the basis for selecting an approach through the
-PoC experiments. They do not yield an architecture ranking from the
-literature alone. A collaborating approach is preferable only if its
-measured benefits justify its additional cost and complexity under the
-chosen scenarios and constraints.
-
-Confidence also requires its own validation. PACE-LM, the earlier
-version of LM-PACE, calibrates confidence in proposed cloud root causes
-using retrieved incidents and a validation set. Its expected calibration
-error measures agreement between confidence and observed correctness,
-rather than diagnostic accuracy itself. Dependence on model-generated
-labels limits the strength of that evidence
-\parencite[Sections~4--5]{zhang2023pacelm}. A score called confidence should
-therefore not be presented as a probability without a calibration check.
+These criteria provide a basis for selecting an approach according to its
+diagnostic quality, reliability and operating cost under the conditions
+of the PoC.
 
 \section{Comparison and Research Gap}
 \label{sec:state-of-the-art:gap}
@@ -709,12 +689,25 @@ completed diagnoses and timeouts alongside correctness. It does not
 establish the availability or quality of Cloudflare and firewall evidence
 in the Norlys environment \parencite[Section~III]{meng2026cujbench}.
 
-The assessed evidence supports combining several ideas rather than
-selecting one paper as a complete solution. Request reconstruction supplies
-relationships between observations. Security-feature analysis supplies
-context for interpreting events. Agent studies address information gathering
+Network studies complement this application-oriented perspective. NIKA
+benchmarks agents on emulated network faults and reports that the best
+agent localises 68.7\,\% of faults but identifies the root cause in only
+55.3\,\% \parencite[Table~2]{wang2025nika}. BiAn localises the faulty
+device in 95.5\,\% of 357 production network incidents at Alibaba Cloud,
+against 86.3\,\% for a heuristic baseline
+\parencite[Section~6.1]{wang2025bian}. FaulT-Bench adds healthy networks
+and misleading tickets \parencite{tseng2026faultbench}. These studies
+diagnose the network layer on its own. None follows a request from an
+edge proxy and a firewall into the application, which is the path this
+thesis examines.
+
+The reviewed approaches address complementary parts of that investigation.
+Request reconstruction supplies relationships between observations.
+Security-feature analysis supplies context for interpreting events.
+Agent studies address information gathering
 and diagnostic explanations. Remediation studies address state changes and
-recovery. Table~\ref{tab:sota:implications} summarises the implications.
+recovery. Table~\ref{tab:sota:implications} connects these findings to the
+four research questions.
 
 \begin{table}[htbp]
 \centering
@@ -733,39 +726,20 @@ RQ4 & Contextual remediation studies and related SLR findings & Separate approva
 \end{tabularx}
 \end{table}
 
-The comparisons do not establish a generally superior agent count. All 14
-multi-agent proposals that compare themselves with a single agent report
-an advantage, but none controls model, tools and inference budget
-together. Three of the four comparisons by third parties favour a single
-agent (Section~\ref{sec:state-of-the-art:agents}). The mABC ablation
-supports collaboration within its tested workflow. A controlled
-comparison of a single investigator and a collaborating design is
-therefore needed to assess the value of collaboration in the Norlys path.
+The unresolved question in the Norlys setting is whether an agent system
+can combine evidence from these operational layers into a correct diagnosis
+and a justified, human-approved repair. A misconfigured security control
+may block a legitimate request before it reaches the application. The
+investigation then depends on evidence from the edge or network layer as
+well as knowledge of the intended configuration. This connects telemetry
+correlation and feature selection to diagnostic and remediation outcomes.
 
-Network studies come closest to the cross-layer question. NIKA
-benchmarks agents on emulated network faults and reports that the best
-agent localises 68.7\,\% of faults but identifies the root cause in only
-55.3\,\% \parencite[Table~2]{wang2025nika}. BiAn localises the faulty
-device in 95.5\,\% of 357 production network incidents at Alibaba Cloud,
-against 86.3\,\% for a heuristic baseline
-\parencite[Section~6.1]{wang2025bian}. FaulT-Bench adds healthy networks
-and misleading tickets \parencite{tseng2026faultbench}. These studies
-diagnose the network layer on its own. None follows a request from an
-edge proxy and a firewall into the application, which is the path this
-thesis examines.
-
-The contribution is a controlled investigation within the selected
-operational path. Combining Cloudflare and Azure alone does not establish
-novelty. The assessed studies do not show that application tracing is
-sufficient to explain failures in a separate security or network layer,
-or that agent agreement and a successful restart establish a correct
-diagnosis and safe repair.
-
-The thesis can test these questions by making the path, injected faults,
-observations and permitted actions explicit. Its claims should remain
-bounded by the evaluated scenarios. The retrieval limits documented in Appendix~\ref{app:systematic-literature-review}
-mean that this is a bounded empirical focus, rather than a claim that no
-other study addresses these questions. Several unretrieved reports
-describe evidence-verified or grounded diagnostic agents. They could
-weaken the gap claim for evidence verification if they evaluate it under
-controlled conditions.
+The thesis addresses this question through controlled failures along the
+selected Cloudflare-to-Azure request path. The evaluation criteria in
+Section~\ref{sec:state-of-the-art:evaluation} provide the basis for comparing
+candidate designs in that setting. The contribution is bounded by this
+path and the evaluated scenarios. Retrieval limitations in
+Appendix~\ref{app:systematic-literature-review} leave uncertainty about the
+wider evidence, particularly unretrieved reports on evidence verification.
+The gap identified here therefore concerns what the assessed evidence
+establishes for this setting.
