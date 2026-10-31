@@ -30,6 +30,12 @@ Use clear academic English with short, direct sentences. Prefer concrete
 verbs to phrases such as "forms part of the investigation". Keep one main
 idea in each paragraph and explain why it matters.
 
+Use first-person singular for research actions Mads carried out, such as
+"I checked all 113 full-text decisions". Avoid referring to Mads as
+"the author" in the report. Describe the research directly, without
+commentary about how the text was drafted or repeated verification caveats.
+Keep factual method descriptions and specific limitations concise.
+
 For example:
 - Avoid: "Whether these controls enable effective remediation while
   preventing unintended changes forms part of the investigation."
@@ -179,16 +185,18 @@ that a paper is universally unavailable.
 The current `Review/searches.csv` and `Review/screening.csv` replace the
 superseded working tables. Earlier versions remain in Git history. The
 assessment workbook, `SLR-screening-completed.xlsx`, holds full extractions,
-retrieval attempts and author-verification fields; these fields are not
-filled on the author's behalf. Appendix A contains the complete review
-method and retained-report catalogue, and Chapter 3 contains the synthesis.
+retrieval attempts and verification records. Mads has confirmed that he
+personally checked all 113 full-text decisions and 176 title/abstract
+decisions. Preserve the completed verification fields and do not describe
+this checking as pending. Appendix A contains the complete review method
+and retained-report catalogue, and Chapter 3 contains the synthesis.
 
 Do not reopen retrieval or rescreen the entire set of papers as routine editing.
 Correct a specific evidenced error transparently. Keep source versions,
 metric definitions, denominators and model/budget differences attached to
-comparative claims. An assisted assessment is not personal author reading
-or independent double screening. Disclose the method once, without turning
-the appendix into a project diary.
+comparative claims. Distinguish checking by one reviewer from independent
+double screening. Describe the actual tool assistance once in the method,
+without turning the appendix into a project diary.
 
 Chapter 5 explains how the PoC is designed, built and evaluated, referring
 back to Chapter 3 where relevant. The Introduction does not need a

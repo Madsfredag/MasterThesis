@@ -14,7 +14,7 @@ LLM-focused synthesis and is not counted as an additional database search.
 | [searches.csv](searches.csv) | Five executed searches, including exact expressions, dates, fields, filters and capture limits. |
 | [screening.csv](screening.csv) | 945 recorded occurrences, with stable IDs, decisions, reasons, links, companion relations and retrieval status. |
 | [retrieval-log.csv](retrieval-log.csv) | Raw retrieval attempts for the records whose full text was sought on 29 and 30 October 2026, kept separate so that screening.csv stays readable. |
-| `SLR-screening-completed.xlsx` | Master assessment workbook supplied with the review: full screening metadata, 76 study extractions, appraisal ratings, key results and retrieval history. |
+| `SLR-screening-completed.xlsx` | Assessment workbook: full screening metadata, 76 study extractions, appraisal ratings, key results and retrieval history. |
 
 ## Selection outcome
 
@@ -29,16 +29,15 @@ each, after 87 reports had been assessed. Of 197 reports sought, 84 remain
 not retrieved (62 database and 22 Scholar records) and 113 are assessed:
 76 retained, 34 excluded and three companions. Full-text exclusions are E1: 4, E2: 3,
 E3: 22 and E4: 5.
-These counts are not numbers of independent experiments or author-read papers.
+These counts refer to reports rather than independent experiments.
 
 ## Interpretation and maintenance
 
-The author's decision and reason fields record the author's check of all
-113 full-text decisions and 176 title/abstract decisions. This is a
-single-reviewer check, not independent double screening. The sources for the flagged
-new results were checked where obtainable; GS2-14's existing borderline E4
-assessment was retained from the supplied workbook, without claiming another
-independent full-text check.
+I checked all 113 full-text decisions and 176 title/abstract decisions.
+My decisions and reasons are recorded in the corresponding fields.
+There was no second independent reviewer. The sources for the flagged
+results were checked where obtainable. GS2-14's borderline E4 decision
+rests on the existing full-text assessment in the workbook.
 
 SuperDRI remains included because it has an implemented diagnostic method
 and completed process evaluation, although it does not establish diagnostic
