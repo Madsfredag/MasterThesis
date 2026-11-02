@@ -272,6 +272,58 @@ written and checked, or an explicit scope decision makes it unnecessary.
 Keep the exact four thesis research questions and the single SLR review
 question unchanged when completing these tasks.
 
+### Model comparison and selection
+
+Recorded 2 November 2026. Model selection needs an explicit comparison and
+justification. An initial model used to establish connectivity is not evidence
+that it is the best model for operational diagnosis.
+
+| Chapter | Account to write |
+| --- | --- |
+| 4. Problem Analysis and Requirements | State the capabilities and constraints the model must satisfy, including tool calling, structured diagnostic output, evidence use and the agreed hosting and data-processing boundaries. |
+| 5. Research Methodology and Evaluation Design | Define the candidate-selection procedure and any pilot tests. Specify common tasks, evidence, scoring and resource limits before running a comparison. Keep pilot cases separate from the final evaluation cases. |
+| 6. System Design | Compare the shortlisted models against those criteria, explain trade-offs and justify the choice. Distinguish documented capabilities from observations in the pilot. |
+| 7. Implementation | Record the model and version actually deployed, deployment name and type, region, hosting option, authentication, SDK/API integration and relevant settings. Describe deviations from the design explicitly. |
+| 8. Evaluation and Results | Report the formal experimental results. If models are compared experimentally here, use the procedure defined in Chapter 5. Do not present vendor benchmarks as results from this PoC. |
+
+Use Chapter 3 to motivate the diagnostic and evaluation criteria. The model
+comparison should consider deployment availability, tool calling and structured
+output, diagnostic correctness, evidence support, latency, token use, cost and
+model-version availability through the evaluation period. The shortlist, pilot
+cases, scoring and thresholds remain to be specified.
+
+For the proposed single-investigator versus collaborating-agent comparison,
+hold the selected model and version, tools, available evidence, scenarios and
+total resource limits constant. Model choice and agent organisation are
+different variables. No final architecture or model winner has been established.
+
+**Current setup direction.** Mads requested continuing with the newest
+lightweight Claude model while the comparison is still to be completed.
+Claude Haiku 5.5 (`claude-haiku-5-5`) is the initial integration candidate
+identified in the current vendor documentation. This supersedes the earlier
+GPT-4.1 mini connection-test suggestion. Availability in the actual Norlys
+subscription, quota, successful deployment and a model call remain unverified.
+Mads will make application-code changes locally. Firewall-query changes are
+deferred while model access is set up.
+
+**Hosting distinction to resolve.** Keep the Foundry resource and deployment
+under `cpCentralOperation-D`, with Sweden Central as the preferred resource
+location. Resource ownership and resource location do not establish where
+inference is processed. The current Claude documentation lists Global Standard
+and US Data Zone Standard options, depending on hosting and model version.
+Neither establishes Sweden-only inference. Check the permitted processing
+boundary before sending operational telemetry. The request to use Claude does
+not itself confirm that this boundary has been resolved.
+
+Source notes, consulted 2 November 2026:
+
+- [Anthropic: Claude Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5):
+  identifies the new lightweight model, released 7 October 2026.
+- [Anthropic: Claude in Microsoft Foundry](https://platform.claude.com/docs/en/build-with-claude/claude-in-microsoft-foundry):
+  lists Haiku 5.5, its deployment name and Azure/Anthropic hosting options.
+- [Microsoft: Deploy and use Claude models in Microsoft Foundry](https://learn.microsoft.com/en-us/azure/foundry/foundry-models/how-to/use-foundry-models-claude):
+  documents deployment scope, Marketplace prerequisites and authentication.
+
 ## Project decisions and limits
 
 Use the agreed problem statement and research questions unless Mads
