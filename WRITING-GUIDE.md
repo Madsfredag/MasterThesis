@@ -48,6 +48,12 @@ language merely to sound academic. Avoid semicolons in thesis prose.
 Use full stops or rewrite the sentence instead. Explain abstract concepts
 with a short concrete example where it helps the reader.
 
+Use study names or "and colleagues" instead of "et al." in narrative
+references, while retaining numeric citations. Introduce study-specific
+labels such as RE1 and RE2 where they are used. Explain technical terms
+and evaluation measures in the main text, with a brief reminder when needed,
+rather than relying on a separate glossary.
+
 Explain what a concept means in ordinary language before adding technical
 detail. Use concrete phrases such as "different source IP addresses" and
 "five minutes" where they make the example easier to follow. Include a
@@ -234,8 +240,12 @@ Section 3.1 is a focused contextual comparison of conventional ML and
 LLM-based diagnosis, placed before the thematic review findings. It motivates
 the LLM-focused question without assuming an LLM advantage. Its supporting
 ML sources are not automatically included in the formal LLM review.
-Keep the approved review question unchanged and evaluate conventional ML
-as a possible component or baseline when its data and task requirements fit.
+Keep the approved review question unchanged. The implementation and
+evaluation focus on LLM-based diagnostic agents. Developing and benchmarking
+a separate conventional ML diagnosis model is outside the scope. Retain the
+literature comparison and justify the focus through task fit, without
+claiming general LLM superiority. Statistical summaries can still support
+diagnostic tools.
 
 Refine topic headings based on the review findings. Appendix A holds the
 full review documentation. Chapter 3 contains the synthesis needed for
@@ -371,6 +381,7 @@ Example of a bold paragraph lead-in:
   when they prevent completion of the text at that location. Track tasks for
   later chapters in this guide.
   Keep genuine research limitations in ordinary academic prose.
-- Appendix B explains technical terms and evaluation measures.
+- Explain technical terms, study-specific labels and evaluation measures
+  where the reader needs them. The report has no separate glossary appendix.
 - After all chapters are written, review titles, repeated content and the narrative
   connecting the problem, four RQs, literature, design, evaluation and conclusions.

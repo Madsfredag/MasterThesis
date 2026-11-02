@@ -22,8 +22,6 @@ contextual security and remediation literature, which was not searched
 systematically for those questions. Conventional ML and tracing papers
 provide additional context. A paper excluded from the LLM-focused review
 can therefore still support a clearly identified contextual comparison.
-Technical terms and evaluation measures are explained in
-Appendix~\ref{app:glossary}.
 
 \section{Conventional ML and LLM-Based Diagnosis}
 \label{sec:state-of-the-art:ml-llm}
@@ -46,7 +44,7 @@ review of all conventional ML methods.
 
 \subsection{Conventional Methods for Operational Diagnosis}
 
-Gan et al. introduce Sage, a system for diagnosing performance problems in
+Gan and colleagues introduce Sage, a system for diagnosing performance problems in
 microservices. Sage learns relationships between dependencies, resource
 measurements and latency without manually labelled root causes. It uses
 counterfactual analysis to estimate whether performance would recover if
@@ -57,15 +55,16 @@ can supply failure modes absent from ordinary traffic
 \parencite[Sections~3--4, 6--7]{gan2021sage}. Sage demonstrates that a lack
 of labelled incidents does not, by itself, rule out conventional ML.
 
-Li et al. propose CIRCA, which identifies root-cause indicators among
+Li and colleagues propose CIRCA, which identifies root-cause indicators among
 monitoring metrics. It fits regression models to observations before a
 failure and tests changes against a structural graph of metric
 relationships. Its requirements centre on suitable measurements and
 knowledge of the system architecture, rather than a training set of
 labelled failures \parencite[Section~4]{li2022circa}.
 
-Lee et al. present Eadro, which combines logs, metrics and traces with
-service dependencies. The model learns to detect anomalies and rank
+Lee and colleagues present Eadro, which combines logs, metrics and traces with
+service dependencies. The model learns to detect anomalies, or departures
+from expected behaviour, and rank
 suspected services using anomaly and culprit-service labels. Its
 experiments inject CPU and network faults into TrainTicket and
 SocialNetwork, with similar root-cause distributions in the training and
@@ -84,7 +83,7 @@ answers the operational question.
 
 \subsection{LLM-Based Investigation and Its Limits}
 
-Wang et al. introduce RCAgent, in which a controller selects diagnostic
+Wang and colleagues introduce RCAgent, in which a controller selects diagnostic
 tools and consults specialised log and code analysis agents. It can
 retrieve additional observations as the investigation develops. Tool
 interfaces, retained observations and output checks connect the model's
@@ -94,11 +93,13 @@ investigating a question whose necessary evidence is not known in advance.
 The model's access and conclusions remain limited by the information
 returned by those tools.
 
-Chen et al. present RCACopilot, which gathers diagnostic information using
+Chen and colleagues present RCACopilot, which gathers diagnostic information using
 incident handlers and retrieves historical incidents before generating a
 cause category and explanation. Its evaluation uses micro-F1, which combines
 precision and recall after pooling classification decisions across
-categories. Larger values indicate better classification. On 653 Microsoft
+categories. Precision measures how many predictions for a category are
+correct, while recall measures how many incidents in that category are
+identified. Larger F1 values indicate better classification. On 653 Microsoft
 incidents with a 75/25 training--test split, its GPT-4 workflow reports a
 micro-F1 of 0.766. FastText and XGBoost score 0.076 and 0.022, respectively,
 while a simpler GPT-4 prompting variant scores 0.026
@@ -129,29 +130,36 @@ Table~\ref{tab:sota:ml-llm} relates the examined methods to these needs.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Task requirements and the capabilities of the examined approaches.}
+\caption{Comparison of the examined approaches for operational diagnosis.}
 \label{tab:sota:ml-llm}
-\begin{tabularx}{\textwidth}{@{}p{0.20\textwidth}XX@{}}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.20\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
 \toprule
-Requirement & Conventional ML methods & LLM-based workflows \\
+Aspect & Conventional ML examples & LLM-based workflows \\
 \midrule
-Localise a fault & Sage, CIRCA and Eadro produce ranked causes or indicators within defined system models. & Agents interpret retrieved observations and propose a component or cause. \\
-Use available data & Requirements differ between labelled examples, pre-failure measurements and structural knowledge. & Pretraining supports language interpretation. Tools, system context and, in some methods, historical incidents remain necessary. \\
-Gather further evidence & Additional retrieval follows the implemented diagnostic procedure. & A tool-using controller can choose further queries from earlier results. Invalid or unnecessary queries add risk and cost. \\
-Support an operator's decision & Rankings and model outputs require an operational interpretation. & Written explanations can connect observations to a proposed cause. \\
-Evaluate performance & Test representative and unfamiliar faults, data requirements and localisation quality. & Also test unsupported claims, tool use, variation between runs and inference cost. \\
+Diagnostic output & Sage, CIRCA and Eadro rank causes, indicators or services. & Proposed component or cause with a written explanation. \\
+Data requirements & Depending on the method: labelled incidents, pre-failure measurements or a dependency graph. & Retrieved observations, system context and sometimes historical incidents. \\
+Evidence collection & Follows each method's implemented analysis procedure. & A controller can select further tools from earlier observations. \\
+Operator review & Outputs need interpretation against the system and its records. & Explanations can cite records but need checks for unsupported claims. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-For a narrowly defined prediction task with suitable observations,
-conventional ML remains a credible choice. The thesis addresses the wider
-investigation process, including selecting further evidence and explaining
-its relevance across operational layers. The reviewed agent designs
-provide an explicit mechanism for these activities. This task fit motivates
-the decision to explore LLM-based agents as the main investigative approach.
-It does not require replacing statistical analysis or specialised models
-where they provide useful evidence.
+LLM-based agents are selected as the main investigative approach because
+the task combines interpreting records across operational layers, choosing
+further queries from earlier observations and explaining a proposed cause
+to an operator. RCAgent provides a mechanism for this tool-directed
+investigation, while its invalid actions show why tool use and conclusions
+must be checked \parencite[Sections~3 and~5.2]{wang2024rcagent}.
+
+Developing and benchmarking a separate conventional ML diagnosis model is
+outside the implementation and evaluation scope. Such a comparison would
+require its own justified data representation, model and validation
+procedure, extending the work beyond evidence collection, agent
+organisation and human-approved remediation. Conventional methods remain
+part of the literature comparison, and statistical summaries can still
+support diagnostic tools. This choice concerns task fit and scope. It does
+not establish that LLMs outperform conventional ML. Diagnostic correctness
+and evidence support remain to be evaluated.
 
 The subsequent systematic review therefore examines how LLM-based agents
 use operational telemetry and how their diagnoses are evaluated. Its role
@@ -179,7 +187,8 @@ graphs and compresses inter-arrival times to increase concurrency. The
 results consequently support a particular reconstruction method under
 specified observations, rather than arbitrary reconstruction across
 unobserved network layers. For the PoC, an explicit identifier match should
-be distinguishable from a link inferred from time, endpoint and topology.
+be distinguishable from a link inferred from time, endpoint and topology,
+meaning the map of components and their connections.
 The latter needs an uncertainty statement and supporting observations.
 
 Sage and CIRCA investigate causes using system dependencies. Sage combines
@@ -253,11 +262,14 @@ Engelen, Rimmer and Joosen reconstruct and examine CICIDS2017. They identify
 problems in flow construction, attack labelling and features that allow
 shortcut learning. Their corrected datasets change performance for specific
 attack classes while aggregate accuracy remains approximately 0.99. This is
-evidence for checking ground truth and reporting results by scenario, not
+evidence for checking ground truth, the reference labels used to judge
+correctness, and reporting results by scenario, not
 for treating a high aggregate score as sufficient validation
 \parencite[Sections~III--IV]{engelen2021troubleshooting}.
 
 The Holmes preprint connects security telemetry to agent investigation.
+A preprint is a publicly shared research manuscript that may not yet have
+undergone peer review.
 It uses counters and sampled traffic for triage, then constructs compact
 packet-evidence summaries for an LLM. Reports must refer to observations in
 those summaries. However, the representative incident table contains
@@ -283,7 +295,8 @@ through fixed incident handlers. Alongside micro-F1, the study reports
 macro-F1, which averages the F1 scores of the categories equally. Its
 macro-F1 of 0.533 is lower than its micro-F1 of 0.766, suggesting weaker
 performance on rarer incident categories. The paper reports three repeated
-rounds only as bounds on these scores. Its ablation
+rounds only as bounds on these scores. Its ablation, an experiment that
+removes or changes part of a system to assess its contribution,
 also finds that adding more incident-related information does not
 necessarily improve the prediction
 \parencite[Sections~5.1--5.6]{chen2024rcacopilot}.
@@ -311,7 +324,8 @@ The TimeRAG preprint illustrates another measurement distinction. It
 combines time-series representations with retrieval and an LLM. Its
 multiple-choice diagnosis accuracy and its LLM-judged report win rate
 produce different pictures of performance. On SockShop, for example,
-TimeRAG's reported accuracy is lower than the strongest baseline in the
+TimeRAG's reported accuracy is lower than the strongest baseline, or
+reference method, in the
 same table, although its report comparisons are favourable. The work also
 notes limitations from time-series augmentation and offline evaluation
 \parencite[Sections~4--6, Tables~2--3]{park2026timerag}.
@@ -369,19 +383,25 @@ Evidence representation & 45 & Representation-aware RCA (SLR0563), LogTwin (SLR0
 Tool-using investigation & 38 & RCAgent (SLR0619), KRCA (SLR0595) & Count invalid and repeated tool calls as well as final accuracy. \\
 Workflow and role separation & 30 & Flow-of-Action (SLR0612), mABC (GS1-44) & Match tools and budgets when testing coordination. \\
 Historical retrieval & 27 & RCACopilot (SLR0593), LogTwin (SLR0009) & Separate benefits of prior cases from the reasoning workflow. \\
-Graph-guided investigation & 23 & GALA (SLR0600), CausalRCA (SLR0048) & Vary topology quality and compare with the same evidence access. \\
+Graph-guided investigation & 23 & GALA (SLR0600), CausalRCA (SLR0048) & Test missing or incorrect component connections with the same evidence access. \\
 Hypothesis verification & 19 & VeriTrail-RCA (SLR0057), VerifyRCA (SLR0167), VerifyOps (SLR0183) & Measure unsupported claims and incorrect rejections as well as final accuracy. \\
-Fine-tuning or reinforcement learning & 9 & DBAgent (SLR0696), Ahmed et~al.\ (SLR0359) & Give baselines the same training data or report the difference. \\
+Fine-tuning or reinforcement learning & 9 & DBAgent (SLR0696), Ahmed and colleagues (SLR0359) & Give baselines the same training data or report the difference. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-In their study of representation-aware root-cause analysis, Wen et al.
+Topology quality concerns whether the component map is accurate and
+complete, for example
+whether it includes each firewall on the request path. Missing or incorrect
+connections could misdirect an investigation.
+
+In their study of representation-aware root-cause analysis, Wen and colleagues
 vary telemetry representation while keeping the model and
 prompt fixed. Their exploratory experiments show why input preparation
 should be evaluated separately from agent organisation
 \parencite[Section~6]{wen2026representation}. Adding agents to a system
-with better summaries would otherwise confound two design changes.
+with better summaries would otherwise make it unclear which change
+caused the improvement.
 
 Three verification approaches make the evidence requirement explicit.
 VeriTrail-RCA checks supporting and contradicting observations. VerifyRCA
@@ -434,7 +454,11 @@ diagnosis stages and tests the consequences of incorrect information
 passed between them. This is relevant to a multi-agent pipeline: an early
 mistake can become a later agent's assumed fact. Its comparison with
 published RE1 and RE2 results is explicitly
-literature-based. Those baselines were not rerun in the same environment.
+literature-based. These are two single-agent configurations in
+\emph{Between Promise and Pain}, using the GPT-4o and o1 language models. Both use ReAct,
+which alternates reasoning with actions that gather further observations
+\parencite[Section~2, Table~1]{cornacchia2025promise}.
+Those baselines were not rerun in the same environment.
 Consequently, it is not independent confirmation of their original scores
 or a controlled demonstration of superiority
 \parencite[Sections~6.3--6.4]{rasouli2026agentmirupd}.
@@ -451,13 +475,16 @@ proposal. Four compare a single agent directly with a multi-agent system.
 They use different measures, so only the direction of each result is
 comparable. In SREGym, Claude Code diagnoses 72.6\,\% of failures and
 the multi-agent Stratus 61.5\,\%, both with Claude Sonnet-4.6 and without
-added noise. Claude Code uses 1.47 million tokens against 812 thousand,
+added noise. Tokens are the units of text processed or generated by a model,
+often corresponding to word fragments.
+Claude Code uses 1.47 million tokens against 812 thousand,
 and the two agents preprocess telemetry differently
 \parencite[Table~3]{clark2026sregym}.
 
 The study \emph{Between Promise and Pain} compares a single GPT-4o ReAct
 agent with a three-agent GPT-4o system on four AIOpsLab problems, using the
-same native tools. Top-one accuracy on the performance problems is
+same native tools. Top-one accuracy measures how often the first proposed
+answer is correct. On the performance problems, it is
 50.0\,\% for the single agent against 20.0\,\% for the collaborating system
 \parencite[Table~4]{cornacchia2025promise}. In DBA-Bench, a ReAct agent
 completes 30.8\,\% of PostgreSQL tasks against 14.0\,\% for the multi-expert
@@ -734,8 +761,9 @@ investigation then depends on evidence from the edge or network layer as
 well as knowledge of the intended configuration. This connects telemetry
 correlation and feature selection to diagnostic and remediation outcomes.
 
-The thesis addresses this question through controlled failures along the
-selected Cloudflare-to-Azure request path. The evaluation criteria in
+The thesis addresses this question using controlled failures along the
+selected Cloudflare-to-Azure request path. Within the LLM focus justified
+in Section~\ref{sec:state-of-the-art:ml-llm}, the evaluation criteria in
 Section~\ref{sec:state-of-the-art:evaluation} provide the basis for comparing
 candidate designs in that setting. The contribution is bounded by this
 path and the evaluated scenarios. Retrieval limitations in

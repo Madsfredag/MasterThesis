@@ -36,8 +36,8 @@ review evidence. Six of them were returned by the searches and excluded
 at title/abstract screening under E3 because they do not use an LLM for
 diagnosis. These are Sage (SLR0679), Eadro (SLR0015), CIRCA (SLR0609),
 TraceWeaver (SLR0681), SIERRA (SLR0206) and the causal-inference evaluation
-by Pham et~al.\ (SLR0146). Holmes and the dataset study by Engelen
-et~al.\ were not returned by the searches. Holmes investigates DDoS attacks
+by Pham and colleagues (SLR0146). Holmes and the dataset study by Engelen
+and colleagues were not returned by the searches. Holmes investigates DDoS attacks
 and would fall under E2. PACE-LM, which Chapter~\ref{cha:state-of-the-art}
 cites for confidence calibration, is not a context source. It is the
 assessed version of the retained report LM-PACE (SLR0613).
@@ -386,6 +386,7 @@ Twenty-three release code or data. Sixteen report time, tokens and cost
 in full, and 34 report some of these.
 
 Outcome measures vary. Twenty-four reports score top-$k$ localisation,
+which checks whether the faulty component is among the first $k$ candidates,
 fourteen require an exact or joint cause, and twelve report classification
 accuracy or F1 over fault types. Six use an LLM judge, five use textual
 similarity to a reference and four report task success. Six of the 67 do

@@ -27,7 +27,7 @@ project, it is necessary to examine which identifiers are available and
 whether they can link observations along the selected request path.
 
 The content of the telemetry also matters, particularly when investigating
-security-related problems. Research on machine learning in security shows
+security-related problems. Research on machine learning (ML) in security shows
 that models can learn patterns that are unrelated to the security problem
 they are intended to detect \parencite{arp2022dosdonts}. This motivates
 examining which telemetry data and derived features provide relevant
@@ -103,6 +103,10 @@ the four specified telemetry sources and human-approved remediation within
 a designated test path. Platform-wide ingestion, normalisation, data
 obfuscation and retention remain responsibilities of the parent initiative
 \parencite[Scope]{norlys_operations_agents}.
+
+The implementation and evaluation focus on LLM-based diagnostic agents.
+Developing and benchmarking a separate conventional ML diagnosis model is
+outside the scope. Section~\ref{sec:state-of-the-art:ml-llm} explains this choice.
 
 Within this test path, remediation is limited to allow-listed actions.
 The planned workflow includes dry-run validation, human approval, recovery
