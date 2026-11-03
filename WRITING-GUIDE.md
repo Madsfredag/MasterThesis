@@ -264,6 +264,46 @@ The four RQs cover telemetry correlation, security-relevant data/features,
 diagnostic effectiveness and remediation. Do not refer to RQ numbers before
 introducing the questions.
 
+### Agreed Chapter 4 structure and traceability
+
+Chapter 4 is now included as `Chapters/04-Problem-Analysis-and-Requirements.tex`
+with the following agreed sections:
+
+1. Norlys Use Case and Project Boundary
+2. Analysis of the Main Challenges
+3. Functional Requirements
+4. Non-functional Requirements and Constraints
+5. Acceptance Criteria and Traceability
+
+Preserve the argument: **Norlys problem → research findings → requirements →
+evaluation method → design → implementation → results**. Chapter 4 derives
+requirements from the Norlys specifications and the relevant findings in
+Chapter 3 without repeating the review. Its traceability table uses:
+**Requirement ID · Requirement · Source/rationale · Relevant RQ · Acceptance
+criterion · Verification method**. Keep the stable F1–F9 and N1–N5 identifiers
+when referring to requirements in later chapters.
+
+Chapter 4 states what must be satisfied and what observable evidence would
+demonstrate it. Chapter 5 defines scenarios, repetitions, scoring, budgets
+and comparison procedures. Agent roles and architecture remain choices for
+Chapter 6. Chapter 7 records the implementation and deviations. Connectivity
+prototypes are feasibility work, not evidence that the requirements have
+already been met or that diagnostic effectiveness has been established.
+
+Portal interaction, approval, recovery and rollback remain in the Norlys
+scope. Do not silently replace the portal requirement with the current console
+interface or omit remediation. Record any agreed reduction or deferral with
+its reason and implications for the four RQs. The agreed landing zone is
+`cpCentralOperation-D`, superseding the source story's `ai-operations` name.
+
+Resolve Chapter 4's yellow notes by confirming the test route and permitted
+write targets, agreeing the fault and remediation catalogue, and confirming
+data handling and retention. The full Norlys fault catalogue remains the
+reference expectation until a narrower evaluation scope is explicitly agreed.
+Chapter 5 must also specify healthy and incomplete-evidence cases, independent
+reference answers, unannounced faults introduced by another person and an
+exercised rollback. Keep these planned activities distinct from completed work.
+
 ### Follow-up work from State of the Art
 
 These tasks concern the PoC and its evaluation. They are open decisions,
@@ -273,7 +313,7 @@ listed below and refer back to the relevant literature synthesis.
 
 | Origin in Chapter 3 | What the later chapters need to explain | Destination |
 | --- | --- | --- |
-| 3.3 Security Telemetry and Feature Selection | Confirm which fields are available along the selected path: time, source and destination, request target, status, policy action and rule identifier. Explain which fields the diagnostic tasks require and whether event counts or other aggregates should be exposed as agent-tool outputs. Justify the choice using availability and diagnostic relevance. | Chapter 4, Problem Analysis and Requirements, and Chapter 6, System Design. Record the implemented fields and any gaps in Chapter 7, Implementation. |
+| 3.3 Security Telemetry and Feature Selection | Chapter 4 requirement F3 identifies the required field categories and traceable aggregates. Confirm which are available along the selected path and justify the chosen tool outputs using diagnostic relevance. | Complete field and feature selection in Chapter 6, System Design. Record the implemented fields and gaps in Chapter 7, Implementation, and assess their contribution under the Chapter 5 protocol. |
 | 3.4.3 Evidence for Agent Collaboration | Specify the single-investigator baseline and collaborating variant to be compared. Define the shared model, evidence interface, scenarios and resource limits so that the comparison can distinguish agent organisation from changes in available information or budget. These variants remain candidates until the evaluation design is agreed. | Chapter 5, Research Methodology and Evaluation Design. Describe the chosen agent roles and interfaces in Chapter 6, System Design. |
 | 3.6.1 Diagnostic Correctness and Evidence Grounding | Explain how fault labels and other answer-revealing test metadata are kept separate from agent-visible telemetry. Check this separation in the implemented fault scenarios. | Chapter 5, Research Methodology and Evaluation Design, and Chapter 7, Implementation. |
 
@@ -307,25 +347,27 @@ hold the selected model and version, tools, available evidence, scenarios and
 total resource limits constant. Model choice and agent organisation are
 different variables. No final architecture or model winner has been established.
 
-**Current setup direction.** Mads requested continuing with the newest
-lightweight Claude model while the comparison is still to be completed.
-Claude Haiku 5.5 (`claude-haiku-5-5`) is the initial integration candidate
-identified in the current vendor documentation. This supersedes the earlier
-GPT-4.1 mini connection-test suggestion. Availability in the actual Norlys
-subscription, quota, successful deployment and a model call remain unverified.
-Mads will make application-code changes locally. Firewall-query changes are
-deferred while model access is set up.
+**Current setup direction.** Claude deployment was blocked by the tenant's
+Private Marketplace policy. Mads subsequently selected the lightweight GPT
+deployment `gpt-6-luna` in Foundry resource `aif-cp-central-operation-d-01`.
+He confirmed a successful playground call and a successful connection from
+the local C# application. The supplied Responses endpoint is
+`https://aif-cp-central-operation-d-01.services.ai.azure.com/openai/v1/responses`.
+These are user-confirmed connectivity results, not evidence of telemetry
+diagnosis or a completed model comparison. Record the actual model version,
+deployment type, quota and integration settings from the deployed configuration
+in Chapter 7. Mads makes application-code changes himself.
 
 **Hosting distinction to resolve.** Keep the Foundry resource and deployment
 under `cpCentralOperation-D`, with Sweden Central as the preferred resource
 location. Resource ownership and resource location do not establish where
-inference is processed. The current Claude documentation lists Global Standard
-and US Data Zone Standard options, depending on hosting and model version.
-Neither establishes Sweden-only inference. Check the permitted processing
-boundary before sending operational telemetry. The request to use Claude does
-not itself confirm that this boundary has been resolved.
+inference is processed. Sweden-only inference has not been established as a
+Norlys requirement. Confirm the permitted processing boundary and the actual
+deployment's processing terms before sending operational telemetry. A
+successful connection does not settle that data-handling question.
 
-Source notes, consulted 2 November 2026:
+Historical source notes for the earlier Claude candidate, consulted
+2 November 2026:
 
 - [Anthropic: Claude Haiku 5.5](https://www.anthropic.com/claude-haiku-5-5):
   identifies the new lightweight model, released 7 October 2026.
