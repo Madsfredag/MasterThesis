@@ -322,6 +322,44 @@ written and checked, or an explicit scope decision makes it unnecessary.
 Keep the exact four thesis research questions and the single SLR review
 question unchanged when completing these tasks.
 
+### Candidate baseline from the supervisor discussion, 4 November 2026
+
+**Status: proposal retained for discussion with Christian.** Søren suggested
+an engineer-informed decision tree or rule-based troubleshooting procedure
+as a reference for evaluating the agents. No final baseline or additional
+human-participant study has been agreed.
+
+The procedure would define which observations trigger which checks, the
+evidence required for a conclusion and when to stop or report insufficient
+evidence. The firewall was an illustrative check, not an agreed starting
+point. A reasonable procedure reviewed with Søren could provide a repeatable
+reference without claiming to represent every engineer's individual approach.
+
+A candidate implementation is ordinary conditional code using the same
+telemetry connectors as the agents, with explicit rules choosing the next
+query and interpreting results. This would be an additional rule-based
+baseline, not a trained ML model or a replacement for the multi-agent PoC.
+
+Two comparisons would answer different questions:
+
+- Rule-based procedure versus an agent: does agent-directed investigation add
+  diagnostic value beyond the defined procedure?
+- Single investigator versus collaborating agents: does collaboration add
+  value under comparable conditions?
+
+Use shared cases, evidence access and scoring. For the agent variants, retain
+the same model version, tools and total resource limits. Define and review
+the rules before the final evaluation cases are used, including healthy and
+incomplete-evidence outcomes. Assess correctness, evidence, time, resource use
+and any required human intervention, rather than rewarding agreement with a
+particular query order.
+
+An automated procedure does not measure actual human performance. Claims
+about time saved for engineers would require corresponding human observations.
+The proposed baseline can be useful without making that claim. Discuss its
+feasibility with Christian before adopting it in Chapter 5. Explain the chosen
+design in Chapter 6 and any implementation in Chapter 7.
+
 ### Model comparison and selection
 
 Recorded 2 November 2026. Model selection needs an explicit comparison and
