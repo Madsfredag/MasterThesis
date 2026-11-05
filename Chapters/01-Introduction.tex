@@ -104,6 +104,15 @@ a designated test path. Platform-wide ingestion, normalisation, data
 obfuscation and retention remain responsibilities of the parent initiative
 \parencite[Scope]{norlys_operations_agents}.
 
+The experimental subject is a non-production application in a designated
+development landing zone. Its Cloudflare-to-Azure path uses
+shared production connectivity, including a tunnel connector and firewalls.
+The non-production boundary therefore concerns the test application and
+resources authorised for experimentation, rather than every component on
+the path. Relevant production telemetry can support read-only investigation,
+while fault injection and remediation remain confined to authorised test
+resources. Shared production components are excluded from those changes.
+
 The implementation and evaluation focus on LLM-based diagnostic agents.
 Developing and benchmarking a separate conventional ML diagnosis model is
 outside the scope. Section~\ref{sec:state-of-the-art:ml-llm} explains this choice.

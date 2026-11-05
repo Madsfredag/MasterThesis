@@ -1,339 +1,348 @@
 \chapter{Problem Analysis and Requirements}
 \label{cha:requirements}
 
-The Norlys use case requires more than a plausible explanation of a failed
-request. An operator needs to inspect the observations behind the diagnosis
-and understand a proposed change before approving it. This chapter analyses
-that need and derives requirements from the company specifications and
-Chapter~\ref{cha:state-of-the-art}. The requirements connect the four research
-questions to observable acceptance criteria. Chapter~5 will define how those
-criteria are examined through experiments, while Chapters~6 and~7 will explain
-the design and its implementation.
+A failed endpoint gives an operator a symptom, but rarely a complete
+explanation. The same visible error can result from a security rule, a
+network connection, the hosting environment or the application itself.
+Resolving the failure requires connecting these observations, identifying
+a cause and determining which change would restore the intended behaviour.
+An automated investigator must make that reasoning inspectable if an
+operator is to rely on it when approving a repair.
+
+This chapter defines the operational use case and its boundaries, then
+analyses the challenges of gathering evidence, diagnosing failures and
+controlling changes. The analysis leads to functional requirements,
+non-functional constraints and acceptance criteria that make the expected
+behaviour of the proof of concept explicit.
 
 \section{Norlys Use Case and Project Boundary}
 \label{sec:requirements:context}
 
 The intended user is a Cloud Platform operations engineer investigating a
-reported endpoint failure. In the workflow specified by Norlys, the operator
-provides the endpoint and a time window. The system investigates observations
-from Cloudflare, Azure Firewall, Azure infrastructure and the application,
-then presents the request path, a proposed cause, supporting evidence and an
-actionable repair. An approved repair can subsequently be applied through
-the Cybertron portal \parencite[User Story, AC-4--AC-6]{norlys_operations_agents}.
-The operational problem is the work needed to connect observations across
-these layers. An application error alone may describe a symptom, while a
-request blocked earlier in the path may leave no application record.
+reported endpoint failure. Norlys describes a troubleshooting process in
+which the engineer searches Cloudflare, Azure Firewall, Azure infrastructure
+and application telemetry separately, then connects the observations
+manually. The requested capability is to support this investigation from a
+single interface and provide an actionable explanation supported by
+evidence \parencite[User Story, Background]{norlys_operations_agents}.
 
-This investigation is a bounded part of Norlys' wider observability
-initiative. The parent specification covers collection, normalisation,
-protection of sensitive data, retention and access across a larger set of
-operational sources \parencite{norlys_observability_spec}. The agent PoC should
-consume that platform's prepared telemetry where it is available. Direct
-source queries are permitted by the PoC specification where the platform
-does not yet provide it, but this dependency gap must be documented
+The use case begins when the operator supplies an endpoint and a time
+window. The system retrieves relevant observations, reconstructs the
+observable request path and identifies the component or condition that
+best explains the failure. The operator reviews the diagnosis and its
+evidence. If a permitted repair is available, the system presents the exact
+change and its predicted effect for approval. After execution, it checks
+whether the endpoint has recovered and makes the action history and rollback
+available. An investigation can also conclude that the endpoint behaves as
+expected or that the evidence is insufficient
+\parencite[AC-4--AC-6]{norlys_operations_agents}.
+
+The test application runs in a designated Norlys development landing zone
+and is addressed through a test hostname. Cloudflare Tunnel provides the configured
+connection between Cloudflare and the internal Azure Container Apps
+environment hosting the application. The tunnel connector and Azure
+firewalls involved in this connectivity are shared production components.
+The application and its development resources therefore provide a
+non-production experimental subject within a partly production request
+path. The environment is not an isolated replica of the entire Norlys
+network.
+
+This distinction creates two boundaries. The \emph{observation boundary}
+covers relevant evidence from the four operational layers, including
+production network telemetry filtered to the test application's traffic.
+The \emph{change boundary} covers only explicitly authorised test resources
+and actions. Read access to a shared component does not grant permission
+to inject faults or apply repairs there. Shared production firewalls and
+tunnel connectors are outside the fault-injection and remediation boundary.
+A diagnosis involving such a component must support operator review without
+giving the investigator authority to change it. This preserves the
+specification's exclusion of production remediation
+\parencite[Scope, AC-1, AC-5]{norlys_operations_agents}.
+
+The PoC is a bounded part of the wider Centralized Observability Platform.
+That initiative owns platform-wide ingestion, normalisation, protection of
+sensitive data and retention \parencite{norlys_observability_spec}. The PoC
+consumes prepared telemetry or uses direct source queries where the parent
+platform does not provide the required access
 \parencite[Relationship to the Parent Story]{norlys_operations_agents}.
-Building the complete observability platform is therefore outside this
-thesis. Protecting the data used by the PoC remains a requirement even when
-a connector queries a source directly.
+Its responsibility is to select, relate and interpret evidence for the
+investigation. Direct access does not remove the obligation to protect
+sensitive fields.
 
-The experimental boundary is a designated non-production application request
-path. Authorised reading of operational telemetry is distinct from permission
-to modify the resources that produced it. Production firewall records can
-provide context, but their availability does not authorise fault injection
-or remediation on a production firewall. Both activities must remain within
-the permitted test environment. The source specification names a landing zone
-\texttt{ai-operations}. The agreed project environment is instead
-\texttt{cpCentralOperation-D}. This is an explicit adaptation of the resource
-location, retaining the requirement for separation from customer workloads
-and for restricted write permissions.
-
-Within this boundary, security-related failures concern controls that block
-legitimate traffic, such as an incorrect firewall or web application firewall
-rule. Attack detection, production service operation, additional telemetry
-sources and model training are excluded. As justified in
-Section~\ref{sec:state-of-the-art:ml-llm}, developing and benchmarking a
-separate conventional ML diagnosis model is also outside scope. Statistical
-summaries of observations can still support the investigation.
-
-Portal integration and human-approved remediation remain requirements from
-the Norlys specification. A local console is an intermediate development
-interface and does not satisfy the final portal requirement. Similarly, a
-successful model connection establishes access, not diagnostic capability.
-The source document's sketch of an orchestrator and one specialist per
-telemetry source is a proposed architecture
-\parencite[Architecture Sketch]{norlys_operations_agents}. The multi-agent objective is
-retained, but agent roles, runtime placement and coordination mechanisms
-require justification in System Design.
-
-\thesisTODO{Confirm the designated Cloudflare-to-application test route and
-the non-production resources on which faults and repairs are permitted.
-Separate verified links from assumed links. Observed access through Global
-Secure Access does not establish the complete Cloudflare route. Use this
-inventory to identify any infeasible parts of the Norlys scope.}
+Security-related failures mean misconfigured controls that disrupt
+legitimate requests, such as an incorrect firewall or web application
+firewall rule. Attack detection, production service operation, additional
+telemetry sources and model training are outside scope. The focus on
+LLM-based investigation follows the task-fit analysis in
+Section~\ref{sec:state-of-the-art:ml-llm}. Developing a separate conventional
+ML diagnosis model is excluded, while statistical summaries can support
+the diagnostic tools. Cybertron integration and human-approved remediation
+remain part of the intended operational capability.
 
 \section{Analysis of the Main Challenges}
 \label{sec:requirements:analysis}
 
-\noindent\textbf{Connecting observations without overstating certainty.}
-A shared request or operation identifier can link records directly. Other
-sources may provide only times, addresses, ports and rule decisions. Several
-requests can then fit the same observations. As discussed in
-Section~\ref{sec:state-of-the-art:correlation}, reconstructing a path depends
-on the available identifiers and on knowledge of the components and their
-connections. The system must preserve the basis of each link. A relationship
-inferred from timing and destination cannot be presented as an exact request
-match. Missing records also need an explicit explanation where possible,
-because a blocked request, an unavailable source and an empty query result
-have different meanings.
+\noindent\textbf{Connecting different views of the same failure.}
+The four telemetry layers describe different events. An application record
+can describe an HTTP request, while a firewall record describes a network
+connection. A permitted connection does not establish that an application
+request completed successfully. Likewise, an application failure does not
+establish which earlier network observations belong to that request.
 
-\noindent\textbf{Distinguishing a relevant security event from background traffic.}
-A denied connection near an incident is a candidate observation, not by
-itself the cause. The investigation needs the action, affected destination,
-rule and timing, together with evidence that the traffic belongs to the
-selected path. A rule blocking a legitimate request should be distinguished
-from an unrelated denial or an application returning an error after traffic
-was allowed. Section~\ref{sec:state-of-the-art:security} motivates retaining
-this context when selecting fields and calculating derived features. For
-example, a count of denied connections is interpretable only with its time
-window and filters. Whether such a count adds diagnostic value beyond the
-individual rule event remains an evaluation question for RQ2.
+This distinction is particularly relevant to the tunnel-based path. The
+connector establishes a connection towards the internal application, so
+the firewall observes connector-to-application traffic rather than the
+original client connection. Concurrent requests can share the same
+addresses and destination. Matching timestamps and addresses can therefore
+identify relevant candidate records without uniquely identifying an HTTP
+request. A Cloudflare Ray ID recorded by the application can strengthen
+correlation, but it must be checked alongside request details, as explained
+in Section~\ref{sec:background:correlation}.
+
+The literature synthesis in Section~\ref{sec:state-of-the-art:correlation}
+shows why correlation depends on both recorded identifiers and knowledge
+of component relationships. For this project, the system must preserve
+how each link was established. Identifier-supported links, inferred links
+and gaps cannot be presented as equivalent evidence. The presence of a
+telemetry table also does not establish coverage of the selected hostname
+or time window. A blocked request, missing collection, denied access and
+an empty query result require different interpretations.
+
+\noindent\textbf{Selecting evidence that explains a security failure.}
+Shared production logs contain activity unrelated to the test application.
+A denial close to the reported failure may concern another destination or
+an expected security restriction. Relevant evidence must identify the
+affected traffic, the applied action and the rule or policy context where
+available. Diagnosing a misconfiguration also requires knowing that the
+request was intended to be permitted.
+
+Section~\ref{sec:state-of-the-art:security} motivates interpreting security
+features in their operational context. For example, a count of denied
+connections to the test destination can show a pattern, but its meaning
+depends on the query filters and time interval. A denial proportion also
+needs a defined denominator, such as all matching connection records in
+that interval. These are connection-level observations and must not be
+reported as counts of failed HTTP requests. The system therefore needs
+both traceable individual records and clearly defined summaries.
 
 \noindent\textbf{Producing a diagnosis that can be checked.}
-Identifying the application as the affected layer does not necessarily
-identify its failing dependency or configuration. Likewise, a correct cause
-can be supported by irrelevant or invented evidence. The distinctions in
-Section~\ref{sec:state-of-the-art:evaluation} require separate outputs for
-the component, proposed cause and supporting observations. The operator must
-also be able to recognise a healthy endpoint and an inconclusive
-investigation. Absence of evidence is not sufficient to declare health, and
-agreement between agents is not evidence that their conclusion is correct.
+Locating a symptom, identifying its cause and supporting that cause with
+evidence are separate achievements. An application may return an error
+because of its own configuration or a dependency failure. Merely naming
+the application is then insufficient. Equally, a correct cause supported
+by unrelated records remains an inadequately justified diagnosis.
 
-The organisation of the investigation introduces a related uncertainty.
+The distinctions in Section~\ref{sec:state-of-the-art:evaluation} require
+separate assessment of component identification, cause identification and
+evidence support. They also require explicit healthy and inconclusive
+outcomes. Missing observations do not establish health, and agreement
+between agents does not independently validate their conclusion.
+Uncertainty must remain visible in the result rather than disappear when
+observations are summarised.
+
+Agent organisation adds a further methodological challenge.
 Section~\ref{sec:state-of-the-art:agents} does not establish a general
-advantage for multiple agents under comparable conditions. If a collaborating
-system receives additional tools, more evidence or a larger total budget,
-any improvement cannot be attributed to collaboration alone. Requirements
-must therefore support comparable inputs, outputs and resource accounting
-without fixing the final agent architecture.
+advantage for collaboration under comparable conditions. Additional agents
+may also receive more evidence or consume more resources. The system must
+therefore make evidence access, outputs and total resource use comparable,
+so that the value of the investigation can be assessed without assuming
+that more agents produce better diagnoses.
 
-\noindent\textbf{Turning a diagnosis into a controlled intervention.}
-A useful repair suggestion is not yet an authorised action, and a successful
-management command is not proof of recovery. Section~\ref{sec:state-of-the-art:remediation}
-motivates separate checks for the proposed change, its execution, the endpoint
-outcome and restoration of prior state. These checks must be enforced by the
-system rather than depend on the model following an instruction. The
-operator needs enough information to approve a specific change, while the
-execution identity must be unable to modify resources outside the test scope.
+\noindent\textbf{Controlling the transition from explanation to action.}
+A plausible repair can still target the wrong resource or affect other
+workloads. Human approval is meaningful only when the operator can inspect
+the exact change, its justification and its expected consequences. The
+production dependencies of the test application make resource-level
+restrictions essential.
+
+As discussed in Section~\ref{sec:state-of-the-art:remediation}, a proposed
+repair, a completed management command and verified recovery are different
+outcomes. Recovery must be checked through the investigated endpoint and
+relevant system state. Rollback also needs verification, because restoring
+configuration does not necessarily reverse every effect of a change.
+Approval, action limits and verification must be enforced independently of
+the model's generated instructions.
 
 \section{Functional Requirements}
 \label{sec:requirements:functional}
 
-The following requirements translate the analysed problems into observable
-system behaviour. Their identifiers are used in the acceptance table and
-can subsequently link design components and evaluation results to the
-original need. The Norlys specification groups its expectations into seven
-acceptance criteria, numbered AC-1--AC-7. References to those criteria identify
-the company basis for the requirements below.
+The requirements below translate the operational needs and literature
+findings into observable behaviour. The Norlys specification groups its
+company acceptance criteria under AC-1--AC-7. These references identify
+the organisational basis for the requirements, while the research findings
+add criteria for evidence quality and valid comparison.
 
 \noindent\textbf{F1: Scoped investigation and telemetry access.}
 The system shall accept an endpoint and time window, assign an investigation
-identifier and retrieve relevant observations from all four specified source
-groups. These comprise Cloudflare requests, WAF events and origin errors,
-firewall network and application rule events, infrastructure health, metrics,
-activity and diagnostic configuration, and application requests, logs and
-traces \parencite[AC-3]{norlys_operations_agents}.
-Each connector shall be independently testable. Queries shall be
-bounded by time and incident scope, and their results shall distinguish no
-matching observations from query failure, access denial and unavailable
-telemetry. This implements Norlys AC-3 and AC-4 while making retrieval
-limitations visible to the investigator.
+identifier and retrieve relevant evidence from Cloudflare, Azure Firewall,
+Azure infrastructure and the application. Source coverage shall include
+Cloudflare requests, WAF events and origin errors, firewall network and
+application rule events, infrastructure health, metrics, activity and
+diagnostic settings, and application requests, logs and traces
+\parencite[AC-3, AC-4]{norlys_operations_agents}.
+Each connector shall be independently testable. Queries shall restrict both
+time and the relevant hostname, resources or network connections. Results
+shall distinguish matching observations, no matches, unavailable coverage,
+access denial and query failure.
 
 \noindent\textbf{F2: Traceable correlation.}
-The system shall preserve source and resource identifiers, event times and
-available request or operation identifiers. Each proposed relationship along
-the path shall identify its supporting records and whether it is confirmed
-by a suitable identifier or inferred from other observations. Ambiguous and
-unobserved segments shall remain visible. A partial path is an acceptable
-representation of incomplete evidence, but must not be reported as complete.
+Retrieved observations shall retain their source, resource, timestamp and
+available request or operation identifiers. Every link in the reconstructed
+path shall reference its supporting records and state its matching basis.
+Inferred, ambiguous and unobserved segments shall remain distinguishable
+from identifier-supported links. The system shall not turn a connection
+match into a unique request match without supporting evidence.
 
 \noindent\textbf{F3: Interpretable security evidence.}
-The evidence available for security-related diagnosis shall include, where
-recorded, time, source and destination, request target, response status,
-policy action and rule identifier. Unavailable fields shall be reported
-explicitly. Derived features shall state their definition, filters, time
-window and supporting observations. Initial candidates include counts of
-allowed and denied traffic for the selected destination. Their inclusion
-must be justified by availability and diagnostic relevance, rather than by
-assuming that features useful for attack detection transfer to configuration
-faults.
+Security evidence shall expose recorded timestamps, addresses, ports,
+request targets, response status, actions and rule identifiers relevant to
+the investigation. Missing fields and inaccessible policy context shall
+be represented explicitly. Each derived feature shall specify its
+definition, unit of observation, filters, time window and underlying
+records. Counts and rates shall preserve the distinction between requests
+and connections. A reported policy violation shall be assessed against
+the intended behaviour of the legitimate test request.
 
-\noindent\textbf{F4: Structured diagnosis with explicit uncertainty.}
-An investigation shall return a structured result identifying the suspected
-faulty layer or component, proposed cause, evidence references, uncertainty
-and unresolved alternatives. It shall also support outcomes for no fault
-found in the investigated scope and insufficient evidence. A confidence
-indication shall explain its basis. A model-generated score shall not be
-interpreted as a probability of correctness without validation. The output
-format must allow component identification, cause identification and evidence
-support to be assessed separately.
+\noindent\textbf{F4: Structured diagnosis and uncertainty.}
+The diagnostic result shall separate the suspected faulty component,
+proposed cause, supporting evidence and unresolved alternatives. It shall
+support a diagnosed fault, no fault found within the investigated scope,
+and insufficient evidence. Evidence references shall resolve to retained
+observations. A healthy conclusion shall include evidence of expected
+behaviour, rather than rely only on absent errors. Any confidence
+indication shall explain its basis and shall not be treated as a
+probability of correctness without validation.
 
 \noindent\textbf{F5: Reviewable remediation plan.}
-A proposed repair shall name the target resource, exact change, supporting
-diagnosis, expected effect, validation checks and rollback procedure. Before
-approval, the system shall perform a dry run, meaning a check of the proposed
-change without applying it, and display its result and limitations. An action
-without a supported validation or rollback procedure shall remain a manual
-recommendation rather than become executable. Norlys' proposed action
-catalogue includes rule changes, compute restart or scaling, health-probe or
-network-security-rule correction, and certificate replacement
-\parencite[AC-5]{norlys_operations_agents}. This catalogue does not itself
-grant permission to execute those actions.
+A repair plan shall identify the exact resource and change, supporting
+diagnosis, expected effect, preconditions, recovery checks and rollback
+procedure. A dry run shall check the proposed change without applying it
+and show the operator its result and limitations
+\parencite[AC-5]{norlys_operations_agents}. Actions outside the permitted
+scope, or without supported validation and rollback, shall remain manual
+recommendations. The dry run shall not be presented as proof that the
+endpoint will recover.
 
 \noindent\textbf{F6: Enforced approval and action limits.}
-Execution shall require explicit approval by an authorised operator for the
-specific plan. The system shall check the action allowlist, parameters,
-target scope and required preconditions before making a change. Changing an
-approved plan shall require new approval. Rejected, unapproved and
-out-of-scope actions shall not execute. Deletion, scaling to zero and DNS
-record removal are excluded from the remediation allowlist, as required by
-Norlys AC-5. These controls apply independently of the model's confidence.
+Execution shall require explicit approval by an authorised operator for
+the specific plan. Before acting, the system shall check the action
+allowlist, target, parameters and preconditions. A changed plan shall
+require new approval. Rejected, unapproved and out-of-scope actions shall
+not execute. Resource deletion, scaling to zero and DNS record removal
+are excluded from the remediation allowlist
+\parencite[AC-5]{norlys_operations_agents}. These restrictions shall hold
+regardless of the model's output or confidence.
 
 \noindent\textbf{F7: Verified recovery and rollback.}
-The system shall record execution separately from recovery. After a change,
-it shall check the endpoint and relevant configuration or telemetry against
-the expected effect. It shall retain the prior state needed for the defined
-rollback and expose a one-step rollback action to an authorised operator.
-Unsuccessful remediation shall be reported and either rolled back within
-the approved procedure or escalated. Rollback shall have its own verification
-result. Restoration of prior configuration does not automatically imply
-that every external effect has been reversed.
+Execution and recovery shall have separate recorded outcomes. Recovery
+checks shall use a legitimate test request through the investigated
+endpoint, together with relevant configuration or telemetry checks.
+The system shall capture the prior state needed for rollback and provide
+an authorised operator with a one-step rollback action. An unsuccessful
+repair shall be reported and either rolled back within the approved
+procedure or escalated. Rollback shall have its own verification result
+\parencite[AC-5]{norlys_operations_agents}.
 
-\noindent\textbf{F8: Operator interaction and investigation history.}
-Cybertron shall provide investigation input, the reconstructed path, diagnosis,
-evidence and repair plan. Where a plan is executable, the portal shall show
-its dry-run result and provide approval and rejection controls. Execution,
-recovery and rollback outcomes shall remain accessible with past
-investigations. Viewing and approval shall use distinct Entra ID permissions,
-following the existing portal navigation and Platform Management conventions
+\noindent\textbf{F8: Operator interaction and history.}
+Cybertron shall support investigation input and display the reconstructed
+path, diagnosis, evidence and suggested repair. Executable plans shall
+show the dry-run result and provide approval and rejection controls.
+Execution, recovery and rollback outcomes shall remain accessible in the
+investigation history. Viewing and approval shall require distinct Entra ID
+permissions, consistent with the portal's role-based navigation
 \parencite[AC-6]{norlys_operations_agents}.
 
-\noindent\textbf{F9: Repeatable, independently checkable cases.}
-The project shall provide a repeatable way to introduce and reset known
-faults in the test environment, together with healthy cases. The reference
-answer shall record the injected condition and its independently verified
-effect. Scenario names and other test metadata that disclose the cause shall
-be kept separate from agent-visible telemetry, while retaining realistic
-operational symptoms. The evaluation shall support repeated runs and cases
-with missing or ambiguous evidence. Norlys AC-7 also requires unannounced
-faults introduced by someone other than the agent developer and at least
-one exercised rollback. Chapter~5 will define the cases and assessment
-procedure.
+\noindent\textbf{F9: Repeatable and independently checkable cases.}
+A fault-injection harness shall provide repeatable setup and reset of
+authorised test faults, alongside healthy cases. Each case shall have a
+reference answer recording the injected condition and its independently
+verified effect. Cause-revealing scenario labels shall remain separate
+from agent-visible observations, while realistic symptoms are retained.
+The cases shall support repeated runs, missing or ambiguous evidence,
+unannounced faults introduced by another person and at least one exercised
+rollback \parencite[AC-7]{norlys_operations_agents}.
 
-The source fault catalogue spans Cloudflare origin, WAF and DNS failures,
-firewall rules and destinations, infrastructure health and configuration,
-and application exceptions, dependencies and configuration
-\parencite[AC-7]{norlys_operations_agents}. Its full coverage is a company
-expectation against which the selected evaluation scope must be checked.
-For example, a production firewall on the observed path cannot be made a
-fault-injection target merely to complete that catalogue.
-
-\thesisTODO{Agree the fault catalogue and executable remediation allowlist
-against the permitted test resources. Record each reduction or deferral
-from Norlys AC-5 and AC-7 with its reason and effect on the RQs. Retain portal
-integration and remediation as requirements unless a scope change is
-explicitly agreed.}
+The Norlys fault catalogue spans Cloudflare origin, WAF and DNS faults,
+firewall rules, infrastructure health and configuration, and application
+exceptions, dependencies and configuration
+\parencite[AC-7]{norlys_operations_agents}. Each evaluated case shall
+identify its layer, injection target and reset procedure. Coverage shall
+be reported against this catalogue without extending fault injection to
+shared production components. Results from one layer shall not be taken
+as evidence of effectiveness on untested layers.
 
 \section{Non-functional Requirements and Constraints}
 \label{sec:requirements:constraints}
 
 \noindent\textbf{N1: Isolation and least privilege.}
-The PoC shall use the agreed landing zone and keep investigation access
-read-only. A separate remediation identity shall hold only the permissions
-needed for approved changes to the non-production test resources, with no
-production write permissions. Azure identity-based access shall be used
-where supported. The specification also explicitly permits a read-only
-Cloudflare API token, so its general preference for secret-free access cannot
-be assumed to cover every connector. Necessary credentials must be scoped
-and protected, and must not enter prompts, reports or source control
-\parencite[AC-1, AC-3]{norlys_operations_agents}.
+Investigation access shall be read-only. A separate execution identity
+shall hold only the permissions required for allow-listed changes to
+authorised test resources, with no production write permissions
+\parencite[AC-1, AC-5]{norlys_operations_agents}. Azure access shall use
+identity-based authentication where supported. Necessary source credentials
+shall be narrowly scoped and protected, and excluded from model inputs,
+reports and source control.
 
 \noindent\textbf{N2: Controlled disclosure and retention.}
-Queries, model inputs and stored investigation records shall contain only
-data needed for the authorised investigation. Sensitive fields shall be
-masked or omitted according to the agreed Norlys policy, and access and
-retention shall cover retrieved evidence as well as conclusions. A direct
-connector must apply the required protection when the parent platform has
-not already done so. Resource ownership, resource region and the permitted
-location of model processing are separate constraints.
-
-\thesisTODO{Confirm with Norlys which operational fields may be sent to the
-model, the required masking, permitted processing locations and retention
-and access rules for investigation records. Sweden Central is the preferred
-resource location, but Sweden-only model processing has not been established
-as a project requirement.}
+Queries, model inputs and investigation records shall contain only the
+information needed for the authorised investigation. Sensitive fields shall
+be omitted or masked according to Norlys' data-handling rules, including
+when evidence is retrieved directly. Model processing locations, access
+to retained evidence and retention periods shall comply with the
+applicable policy. The location of an Azure resource shall not be treated
+as proof of where model inference is processed.
 
 \noindent\textbf{N3: Reproducibility and auditability.}
-Agent code, prompts, tool definitions and configuration shall be versioned.
-Infrastructure shall be represented as code and deployed through the agreed
-pipeline, as required by Norlys AC-1 and AC-2. Each investigation shall record
-the relevant versions, inputs, queries, permitted evidence, tool outcomes
-and final output. Remediation records shall additionally identify the
-approver, approved change, before and after state, execution and verification
-results. These records must permit inspection of how a conclusion was
-reached. Repeating a recorded configuration is not a guarantee of identical
-model output.
+Agent code, prompts, tools and configuration shall be versioned.
+Infrastructure shall be defined as code and deployed through the established
+pipeline
+\parencite[AC-1, AC-2]{norlys_operations_agents}. An investigation record
+shall identify the relevant versions, inputs, queries, retained evidence,
+tool outcomes and final result. Remediation records shall additionally
+retain the approver, approved plan, before and after state, and execution
+and verification outcomes. The record shall support inspection after the
+source logs expire, within the permitted retention period. Reusing a
+configuration shall not be assumed to guarantee identical model output.
 
 \noindent\textbf{N4: Bounded operation and comparable resource accounting.}
-An investigation shall have configurable stopping limits and record elapsed
-time, model calls, input and output tokens, and tool calls. Failures, retries,
-timeouts and invalid outputs shall remain in the record. Estimated cost per
-investigation shall state the usage and pricing assumptions behind it.
-Limits shall apply to the entire investigation, including all collaborating
-agents. The system
-shall support a common evidence interface and output format so that candidate
-organisations can be evaluated using the same model version, tools, cases
-and available evidence under the same total resource limits. The proposed
-single-investigator and collaborating comparison still requires a protocol
-in Chapter~5. No minimum accuracy or
-assumed collaboration advantage is specified here.
+Investigations shall have configurable stopping limits and record elapsed
+time, model calls, input and output tokens, and tool calls. Accounting
+shall include every participating agent, failed attempt and retry. Cost
+estimates shall identify their usage and pricing assumptions. A common
+evidence interface and result format shall support comparison under the
+same model version, tools, cases, evidence access and total resource limits
+when agent organisation is varied. Timeouts and invalid outputs shall
+remain part of the results.
 
 \noindent\textbf{N5: Model access and capability.}
-The model deployment shall be controlled within the agreed Norlys landing
-zone rather than depend on a model in another Norlys subscription. The
-selected model and its integration shall support tool-directed investigation
-and diagnostic output that can be checked against a defined structure.
-Invalid tool requests or outputs must be detected and recorded. The model
-version, deployment settings and applicable usage limits shall be documented
-for the evaluation. These are selection criteria, not a conclusion that the
-initial connectivity-test model is the best diagnostic model. Chapter~6 will
-justify the selection against the criteria and any pilot evidence.
+The model deployment shall be controlled within the designated Norlys
+development landing zone. The model and its integration shall support
+tool-directed investigation and structured diagnostic output. Tool
+arguments and results shall be checked against defined formats, with
+invalid requests and outputs rejected and recorded. The model version,
+deployment settings and usage limits shall be identifiable for each
+evaluation configuration. These requirements establish selection criteria
+without assuming diagnostic effectiveness from model availability.
 
 \section{Acceptance Criteria and Traceability}
 \label{sec:requirements:acceptance}
 
 Table~\ref{tab:requirements:traceability} connects each requirement to its
-source, research question and observable acceptance evidence. References to
-Norlys AC-1--AC-7 denote the numbered acceptance criteria in the
-\emph{Operations with AI Agents} specification. References to Chapter~3
-identify the research finding that motivates the requirement.
+source, research questions and verification method. The distinction
+between operational capability and diagnostic effectiveness is central.
+A valid evidence reference can be checked automatically, but whether that
+record supports the asserted cause requires assessment against the case.
+Similarly, preventing an unapproved action does not establish that an
+approved repair is effective.
 
-Acceptance of a capability and effectiveness of the resulting system are
-different questions. For example, the presence of evidence references can
-be checked as a software property, but whether the cited observations support
-the diagnosis requires assessment against the case. Likewise, preventing an
-unapproved action does not establish that an approved repair is effective.
-The table identifies observable checks. Diagnostic and remediation
-effectiveness remain questions for the evaluation.
-
-Chapter~5 will specify scenario selection, repetitions, scoring rules,
-comparison conditions and budgets. It will assess component and cause
-correctness, evidence support, healthy-case behaviour, consistency and
-resource use separately. Remediation assessment will distinguish plan
-quality, approval enforcement, execution, recovery and rollback. A result
-showing no advantage from collaboration can still answer the research
-questions. The implemented requirements, deviations and observed outcomes
-must remain traceable through System Design, Implementation and Evaluation
-and Results.
+The acceptance criteria therefore identify observable behaviour and the
+evidence needed to assess it. Component identification, cause identification,
+evidence support, healthy-case behaviour, consistency and resource use
+remain separate evaluation outcomes. Remediation assessment distinguishes
+the plan, approval, execution, recovery and rollback. This allows a system
+to satisfy its operational controls while its diagnostic limitations remain
+visible. The same requirement identifiers connect these needs to subsequent
+design choices, implementation evidence and evaluation results.
 
 \begin{landscape}
 \begingroup
@@ -357,33 +366,33 @@ ID & Requirement & Source/rationale & Relevant RQ & Acceptance criterion & Verif
 \endfoot
 \bottomrule
 \endlastfoot
-F1 & Scoped input and retrieval & Norlys AC-3, AC-4. Bounded source access. & RQ1 & All four connectors use endpoint and time scope, distinguishing records, no matches and failures. & Test each connector and combined retrieval. Inspect query scope and error outcomes. \\
+F1 & Scoped retrieval & Norlys AC-3, AC-4. Source coverage and bounded access. & RQ1 & Four connectors retrieve scoped evidence and distinguish no matches, missing coverage and failures. & Test each source, query scope and retrieval outcome. \\
 \addlinespace
-F2 & Traceable correlation & Section~\ref{sec:state-of-the-art:correlation}. Preserve link uncertainty. & RQ1, RQ3 & Links retain evidence and matching basis. Missing and ambiguous segments remain visible. & Check known links, missing records and competing requests against case records. \\
+F2 & Traceable correlation & Section~\ref{sec:state-of-the-art:correlation}. Different link strengths. & RQ1, RQ3 & Each link retains its records and matching basis. Ambiguous and missing links remain visible. & Compare known links, competing requests and gaps with case records. \\
 \addlinespace
-F3 & Security fields and features & Section~\ref{sec:state-of-the-art:security}, Norlys AC-3. Rule decisions need context. & RQ2 & Field availability is documented. Aggregates have definitions, scope and traceable inputs. & Inspect rule events. Recalculate aggregates and assess their diagnostic contribution. \\
+F3 & Security evidence & Section~\ref{sec:state-of-the-art:security}, Norlys AC-3. Decisions need context. & RQ2 & Fields and gaps are explicit. Features have traceable inputs, units, filters and time windows. & Inspect events, recalculate features and assess their diagnostic relevance. \\
 \addlinespace
-F4 & Checkable diagnosis & Norlys AC-4, Section~\ref{sec:state-of-the-art:evaluation}. Assess correctness and grounding. & RQ3 & Output separates component, cause, evidence and uncertainty, including healthy and inconclusive outcomes. & Validate output and references. Score component, cause and evidence against known cases. \\
+F4 & Checkable diagnosis & Norlys AC-4, Section~\ref{sec:state-of-the-art:evaluation}. Correctness and evidence support. & RQ3 & Output separates component, cause, evidence and uncertainty, including healthy and inconclusive outcomes. & Validate outputs and score each outcome against independent references. \\
 \addlinespace
-F5 & Repair plan and dry run & Norlys AC-5, Section~\ref{sec:state-of-the-art:remediation}. Make proposed changes reviewable. & RQ4 & Plan states target, change, expected effect, dry-run result and rollback before approval. & Inspect plans, including actions lacking supported validation or rollback. \\
+F5 & Plan and dry run & Norlys AC-5, Section~\ref{sec:state-of-the-art:remediation}. Concrete operator review. & RQ4 & Plan identifies target, change, predicted effect, dry-run result, recovery and rollback checks. & Inspect plans and check that unsupported actions remain recommendations. \\
 \addlinespace
-F6 & Approval and allowlist & Norlys AC-5, Section~\ref{sec:state-of-the-art:remediation}. Enforce permission separately. & RQ4 & Unapproved, rejected, changed and out-of-scope plans cannot execute. Forbidden actions are rejected. & Test permitted and forbidden transitions. Inspect audit records and resource state. \\
+F6 & Approval and allowlist & Norlys AC-5. Enforced permission and scope. & RQ4 & Unapproved, rejected, altered and out-of-scope plans cannot execute. Forbidden actions are rejected. & Exercise approval and rejection paths. Inspect audit records and state. \\
 \addlinespace
-F7 & Recovery and rollback & Norlys AC-5, AC-7, Section~\ref{sec:state-of-the-art:remediation}. Verify state after action. & RQ4 & Execution, recovery and rollback have separate results. Permitted changes support restoration of prior state. & Check endpoint and state after successful and failed repairs and at least one rollback. \\
+F7 & Recovery and rollback & Norlys AC-5, AC-7, Section~\ref{sec:state-of-the-art:remediation}. Outcomes after action. & RQ4 & Execution, endpoint recovery and rollback have separate verified outcomes. & Check endpoint and resource state after successful and failed repairs and rollback. \\
 \addlinespace
-F8 & Portal and history & Norlys AC-6. Operator visibility and role separation. & RQ3, RQ4 & Cybertron supports input, review, approval/rejection, outcomes, rollback and history with distinct permissions. & Walk through the portal using viewing and approval roles, including rejection. \\
+F8 & Portal and history & Norlys AC-6. Operator visibility and role separation. & RQ3, RQ4 & Cybertron provides input, review, approval, rejection, outcomes and history with distinct permissions. & Walk through investigation and repair using viewing and approval roles. \\
 \addlinespace
-F9 & Repeatable controlled cases & Norlys AC-7, Section~\ref{sec:state-of-the-art:evaluation}. Separate symptoms and answer labels. & RQ1--4 & Cases can be reset. Reference answers stay hidden. Healthy and independently injected unannounced cases are included. & Inspect fault records and inputs. Repeat setup and reset. Verify injected effects independently. \\
+F9 & Controlled cases & Norlys AC-7, Section~\ref{sec:state-of-the-art:evaluation}. Independent reference answers. & RQ1--4 & Cases reset reliably. Answers stay separate. Healthy, incomplete-evidence and unannounced cases are included. & Inspect coverage and inputs. Repeat setup and reset. Verify injected effects and a rollback. \\
 \addlinespace
-N1 & Isolation and least privilege & Norlys AC-1, AC-3, AC-5. Separate read and write authority. & RQ1, RQ4 & Investigation is read-only. Separate execution permissions exclude production writes. Credentials are protected. & Review permissions and credentials. Check write rejection on an out-of-scope test resource. \\
+N1 & Least privilege & Norlys AC-1, AC-3, AC-5. Separate observation and change boundaries. & RQ1, RQ4 & Investigation is read-only. Separate execution permissions exclude production writes. & Review identities and scopes. Test rejection on an out-of-scope test resource. \\
 \addlinespace
-N2 & Data protection and retention & Parent specification. Protection applies to direct queries too. & RQ1--4 & Fields, masking, processing locations, retention and access conform to the agreed policy. & Inspect query results, model inputs and stored records against the confirmed policy. \\
+N2 & Data protection & Parent specification. Minimal disclosure and controlled retention. & RQ1--4 & Inputs and retained records comply with field, masking, location, access and retention rules. & Inspect queries, model inputs, deployment settings and stored records against policy. \\
 \addlinespace
-N3 & Versioning and auditability & Norlys AC-1, AC-2, AC-5, Section~\ref{sec:state-of-the-art:evaluation}. Inspectable run records. & RQ1--4 & Records identify versions and evidence. Actions retain approver, change, before/after state and outcomes. & Trace conclusions to evidence and versions, and repairs through approval and verification. \\
+N3 & Auditability & Norlys AC-1, AC-2 and AC-5. Section~\ref{sec:state-of-the-art:evaluation}. Inspectable run records. & RQ1--4 & Records identify versions and evidence. Actions retain approval, state changes and verification results. & Trace diagnoses to observations and repairs through approval and verification. \\
 \addlinespace
-N4 & Limits and accounting & Norlys AC-2, Sections~\ref{sec:state-of-the-art:agents} and~\ref{sec:state-of-the-art:evaluation}. Comparable resources. & RQ3 & Limits cover all agents, retries and failures. Usage and cost assumptions are recorded. & Test stopping and failures. Reconcile usage and compare model, evidence, tools and budgets. \\
+N4 & Limits and accounting & Sections~\ref{sec:state-of-the-art:agents} and~\ref{sec:state-of-the-art:evaluation}, Norlys AC-2. Comparable resources. & RQ3 & Limits and usage cover all agents, retries and failures. Comparison conditions are recorded. & Test stopping and failures. Reconcile usage and inspect shared comparison conditions. \\
 \addlinespace
-N5 & Model access and capability & Agreed landing zone, Norlys AC-2, F1 and F4. Model selection constraints. & RQ1, RQ3 & Deployment is in the agreed landing zone. Tool requests and diagnostic outputs are validated, with versions recorded. & Inspect ownership and settings. Test valid and invalid tool and output formats. \\
+N5 & Model access and capability & Norlys AC-2, landing-zone constraint, F1 and F4. & RQ1, RQ3 & Deployment is in the designated landing zone. Tool and output formats are checked and versions recorded. & Inspect ownership and settings. Test valid and invalid requests and outputs. \\
 \end{longtable}
 \endgroup
 \end{landscape}

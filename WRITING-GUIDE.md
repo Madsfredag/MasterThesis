@@ -293,16 +293,33 @@ already been met or that diagnostic effectiveness has been established.
 Portal interaction, approval, recovery and rollback remain in the Norlys
 scope. Do not silently replace the portal requirement with the current console
 interface or omit remediation. Record any agreed reduction or deferral with
-its reason and implications for the four RQs. The agreed landing zone is
-`cpCentralOperation-D`, superseding the source story's `ai-operations` name.
+its reason and implications for the four RQs. The project uses Norlys'
+designated development landing zone. Keep the model deployment under that
+landing zone's control.
 
-Resolve Chapter 4's yellow notes by confirming the test route and permitted
-write targets, agreeing the fault and remediation catalogue, and confirming
-data handling and retention. The full Norlys fault catalogue remains the
-reference expectation until a narrower evaluation scope is explicitly agreed.
-Chapter 5 must also specify healthy and incomplete-evidence cases, independent
+Chapter 4 opens with the operational problem and then introduces its contents.
+Do not begin with a list of other chapters. Keep its prose focused on the use
+case, analysis and normative requirements, without development updates,
+connectivity-test results, console interfaces or repeated pending-decision
+notes. Requirements state what the system must satisfy, not what has already
+been implemented. Follow-up configuration and evaluation decisions belong
+in this guide and their eventual chapters. This does not permit an unresolved
+claim to be presented as a verified fact.
+
+Use a logical progression from requirements to design and implementation
+without inventing a chronology. Remove irrelevant development history from
+the analysis rather than claiming all requirements preceded exploratory work.
+Global Secure Access is not part of the Cloudflare use-case framing. If
+relevant, distinguish the experimenter's access route in the experimental
+setup later.
+
+The full Norlys fault catalogue remains the reference expectation. The
+shared production components cannot become injection targets merely to
+complete it. Agree the executable cases and remediation allowlist within
+the permitted boundary, and record any reduction or deferral explicitly.
+Chapter 5 must specify healthy and incomplete-evidence cases, independent
 reference answers, unannounced faults introduced by another person and an
-exercised rollback. Keep these planned activities distinct from completed work.
+exercised rollback. Keep these requirements distinct from completed work.
 
 ### Follow-up work from State of the Art
 
@@ -387,17 +404,20 @@ different variables. No final architecture or model winner has been established.
 
 **Current setup direction.** Claude deployment was blocked by the tenant's
 Private Marketplace policy. Mads subsequently selected the lightweight GPT
-deployment `gpt-6-luna` in Foundry resource `aif-cp-central-operation-d-01`.
+deployment `gpt-6-luna` in the project's Foundry resource.
 He confirmed a successful playground call and a successful connection from
-the local C# application. The supplied Responses endpoint is
-`https://aif-cp-central-operation-d-01.services.ai.azure.com/openai/v1/responses`.
+the local C# application. Keep the resource-specific endpoint in the project's
+protected configuration rather than in this public writing guide.
 These are user-confirmed connectivity results, not evidence of telemetry
-diagnosis or a completed model comparison. Record the actual model version,
-deployment type, quota and integration settings from the deployed configuration
-in Chapter 7. Mads makes application-code changes himself.
+diagnosis or a completed model comparison. On 5 November, Mads supplied a
+Copilot inspection reporting model version `2026-09-22` and deployment type
+`GlobalStandard`. These settings have not been independently
+checked in Azure during the thesis edit. Record the deployed configuration
+and integration settings in Chapter 7. Mads makes application-code changes
+himself.
 
 **Hosting distinction to resolve.** Keep the Foundry resource and deployment
-under `cpCentralOperation-D`, with Sweden Central as the preferred resource
+under the designated development landing zone, with Sweden Central as the preferred resource
 location. Resource ownership and resource location do not establish where
 inference is processed. Sweden-only inference has not been established as a
 Norlys requirement. Confirm the permitted processing boundary and the actual
@@ -418,8 +438,15 @@ Historical source notes for the earlier Claude candidate, consulted
 
 Use the agreed problem statement and research questions unless Mads
 explicitly changes them. The current problem statement retains
-"non-production". The planned data is real operational telemetry, not mock
-data. Do not silently reinterpret either statement.
+"non-production" and the exact four RQs remain unchanged. On 5 November,
+Mads explicitly requested clarification of the environment boundary.
+Non-production describes the test application and authorised experimental
+resources, not the entire transport path. Chapters 1, 2 and 4 now distinguish
+this development environment from the shared production tunnel connector
+and firewalls. This is a documented boundary clarification, not permission
+for production fault injection or remediation. Any rewording of the approved
+problem statement itself remains a separate decision. The data is real
+operational telemetry, filtered to the test investigation, not mock data.
 
 Do not present tools, experiments, comparison baselines or detailed
 evaluation methods as agreed decisions unless they have been agreed.
@@ -432,6 +459,47 @@ Describe unimplemented work as planned or proposed. Avoid claims that the
 system is safe, accurate or effective before evaluation. Keep Main
 Contributions and Outline of the Thesis as placeholders until there is
 enough evidence and the structure is stable.
+
+### Environment boundary and follow-up, 5 November 2026
+
+Mads supplied a newer Copilot inspection of the environment. It was not
+independently verified against Azure or Cloudflare during this edit.
+The following consequences guide the report without reproducing an internal
+network inventory in this public repository:
+
+- Distinguish a configured Cloudflare Tunnel route from a demonstrated
+  end-to-end request and complete correlation. Record the experimental
+  client's authorised access and successful endpoint behaviour as evidence.
+- Source coverage must apply to the selected test hostname. The presence of
+  Cloudflare telemetry for another zone does not establish that coverage.
+  Confirm the required request and security-event data and policy access.
+- Tunnel-side connection records do not uniquely identify HTTP requests.
+  Recording the Cloudflare request identifier in application telemetry is a
+  correlation requirement to implement and verify, not a completed result.
+  Preserve the background chapter's qualification about identifier uniqueness.
+- Development resources are distinct from shared production connectivity.
+  Development tags do not authorise arbitrary changes. Proposed WAF, firewall,
+  network-security or tunnel changes are not approved fault targets. Keep
+  production writes excluded and record actual fault coverage against AC-7.
+- Model ownership, resource location and inference processing location are
+  different constraints. Sweden Central remains a preferred resource location,
+  not an established Sweden-only inference requirement. Confirm permitted
+  fields, masking, processing locations and record retention against Norlys
+  policy before using operational telemetry.
+- Existing portal and infrastructure workflows are integration inputs, not
+  completed PoC functionality. Establish authorised actions, operator roles,
+  execution permissions, the change process and recovery and rollback checks.
+- Chapter 5 must define evidence retention sufficient for reproducible cases,
+  independently introduced faults and evaluation budgets. Chapters 6 and 7
+  must distinguish proposed runtime and storage choices from their implementation.
+  The rule-based baseline remains a proposal for discussion with Christian.
+
+The public report can explain these boundaries without internal hostnames,
+private addresses, shared-resource identifiers or a detailed permission
+inventory. Keep detailed operational evidence in the appropriate Norlys
+records. Retain portal integration and remediation unless explicitly changed.
+Do not claim successful cross-source correlation or verified remediation
+from a model connection test.
 
 ## Layout convention
 

@@ -100,10 +100,11 @@ Firewall, Azure infrastructure and the application
 \parencite[Background]{norlys_operations_agents}. These layers perform
 different tasks and provide different views of a failure.
 
-\thesisTODO{Confirm the Azure resources and network route used in the
-selected request path. Check this overview against the confirmed setup.
-Describe the actual topology in System Design and add a cross-reference
-here.}
+These are operational layers rather than four isolated test systems. The
+selected use case places the application in a development landing zone,
+while its connectivity uses a shared production Cloudflare Tunnel connector
+and Azure firewalls. Section~\ref{sec:requirements:context} defines the
+resulting observation and change boundaries.
 
 \noindent\textbf{Cloudflare.} For a hostname with proxying enabled,
 Cloudflare receives web traffic on behalf of the \emph{origin server},
