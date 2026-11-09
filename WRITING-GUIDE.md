@@ -387,6 +387,89 @@ assumption, design or implementation changes:
 Review this section before continuing Chapters 5--7 or implementation work.
 Keep all five Chapter 4 sections and the stable requirement identifiers.
 
+### Chapter 5 evaluation design, 9 November 2026
+
+Mads requested Chapter 5 and removal of Chapter 4's passage about how to
+maintain the report. That editorial instruction remains in this guide only.
+Do not put report-writing obligations into the thesis requirements.
+Chapter 4.5 now ends its explanatory text with the distinction between
+operational controls and diagnostic limitations.
+
+Chapter 5 is included as
+`Chapters/05-Research-Methodology-and-Evaluation-Design.tex`. Its structure is:
+
+1. Research Approach
+2. Comparison Methods and Controls
+3. Cases and Independent Reference Answers
+4. Experimental Procedure
+5. Outcome Measures and Analysis
+6. Remediation and Recovery Evaluation
+7. Validity and Reproducibility
+
+The chapter advances the earlier analysis into an experimental procedure.
+It does not repeat the SLR or redefine the RQs. The ACM SIGSOFT Engineering
+Research and Benchmarking standards provide methodological guidance, cited
+under `sigsoft2026empirical`. The specific protocol is a thesis proposal,
+not a result prescribed by that source or a claim of supervisor approval.
+
+**Method proposed in the chapter.** Functional verification is separated
+from comparative diagnosis and live remediation. The proposed comparison
+is an engineer-reviewed rule-based procedure, a single investigator and
+a collaborating configuration. The two comparisons answer different
+questions. The rule-based procedure does not measure actual human
+performance or establish time saved for engineers. Its inclusion still
+needs the discussion with Christian recorded below, and its rules need
+engineering review. Do not report that discussion or review as completed.
+
+Diagnostic comparison uses fixed, scoped collections of real case telemetry
+and configuration observations, exposed through equivalent tools. Live
+connector checks and repair tests remain separate. Retaining evidence
+must comply with Norlys policy. This methodological choice is intended to
+prevent later runs benefiting from additional ingestion or changed state.
+Chapter 6 must explain how the shared evidence interface supports it.
+Replay diagnosis time is not live end-to-end incident resolution time.
+
+RQ2 has a focused evidence ablation on the single investigator, comparing
+basic events, added security decision/policy context and added summaries.
+The field groups and independent calculations must be specified from
+development data and frozen before reserved tests. Alternate tools must
+not silently restore the withheld fields. Evidence variants belong to
+their base cases, not to new independent fault counts.
+
+The proposed primary diagnostic outcome requires a correct component and
+cause with supported evidence. Component-only, joint correctness, evidence,
+healthy conclusions, false diagnoses, abstention and operational failures
+remain separately reported. Case-level success fractions and paired
+differences are the main analysis. Repeated model calls do not become
+independent incident samples. No claim of statistically established
+superiority or production-wide accuracy follows from this finite case set.
+
+All diagnoses and repair plans are captured before reserved reference
+answers are opened. Live repair trials use those plans without secretly
+correcting them from the reference. Fixed reference plans test safety
+controls separately and do not count as agent repair successes.
+Rollback restores the specified prior state, which may itself be faulty.
+Healthy reset after rollback is a distinct harness action.
+
+**Three visible completion notes remain in Chapter 5:**
+
+- Case allocation: authorised targets, numbers of distinct cases by family,
+  healthy controls, evidence variants, eligible repairs and the responsible
+  case custodian/reviewer. Do not disclose exact reserved faults to Mads.
+- Pilot-supported parameters: repetitions, total resource limits, retries,
+  ingestion waiting time, workload/concurrency, verification duration, run
+  total and cost. Record values before the final evaluation. These cannot
+  be filled from connectivity tests or invented results.
+- Independent scoring review: sample size and selection seed, plus rubric
+  calibration on development outputs. Proposed review is not completed review.
+
+Chapters 6 and 7 still need the architecture, shared interfaces, rule and
+agent implementations, model-selection evidence and actual configuration.
+The pilot may inform numeric parameters after early implementation. The
+method itself must guide that work, with all final parameters fixed before
+reserved evaluation. Preserve the agreed separation between development
+and evaluation and the existing production change boundary.
+
 ### Follow-up work from State of the Art
 
 These tasks concern the PoC and its evaluation. They are open decisions,
@@ -397,8 +480,8 @@ listed below and refer back to the relevant literature synthesis.
 | Origin in Chapter 3 | What the later chapters need to explain | Destination |
 | --- | --- | --- |
 | 3.3 Security Telemetry and Feature Selection | Chapter 4 requirement F3 identifies the required field categories and traceable aggregates. Confirm which are available along the selected path and justify the chosen tool outputs using diagnostic relevance. | Complete field and feature selection in Chapter 6, System Design. Record the implemented fields and gaps in Chapter 7, Implementation, and assess their contribution under the Chapter 5 protocol. |
-| 3.4.3 Evidence for Agent Collaboration | Specify the single-investigator baseline and collaborating variant to be compared. Define the shared model, evidence interface, scenarios and resource limits so that the comparison can distinguish agent organisation from changes in available information or budget. These variants remain candidates until the evaluation design is agreed. | Chapter 5, Research Methodology and Evaluation Design. Describe the chosen agent roles and interfaces in Chapter 6, System Design. |
-| 3.6.1 Diagnostic Correctness and Evidence Grounding | Explain how fault labels and other answer-revealing test metadata are kept separate from agent-visible telemetry. Check this separation in the implemented fault scenarios. | Chapter 5, Research Methodology and Evaluation Design, and Chapter 7, Implementation. |
+| 3.4.3 Evidence for Agent Collaboration | Chapter 5 now proposes the matched single/collaborating comparison with shared evidence, model and total limits. Final numeric limits require the development pilot. | Chapter 5 parameter note. Describe the chosen agent roles and interfaces in Chapter 6, System Design. |
+| 3.6.1 Diagnostic Correctness and Evidence Grounding | Chapter 5 separates reserved references from diagnostic inputs and defines correctness and evidence scoring. Verify that the fault harness, tools and stored inputs enforce this separation. | Chapter 7, Implementation, and the Chapter 5 case/reviewer notes. |
 
 Remove an item from this list only when the corresponding account has been
 written and checked, or an explicit scope decision makes it unnecessary.
@@ -439,9 +522,10 @@ particular query order.
 
 An automated procedure does not measure actual human performance. Claims
 about time saved for engineers would require corresponding human observations.
-The proposed baseline can be useful without making that claim. Discuss its
-feasibility with Christian before adopting it in Chapter 5. Explain the chosen
-design in Chapter 6 and any implementation in Chapter 7.
+The proposed baseline can be useful without making that claim. Chapter 5 now
+sets out this candidate comparison for review. Discuss feasibility with
+Christian before treating it as the final experimental protocol. Explain
+the chosen design in Chapter 6 and any implementation in Chapter 7.
 
 ### Model comparison and selection
 

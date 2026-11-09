@@ -1,0 +1,541 @@
+\chapter{Research Methodology and Evaluation Design}
+\label{cha:methodology}
+
+A successful demonstration shows that an investigator can solve a
+particular incident. Establishing its usefulness requires comparison
+with simpler approaches and tests of where it fails. A convincing answer
+may change when a record is missing or the endpoint is healthy. This
+chapter defines the research approach, comparison methods, independent
+cases and measures needed to assess diagnosis and remediation under
+controlled conditions.
+
+\section{Research Approach}
+\label{sec:methodology:approach}
+
+The thesis follows an engineering research approach: a software artefact
+is developed to address an operational problem and assessed through
+empirical observations. The ACM SIGSOFT \emph{Empirical Standards for
+Software Engineering} describe engineering research in terms of a
+justified artefact and its conceptual and empirical evaluation. Their
+benchmarking guidance emphasises an explicit workload, meaningful measures
+and repeatable comparison \parencite[Engineering Research and
+Benchmarking]{sigsoft2026empirical}. Here, the artefact is the investigation
+and remediation system. The empirical method combines a controlled
+diagnostic comparison with live tests of the operational workflow.
+
+Known faults support development and refinement. Reserved cases test the
+fixed approaches without using their answers for development. The
+assessment distinguishes the ability to operate the system from the
+usefulness of its conclusions.
+
+Functional checks verify the connectors, access controls and operator
+workflow. Comparative diagnosis tests assess correctness and evidence
+support. Live remediation tests check recovery, approval and rollback.
+Passing the functional checks is a prerequisite for interpreting the
+comparisons, rather than evidence of diagnostic effectiveness.
+
+Table~\ref{tab:methodology:rq} connects each research question to its
+experimental assessment.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Research questions and their experimental assessment.}
+\label{tab:methodology:rq}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.07\textwidth}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X@{}}
+\toprule
+RQ & Assessment & Evidence collected \\
+\midrule
+RQ1 & Controlled requests with known relationships and competing traffic. & Source availability, supported path links, missing links and unjustified request matches. \\
+\addlinespace
+RQ2 & Matched investigations with selected security fields and summaries removed or added. & Changes in diagnosis, evidence support and input size, with independently checked feature calculations. \\
+\addlinespace
+RQ3 & Repeated comparison on reserved fault, healthy and incomplete-evidence cases. & Component and cause accuracy, evidence support, abstention, failures and resource use. \\
+\addlinespace
+RQ4 & Controlled plan review, approval, execution, recovery and rollback tests. & Accepted and rejected actions, actual state changes, endpoint recovery and rollback verification. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Comparison Methods and Controls}
+\label{sec:methodology:comparison}
+
+The proposed comparison contains three approaches: a rule-based procedure,
+a single investigating agent and a collaborating agent configuration.
+They address two different questions. Comparing the procedure with the
+single agent examines the value of model-directed investigation beyond
+explicit troubleshooting rules. Comparing the two agent configurations
+examines whether collaboration adds value under the same resource limits.
+Neither comparison assumes that the more complex approach performs better.
+
+\subsection{Rule-Based Reference Procedure}
+
+The baseline is an executable troubleshooting procedure whose next check
+and conclusions follow explicit conditions. It uses the same telemetry
+tools as the agents and returns the same diagnostic fields. For example,
+a blocking security event is relevant only if its target and time match
+the investigation and the request was intended to be permitted. A nearby
+denial alone does not establish the cause. Missing observations lead to
+further checks or an insufficient-evidence result, rather than a default
+diagnosis.
+
+The rules are developed from operational knowledge and the known
+development cases. A Norlys engineer reviews their coverage, stopping
+conditions and treatment of ambiguity before the final cases are used.
+The procedure may branch according to observations. It does not require
+every investigation to begin at the firewall or follow one linear path.
+Its rules and any mappings from diagnoses to repair recommendations are
+fixed alongside the agent configurations.
+
+This baseline represents one documented procedure, not an average
+engineer. It provides a reproducible comparison without a human-participant
+experiment. Consequently, the measured execution time cannot establish
+how much time an engineer would save, and differences in query order are
+not themselves errors.
+
+\subsection{Single and Collaborating Investigators}
+
+The single investigator can select tools, revise its interpretation and
+request further evidence. It is allowed multiple model calls. Restricting
+it to one response would compare different opportunities to investigate
+as well as different agent organisations.
+
+The collaborating configuration distributes investigative responsibilities
+and combines their findings into one final result. Both configurations
+use the same model version, underlying tool capabilities, evidence
+representation and output schema. The single investigator receives the
+same substantive diagnostic instructions and reference material, although
+the collaborating configuration distributes them between roles. The role
+division and communication mechanism are design choices. The experimental
+contrast concerns the implemented organisation as a whole, rather than
+agent count isolated from every accompanying change.
+
+The comparison uses shared limits on total model tokens, tool calls and
+elapsed time per investigation. All agents, coordination messages,
+retries and final-answer generation consume that total allowance. A token
+allowance applies across model input and output, including reported
+reasoning usage without counting it twice. Unreported usage is recorded
+as a measurement limitation. The rule-based procedure shares the tool
+and time limits but has no model-token consumption. A method may finish
+early and is not required to spend its allowance.
+
+The input contains the same endpoint, time interval, symptom description
+and system context. No method receives another method's answer. Each run
+starts with empty incident memory. Development examples, if included,
+are identical in informational content and exclude the reserved cases.
+Different query choices remain part of the methods being evaluated.
+
+\subsection{Model Selection and Pilot}
+
+Model selection precedes the final comparison. Candidate eligibility is
+checked against N2 and N5: permitted deployment and processing locations,
+tool use, structured output, version identification and available quota.
+The eligible candidates are tested on the same development cases with
+the same single-investigator workflow. The pilot records diagnostic and
+evidence scores using the rubric below, together with invalid tool calls,
+latency and token use. Selection considers supported diagnoses first,
+then the observed resource trade-offs. A successful connection alone is
+not a selection result.
+
+The pilot also establishes feasible investigation limits and estimates
+the cost of repeated evaluation. Limits must allow each agent
+configuration to complete its intended workflow on development cases.
+The chosen model, settings and limits are fixed before reserved-case
+execution. Model selection is therefore not another variable in the
+main agent comparison. Its candidates, observations and selection
+rationale belong with the system design.
+
+\section{Cases and Independent Reference Answers}
+\label{sec:methodology:cases}
+
+An experimental case consists of a defined system condition, a request
+workload, an observation interval and an independent reference record.
+A run is one approach's attempt to investigate that case. Repeating a
+run measures variation in the investigator. It does not create a new
+fault or an independent application environment.
+
+Cases are selected deliberately to exercise the diagnostic challenges,
+rather than sampled in proportion to the frequency of production
+incidents. The principal fault cases contain one injected cause so that
+its effect can be checked. Similar symptoms should be represented by
+different causes where feasible, preventing an HTTP status alone from
+determining the answer. Table~\ref{tab:methodology:cases} defines the
+required distinctions in the case set.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Case groups and the behaviour they test. These are selection
+criteria, not a record of completed injections.}
+\label{tab:methodology:cases}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.23\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Case group & Diagnostic purpose \\
+\midrule
+Application and platform faults & Distinguish an application failure from an unavailable or incorrectly configured hosting component. \\
+\addlinespace
+Security-control faults & Identify a control that blocks a legitimate request and explain the mismatch with intended policy. \\
+\addlinespace
+Healthy controls & Establish expected behaviour even when the investigation begins with a reported failure or irrelevant error. \\
+\addlinespace
+Incomplete evidence & Test whether removing a decisive source changes the conclusion appropriately without creating false certainty. \\
+\addlinespace
+Ambiguous correlation & Test competing requests and nearby events for which timing and addresses do not identify one request uniquely. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The selection is constrained by the observation and change boundaries in
+Section~\ref{sec:requirements:context}. Shared production components can
+supply evidence but cannot be injection targets. A security-control case
+requires an authorised, isolated control affecting the test workload.
+Missing permissions or unavailable fault mechanisms reduce demonstrated
+coverage. They do not justify replacing a live control failure with
+invented log records and reporting it as equivalent. Coverage is recorded
+against the Norlys fault catalogue \parencite[AC-7]{norlys_operations_agents}.
+
+For every case, the reference record identifies the injected condition,
+faulty component, expected request behaviour, actual observed effect and
+reset procedure. It also defines acceptable diagnostic specificity and
+the observations needed to distinguish the cause. The injected condition
+is checked against resource state and independent request observations.
+Issuing an injection command without verifying its effect is insufficient
+to establish ground truth.
+
+Before diagnostic execution, the case custodian checks whether the retained
+evidence can support that reference at the stated level of specificity.
+Cases that cannot support it belong to the incomplete-evidence assessment,
+with the limitation recorded. They are not silently discarded or moved
+between groups after an approach fails. This separates a failure to use
+available evidence from an inability to observe the cause.
+
+Known development cases remain available for debugging. Norlys coworkers
+prepare the reserved cases and retain their exact conditions and reference
+answers until every compared output has been recorded. Fault families
+and permitted targets may be known in advance. An unseen case can thus
+test a new instance of a familiar failure mechanism without demonstrating
+generalisation to an entirely new mechanism.
+
+Test identifiers carry no cause information. Explicit scenario names,
+injection records and answer keys are excluded from all diagnostic
+inputs. Ordinary operational evidence, including error messages and
+relevant configuration, remains available. A realistic symptom that
+reveals the cause is valid evidence. A test label supplied solely because
+the evaluator knows the answer is not.
+
+\thesisTODO{Complete the case allocation with Norlys: authorised injection
+targets, distinct cases per fault family, healthy controls, evidence
+variants and eligible repairs. Name the case custodian and reviewer.
+Retain exact reserved fault conditions outside the developer's materials.}
+
+\section{Experimental Procedure}
+\label{sec:methodology:procedure}
+
+\subsection{Evidence Collection and Repeated Diagnosis}
+
+Live connector checks first establish that each source supplies the
+required evidence for the selected test workload. This includes separate
+checks for empty results, missing coverage, access denial and query
+failure. Controlled requests record their send times, responses and
+available identifiers. Cases with overlapping requests test whether
+correlation preserves ambiguity. Functional checks also exercise the
+interface, distinct viewing and approval permissions, history retrieval
+and access to the controls while the test API is unavailable.
+
+For the diagnostic comparison, each case's scoped telemetry and relevant
+configuration observations are retained as a fixed evidence collection.
+The collection is captured after a predefined ingestion waiting period,
+using the same selection and masking rules for every case. It includes
+the bounded operational observations, not only records selected because
+they support the reference answer. Source gaps and collection failures
+are retained explicitly.
+
+Diagnostic tools query this fixed collection so that the available
+evidence cannot improve merely because one method runs later. All methods
+can access the same observations, although they may retrieve different
+subsets. Requesting information outside the collection returns an
+explicit unavailable result. Live tests separately verify the connectors
+and repair workflow. This separation permits a controlled comparison
+of investigation while preserving a test of interaction with the actual
+environment. Diagnosis time on retained evidence does not include live
+log-ingestion delay.
+
+The final diagnostic procedure is:
+
+\begin{enumerate}
+\item Verify the case condition and capture the evidence and reference
+record. Keep the reference separate from the diagnostic tools.
+\item Run each fixed approach on the same case collection. Interleave
+approaches and randomise their order within repetitions, retaining the
+schedule and random seed. No investigation changes the target state.
+\item Stop at a submitted final result or the first resource limit.
+Retain the complete tool and model-call record, final output and reason
+for stopping. Do not provide corrective human hints.
+\item Record all final diagnoses and proposed repair plans before opening
+the reserved reference answers for scoring. Apply the same procedure to
+healthy and evidence-variant cases, retaining their distinct group labels
+in the analysis.
+\end{enumerate}
+
+Each agent configuration has the same number of fresh runs per case.
+The deterministic baseline is checked for repeatability, but duplicate
+answers are not counted as additional independent diagnostic evidence.
+Failures after a valid run begins, including timeouts and malformed
+outputs, remain outcomes. A case whose injection never took effect is
+an invalid setup, recorded separately before scoring. A later correction
+to a reference answer must apply to every method's outputs for that case.
+
+\thesisTODO{Insert the pilot-supported parameter table before final
+evaluation: case and repetition counts, token/tool/time limits, retry
+policy, ingestion wait, workload rate and concurrency, and recovery
+observation duration. State the planned run total and estimated cost.}
+
+\subsection{Security Evidence and Robustness}
+
+RQ2 requires more than listing fields used by the final design. A focused
+ablation compares three evidence views on the security cases. An ablation
+changes a defined part of the input to assess its contribution. The first
+view provides individual events with their basic time and target fields.
+The second adds the available security decision and policy context, such
+as action, rule and intended permission. The third adds selected summaries
+calculated from those same records, such as denied connections to the
+target within the incident interval.
+
+The single-investigator configuration is held fixed for this comparison,
+including its model, prompt and limits. This avoids changing evidence
+and agent organisation together. Field groups, summary definitions and
+eligible cases are fixed using development data. Equivalent views cannot
+be reconstructed through another tool. An independent calculation checks
+each summary's filters, denominator and unit. A fraction of denied
+connections is not scored as a fraction of failed HTTP requests.
+
+The analysis compares diagnostic correctness, evidence support and input
+size across these views. A benefit from summaries may reflect easier
+access to existing information rather than new information. Results are
+therefore interpreted as effects of the selected representation in these
+cases, not universal feature importance.
+
+Robustness checks use paired variants of a case, for example withholding
+one source or adding competing records from the scoped workload. The
+reference states whether the remaining evidence still supports a diagnosis
+or only a narrower conclusion. Removing any field does not automatically
+make abstention correct. Variants remain linked to their original case
+and are not treated as new independent faults.
+
+\section{Outcome Measures and Analysis}
+\label{sec:methodology:measures}
+
+The diagnostic measures implement F2--F4 and the distinctions established
+in Section~\ref{sec:state-of-the-art:evaluation}. Every run returns one
+primary conclusion. Listing the correct cause among several incompatible
+possibilities does not receive full diagnostic credit. Equivalent wording
+is accepted when it describes the reference mechanism at the required
+level of specificity.
+
+\subsection{Correctness, Evidence and Uncertainty}
+
+On fault cases, component correctness and cause correctness are recorded
+separately as binary outcomes. A component is correct when it matches
+the reference target at the specified granularity. A cause is correct
+when it explains the injected condition rather than only its symptom.
+Joint diagnostic correctness requires both. Thus, naming the application
+without identifying its misconfiguration can receive localisation credit
+without being a correct diagnosis.
+
+Evidence is assessed separately using
+Table~\ref{tab:methodology:evidence}. References are first checked for
+existence. Their relevance and support for the decisive claims then
+require review against the retained observations. The evidence assessment
+does not require one particular record when several records support the
+same conclusion.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Evidence-support rubric applied to the primary conclusion.}
+\label{tab:methodology:evidence}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.22\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Assessment & Interpretation \\
+\midrule
+Supported & Decisive claims refer to relevant observations that justify the conclusion and its stated uncertainty. Contradictory observations are addressed. \\
+\addlinespace
+Partly supported & Relevant observations exist, but a decisive causal link or asserted detail is unsupported. \\
+\addlinespace
+Unsupported & No usable support is provided, references are fabricated or irrelevant, or the conclusion contradicts the cited observations. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The primary outcome is an evidence-supported correct diagnosis: joint
+correctness together with the supported evidence rating. Joint accuracy
+without this evidence condition is also reported, making correct guesses
+visible. For the company-level correct/partially correct/incorrect account
+in AC-7, a jointly correct answer is correct, a correct component with an
+incomplete cause is partially correct, and a wrong target or contradictory
+cause is incorrect. Abstentions and operational failures remain separate
+categories and receive no diagnostic-success credit.
+
+Healthy cases have their own denominator. Their false-diagnosis rate is
+the number of runs asserting a fault divided by all validly started healthy
+runs. Supported healthy conclusions, insufficient-evidence outcomes and
+operational failures are reported separately so that a method that never
+answers cannot appear useful merely by avoiding false diagnoses.
+On reduced-evidence cases, the assessment records appropriate qualified
+conclusions or abstentions and unsupported fault or healthy assertions.
+
+For RQ1, the reviewer checks each claimed path link against the request
+record and available identifiers. The results distinguish supported links,
+omitted observable links and claims stronger than the observations permit.
+An ambiguous connector-to-application connection is not a verified match
+to one HTTP request. Where no unique reference match can be established,
+the evaluation assesses the uncertainty statement rather than inventing
+an exact match for scoring.
+
+After the diagnostic runs, I score the outputs against the reference
+records. A Norlys reviewer independently assesses a predefined sample
+covering every approach and case group, with method names hidden. The
+sample is selected before scores are examined. Original ratings,
+agreement and resolved disagreements are retained. Cases referred for
+additional review are reported separately from this agreement sample.
+This review concerns the reference and evidence rubric, not similarity
+to another model's preferred explanation.
+
+\thesisTODO{Specify the independently reviewed sample size and selection
+seed with the reviewer. Calibrate the scoring rubric on development
+outputs before scoring reserved cases.}
+
+\subsection{Consistency, Resource Use and Comparative Analysis}
+
+For method $m$ and fault case $i$, let $s_{mir}$ equal one when run $r$
+produces an evidence-supported correct diagnosis and zero otherwise.
+With $R_i$ scheduled repetitions, the case success fraction is
+\begin{equation}
+\label{eq:methodology:case-success}
+p_{mi}=\frac{1}{R_i}\sum_{r=1}^{R_i}s_{mir}.
+\end{equation}
+Timeouts and invalid outputs contribute zero. The primary aggregate is
+the mean of these fractions across the $N$ distinct fault cases,
+$\bar p_m=N^{-1}\sum_{i=1}^{N}p_{mi}$, giving each case equal weight.
+Healthy controls and deliberately reduced-evidence variants are reported
+separately. Each table states both the number of cases and the number of
+runs. For the deterministic baseline, a case contributes its single
+diagnostic outcome.
+
+Comparison is paired by case. For example,
+$\Delta_i=p_{\mathrm{multi},i}-p_{\mathrm{single},i}$ shows whether
+collaboration helps or harms on the same observations. The analysis
+reports these differences, their mean and the number of cases favouring
+each approach. The baseline comparison follows the same principle.
+Results are also separated by fault family so that numerous application
+cases cannot conceal weak coverage elsewhere.
+
+Consistency is reported through the per-case success fractions and the
+frequency of each primary component/cause conclusion across repetitions.
+A stable wrong answer remains a failure. With a small, deliberately
+selected case set, the analysis is primarily descriptive. Repeated calls
+are not treated as independent incidents for significance tests or as a
+population estimate of production accuracy.
+
+Resource accounting records input and output tokens, model and tool calls,
+elapsed diagnosis time and failures, including retries. Coordination
+usage belongs to the collaborating configuration's total. Token cost
+estimates identify the applicable prices and date, with cached usage
+distinguished where relevant. Collection cost is reported separately from
+repeated diagnosis cost. Time summaries include the median and spread
+across cases and repetitions, with timeout counts alongside completed-run
+times. A fast failure must remain distinguishable from a fast solution.
+
+Finally, incorrect and divergent outcomes are examined through their
+recorded investigations. The analysis distinguishes failure to retrieve
+available evidence, incorrect correlation, incorrect interpretation,
+unsupported specificity and unsuccessful tool use. This explains where
+a measured difference arises without assuming that the final score alone
+identifies the mechanism.
+
+\section{Remediation and Recovery Evaluation}
+\label{sec:methodology:remediation}
+
+Remediation is evaluated in the live environment because retained
+telemetry cannot demonstrate a repair. Cases are selected for an
+authorised action and a verifiable reset procedure before their
+diagnostic results are known. This avoids measuring repair performance
+only on cases an approach happens to solve. Each executed plan is linked
+to its originating diagnosis and configuration.
+
+Plan review checks the proposed target, parameters, expected effect,
+preconditions, dry-run result and rollback against the independent case
+record. The operator then approves or rejects that specific plan.
+Reference-answer corrections are not inserted into the plan and counted
+as agent success. A rejected or unsafe recommendation is retained in the
+results without executing it merely to measure its harm.
+
+Before each repair trial, the fault is re-established and its effect
+verified. Approval waiting time and execution time are measured separately.
+Recovery requires the affected operation to behave as expected through
+the configured Cloudflare test hostname, together with checks of the relevant
+resource state. A healthy probe alone is insufficient when the failed
+operation remains broken. The expected responses, repeated verification
+requests and observation interval are fixed in the case record. The
+fault harness must not reset the fault during this check.
+
+The applied outcome is successful, unsuccessful or harmful, following
+Norlys AC-7 \parencite[AC-7]{norlys_operations_agents}. Success requires
+verified recovery without an observed violation of the case's scope and
+state checks. Harm means an observed prohibited change or additional
+degradation within those checks, rather than a speculative consequence.
+Command completion without recovery is unsuccessful. Results include
+plan eligibility, rejection, approval, execution and recovery counts.
+Recovery among executed plans and recovery among all repair-eligible cases
+are reported separately, exposing failures before execution.
+
+Rollback has a separate test. At least one controlled trial applies a
+permitted change, invokes rollback and checks the saved configuration and
+expected endpoint behaviour. Restoring the pre-repair state can restore
+the original fault. Successful rollback therefore means returning to the
+specified prior state, not necessarily keeping the endpoint healthy.
+The harness subsequently resets the case to its healthy starting state.
+
+Negative control tests exercise unapproved, rejected, modified and
+out-of-scope plans, a viewer attempting approval and an unsupported action.
+These tests use authorised test resources and check both the audit record
+and absence of a state change. Fixed reference plans can test these
+controls independently of diagnostic success, but are excluded from
+agent repair-success results. The controls, dry run and rollback outcomes
+are reported individually. Zero observed violations establishes behaviour
+on these tests, not a general guarantee of safety.
+
+\section{Validity and Reproducibility}
+\label{sec:methodology:validity}
+
+\noindent\textbf{Attributing differences.}
+Shared evidence, models and total limits reduce competing explanations
+for differences between the agents. Role instructions and communication
+still differ, so conclusions concern the tested configurations. Fixed
+evidence removes live collection variability. Live connector and
+remediation tests address that separate limitation.
+
+\noindent\textbf{Measuring the intended outcome.}
+Independent reference records and separate component, cause and evidence
+scores reduce the risk of rewarding plausible wording. A scripted fault
+can still be easier to recognise than a naturally occurring incident.
+Removing answer-revealing labels, retaining realistic symptoms and using
+reserved cases limits this risk. Reviewer judgement remains necessary
+for causal explanations, making the rubric and independent review part
+of the evidence. The operator tests assess workflow and enforced
+permissions, not general usability or human decision quality.
+
+\noindent\textbf{Scope of the conclusions.}
+The study uses one application path, one organisation and a deliberately
+selected set of faults. Reserved cases reduce tuning to exact answers
+but do not make the sample representative of production incidents.
+Uneven fault coverage, unavailable security-control injections and the
+low-traffic workload limit transfer to other systems. Repetitions expose
+model variation within these cases but cannot compensate for missing
+fault families. Interpretations remain bounded by the measured path,
+model version and permitted actions.
+
+Reproduction requires case descriptions, versions, prompts, rules, tool
+contracts, the run schedule, scoring rubric and analysis code. Retained
+observations and reference answers remain access-controlled under Norlys'
+data policy. Public material can provide sanitised descriptions, schemas
+and aggregate results. Each result identifies its case, evidence collection
+and method version so that its calculation and supporting observations
+can be checked.
