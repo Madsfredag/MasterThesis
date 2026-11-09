@@ -290,10 +290,13 @@ Chapter 6. Chapter 7 records the implementation and deviations. Connectivity
 prototypes are feasibility work, not evidence that the requirements have
 already been met or that diagnostic effectiveness has been established.
 
-Portal interaction, approval, recovery and rollback remain in the Norlys
-scope. Do not silently replace the portal requirement with the current console
-interface or omit remediation. Record any agreed reduction or deferral with
-its reason and implications for the four RQs. The project uses Norlys'
+Operator interaction, approval, recovery and rollback remain requirements.
+Mads has selected a dedicated web interface within the PoC project in place
+of Cybertron integration. Chapter 4 explicitly records this adaptation of
+Norlys AC-6 and retains its functional workflow and access separation.
+A console alone does not satisfy the interface requirement. Keep the test
+API, investigator and operator interface conceptually distinct, with the
+operator controls accessible when the test API fails. The project uses Norlys'
 designated development landing zone. Keep the model deployment under that
 landing zone's control.
 
@@ -318,8 +321,71 @@ shared production components cannot become injection targets merely to
 complete it. Agree the executable cases and remediation allowlist within
 the permitted boundary, and record any reduction or deferral explicitly.
 Chapter 5 must specify healthy and incomplete-evidence cases, independent
-reference answers, unannounced faults introduced by another person and an
-exercised rollback. Keep these requirements distinct from completed work.
+reference answers, reserved cases introduced by Norlys coworkers and an
+exercised rollback. Apply the agreed development/evaluation split below.
+Keep these requirements distinct from completed work.
+
+### Development, evaluation and report updates agreed 9 November 2026
+
+Mads agreed that known faults will be used to test and develop the project,
+followed by final evaluation cases whose exact faults are unknown to him.
+This distinction is now required by F9 and its acceptance criteria.
+
+- **Development cases:** faults and healthy cases that Mads can inspect and
+  use to check telemetry collection, request correlation, diagnostic rules,
+  agent behaviour and permitted recovery. They may guide implementation
+  changes. Development success is not a result on unseen evaluation cases.
+- **Reserved evaluation cases:** Norlys coworkers prepare the cases and
+  record the conditions, expected behaviour, injection and reset procedures,
+  and independently verified effects. Exact case details and reference answers
+  remain unavailable to Mads until all compared outputs are recorded.
+  Fault categories and authorised boundaries can be known in advance. Do not
+  equate an unseen instance with a previously unseen fault category.
+- **Before final evaluation:** fix and version the compared configurations,
+  including rules, code, prompts, tools and model settings, and the scoring
+  procedure. Apply the separation to every compared approach. Fault labels
+  remain outside their inputs, but realistic operational symptoms are retained.
+  Use equivalent cases, evidence access and scoring. Hold the model and total
+  resource limits constant when comparing the agent organisations.
+- **After seeing reserved cases:** record any later improvement as a new
+  version. Do not retune against those cases and call the resulting scores
+  performance on unseen cases. Keep development and final results separate.
+- **Interface adaptation:** implement request-call controls and the operator
+  workflow in the project's own web interface. Preserve evidence review,
+  approval, rejection, recovery, rollback, history and role separation.
+  This is Mads' selected thesis scope adaptation, not a claim that Norlys
+  has formally accepted a revised company delivery agreement. No company
+  acceptance, completed implementation or new production permissions are implied.
+
+**Writing and implementation sequence.** Complete the Chapter 4 revisions,
+then write Chapter 5's research methodology and evaluation design before
+Mads resumes the main implementation. Chapter 6 remains System Design and
+must explain the component responsibilities, interfaces and design choices
+that guide implementation. Chapter 7 documents what is actually built.
+Existing connectivity and telemetry prototypes remain preliminary feasibility
+work. Do not invent a chronology in which they did not occur.
+
+Chapter 5 must turn F1--F9 and N1--N5 into a concrete assessment procedure:
+case selection and independence, comparison methods, scoring, repetitions,
+resource limits, recovery and rollback checks, and threats to validity.
+The known/reserved case split is agreed. Exact case counts, fault targets,
+budgets, scoring details and the final comparison protocol are not supplied
+by that agreement and must not be invented as decisions already made.
+
+**Keep the report aligned with the implementation.** When a requirement,
+assumption, design or implementation changes:
+
+1. Record the date, reason, affected requirement IDs and the relevant code or
+   configuration version in this guide, with supporting evidence where available.
+2. Update the affected requirements, acceptance criteria, design description
+   and implementation account. Check effects on the four RQs and evaluation.
+3. Record any change to the evaluation procedure before collecting the affected
+   results. Preserve the procedure and versions used for earlier results.
+4. Keep material deviations and their reasons visible. Describe the final
+   system accurately without presenting a later change as the original plan.
+
+Review this section before continuing Chapters 5--7 or implementation work.
+Keep all five Chapter 4 sections and the stable requirement identifiers.
 
 ### Follow-up work from State of the Art
 
@@ -497,7 +563,8 @@ network inventory in this public repository:
 The public report can explain these boundaries without internal hostnames,
 private addresses, shared-resource identifiers or a detailed permission
 inventory. Keep detailed operational evidence in the appropriate Norlys
-records. Retain portal integration and remediation unless explicitly changed.
+records. The dedicated operator interface replaces Cybertron integration as
+recorded above. Retain its workflow and human-approved remediation requirements.
 Do not claim successful cross-source correlation or verified remediation
 from a model connection test.
 

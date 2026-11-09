@@ -26,7 +26,14 @@ manually. The requested capability is to support this investigation from a
 single interface and provide an actionable explanation supported by
 evidence \parencite[User Story, Background]{norlys_operations_agents}.
 
-The use case begins when the operator supplies an endpoint and a time
+The test API is the subject of the investigation. It receives application
+requests and produces observable responses and telemetry. The investigator
+retrieves and interprets that telemetry, while the operator interface
+provides controls for sending test requests and reviewing investigations.
+These responsibilities must remain distinguishable even though they belong
+to the same PoC.
+
+The investigation begins when the operator supplies an endpoint and a time
 window. The system retrieves relevant observations, reconstructs the
 observable request path and identifies the component or condition that
 best explains the failure. The operator reviews the diagnosis and its
@@ -76,8 +83,14 @@ telemetry sources and model training are outside scope. The focus on
 LLM-based investigation follows the task-fit analysis in
 Section~\ref{sec:state-of-the-art:ml-llm}. Developing a separate conventional
 ML diagnosis model is excluded, while statistical summaries can support
-the diagnostic tools. Cybertron integration and human-approved remediation
-remain part of the intended operational capability.
+the diagnostic tools.
+
+The PoC provides a dedicated web interface within the project. This adapts
+Norlys AC-6, which specifies integration into Cybertron, by retaining the
+investigation, approval and history workflow in a standalone interface
+\parencite[AC-6]{norlys_operations_agents}. Integration into the existing
+Cybertron portal is excluded from this PoC. Human-approved remediation and
+the separation of viewing and approval permissions remain requirements.
 
 \section{Analysis of the Main Challenges}
 \label{sec:requirements:analysis}
@@ -99,8 +112,8 @@ request. A Cloudflare Ray ID recorded by the application can strengthen
 correlation, but it must be checked alongside request details, as explained
 in Section~\ref{sec:background:correlation}.
 
-The literature synthesis in Section~\ref{sec:state-of-the-art:correlation}
-shows why correlation depends on both recorded identifiers and knowledge
+The studies reviewed in Section~\ref{sec:state-of-the-art:correlation}
+show why correlation depends on both recorded identifiers and knowledge
 of component relationships. For this project, the system must preserve
 how each link was established. Identifier-supported links, inferred links
 and gaps cannot be presented as equivalent evidence. The presence of a
@@ -139,6 +152,13 @@ outcomes. Missing observations do not establish health, and agreement
 between agents does not independently validate their conclusion.
 Uncertainty must remain visible in the result rather than disappear when
 observations are summarised.
+
+Evaluation also needs separation from development. A method adjusted using
+known faults may recognise those cases without being equally effective on
+unseen cases. The distinction between development and evaluation evidence
+in Section~\ref{sec:state-of-the-art:evaluation} therefore motivates known
+development faults and a separate set of independently prepared evaluation
+cases. Both sets require verified reference answers.
 
 Agent organisation adds a further methodological challenge.
 Section~\ref{sec:state-of-the-art:agents} does not establish a general
@@ -244,23 +264,36 @@ procedure or escalated. Rollback shall have its own verification result
 \parencite[AC-5]{norlys_operations_agents}.
 
 \noindent\textbf{F8: Operator interaction and history.}
-Cybertron shall support investigation input and display the reconstructed
-path, diagnosis, evidence and suggested repair. Executable plans shall
+A dedicated PoC web interface shall allow an operator to send test requests
+through the configured application hostname and inspect their responses,
+timestamps and durations. It shall accept an endpoint and time window for
+investigation and display the reconstructed path, diagnosis, evidence and
+suggested repair. Executable plans shall
 show the dry-run result and provide approval and rejection controls.
 Execution, recovery and rollback outcomes shall remain accessible in the
 investigation history. Viewing and approval shall require distinct Entra ID
-permissions, consistent with the portal's role-based navigation
-\parencite[AC-6]{norlys_operations_agents}.
+permissions. These controls preserve the operator workflow in Norlys AC-6
+within the dedicated interface.
 
-\noindent\textbf{F9: Repeatable and independently checkable cases.}
+\noindent\textbf{F9: Repeatable cases and independent evaluation.}
 A fault-injection harness shall provide repeatable setup and reset of
-authorised test faults, alongside healthy cases. Each case shall have a
-reference answer recording the injected condition and its independently
-verified effect. Cause-revealing scenario labels shall remain separate
-from agent-visible observations, while realistic symptoms are retained.
-The cases shall support repeated runs, missing or ambiguous evidence,
-unannounced faults introduced by another person and at least one exercised
-rollback \parencite[AC-7]{norlys_operations_agents}.
+authorised faults. Known development faults and healthy cases shall support
+implementation checks and refinement of the diagnostic approaches. Final
+evaluation shall use a separate set of cases prepared by Norlys coworkers,
+with the exact fault conditions withheld from the developer until all
+compared outputs have been recorded. This implements the independent
+fault-injection requirement in Norlys AC-7
+\parencite[AC-7]{norlys_operations_agents}.
+
+The compared configurations, including code, rules, prompts and tools,
+and the evaluation procedure shall be versioned and fixed before the
+reserved cases are used. Each case shall have an independent record of its
+condition and verified system effect. All diagnostic approaches shall
+receive operational observations without the reference answer or
+cause-revealing test labels. Realistic symptoms shall remain available.
+The evaluation shall include healthy cases, missing or ambiguous evidence,
+repeated runs and at least one exercised rollback. Development results
+shall be reported separately from results on the reserved cases.
 
 The Norlys fault catalogue spans Cloudflare origin, WAF and DNS faults,
 firewall rules, infrastructure health and configuration, and application
@@ -282,6 +315,10 @@ authorised test resources, with no production write permissions
 identity-based authentication where supported. Necessary source credentials
 shall be narrowly scoped and protected, and excluded from model inputs,
 reports and source control.
+The operator interface and investigation records shall remain accessible
+when a controlled failure makes the test API unavailable. Fault injection
+shall not disable the controls needed to inspect the incident or approve
+recovery.
 
 \noindent\textbf{N2: Controlled disclosure and retention.}
 Queries, model inputs and investigation records shall contain only the
@@ -342,7 +379,10 @@ remain separate evaluation outcomes. Remediation assessment distinguishes
 the plan, approval, execution, recovery and rollback. This allows a system
 to satisfy its operational controls while its diagnostic limitations remain
 visible. The same requirement identifiers connect these needs to subsequent
-design choices, implementation evidence and evaluation results.
+design choices, implementation evidence and evaluation results. Changes to
+requirements or design assumptions shall retain their rationale and their
+effect on acceptance and evaluation. The report shall describe the system
+actually implemented, with results linked to the version assessed.
 
 \begin{landscape}
 \begingroup
@@ -380,11 +420,11 @@ F6 & Approval and allowlist & Norlys AC-5. Enforced permission and scope. & RQ4 
 \addlinespace
 F7 & Recovery and rollback & Norlys AC-5, AC-7, Section~\ref{sec:state-of-the-art:remediation}. Outcomes after action. & RQ4 & Execution, endpoint recovery and rollback have separate verified outcomes. & Check endpoint and resource state after successful and failed repairs and rollback. \\
 \addlinespace
-F8 & Portal and history & Norlys AC-6. Operator visibility and role separation. & RQ3, RQ4 & Cybertron provides input, review, approval, rejection, outcomes and history with distinct permissions. & Walk through investigation and repair using viewing and approval roles. \\
+F8 & Interface and history & Norlys AC-6, adapted to a dedicated PoC interface. & RQ3, RQ4 & Interface provides test calls, investigation, review, approval, rejection and history with distinct permissions. & Check request results and the investigation and repair workflow using each role. \\
 \addlinespace
-F9 & Controlled cases & Norlys AC-7, Section~\ref{sec:state-of-the-art:evaluation}. Independent reference answers. & RQ1--4 & Cases reset reliably. Answers stay separate. Healthy, incomplete-evidence and unannounced cases are included. & Inspect coverage and inputs. Repeat setup and reset. Verify injected effects and a rollback. \\
+F9 & Development and evaluation cases & Norlys AC-7, Section~\ref{sec:state-of-the-art:evaluation}. Independent assessment. & RQ1--4 & Development and final cases are separate. Methods are fixed before testing on cases hidden from the developer. Reference answers are excluded from method inputs. & Inspect case access, versions and reference records. Check reset, healthy and incomplete-evidence cases, and a rollback. \\
 \addlinespace
-N1 & Least privilege & Norlys AC-1, AC-3, AC-5. Separate observation and change boundaries. & RQ1, RQ4 & Investigation is read-only. Separate execution permissions exclude production writes. & Review identities and scopes. Test rejection on an out-of-scope test resource. \\
+N1 & Isolation and least privilege & Norlys AC-1, AC-3, AC-5. Separate observation and change boundaries. & RQ1, RQ4 & Investigation is read-only. Execution excludes production writes. Operator controls remain available during test API failure. & Review scopes. Test rejection on an out-of-scope test resource and interface access during API failure. \\
 \addlinespace
 N2 & Data protection & Parent specification. Minimal disclosure and controlled retention. & RQ1--4 & Inputs and retained records comply with field, masking, location, access and retention rules. & Inspect queries, model inputs, deployment settings and stored records against policy. \\
 \addlinespace
