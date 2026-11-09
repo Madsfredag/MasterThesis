@@ -463,12 +463,121 @@ Healthy reset after rollback is a distinct harness action.
 - Independent scoring review: sample size and selection seed, plus rubric
   calibration on development outputs. Proposed review is not completed review.
 
-Chapters 6 and 7 still need the architecture, shared interfaces, rule and
-agent implementations, model-selection evidence and actual configuration.
+Chapter 6 now specifies the proposed architecture and shared interfaces.
+Chapter 7 still needs the rule and agent implementations and actual
+configuration. Chapter 6's model-selection evidence remains to be completed.
 The pilot may inform numeric parameters after early implementation. The
 method itself must guide that work, with all final parameters fixed before
 reserved evaluation. Preserve the agreed separation between development
 and evaluation and the existing production change boundary.
+
+### Chapter 6 system design, 9 November 2026
+
+Mads requested the complete System Design chapter. It is included as
+`Chapters/06-System-Design.tex`, with eight sections:
+
+1. Architecture and Component Boundaries.
+2. Evidence Access and Data Contracts.
+3. Correlation and Security Features.
+4. Investigation Strategies and Orchestration.
+5. Model Integration and Data Protection.
+6. Remediation Plans and Controlled Execution.
+7. Operator Interface and Investigation History.
+8. Support for Controlled Evaluation.
+
+This is a proposed implementable design, not evidence that the complete
+system exists or that Norlys has authorised additional actions. Its
+architecture and approval figures describe logical software interactions.
+They do not invent the physical order of the shared firewalls.
+
+The chapter was checked against Chapters 1--5, the current writing guide,
+both Norlys source specifications, the AU report guide's analysis/design/
+implementation guidance, the friend's thesis as a presentation reference,
+and the API repository. The thesis base was commit
+`11f951650e4a921cb0293ecea484ee608ded6306`.
+
+**Design decisions to carry into implementation and review:**
+
+- Separate the test API, investigation host and remediation executor.
+  The own-project web interface belongs to the investigation host. Faults
+  affecting a shared hosting environment need controls outside that boundary.
+- Use explicit C# orchestration with domain records and repository adapters.
+  Foundry provides inference. The telemetry collector remains an ingestion
+  component. Agent roles do not each require a separate deployment.
+- All three methods use one bounded evidence gateway, common diagnosis
+  schema, correlation logic and run-level resource accounting. Live and
+  retained-evidence adapters implement the same contract with no fallback
+  from a fixed collection to live data.
+- Distinguish empty queries, partial results, unknown or unavailable coverage,
+  access errors and execution errors. Preserve event/retrieval times and
+  identify the observed configuration's time.
+- Record identifier-supported, inferred, ambiguous and unobserved path links.
+  A matching connector flow is not automatically one HTTP request. The initial
+  security features are defined in Chapter 6.3, including per-firewall record
+  counts and fractions with explicit units and denominators.
+- The collaborating candidate has a coordinator, network/security specialist
+  and application/platform specialist. This groups the four source roles
+  from the company sketch. Roles share tool capabilities, and the single
+  agent receives equivalent substantive instructions. Sequential scheduling
+  keeps parallel execution outside the first comparison. This design choice
+  is not a demonstrated advantage or a new company-approved specification.
+- Use application-managed model context and explicit tool dispatch. Model
+  selection remains subject to the development pilot, with the chosen model
+  and settings fixed across the final agent comparison.
+- Private Blob Storage with JSON artefacts and conditional workflow updates
+  is a proposed storage design. It does not claim that the required containers
+  or permissions exist. Reference answers need a separate inaccessible store.
+  Do not recreate shared infrastructure to implement these boundaries.
+- Approval binds an exact plan version. A separate executor enforces the
+  target/action allowlist, preconditions, durable execution intent, duplicate
+  suppression, recovery and rollback. Unknown mutation outcomes are reconciled
+  before retry. Approval and audit records cannot be merely best-effort logs.
+- The request button uses an allowlisted request sender targeting the
+  Cloudflare-facing endpoint. Sender routing and authentication must be
+  verified. Internal-origin checks have a different meaning. The platform
+  health-probe interval stays at 240 seconds.
+- The final fault harness and reference store remain inaccessible to the
+  investigator. Development controls must not expose fault names through
+  agent-visible telemetry or context. Replay, live connector checks and
+  live remediation have distinct records and claims.
+
+**Verified repository evidence:** API main was
+`3981527c8e5dbff1e4a763299c37590de122f7cd`. The
+`agent-telemetry-foundation` branch was
+`83185001aea5f7993db59598989d4255335fdab9` and now contains the `agent/`
+source. Earlier statements that it existed only locally are obsolete.
+The source has a separate .NET console project, Log Analytics repository,
+model repository and domain records. It retrieves application requests and
+related traces and has a separate model connectivity command. Reading this
+source does not establish a successful run during this thesis edit.
+An integrated diagnostic loop, Cloudflare/firewall tools, structured final
+diagnoses, operator UI and remediation executor are not implemented in the
+inspected agent code. The existing failure endpoint exposes
+`Scenario=application-error`, so it cannot serve unchanged as an unseen
+diagnostic case. No application code was changed during the chapter edit.
+
+The API branch's `AGENT-DESIGN-DECISIONS.md` contains older setup statements.
+Treat its model/hosting status as historical when it conflicts with newer
+verified source or Mads' reported successful connection. Detailed code and
+runtime evidence belongs in Chapter 7, rather than a retrospective claim
+that all design work preceded feasibility experiments.
+
+**Three visible completion notes remain in Chapter 6:**
+
+- The model comparison needs eligible names/versions, development-pilot
+  observations and a justified final selection. Marketplace eligibility
+  does not establish diagnostic quality.
+- Norlys must establish permitted model fields and processing boundaries,
+  plus artefact retention/access. Resource location alone is insufficient.
+- The concrete authorised action adapters, approving roles, dry-run and
+  rollback methods, and direct-change versus infrastructure-code process
+  need to be specified. Existing production exclusions still apply.
+
+Use these notes together with Chapter 5's case, parameter and reviewer
+notes. Do not remove them by inventing approvals or experiment outcomes.
+Verify actual source field mappings, connector coverage, storage and
+identity configuration in Chapter 7. If implementation changes this design,
+follow the alignment procedure above and preserve the assessed version.
 
 ### Follow-up work from State of the Art
 
@@ -479,8 +588,8 @@ listed below and refer back to the relevant literature synthesis.
 
 | Origin in Chapter 3 | What the later chapters need to explain | Destination |
 | --- | --- | --- |
-| 3.3 Security Telemetry and Feature Selection | Chapter 4 requirement F3 identifies the required field categories and traceable aggregates. Confirm which are available along the selected path and justify the chosen tool outputs using diagnostic relevance. | Complete field and feature selection in Chapter 6, System Design. Record the implemented fields and gaps in Chapter 7, Implementation, and assess their contribution under the Chapter 5 protocol. |
-| 3.4.3 Evidence for Agent Collaboration | Chapter 5 now proposes the matched single/collaborating comparison with shared evidence, model and total limits. Final numeric limits require the development pilot. | Chapter 5 parameter note. Describe the chosen agent roles and interfaces in Chapter 6, System Design. |
+| 3.3 Security Telemetry and Feature Selection | Chapter 6.3 defines the initial security fields and traceable summaries. Confirm which are available along the selected path and check source-specific mappings and calculations. | Record the implemented fields and gaps in Chapter 7, Implementation, and assess their contribution under the Chapter 5 protocol. |
+| 3.4.3 Evidence for Agent Collaboration | Chapters 5--6 specify the matched comparison and coordinator/two-specialist candidate with shared evidence, model and total limits. Final numeric limits require the development pilot. | Complete the Chapter 5 parameter note and verify the Chapter 6 role and budget contracts in Chapter 7. |
 | 3.6.1 Diagnostic Correctness and Evidence Grounding | Chapter 5 separates reserved references from diagnostic inputs and defines correctness and evidence scoring. Verify that the fault harness, tools and stored inputs enforce this separation. | Chapter 7, Implementation, and the Chapter 5 case/reviewer notes. |
 
 Remove an item from this list only when the corresponding account has been

@@ -208,10 +208,10 @@
 @online{cloudflare2026rayid,
   author  = {{Cloudflare}},
   title   = {{Cloudflare Ray ID}},
-  date    = {2026-04-20},
+  date    = {2026-10-15},
   url     = {https://developers.cloudflare.com/fundamentals/reference/cloudflare-ray-id/},
-  urldate = {2026-09-25},
-  note    = {Documentation last updated 20 April 2026}
+  urldate = {2026-11-09},
+  note    = {Documentation last updated 15 October 2026}
 }
 
 % Configuration / Jaeger query / Clock Skew Adjustment.
@@ -823,5 +823,36 @@
   title   = {Empirical Standards for Software Engineering: Engineering
              Research and Benchmarking},
   url     = {https://www2.sigsoft.org/EmpiricalStandards/docs/standards},
+  urldate = {2026-11-09}
+}
+
+% Official documentation read on 9 November 2026. Prerequisites, function
+% calling, encrypted reasoning and data-protection considerations.
+% Supports Entra authentication, application-managed function dispatch and
+% state, and the limits of store=false. Does not establish model accuracy.
+@online{microsoft2026responses,
+  author  = {{Microsoft}},
+  title   = {Use the Azure OpenAI Responses API},
+  url     = {https://learn.microsoft.com/en-us/azure/foundry/openai/how-to/responses},
+  urldate = {2026-11-09}
+}
+
+% Data residency and deployment-type comparison. Resource geography and
+% inference processing boundaries are different. No claim that the
+% project's actual deployment or Norlys policy was checked in Azure.
+@online{microsoft2026foundrydeployments,
+  author  = {{Microsoft}},
+  title   = {Deployment types for Microsoft Foundry Models},
+  url     = {https://learn.microsoft.com/en-us/azure/foundry/foundry-models/concepts/deployment-types},
+  urldate = {2026-11-09}
+}
+
+% Optimistic concurrency: ETag and If-Match reject an update against an
+% obsolete object version. This is not a distributed transaction with
+% the Azure resource changed by the remediation executor.
+@online{microsoft2026blobconcurrency,
+  author  = {{Microsoft}},
+  title   = {Manage concurrency in Blob Storage},
+  url     = {https://learn.microsoft.com/en-us/azure/storage/blobs/concurrency-manage},
   urldate = {2026-11-09}
 }
